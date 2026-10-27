@@ -36,6 +36,68 @@ pub enum In {
 }
 const MAG_CTX: usize = 96;
 
+/// Milestone 7: adaptive bias correction of the MED prediction (JPEG-LS style A/N accumulators with
+/// CALIC-style error feedback). The context is built from SIGNED raw MED errors that are already known
+/// to the decoder: W and N of the same plane, optionally the same-pixel errors of earlier planes.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Bias {
+    /// X4 behaviour, byte-identical
+    Off,
+    /// neighbours only: q5(eW) x q5(eN)
+    Nb,
+    /// + the previous plane's error at this pixel (R <- G, B <- R): q7
+    NbPrev,
+    /// + for plane 2 also plane 0's error (B <- R and G)
+    NbBoth,
+    /// diagnostics: like Nb / NbBoth but the correction is the mean error truncated toward zero (dead zone |mean| < 1)
+    NbTrunc,
+    NbBothTrunc,
+}
+impl Bias {
+    fn prev(self) -> bool {
+        matches!(self, Bias::NbPrev | Bias::NbBoth | Bias::NbBothTrunc)
+    }
+    fn both(self) -> bool {
+        matches!(self, Bias::NbBoth | Bias::NbBothTrunc)
+    }
+    fn trunc(self) -> bool {
+        matches!(self, Bias::NbTrunc | Bias::NbBothTrunc)
+    }
+}
+const BIAS_CTX: usize = 25 * 7 * 7;
+const BIAS_RESET: i32 = 64;
+
+#[inline]
+fn q5(e: i8) -> usize {
+    match e {
+        i8::MIN..=-3 => 0,
+        -2..=-1 => 1,
+        0 => 2,
+        1..=2 => 3,
+        _ => 4,
+    }
+}
+#[inline]
+fn q7(e: i8) -> usize {
+    match e {
+        i8::MIN..=-5 => 0,
+        -4..=-2 => 1,
+        -1 => 2,
+        0 => 3,
+        1 => 4,
+        2..=4 => 5,
+        _ => 6,
+    }
+}
+#[inline]
+fn rawat(r: &[i8], w: usize, x: isize, y: isize) -> i8 {
+    if x < 0 || y < 0 || x as usize >= w {
+        0
+    } else {
+        r[y as usize * w + x as usize]
+    }
+}
+
 #[derive(Clone, Debug)]
 pub struct XCfg {
     pub name: &'static str,
@@ -43,6 +105,7 @@ pub struct XCfg {
     pub inputs: Vec<In>,
     /// sign decision conditioned on neighbouring / previous-plane residual signs (mixed); else a single flat model
     pub sign_ctx: bool,
+    pub bias: Bias,
 }
 
 struct Tables {
@@ -341,13 +404,30 @@ pub fn run_x<I: BitIo>(pl: &mut Planes, cfg: &XCfg, coder: &mut Coder, io: &mut 
     let (w, h, np) = (pl.w, pl.h, pl.p.len());
     let mut prev_z = vec![0u8; w * h];
     let mut cur_z = vec![0u8; w * h];
+    // raw (uncorrected) signed MED errors per plane, and per-plane bias accumulators (sum, count)
+    let mut raw: Vec<Vec<i8>> = vec![vec![0i8; w * h]; if cfg.bias == Bias::Off { 0 } else { np }];
+    let mut acc: Vec<(i32, i32)> = vec![(0, 0); BIAS_CTX];
     for k in 0..np {
+        acc.iter_mut().for_each(|a| *a = (0, 0));
         for y in 0..h {
             for x in 0..w {
                 let i = y * w + x;
                 let (xi, yi) = (x as isize, y as isize);
                 let nb = neighbors(&pl.p[k], w, x, y);
-                let pred = predict(Pred::Med, nb);
+                let med = predict(Pred::Med, nb);
+                let mut pred = med;
+                let mut bctx = 0usize;
+                if cfg.bias != Bias::Off {
+                    let nbc = q5(rawat(&raw[k], w, xi - 1, yi)) * 5 + q5(rawat(&raw[k], w, xi, yi - 1));
+                    let c1 = if cfg.bias.prev() && k >= 1 { q7(raw[k - 1][i]) } else { 3 };
+                    let c2 = if cfg.bias.both() && k == 2 { q7(raw[0][i]) } else { 3 };
+                    bctx = (nbc * 7 + c1) * 7 + c2;
+                    let (s, n) = acc[bctx];
+                    if n > 0 {
+                        let c = if cfg.bias.trunc() { s / n } else { (2 * s + n).div_euclid(2 * n) };
+                        pred = (med + c).clamp(0, 255);
+                    }
+                }
                 let act = act_bucket(activity(nb));
                 let pq = prev_q(prev_z[i]);
                 let e = err_energy(&cur_z, w, x, y);
@@ -370,6 +450,17 @@ pub fn run_x<I: BitIo>(pl: &mut Planes, cfg: &XCfg, coder: &mut Coder, io: &mut 
                 let z = coder.code_sym(io, k, &mc, &sg, z_in);
                 pl.p[k][i] = (pred as u8).wrapping_add(unzigzag(z));
                 cur_z[i] = z;
+                if cfg.bias != Bias::Off {
+                    let e = pl.p[k][i].wrapping_sub(med as u8) as i8;
+                    raw[k][i] = e;
+                    let a = &mut acc[bctx];
+                    a.0 += e as i32;
+                    a.1 += 1;
+                    if a.1 >= BIAS_RESET {
+                        a.0 >>= 1;
+                        a.1 >>= 1;
+                    }
+                }
             }
         }
         std::mem::swap(&mut prev_z, &mut cur_z);

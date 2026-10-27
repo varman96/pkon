@@ -1,0 +1,1290 @@
+[
+  {
+    "name": "outdoor_0",
+    "category": "outdoor",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "X4 control (no bias correction)",
+        "coded": 786614,
+        "enc_ms": 539.6474999999999,
+        "dec_ms": 551.0697,
+        "exact": true,
+        "state_bytes": 126576
+      },
+      {
+        "cfg": "P1 bias: W,N signed errors",
+        "coded": 802392,
+        "enc_ms": 601.0843,
+        "dec_ms": 622.6669999999999,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P2 bias: + previous plane (R<-G, B<-R)",
+        "coded": 801757,
+        "enc_ms": 1316.8187,
+        "dec_ms": 1171.4033,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P3 bias: + B<-R and G (candidate)",
+        "coded": 802300,
+        "enc_ms": 914.5395,
+        "dec_ms": 1168.5552,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D1 diag: P1 with dead-zone (trunc)",
+        "coded": 788037,
+        "enc_ms": 863.951,
+        "dec_ms": 812.2146,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D3 diag: P3 with dead-zone (trunc)",
+        "coded": 792854,
+        "enc_ms": 890.2183,
+        "dec_ms": 780.2166000000001,
+        "exact": true,
+        "state_bytes": 3282104
+      }
+    ]
+  },
+  {
+    "name": "outdoor_1",
+    "category": "outdoor",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "X4 control (no bias correction)",
+        "coded": 500260,
+        "enc_ms": 593.2649,
+        "dec_ms": 705.266,
+        "exact": true,
+        "state_bytes": 126576
+      },
+      {
+        "cfg": "P1 bias: W,N signed errors",
+        "coded": 511712,
+        "enc_ms": 533.1226999999999,
+        "dec_ms": 499.8168,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P2 bias: + previous plane (R<-G, B<-R)",
+        "coded": 509634,
+        "enc_ms": 547.5772,
+        "dec_ms": 528.5782999999999,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P3 bias: + B<-R and G (candidate)",
+        "coded": 510116,
+        "enc_ms": 695.5295,
+        "dec_ms": 757.4336000000001,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D1 diag: P1 with dead-zone (trunc)",
+        "coded": 502856,
+        "enc_ms": 592.5002999999999,
+        "dec_ms": 636.5127,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D3 diag: P3 with dead-zone (trunc)",
+        "coded": 502301,
+        "enc_ms": 532.4004,
+        "dec_ms": 574.2796999999999,
+        "exact": true,
+        "state_bytes": 3282104
+      }
+    ]
+  },
+  {
+    "name": "indoor_0",
+    "category": "indoor",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "X4 control (no bias correction)",
+        "coded": 357324,
+        "enc_ms": 466.97630000000004,
+        "dec_ms": 517.9513,
+        "exact": true,
+        "state_bytes": 126576
+      },
+      {
+        "cfg": "P1 bias: W,N signed errors",
+        "coded": 366118,
+        "enc_ms": 523.3342,
+        "dec_ms": 514.3621,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P2 bias: + previous plane (R<-G, B<-R)",
+        "coded": 367648,
+        "enc_ms": 494.0991,
+        "dec_ms": 489.89820000000003,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P3 bias: + B<-R and G (candidate)",
+        "coded": 368048,
+        "enc_ms": 642.0293,
+        "dec_ms": 601.8642,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D1 diag: P1 with dead-zone (trunc)",
+        "coded": 363099,
+        "enc_ms": 530.3609,
+        "dec_ms": 570.781,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D3 diag: P3 with dead-zone (trunc)",
+        "coded": 364439,
+        "enc_ms": 537.5987,
+        "dec_ms": 502.0576,
+        "exact": true,
+        "state_bytes": 3282104
+      }
+    ]
+  },
+  {
+    "name": "indoor_1",
+    "category": "indoor",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "X4 control (no bias correction)",
+        "coded": 612023,
+        "enc_ms": 659.8597000000001,
+        "dec_ms": 551.7174,
+        "exact": true,
+        "state_bytes": 126576
+      },
+      {
+        "cfg": "P1 bias: W,N signed errors",
+        "coded": 621979,
+        "enc_ms": 565.4824000000001,
+        "dec_ms": 657.4232,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P2 bias: + previous plane (R<-G, B<-R)",
+        "coded": 624652,
+        "enc_ms": 687.7181999999999,
+        "dec_ms": 723.1797,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P3 bias: + B<-R and G (candidate)",
+        "coded": 624896,
+        "enc_ms": 708.6709,
+        "dec_ms": 571.1032,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D1 diag: P1 with dead-zone (trunc)",
+        "coded": 616608,
+        "enc_ms": 636.6325,
+        "dec_ms": 678.2425,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D3 diag: P3 with dead-zone (trunc)",
+        "coded": 618046,
+        "enc_ms": 764.8565000000001,
+        "dec_ms": 677.1399,
+        "exact": true,
+        "state_bytes": 3282104
+      }
+    ]
+  },
+  {
+    "name": "portrait_0",
+    "category": "portrait",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "X4 control (no bias correction)",
+        "coded": 408582,
+        "enc_ms": 430.87809999999996,
+        "dec_ms": 435.6316,
+        "exact": true,
+        "state_bytes": 126576
+      },
+      {
+        "cfg": "P1 bias: W,N signed errors",
+        "coded": 411938,
+        "enc_ms": 602.9915,
+        "dec_ms": 703.0315,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P2 bias: + previous plane (R<-G, B<-R)",
+        "coded": 412936,
+        "enc_ms": 713.3635,
+        "dec_ms": 741.3211,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P3 bias: + B<-R and G (candidate)",
+        "coded": 413169,
+        "enc_ms": 745.7297000000001,
+        "dec_ms": 710.1229,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D1 diag: P1 with dead-zone (trunc)",
+        "coded": 409020,
+        "enc_ms": 578.9403,
+        "dec_ms": 547.5756,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D3 diag: P3 with dead-zone (trunc)",
+        "coded": 410323,
+        "enc_ms": 532.1342,
+        "dec_ms": 558.1267,
+        "exact": true,
+        "state_bytes": 3282104
+      }
+    ]
+  },
+  {
+    "name": "pet_0",
+    "category": "pet",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "X4 control (no bias correction)",
+        "coded": 750519,
+        "enc_ms": 607.9639,
+        "dec_ms": 563.4626000000001,
+        "exact": true,
+        "state_bytes": 126576
+      },
+      {
+        "cfg": "P1 bias: W,N signed errors",
+        "coded": 802840,
+        "enc_ms": 661.9256,
+        "dec_ms": 747.1504,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P2 bias: + previous plane (R<-G, B<-R)",
+        "coded": 792407,
+        "enc_ms": 784.07,
+        "dec_ms": 776.3498,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P3 bias: + B<-R and G (candidate)",
+        "coded": 792352,
+        "enc_ms": 745.9191,
+        "dec_ms": 795.2645,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D1 diag: P1 with dead-zone (trunc)",
+        "coded": 756192,
+        "enc_ms": 764.0523000000001,
+        "dec_ms": 602.7955000000001,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D3 diag: P3 with dead-zone (trunc)",
+        "coded": 763427,
+        "enc_ms": 703.7606,
+        "dec_ms": 692.3542,
+        "exact": true,
+        "state_bytes": 3282104
+      }
+    ]
+  },
+  {
+    "name": "pet_1",
+    "category": "pet",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "X4 control (no bias correction)",
+        "coded": 820140,
+        "enc_ms": 690.4886,
+        "dec_ms": 612.1978,
+        "exact": true,
+        "state_bytes": 126576
+      },
+      {
+        "cfg": "P1 bias: W,N signed errors",
+        "coded": 872681,
+        "enc_ms": 730.1394,
+        "dec_ms": 718.3063,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P2 bias: + previous plane (R<-G, B<-R)",
+        "coded": 860002,
+        "enc_ms": 840.5489,
+        "dec_ms": 825.9528,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P3 bias: + B<-R and G (candidate)",
+        "coded": 860791,
+        "enc_ms": 707.7681,
+        "dec_ms": 732.8566,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D1 diag: P1 with dead-zone (trunc)",
+        "coded": 825116,
+        "enc_ms": 842.4165,
+        "dec_ms": 808.0449,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D3 diag: P3 with dead-zone (trunc)",
+        "coded": 835199,
+        "enc_ms": 635.8077,
+        "dec_ms": 742.9626000000001,
+        "exact": true,
+        "state_bytes": 3282104
+      }
+    ]
+  },
+  {
+    "name": "pet2_0",
+    "category": "pet",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "X4 control (no bias correction)",
+        "coded": 809270,
+        "enc_ms": 773.5839,
+        "dec_ms": 734.6555999999999,
+        "exact": true,
+        "state_bytes": 126576
+      },
+      {
+        "cfg": "P1 bias: W,N signed errors",
+        "coded": 823754,
+        "enc_ms": 667.9723,
+        "dec_ms": 731.5732,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P2 bias: + previous plane (R<-G, B<-R)",
+        "coded": 826919,
+        "enc_ms": 859.8033,
+        "dec_ms": 886.3056,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P3 bias: + B<-R and G (candidate)",
+        "coded": 827685,
+        "enc_ms": 833.37,
+        "dec_ms": 798.3296,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D1 diag: P1 with dead-zone (trunc)",
+        "coded": 815380,
+        "enc_ms": 662.0165999999999,
+        "dec_ms": 792.7872,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D3 diag: P3 with dead-zone (trunc)",
+        "coded": 820237,
+        "enc_ms": 750.9965,
+        "dec_ms": 728.2077,
+        "exact": true,
+        "state_bytes": 3282104
+      }
+    ]
+  },
+  {
+    "name": "pet2_1",
+    "category": "pet",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "X4 control (no bias correction)",
+        "coded": 496339,
+        "enc_ms": 540.6840000000001,
+        "dec_ms": 548.2561000000001,
+        "exact": true,
+        "state_bytes": 126576
+      },
+      {
+        "cfg": "P1 bias: W,N signed errors",
+        "coded": 503431,
+        "enc_ms": 563.4448,
+        "dec_ms": 549.6935,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P2 bias: + previous plane (R<-G, B<-R)",
+        "coded": 505585,
+        "enc_ms": 792.5962,
+        "dec_ms": 880.3957999999999,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P3 bias: + B<-R and G (candidate)",
+        "coded": 505979,
+        "enc_ms": 687.9194,
+        "dec_ms": 637.6596,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D1 diag: P1 with dead-zone (trunc)",
+        "coded": 498637,
+        "enc_ms": 615.9569,
+        "dec_ms": 586.8331,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D3 diag: P3 with dead-zone (trunc)",
+        "coded": 500882,
+        "enc_ms": 600.093,
+        "dec_ms": 564.5712000000001,
+        "exact": true,
+        "state_bytes": 3282104
+      }
+    ]
+  },
+  {
+    "name": "food_0",
+    "category": "food",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "X4 control (no bias correction)",
+        "coded": 1287571,
+        "enc_ms": 794.3331000000001,
+        "dec_ms": 936.7868000000001,
+        "exact": true,
+        "state_bytes": 126576
+      },
+      {
+        "cfg": "P1 bias: W,N signed errors",
+        "coded": 1301585,
+        "enc_ms": 957.3666,
+        "dec_ms": 966.6378,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P2 bias: + previous plane (R<-G, B<-R)",
+        "coded": 1303874,
+        "enc_ms": 1199.9483,
+        "dec_ms": 1197.7239,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P3 bias: + B<-R and G (candidate)",
+        "coded": 1304876,
+        "enc_ms": 1000.3302000000001,
+        "dec_ms": 1014.993,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D1 diag: P1 with dead-zone (trunc)",
+        "coded": 1293765,
+        "enc_ms": 959.8816999999999,
+        "dec_ms": 900.453,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D3 diag: P3 with dead-zone (trunc)",
+        "coded": 1294963,
+        "enc_ms": 1054.251,
+        "dec_ms": 985.0512,
+        "exact": true,
+        "state_bytes": 3282104
+      }
+    ]
+  },
+  {
+    "name": "food_1",
+    "category": "food",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "X4 control (no bias correction)",
+        "coded": 751684,
+        "enc_ms": 564.7144,
+        "dec_ms": 546.0861,
+        "exact": true,
+        "state_bytes": 126576
+      },
+      {
+        "cfg": "P1 bias: W,N signed errors",
+        "coded": 761473,
+        "enc_ms": 795.616,
+        "dec_ms": 744.5933,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P2 bias: + previous plane (R<-G, B<-R)",
+        "coded": 762645,
+        "enc_ms": 695.6154,
+        "dec_ms": 759.1401,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P3 bias: + B<-R and G (candidate)",
+        "coded": 763569,
+        "enc_ms": 576.3272000000001,
+        "dec_ms": 530.8349,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D1 diag: P1 with dead-zone (trunc)",
+        "coded": 755574,
+        "enc_ms": 499.662,
+        "dec_ms": 485.2526,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D3 diag: P3 with dead-zone (trunc)",
+        "coded": 756985,
+        "enc_ms": 519.4821,
+        "dec_ms": 505.9909,
+        "exact": true,
+        "state_bytes": 3282104
+      }
+    ]
+  },
+  {
+    "name": "foliage_0",
+    "category": "foliage",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "X4 control (no bias correction)",
+        "coded": 1214450,
+        "enc_ms": 578.8135,
+        "dec_ms": 593.6636,
+        "exact": true,
+        "state_bytes": 126576
+      },
+      {
+        "cfg": "P1 bias: W,N signed errors",
+        "coded": 1245157,
+        "enc_ms": 629.9024,
+        "dec_ms": 640.4485,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P2 bias: + previous plane (R<-G, B<-R)",
+        "coded": 1242676,
+        "enc_ms": 712.3274,
+        "dec_ms": 750.2012,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P3 bias: + B<-R and G (candidate)",
+        "coded": 1245397,
+        "enc_ms": 712.2873,
+        "dec_ms": 728.6183000000001,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D1 diag: P1 with dead-zone (trunc)",
+        "coded": 1229994,
+        "enc_ms": 725.5092,
+        "dec_ms": 659.1329000000001,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D3 diag: P3 with dead-zone (trunc)",
+        "coded": 1230343,
+        "enc_ms": 627.2541,
+        "dec_ms": 659.969,
+        "exact": true,
+        "state_bytes": 3282104
+      }
+    ]
+  },
+  {
+    "name": "foliage_1",
+    "category": "foliage",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "X4 control (no bias correction)",
+        "coded": 635099,
+        "enc_ms": 371.6588,
+        "dec_ms": 384.8579,
+        "exact": true,
+        "state_bytes": 126576
+      },
+      {
+        "cfg": "P1 bias: W,N signed errors",
+        "coded": 643110,
+        "enc_ms": 429.0892,
+        "dec_ms": 419.1629,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P2 bias: + previous plane (R<-G, B<-R)",
+        "coded": 643882,
+        "enc_ms": 418.5548,
+        "dec_ms": 448.9033,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P3 bias: + B<-R and G (candidate)",
+        "coded": 644523,
+        "enc_ms": 455.2928,
+        "dec_ms": 437.6843,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D1 diag: P1 with dead-zone (trunc)",
+        "coded": 638079,
+        "enc_ms": 443.9161,
+        "dec_ms": 407.514,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D3 diag: P3 with dead-zone (trunc)",
+        "coded": 640155,
+        "enc_ms": 442.998,
+        "dec_ms": 459.5068,
+        "exact": true,
+        "state_bytes": 3282104
+      }
+    ]
+  },
+  {
+    "name": "night_0",
+    "category": "night",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "X4 control (no bias correction)",
+        "coded": 1946369,
+        "enc_ms": 815.6745,
+        "dec_ms": 846.071,
+        "exact": true,
+        "state_bytes": 126576
+      },
+      {
+        "cfg": "P1 bias: W,N signed errors",
+        "coded": 1968437,
+        "enc_ms": 1396.0792,
+        "dec_ms": 1537.2531999999999,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P2 bias: + previous plane (R<-G, B<-R)",
+        "coded": 1963721,
+        "enc_ms": 1381.2321000000002,
+        "dec_ms": 1488.4827,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P3 bias: + B<-R and G (candidate)",
+        "coded": 1934615,
+        "enc_ms": 1693.1713,
+        "dec_ms": 1760.3609,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D1 diag: P1 with dead-zone (trunc)",
+        "coded": 1960872,
+        "enc_ms": 1459.6223,
+        "dec_ms": 1565.1755999999998,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D3 diag: P3 with dead-zone (trunc)",
+        "coded": 1928481,
+        "enc_ms": 2043.8801999999998,
+        "dec_ms": 1826.3701,
+        "exact": true,
+        "state_bytes": 3282104
+      }
+    ]
+  },
+  {
+    "name": "night_1",
+    "category": "night",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "X4 control (no bias correction)",
+        "coded": 639193,
+        "enc_ms": 820.9309999999999,
+        "dec_ms": 733.3436,
+        "exact": true,
+        "state_bytes": 126576
+      },
+      {
+        "cfg": "P1 bias: W,N signed errors",
+        "coded": 667726,
+        "enc_ms": 910.7763,
+        "dec_ms": 765.7291,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P2 bias: + previous plane (R<-G, B<-R)",
+        "coded": 663238,
+        "enc_ms": 886.2497000000001,
+        "dec_ms": 827.8788999999999,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P3 bias: + B<-R and G (candidate)",
+        "coded": 664272,
+        "enc_ms": 965.0693,
+        "dec_ms": 939.5899,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D1 diag: P1 with dead-zone (trunc)",
+        "coded": 642889,
+        "enc_ms": 1122.2687,
+        "dec_ms": 1018.4393,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D3 diag: P3 with dead-zone (trunc)",
+        "coded": 650052,
+        "enc_ms": 1094.2944,
+        "dec_ms": 1109.5439000000001,
+        "exact": true,
+        "state_bytes": 3282104
+      }
+    ]
+  },
+  {
+    "name": "blurry_0",
+    "category": "blurry",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "X4 control (no bias correction)",
+        "coded": 1081484,
+        "enc_ms": 913.9343,
+        "dec_ms": 930.2999,
+        "exact": true,
+        "state_bytes": 126576
+      },
+      {
+        "cfg": "P1 bias: W,N signed errors",
+        "coded": 1105455,
+        "enc_ms": 985.9326000000001,
+        "dec_ms": 961.3988999999999,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P2 bias: + previous plane (R<-G, B<-R)",
+        "coded": 1104672,
+        "enc_ms": 910.6834,
+        "dec_ms": 991.3146,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P3 bias: + B<-R and G (candidate)",
+        "coded": 1104569,
+        "enc_ms": 885.7794,
+        "dec_ms": 943.5208,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D1 diag: P1 with dead-zone (trunc)",
+        "coded": 1088343,
+        "enc_ms": 1162.7813,
+        "dec_ms": 1034.0191,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D3 diag: P3 with dead-zone (trunc)",
+        "coded": 1089300,
+        "enc_ms": 963.4253,
+        "dec_ms": 723.4751,
+        "exact": true,
+        "state_bytes": 3282104
+      }
+    ]
+  },
+  {
+    "name": "blurry_1",
+    "category": "blurry",
+    "src": "png",
+    "samples": 4194304,
+    "runs": [
+      {
+        "cfg": "X4 control (no bias correction)",
+        "coded": 687861,
+        "enc_ms": 563.2908,
+        "dec_ms": 523.8298,
+        "exact": true,
+        "state_bytes": 168768
+      },
+      {
+        "cfg": "P1 bias: W,N signed errors",
+        "coded": 710268,
+        "enc_ms": 1057.6501,
+        "dec_ms": 1075.4366,
+        "exact": true,
+        "state_bytes": 4372872
+      },
+      {
+        "cfg": "P2 bias: + previous plane (R<-G, B<-R)",
+        "coded": 712683,
+        "enc_ms": 1115.2925,
+        "dec_ms": 1048.4370999999999,
+        "exact": true,
+        "state_bytes": 4372872
+      },
+      {
+        "cfg": "P3 bias: + B<-R and G (candidate)",
+        "coded": 713366,
+        "enc_ms": 1207.7633,
+        "dec_ms": 1068.8878,
+        "exact": true,
+        "state_bytes": 4372872
+      },
+      {
+        "cfg": "D1 diag: P1 with dead-zone (trunc)",
+        "coded": 685484,
+        "enc_ms": 916.7695,
+        "dec_ms": 986.2366000000001,
+        "exact": true,
+        "state_bytes": 4372872
+      },
+      {
+        "cfg": "D3 diag: P3 with dead-zone (trunc)",
+        "coded": 686112,
+        "enc_ms": 1301.0054,
+        "dec_ms": 1453.7229,
+        "exact": true,
+        "state_bytes": 4372872
+      }
+    ]
+  },
+  {
+    "name": "text_0",
+    "category": "text",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "X4 control (no bias correction)",
+        "coded": 581186,
+        "enc_ms": 926.4344,
+        "dec_ms": 945.5886999999999,
+        "exact": true,
+        "state_bytes": 126576
+      },
+      {
+        "cfg": "P1 bias: W,N signed errors",
+        "coded": 600384,
+        "enc_ms": 703.5272,
+        "dec_ms": 768.9027000000001,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P2 bias: + previous plane (R<-G, B<-R)",
+        "coded": 600672,
+        "enc_ms": 653.8311,
+        "dec_ms": 652.713,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P3 bias: + B<-R and G (candidate)",
+        "coded": 600698,
+        "enc_ms": 714.2756,
+        "dec_ms": 642.9765,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D1 diag: P1 with dead-zone (trunc)",
+        "coded": 592757,
+        "enc_ms": 654.0932,
+        "dec_ms": 672.2593999999999,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D3 diag: P3 with dead-zone (trunc)",
+        "coded": 592608,
+        "enc_ms": 711.8897,
+        "dec_ms": 683.7035000000001,
+        "exact": true,
+        "state_bytes": 3282104
+      }
+    ]
+  },
+  {
+    "name": "text_1",
+    "category": "text",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "X4 control (no bias correction)",
+        "coded": 1063018,
+        "enc_ms": 727.4817,
+        "dec_ms": 749.0305000000001,
+        "exact": true,
+        "state_bytes": 126576
+      },
+      {
+        "cfg": "P1 bias: W,N signed errors",
+        "coded": 1125835,
+        "enc_ms": 894.6702,
+        "dec_ms": 1053.075,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P2 bias: + previous plane (R<-G, B<-R)",
+        "coded": 1109037,
+        "enc_ms": 911.6055,
+        "dec_ms": 797.0059,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P3 bias: + B<-R and G (candidate)",
+        "coded": 1109526,
+        "enc_ms": 1017.6753999999999,
+        "dec_ms": 909.7298999999999,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D1 diag: P1 with dead-zone (trunc)",
+        "coded": 1083448,
+        "enc_ms": 942.9286,
+        "dec_ms": 936.7052,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D3 diag: P3 with dead-zone (trunc)",
+        "coded": 1076348,
+        "enc_ms": 840.8329,
+        "dec_ms": 883.9089,
+        "exact": true,
+        "state_bytes": 3282104
+      }
+    ]
+  },
+  {
+    "name": "document_0",
+    "category": "document",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "X4 control (no bias correction)",
+        "coded": 532641,
+        "enc_ms": 555.7206,
+        "dec_ms": 465.3184,
+        "exact": true,
+        "state_bytes": 126576
+      },
+      {
+        "cfg": "P1 bias: W,N signed errors",
+        "coded": 535006,
+        "enc_ms": 598.0871,
+        "dec_ms": 594.9894,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P2 bias: + previous plane (R<-G, B<-R)",
+        "coded": 535827,
+        "enc_ms": 673.6058,
+        "dec_ms": 647.0073,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P3 bias: + B<-R and G (candidate)",
+        "coded": 535909,
+        "enc_ms": 649.2468,
+        "dec_ms": 590.3386,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D1 diag: P1 with dead-zone (trunc)",
+        "coded": 533226,
+        "enc_ms": 633.4566,
+        "dec_ms": 624.7907,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D3 diag: P3 with dead-zone (trunc)",
+        "coded": 534136,
+        "enc_ms": 575.1016,
+        "dec_ms": 581.754,
+        "exact": true,
+        "state_bytes": 3282104
+      }
+    ]
+  },
+  {
+    "name": "document_1",
+    "category": "document",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "X4 control (no bias correction)",
+        "coded": 413671,
+        "enc_ms": 470.6404,
+        "dec_ms": 430.5578,
+        "exact": true,
+        "state_bytes": 126576
+      },
+      {
+        "cfg": "P1 bias: W,N signed errors",
+        "coded": 430861,
+        "enc_ms": 558.9714,
+        "dec_ms": 626.7199,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P2 bias: + previous plane (R<-G, B<-R)",
+        "coded": 431087,
+        "enc_ms": 782.0455,
+        "dec_ms": 697.8371,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "P3 bias: + B<-R and G (candidate)",
+        "coded": 430097,
+        "enc_ms": 910.4303,
+        "dec_ms": 999.0006,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D1 diag: P1 with dead-zone (trunc)",
+        "coded": 421948,
+        "enc_ms": 975.3886,
+        "dec_ms": 886.2349,
+        "exact": true,
+        "state_bytes": 3282104
+      },
+      {
+        "cfg": "D3 diag: P3 with dead-zone (trunc)",
+        "coded": 422278,
+        "enc_ms": 641.2339999999999,
+        "dec_ms": 656.5400999999999,
+        "exact": true,
+        "state_bytes": 3282104
+      }
+    ]
+  },
+  {
+    "name": "screen_0",
+    "category": "screen",
+    "src": "png",
+    "samples": 4194304,
+    "runs": [
+      {
+        "cfg": "X4 control (no bias correction)",
+        "coded": 143504,
+        "enc_ms": 404.7849,
+        "dec_ms": 445.09720000000004,
+        "exact": true,
+        "state_bytes": 168768
+      },
+      {
+        "cfg": "P1 bias: W,N signed errors",
+        "coded": 219207,
+        "enc_ms": 617.5692,
+        "dec_ms": 697.8235000000001,
+        "exact": true,
+        "state_bytes": 4372872
+      },
+      {
+        "cfg": "P2 bias: + previous plane (R<-G, B<-R)",
+        "coded": 197980,
+        "enc_ms": 667.8942,
+        "dec_ms": 728.8302,
+        "exact": true,
+        "state_bytes": 4372872
+      },
+      {
+        "cfg": "P3 bias: + B<-R and G (candidate)",
+        "coded": 195164,
+        "enc_ms": 752.8806,
+        "dec_ms": 685.6503,
+        "exact": true,
+        "state_bytes": 4372872
+      },
+      {
+        "cfg": "D1 diag: P1 with dead-zone (trunc)",
+        "coded": 205704,
+        "enc_ms": 656.5278,
+        "dec_ms": 666.8218,
+        "exact": true,
+        "state_bytes": 4372872
+      },
+      {
+        "cfg": "D3 diag: P3 with dead-zone (trunc)",
+        "coded": 188321,
+        "enc_ms": 885.7635,
+        "dec_ms": 860.0336,
+        "exact": true,
+        "state_bytes": 4372872
+      }
+    ]
+  },
+  {
+    "name": "screen_1",
+    "category": "screen",
+    "src": "png",
+    "samples": 4194304,
+    "runs": [
+      {
+        "cfg": "X4 control (no bias correction)",
+        "coded": 186885,
+        "enc_ms": 736.7076000000001,
+        "dec_ms": 782.3175,
+        "exact": true,
+        "state_bytes": 168768
+      },
+      {
+        "cfg": "P1 bias: W,N signed errors",
+        "coded": 255082,
+        "enc_ms": 1011.8261,
+        "dec_ms": 912.5788,
+        "exact": true,
+        "state_bytes": 4372872
+      },
+      {
+        "cfg": "P2 bias: + previous plane (R<-G, B<-R)",
+        "coded": 235646,
+        "enc_ms": 534.7436,
+        "dec_ms": 611.0645000000001,
+        "exact": true,
+        "state_bytes": 4372872
+      },
+      {
+        "cfg": "P3 bias: + B<-R and G (candidate)",
+        "coded": 233334,
+        "enc_ms": 641.0434,
+        "dec_ms": 565.0505999999999,
+        "exact": true,
+        "state_bytes": 4372872
+      },
+      {
+        "cfg": "D1 diag: P1 with dead-zone (trunc)",
+        "coded": 246990,
+        "enc_ms": 532.6999,
+        "dec_ms": 595.606,
+        "exact": true,
+        "state_bytes": 4372872
+      },
+      {
+        "cfg": "D3 diag: P3 with dead-zone (trunc)",
+        "coded": 226271,
+        "enc_ms": 537.1803000000001,
+        "dec_ms": 560.978,
+        "exact": true,
+        "state_bytes": 4372872
+      }
+    ]
+  }
+]
