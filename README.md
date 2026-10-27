@@ -29,3 +29,7 @@ Milestone 2A (adaptive SubG/Coupled selection, rejected): `cargo run --release -
 Milestone 3 (GAP vs MED, rejected): `cargo run --release --bin probe_m3` -> `results/<stamp>-pkon2-m3/`; per-plane diagnostic: `--bin probe_m3_diag`.
 
 Milestone 4 (error-energy context vs activity context, rejected): `cargo run --release --bin probe_m4` -> `results/<stamp>-pkon2-m4/`.
+
+Milestone 5 (activity x error-energy context, 96 ctx/plane): `cargo run --release --bin probe_m5_cuts` (picks cut points), then `--bin probe_m5` -> `results/<stamp>-pkon2-m5/`.
+
+Milestone 6 (binarized count-adaptive coder + logistic context mixing, `src/pkon2x.rs`): `cargo run --release --bin probe_m6` -> `results/<stamp>-pkon2-m6/`; `--only N` for a quick unsaved subset.

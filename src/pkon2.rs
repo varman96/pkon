@@ -46,6 +46,11 @@ pub enum Ctx {
     Err,
     /// `Err` x the same 4 previous-plane residual buckets as `ActX`.
     ErrX,
+    /// Milestone 5: 8 activity buckets x 3 error-energy levels (`ERR_CUTS`) x 4 previous-plane buckets.
+    ActErrX,
+    /// Milestone 5 control: like `ActErrX` but the 3-way split is (x+y)%3, which carries no information.
+    /// Measures pure model-dilution cost of tripling the contexts.
+    DummyX,
 }
 impl Ctx {
     fn count(self) -> usize {
@@ -55,6 +60,7 @@ impl Ctx {
             Ctx::ActX => 32,
             Ctx::Err => 8,
             Ctx::ErrX => 32,
+            Ctx::ActErrX | Ctx::DummyX => 96,
         }
     }
 }
@@ -115,7 +121,7 @@ pub fn center_crop(img: &Canonical, max: u32) -> Canonical {
     Canonical::new(Spec { width: cw, height: ch, ..img.spec }, data).unwrap()
 }
 
-fn color_fwd(pl: &mut Planes, c: Color) {
+pub fn color_fwd(pl: &mut Planes, c: Color) {
     if c == Color::SubG && pl.p.len() >= 3 {
         for i in 0..pl.w * pl.h {
             let g = pl.p[0][i];
@@ -124,7 +130,7 @@ fn color_fwd(pl: &mut Planes, c: Color) {
         }
     }
 }
-fn color_inv(pl: &mut Planes, c: Color) {
+pub fn color_inv(pl: &mut Planes, c: Color) {
     if c == Color::SubG && pl.p.len() >= 3 {
         for i in 0..pl.w * pl.h {
             let g = pl.p[0][i];
@@ -222,7 +228,7 @@ pub fn activity(b: Nb) -> i32 {
 }
 
 #[inline]
-fn act_bucket(a: i32) -> usize {
+pub fn act_bucket(a: i32) -> usize {
     match a {
         0 => 0,
         1..=2 => 1,
@@ -241,7 +247,7 @@ pub fn zigzag(r: u8) -> u8 {
     ((s << 1) ^ (s >> 7)) as u8
 }
 #[inline]
-fn unzigzag(z: u8) -> u8 {
+pub fn unzigzag(z: u8) -> u8 {
     ((z >> 1) as i8 ^ -((z & 1) as i8)) as u8
 }
 
@@ -414,6 +420,10 @@ pub fn run(pl: &mut Planes, cfg: Config, io: &mut dyn SymIo) -> u64 {
                     Ctx::None => 0,
                     Ctx::Act => act_bucket(activity(nb)),
                     Ctx::Err => act_bucket(err_energy(&cur_z, w, x, y)),
+                    Ctx::ActErrX => {
+                        (act_bucket(activity(nb)) * 3 + err_level(err_energy(&cur_z, w, x, y))) * 4 + prev_q(prev_z[i])
+                    }
+                    Ctx::DummyX => (act_bucket(activity(nb)) * 3 + (x + y) % 3) * 4 + prev_q(prev_z[i]),
                     Ctx::ErrX => act_bucket(err_energy(&cur_z, w, x, y)) * 4 + prev_q(prev_z[i]),
                     Ctx::ActX => {
                         let q = match prev_z[i] {
@@ -439,9 +449,39 @@ pub fn run(pl: &mut Planes, cfg: Config, io: &mut dyn SymIo) -> u64 {
     0
 }
 
+/// Cut points for the 3 error-energy levels (E in zigzag units): level 0 if E <= CUTS[0], 1 if <= CUTS[1],
+/// else 2. Chosen as the terciles of E pooled over all planes of the 20 Milestone-1 camera JPEGs
+/// (MED + SubG), measured by `probe_m5_cuts` BEFORE the benchmark. Same in encoder and decoder.
+pub const ERR_CUTS: [i32; 2] = [0, 8]; // measured by probe_m5_cuts: pooled terciles of E, 20 JPEGs
+
+#[inline]
+pub fn err_level(e: i32) -> usize {
+    (e > ERR_CUTS[0]) as usize + (e > ERR_CUTS[1]) as usize
+}
+
+/// Histogram of E (index = E, 0..=1020) for MED residuals in the SubG domain, all planes pooled.
+pub fn energy_histogram(img: &Canonical) -> Vec<u64> {
+    let mut pl = to_planes(img);
+    color_fwd(&mut pl, Color::SubG);
+    let (w, h) = (pl.w, pl.h);
+    let mut hist = vec![0u64; 1021];
+    for k in 0..pl.p.len() {
+        let mut z = vec![0u8; w * h];
+        for y in 0..h {
+            for x in 0..w {
+                let i = y * w + x;
+                let pred = predict(Pred::Med, neighbors(&pl.p[k], w, x, y));
+                z[i] = zigzag((pl.p[k][i] as i32 - pred) as u8);
+                hist[err_energy(&z, w, x, y) as usize] += 1;
+            }
+        }
+    }
+    hist
+}
+
 /// Sum of already-coded zigzag residuals at W, N, NW, NE (same plane); outside the image counts 0.
 #[inline]
-fn err_energy(z: &[u8], w: usize, x: usize, y: usize) -> i32 {
+pub fn err_energy(z: &[u8], w: usize, x: usize, y: usize) -> i32 {
     let i = y * w + x;
     let mut e = 0i32;
     if x > 0 {
@@ -459,7 +499,7 @@ fn err_energy(z: &[u8], w: usize, x: usize, y: usize) -> i32 {
     e
 }
 
-fn prev_q(z: u8) -> usize {
+pub fn prev_q(z: u8) -> usize {
     match z {
         0 => 0,
         1..=2 => 1,

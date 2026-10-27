@@ -32,7 +32,7 @@ fn every_config_round_trips_exactly() {
         }
     }
     for e in synthetic().iter().filter(|e| supported(&e.image.spec)) {
-        for ctx in [Ctx::Err, Ctx::ErrX] {
+        for ctx in [Ctx::Err, Ctx::ErrX, Ctx::ActErrX, Ctx::DummyX] {
             let o = measure(&e.image, Config { pred: Pred::Med, color: Color::SubG, ctx });
             assert!(o.exact, "{} SubG/{ctx:?} did not round-trip", e.name);
             tested += 1;
@@ -51,6 +51,22 @@ fn crop_keeps_exact_pixels() {
             for ch in 0..3 {
                 assert_eq!(c.sample(x, y, ch), e.image.sample(x0 + x, y0 + y, ch));
             }
+        }
+    }
+}
+
+#[test]
+fn binarized_mixing_coder_round_trips_exactly() {
+    use nanoscope::pkon2x::*;
+    let sets: Vec<XCfg> = vec![
+        XCfg { name: "a", inputs: vec![In::A], sign_ctx: false },
+        XCfg { name: "a+s", inputs: vec![In::A], sign_ctx: true },
+        XCfg { name: "all", inputs: vec![In::A, In::B, In::C, In::D], sign_ctx: true },
+    ];
+    for e in synthetic().iter().filter(|e| supported(&e.image.spec)) {
+        for c in &sets {
+            let o = measure_x(&e.image, c);
+            assert!(o.exact, "{} {} did not round-trip", e.name, c.name);
         }
     }
 }
