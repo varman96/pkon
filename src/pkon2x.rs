@@ -64,6 +64,35 @@ impl Bias {
         matches!(self, Bias::NbTrunc | Bias::NbBothTrunc)
     }
 }
+/// Milestone 8: adaptive weighted predictor ensemble (JPEG XL Modular "weighted predictor" idea, integer only).
+/// Each member predicts the pixel from the causal neighbourhood; its recent ABSOLUTE error over W,N,NW,NE (errors the
+/// decoder has already reconstructed) sets its weight w_i = 2^20 / (S_i + 1), and the prediction is the rounded
+/// weighted mean. Unlike per-context selection, every member contributes in proportion to how well it has just done.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Ens {
+    /// X4 behaviour, byte-identical
+    Off,
+    /// MED + GAP + (W+NE-N): the candidate
+    Three,
+    /// diagnostic: MED + GAP only (is the third member useful?)
+    Two,
+    /// diagnostic: same members and error sums, but hard argmin instead of blending (blend vs select)
+    Select3,
+    /// diagnostic: Three, but MED is used verbatim when its own W,N,NW,NE errors are all zero (protects exact zeros)
+    Snap3,
+    /// diagnostic: Three with weights 2^24 / (S_i^2 + 1) (sharper update rule)
+    Sq3,
+}
+impl Ens {
+    fn members(self) -> usize {
+        match self {
+            Ens::Off => 0,
+            Ens::Two => 2,
+            _ => 3,
+        }
+    }
+}
+
 const BIAS_CTX: usize = 25 * 7 * 7;
 const BIAS_RESET: i32 = 64;
 
@@ -106,6 +135,7 @@ pub struct XCfg {
     /// sign decision conditioned on neighbouring / previous-plane residual signs (mixed); else a single flat model
     pub sign_ctx: bool,
     pub bias: Bias,
+    pub ens: Ens,
 }
 
 struct Tables {
@@ -400,12 +430,29 @@ fn sgn(z: u8) -> usize {
     }
 }
 
+/// Member predictions (integers in 0..=255): MED, GAP, clamp(W+NE-N).
+#[inline]
+fn members(p: &[u8], w: usize, x: usize, y: usize, nb: Nb, nm: usize) -> [i32; 3] {
+    let med = predict(Pred::Med, nb);
+    let gp = gap(p, w, x, y, nb);
+    let ne = if nm > 2 { (nb.w + nb.ne - nb.n).clamp(0, 255) } else { 0 };
+    [med, gp, ne]
+}
+
+/// Sum of member `m`'s stored absolute errors at W, N, NW, NE (outside the image counts 0).
+#[inline]
+fn err_sum(e: &[u8], w: usize, x: usize, y: usize) -> u32 {
+    err_energy(e, w, x, y) as u32
+}
+
 pub fn run_x<I: BitIo>(pl: &mut Planes, cfg: &XCfg, coder: &mut Coder, io: &mut I) {
     let (w, h, np) = (pl.w, pl.h, pl.p.len());
     let mut prev_z = vec![0u8; w * h];
     let mut cur_z = vec![0u8; w * h];
     // raw (uncorrected) signed MED errors per plane, and per-plane bias accumulators (sum, count)
     let mut raw: Vec<Vec<i8>> = vec![vec![0i8; w * h]; if cfg.bias == Bias::Off { 0 } else { np }];
+    let nmem = cfg.ens.members();
+    let mut merr: Vec<Vec<u8>> = vec![vec![0u8; w * h]; nmem];
     let mut acc: Vec<(i32, i32)> = vec![(0, 0); BIAS_CTX];
     for k in 0..np {
         acc.iter_mut().for_each(|a| *a = (0, 0));
@@ -416,6 +463,30 @@ pub fn run_x<I: BitIo>(pl: &mut Planes, cfg: &XCfg, coder: &mut Coder, io: &mut 
                 let nb = neighbors(&pl.p[k], w, x, y);
                 let med = predict(Pred::Med, nb);
                 let mut pred = med;
+                let mut mp = [0i32; 3];
+                if nmem > 0 {
+                    mp = members(&pl.p[k], w, x, y, nb, nmem);
+                    let sums: [u32; 3] = std::array::from_fn(|m| if m < nmem { err_sum(&merr[m], w, x, y) } else { 0 });
+                    if cfg.ens == Ens::Select3 {
+                        let mut best = 0;
+                        for m in 1..nmem {
+                            if sums[m] < sums[best] {
+                                best = m;
+                            }
+                        }
+                        pred = mp[best];
+                    } else if cfg.ens == Ens::Snap3 && sums[0] == 0 {
+                        pred = med;
+                    } else {
+                        let (mut num, mut den) = (0u64, 0u64);
+                        for m in 0..nmem {
+                            let wt = if cfg.ens == Ens::Sq3 { (1u64 << 24) / (sums[m] as u64 * sums[m] as u64 + 1) } else { (1u64 << 20) / (sums[m] as u64 + 1) };
+                            num += wt * mp[m] as u64;
+                            den += wt;
+                        }
+                        pred = ((2 * num + den) / (2 * den)) as i32;
+                    }
+                }
                 let mut bctx = 0usize;
                 if cfg.bias != Bias::Off {
                     let nbc = q5(rawat(&raw[k], w, xi - 1, yi)) * 5 + q5(rawat(&raw[k], w, xi, yi - 1));
@@ -450,6 +521,9 @@ pub fn run_x<I: BitIo>(pl: &mut Planes, cfg: &XCfg, coder: &mut Coder, io: &mut 
                 let z = coder.code_sym(io, k, &mc, &sg, z_in);
                 pl.p[k][i] = (pred as u8).wrapping_add(unzigzag(z));
                 cur_z[i] = z;
+                for m in 0..nmem {
+                    merr[m][i] = (pl.p[k][i].wrapping_sub(mp[m] as u8) as i8).unsigned_abs();
+                }
                 if cfg.bias != Bias::Off {
                     let e = pl.p[k][i].wrapping_sub(med as u8) as i8;
                     raw[k][i] = e;

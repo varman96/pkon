@@ -33,3 +33,5 @@ Milestone 4 (error-energy context vs activity context, rejected): `cargo run --r
 Milestone 5 (activity x error-energy context, 96 ctx/plane): `cargo run --release --bin probe_m5_cuts` (picks cut points), then `--bin probe_m5` -> `results/<stamp>-pkon2-m5/`.
 
 Milestone 6 (binarized count-adaptive coder + logistic context mixing, `src/pkon2x.rs`): `cargo run --release --bin probe_m6` -> `results/<stamp>-pkon2-m6/`; `--only N` for a quick unsaved subset.
+
+Milestone 8 (adaptive weighted predictor ensemble, `Ens` in `src/pkon2x.rs`): `cargo run --release --bin probe_m8` -> `results/<stamp>-pkon2-m8/`; `--only N` for a quick unsaved subset.

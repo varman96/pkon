@@ -40,10 +40,10 @@ struct Img {
 
 fn xcfgs() -> Vec<XCfg> {
     vec![
-        XCfg { name: "X1 bin, ctx A", inputs: vec![In::A], sign_ctx: false, bias: Bias::Off },
-        XCfg { name: "X1s bin, ctx A, sign ctx", inputs: vec![In::A], sign_ctx: true, bias: Bias::Off },
-        XCfg { name: "X2 mix A+C, sign ctx", inputs: vec![In::A, In::C], sign_ctx: true, bias: Bias::Off },
-        XCfg { name: "X4 mix A+B+C+D, sign ctx (candidate)", inputs: vec![In::A, In::B, In::C, In::D], sign_ctx: true, bias: Bias::Off },
+        XCfg { name: "X1 bin, ctx A", inputs: vec![In::A], sign_ctx: false, bias: Bias::Off, ens: Ens::Off },
+        XCfg { name: "X1s bin, ctx A, sign ctx", inputs: vec![In::A], sign_ctx: true, bias: Bias::Off, ens: Ens::Off },
+        XCfg { name: "X2 mix A+C, sign ctx", inputs: vec![In::A, In::C], sign_ctx: true, bias: Bias::Off, ens: Ens::Off },
+        XCfg { name: "X4 mix A+B+C+D, sign ctx (candidate)", inputs: vec![In::A, In::B, In::C, In::D], sign_ctx: true, bias: Bias::Off, ens: Ens::Off },
     ]
 }
 fn names() -> Vec<String> {

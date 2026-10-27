@@ -59,9 +59,9 @@ fn crop_keeps_exact_pixels() {
 fn binarized_mixing_coder_round_trips_exactly() {
     use nanoscope::pkon2x::*;
     let sets: Vec<XCfg> = vec![
-        XCfg { name: "a", inputs: vec![In::A], sign_ctx: false, bias: Bias::Off },
-        XCfg { name: "a+s", inputs: vec![In::A], sign_ctx: true, bias: Bias::Off },
-        XCfg { name: "all", inputs: vec![In::A, In::B, In::C, In::D], sign_ctx: true, bias: Bias::Off },
+        XCfg { name: "a", inputs: vec![In::A], sign_ctx: false, bias: Bias::Off, ens: Ens::Off },
+        XCfg { name: "a+s", inputs: vec![In::A], sign_ctx: true, bias: Bias::Off, ens: Ens::Off },
+        XCfg { name: "all", inputs: vec![In::A, In::B, In::C, In::D], sign_ctx: true, bias: Bias::Off, ens: Ens::Off },
     ];
     for e in synthetic().iter().filter(|e| supported(&e.image.spec)) {
         for c in &sets {
@@ -75,13 +75,25 @@ fn binarized_mixing_coder_round_trips_exactly() {
 fn bias_correction_round_trips_exactly() {
     use nanoscope::pkon2x::*;
     let inputs = vec![In::A, In::B, In::C, In::D];
-    let mk = |bias| XCfg { name: "b", inputs: inputs.clone(), sign_ctx: true, bias };
+    let mk = |bias| XCfg { name: "b", inputs: inputs.clone(), sign_ctx: true, bias, ens: Ens::Off };
     for e in synthetic().iter().filter(|e| supported(&e.image.spec)) {
         let off = measure_x(&e.image, &mk(Bias::Off));
         assert!(off.exact);
         for b in [Bias::Nb, Bias::NbPrev, Bias::NbBoth, Bias::NbTrunc, Bias::NbBothTrunc] {
             let o = measure_x(&e.image, &mk(b));
             assert!(o.exact, "{} {b:?} did not round-trip", e.name);
+        }
+    }
+}
+
+#[test]
+fn weighted_ensemble_round_trips_exactly() {
+    use nanoscope::pkon2x::*;
+    let mk = |ens| XCfg { name: "e", inputs: vec![In::A, In::B, In::C, In::D], sign_ctx: true, bias: Bias::Off, ens };
+    for e in synthetic().iter().filter(|e| supported(&e.image.spec)) {
+        for en in [Ens::Three, Ens::Two, Ens::Select3, Ens::Snap3, Ens::Sq3] {
+            let o = measure_x(&e.image, &mk(en));
+            assert!(o.exact, "{} {en:?} did not round-trip", e.name);
         }
     }
 }

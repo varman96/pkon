@@ -42,7 +42,7 @@ struct Img {
 }
 
 fn xcfgs() -> Vec<XCfg> {
-    let mk = |name, bias| XCfg { name, inputs: vec![In::A, In::B, In::C, In::D], sign_ctx: true, bias };
+    let mk = |name, bias| XCfg { name, inputs: vec![In::A, In::B, In::C, In::D], sign_ctx: true, bias, ens: Ens::Off };
     vec![
         mk("X4 control (no bias correction)", Bias::Off),
         mk("P1 bias: W,N signed errors", Bias::Nb),
