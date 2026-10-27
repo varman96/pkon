@@ -25,3 +25,7 @@ cargo test --release --test pkon2    # every predictor/colour/context config rou
 number in the report is real coded bytes with a verified exact decode, plus entropy screens. Not a production codec.
 
 Milestone 2A (adaptive SubG/Coupled selection, rejected): `cargo run --release --bin probe_m2` -> `results/<stamp>-pkon2-m2a/`.
+
+Milestone 3 (GAP vs MED, rejected): `cargo run --release --bin probe_m3` -> `results/<stamp>-pkon2-m3/`; per-plane diagnostic: `--bin probe_m3_diag`.
+
+Milestone 4 (error-energy context vs activity context, rejected): `cargo run --release --bin probe_m4` -> `results/<stamp>-pkon2-m4/`.

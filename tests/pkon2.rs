@@ -24,6 +24,20 @@ fn every_config_round_trips_exactly() {
             tested += 1;
         }
     }
+    for e in synthetic().iter().filter(|e| supported(&e.image.spec)) {
+        for color in [Color::Raw, Color::SubG] {
+            let o = measure(&e.image, Config { pred: Pred::Gap, color, ctx: Ctx::ActX });
+            assert!(o.exact, "{} Gap/{color:?} did not round-trip", e.name);
+            tested += 1;
+        }
+    }
+    for e in synthetic().iter().filter(|e| supported(&e.image.spec)) {
+        for ctx in [Ctx::Err, Ctx::ErrX] {
+            let o = measure(&e.image, Config { pred: Pred::Med, color: Color::SubG, ctx });
+            assert!(o.exact, "{} SubG/{ctx:?} did not round-trip", e.name);
+            tested += 1;
+        }
+    }
     assert!(tested > 100, "only {tested} combos ran");
 }
 

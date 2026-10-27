@@ -1,0 +1,600 @@
+[
+  {
+    "name": "outdoor_0",
+    "category": "outdoor",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "MED baseline (frozen)",
+        "coded": 815272,
+        "hctx": 809525.0490651329,
+        "enc_ms": 148.01819999999998,
+        "dec_ms": 169.2261,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "GAP",
+        "coded": 900642,
+        "hctx": 895847.9842344519,
+        "enc_ms": 160.5723,
+        "dec_ms": 185.79840000000002,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "outdoor_1",
+    "category": "outdoor",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "MED baseline (frozen)",
+        "coded": 547778,
+        "hctx": 545000.0625531174,
+        "enc_ms": 121.128,
+        "dec_ms": 148.4945,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "GAP",
+        "coded": 646574,
+        "hctx": 644533.6242674236,
+        "enc_ms": 155.13950000000003,
+        "dec_ms": 194.065,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "indoor_0",
+    "category": "indoor",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "MED baseline (frozen)",
+        "coded": 379149,
+        "hctx": 374223.88364308403,
+        "enc_ms": 110.9348,
+        "dec_ms": 118.6012,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "GAP",
+        "coded": 439351,
+        "hctx": 435796.62742246664,
+        "enc_ms": 128.49269999999999,
+        "dec_ms": 132.63430000000002,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "indoor_1",
+    "category": "indoor",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "MED baseline (frozen)",
+        "coded": 646697,
+        "hctx": 646423.0538621007,
+        "enc_ms": 130.4735,
+        "dec_ms": 138.7537,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "GAP",
+        "coded": 756023,
+        "hctx": 757486.4569487046,
+        "enc_ms": 149.376,
+        "dec_ms": 166.6902,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "portrait_0",
+    "category": "portrait",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "MED baseline (frozen)",
+        "coded": 455539,
+        "hctx": 451378.85852698376,
+        "enc_ms": 111.25500000000001,
+        "dec_ms": 121.8706,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "GAP",
+        "coded": 556518,
+        "hctx": 553904.4380638563,
+        "enc_ms": 134.17419999999998,
+        "dec_ms": 150.18880000000001,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "pet_0",
+    "category": "pet",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "MED baseline (frozen)",
+        "coded": 793308,
+        "hctx": 789392.2849228836,
+        "enc_ms": 146.12900000000002,
+        "dec_ms": 169.36280000000002,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "GAP",
+        "coded": 865261,
+        "hctx": 861553.6715819467,
+        "enc_ms": 168.2283,
+        "dec_ms": 190.3441,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "pet_1",
+    "category": "pet",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "MED baseline (frozen)",
+        "coded": 857767,
+        "hctx": 850959.6593202738,
+        "enc_ms": 149.3759,
+        "dec_ms": 163.3057,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "GAP",
+        "coded": 896351,
+        "hctx": 889989.2866876979,
+        "enc_ms": 162.6296,
+        "dec_ms": 186.0811,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "pet2_0",
+    "category": "pet",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "MED baseline (frozen)",
+        "coded": 859192,
+        "hctx": 854376.5322862836,
+        "enc_ms": 154.80659999999997,
+        "dec_ms": 165.5785,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "GAP",
+        "coded": 986846,
+        "hctx": 983637.6601880965,
+        "enc_ms": 174.0059,
+        "dec_ms": 192.20229999999998,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "pet2_1",
+    "category": "pet",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "MED baseline (frozen)",
+        "coded": 528629,
+        "hctx": 523762.98842901207,
+        "enc_ms": 118.2465,
+        "dec_ms": 132.8695,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "GAP",
+        "coded": 609608,
+        "hctx": 606294.2598294554,
+        "enc_ms": 138.7072,
+        "dec_ms": 149.6892,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "food_0",
+    "category": "food",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "MED baseline (frozen)",
+        "coded": 1365488,
+        "hctx": 1357785.586806847,
+        "enc_ms": 188.3227,
+        "dec_ms": 212.6592,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "GAP",
+        "coded": 1402781,
+        "hctx": 1395299.453827368,
+        "enc_ms": 205.2754,
+        "dec_ms": 218.4583,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "food_1",
+    "category": "food",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "MED baseline (frozen)",
+        "coded": 795598,
+        "hctx": 787751.3172077626,
+        "enc_ms": 163.612,
+        "dec_ms": 177.5413,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "GAP",
+        "coded": 901383,
+        "hctx": 894327.8624392955,
+        "enc_ms": 198.2784,
+        "dec_ms": 226.0796,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "foliage_0",
+    "category": "foliage",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "MED baseline (frozen)",
+        "coded": 1280760,
+        "hctx": 1269222.6120425053,
+        "enc_ms": 193.6791,
+        "dec_ms": 207.6762,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "GAP",
+        "coded": 1331034,
+        "hctx": 1319957.558214196,
+        "enc_ms": 193.19910000000002,
+        "dec_ms": 211.53130000000002,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "foliage_1",
+    "category": "foliage",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "MED baseline (frozen)",
+        "coded": 669030,
+        "hctx": 661691.4811970893,
+        "enc_ms": 146.0745,
+        "dec_ms": 162.46540000000002,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "GAP",
+        "coded": 770746,
+        "hctx": 764278.3761977298,
+        "enc_ms": 146.5535,
+        "dec_ms": 174.3662,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "night_0",
+    "category": "night",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "MED baseline (frozen)",
+        "coded": 1999783,
+        "hctx": 1982857.2730941789,
+        "enc_ms": 217.7117,
+        "dec_ms": 234.8777,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "GAP",
+        "coded": 1968975,
+        "hctx": 1952428.9380132733,
+        "enc_ms": 223.7885,
+        "dec_ms": 240.3761,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "night_1",
+    "category": "night",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "MED baseline (frozen)",
+        "coded": 670877,
+        "hctx": 670267.6368465686,
+        "enc_ms": 128.7895,
+        "dec_ms": 144.9432,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "GAP",
+        "coded": 702069,
+        "hctx": 702449.1250819233,
+        "enc_ms": 137.32420000000002,
+        "dec_ms": 165.5188,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "blurry_0",
+    "category": "blurry",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "MED baseline (frozen)",
+        "coded": 1133209,
+        "hctx": 1124202.7631917666,
+        "enc_ms": 182.2847,
+        "dec_ms": 209.7355,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "GAP",
+        "coded": 1211157,
+        "hctx": 1202142.5679623599,
+        "enc_ms": 186.734,
+        "dec_ms": 210.2327,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "blurry_1",
+    "category": "blurry",
+    "src": "png",
+    "samples": 4194304,
+    "runs": [
+      {
+        "cfg": "MED baseline (frozen)",
+        "coded": 785024,
+        "hctx": 786893.5402303196,
+        "enc_ms": 170.0786,
+        "dec_ms": 193.1974,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "GAP",
+        "coded": 776758,
+        "hctx": 779739.0801747718,
+        "enc_ms": 183.8018,
+        "dec_ms": 211.00070000000002,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "text_0",
+    "category": "text",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "MED baseline (frozen)",
+        "coded": 622632,
+        "hctx": 614338.2242294468,
+        "enc_ms": 133.9738,
+        "dec_ms": 147.481,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "GAP",
+        "coded": 700028,
+        "hctx": 691878.9615970224,
+        "enc_ms": 147.63879999999997,
+        "dec_ms": 166.42270000000002,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "text_1",
+    "category": "text",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "MED baseline (frozen)",
+        "coded": 1136704,
+        "hctx": 1132772.764513883,
+        "enc_ms": 168.6319,
+        "dec_ms": 186.9836,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "GAP",
+        "coded": 1148544,
+        "hctx": 1145055.1588029242,
+        "enc_ms": 183.3516,
+        "dec_ms": 201.2101,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "document_0",
+    "category": "document",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "MED baseline (frozen)",
+        "coded": 548420,
+        "hctx": 541169.314252402,
+        "enc_ms": 119.4944,
+        "dec_ms": 126.1431,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "GAP",
+        "coded": 576404,
+        "hctx": 569585.4413587946,
+        "enc_ms": 139.4655,
+        "dec_ms": 152.6944,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "document_1",
+    "category": "document",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "MED baseline (frozen)",
+        "coded": 434033,
+        "hctx": 428474.3084882754,
+        "enc_ms": 111.25619999999999,
+        "dec_ms": 124.0228,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "GAP",
+        "coded": 468335,
+        "hctx": 463164.65254782315,
+        "enc_ms": 127.16060000000002,
+        "dec_ms": 143.5403,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "screen_0",
+    "category": "screen",
+    "src": "png",
+    "samples": 4194304,
+    "runs": [
+      {
+        "cfg": "MED baseline (frozen)",
+        "coded": 171930,
+        "hctx": 161362.8778779538,
+        "enc_ms": 91.00450000000001,
+        "dec_ms": 105.15990000000001,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "GAP",
+        "coded": 197330,
+        "hctx": 187361.71852571395,
+        "enc_ms": 119.2427,
+        "dec_ms": 132.5606,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "screen_1",
+    "category": "screen",
+    "src": "png",
+    "samples": 4194304,
+    "runs": [
+      {
+        "cfg": "MED baseline (frozen)",
+        "coded": 191128,
+        "hctx": 187395.10085611223,
+        "enc_ms": 91.949,
+        "dec_ms": 107.70570000000001,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "GAP",
+        "coded": 218113,
+        "hctx": 210854.73403510815,
+        "enc_ms": 125.55440000000002,
+        "dec_ms": 135.8816,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  }
+]

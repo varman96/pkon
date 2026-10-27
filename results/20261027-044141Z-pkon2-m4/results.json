@@ -1,0 +1,1014 @@
+[
+  {
+    "name": "outdoor_0",
+    "category": "outdoor",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "Act x prev (frozen baseline)",
+        "coded": 815272,
+        "hctx": 809525.0490651329,
+        "enc_ms": 156.67610000000002,
+        "dec_ms": 171.6475,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err x prev (primary)",
+        "coded": 828835,
+        "hctx": 824309.718139828,
+        "enc_ms": 152.4744,
+        "dec_ms": 161.4264,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Act alone (frozen M1)",
+        "coded": 848409,
+        "hctx": 843721.0273444826,
+        "enc_ms": 135.3,
+        "dec_ms": 152.5724,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err alone (ablation)",
+        "coded": 865330,
+        "hctx": 862842.946728688,
+        "enc_ms": 131.58790000000002,
+        "dec_ms": 145.2485,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "outdoor_1",
+    "category": "outdoor",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "Act x prev (frozen baseline)",
+        "coded": 547778,
+        "hctx": 545000.0625531174,
+        "enc_ms": 124.7033,
+        "dec_ms": 139.0239,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err x prev (primary)",
+        "coded": 543774,
+        "hctx": 539139.8762782458,
+        "enc_ms": 122.4126,
+        "dec_ms": 131.304,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Act alone (frozen M1)",
+        "coded": 564745,
+        "hctx": 565379.9444660111,
+        "enc_ms": 111.3679,
+        "dec_ms": 124.3553,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err alone (ablation)",
+        "coded": 560394,
+        "hctx": 560172.1617223573,
+        "enc_ms": 105.7262,
+        "dec_ms": 121.5015,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "indoor_0",
+    "category": "indoor",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "Act x prev (frozen baseline)",
+        "coded": 379149,
+        "hctx": 374223.88364308403,
+        "enc_ms": 110.9702,
+        "dec_ms": 117.9611,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err x prev (primary)",
+        "coded": 394736,
+        "hctx": 390169.00974553474,
+        "enc_ms": 108.8514,
+        "dec_ms": 120.1263,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Act alone (frozen M1)",
+        "coded": 395202,
+        "hctx": 390885.51052928163,
+        "enc_ms": 106.1202,
+        "dec_ms": 114.7255,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err alone (ablation)",
+        "coded": 416715,
+        "hctx": 413936.7399861869,
+        "enc_ms": 102.66029999999999,
+        "dec_ms": 118.196,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "indoor_1",
+    "category": "indoor",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "Act x prev (frozen baseline)",
+        "coded": 646697,
+        "hctx": 646423.0538621007,
+        "enc_ms": 129.9892,
+        "dec_ms": 145.52270000000001,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err x prev (primary)",
+        "coded": 652382,
+        "hctx": 648710.3198052397,
+        "enc_ms": 135.3438,
+        "dec_ms": 149.7625,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Act alone (frozen M1)",
+        "coded": 669198,
+        "hctx": 671039.2325545,
+        "enc_ms": 125.8291,
+        "dec_ms": 136.3731,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err alone (ablation)",
+        "coded": 679059,
+        "hctx": 677583.8406027823,
+        "enc_ms": 125.66179999999999,
+        "dec_ms": 139.18269999999998,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "portrait_0",
+    "category": "portrait",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "Act x prev (frozen baseline)",
+        "coded": 455539,
+        "hctx": 451378.85852698376,
+        "enc_ms": 121.2988,
+        "dec_ms": 134.44639999999998,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err x prev (primary)",
+        "coded": 455578,
+        "hctx": 450642.920700942,
+        "enc_ms": 126.80810000000001,
+        "dec_ms": 138.1892,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Act alone (frozen M1)",
+        "coded": 474437,
+        "hctx": 471027.65396106103,
+        "enc_ms": 108.1357,
+        "dec_ms": 119.0855,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err alone (ablation)",
+        "coded": 477811,
+        "hctx": 474485.17760224483,
+        "enc_ms": 104.8561,
+        "dec_ms": 117.57289999999999,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "pet_0",
+    "category": "pet",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "Act x prev (frozen baseline)",
+        "coded": 793308,
+        "hctx": 789392.2849228836,
+        "enc_ms": 146.5586,
+        "dec_ms": 168.0695,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err x prev (primary)",
+        "coded": 806216,
+        "hctx": 801868.404805536,
+        "enc_ms": 152.2936,
+        "dec_ms": 171.2442,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Act alone (frozen M1)",
+        "coded": 835191,
+        "hctx": 831844.0825676395,
+        "enc_ms": 134.6674,
+        "dec_ms": 157.6871,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err alone (ablation)",
+        "coded": 850795,
+        "hctx": 847182.4216666089,
+        "enc_ms": 146.4914,
+        "dec_ms": 160.0366,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "pet_1",
+    "category": "pet",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "Act x prev (frozen baseline)",
+        "coded": 857767,
+        "hctx": 850959.6593202738,
+        "enc_ms": 220.8125,
+        "dec_ms": 351.7348,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err x prev (primary)",
+        "coded": 874260,
+        "hctx": 867511.9326132293,
+        "enc_ms": 357.75600000000003,
+        "dec_ms": 384.22020000000003,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Act alone (frozen M1)",
+        "coded": 900757,
+        "hctx": 894619.1447465202,
+        "enc_ms": 300.13469999999995,
+        "dec_ms": 301.73539999999997,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err alone (ablation)",
+        "coded": 920381,
+        "hctx": 914421.0872083503,
+        "enc_ms": 277.9751,
+        "dec_ms": 358.4408,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "pet2_0",
+    "category": "pet",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "Act x prev (frozen baseline)",
+        "coded": 859192,
+        "hctx": 854376.5322862836,
+        "enc_ms": 227.6244,
+        "dec_ms": 239.56820000000002,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err x prev (primary)",
+        "coded": 866439,
+        "hctx": 862042.8775706106,
+        "enc_ms": 339.7398,
+        "dec_ms": 359.4268,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Act alone (frozen M1)",
+        "coded": 898112,
+        "hctx": 895128.5481855441,
+        "enc_ms": 347.9762,
+        "dec_ms": 368.66900000000004,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err alone (ablation)",
+        "coded": 909326,
+        "hctx": 908203.6388918327,
+        "enc_ms": 273.93289999999996,
+        "dec_ms": 228.2931,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "pet2_1",
+    "category": "pet",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "Act x prev (frozen baseline)",
+        "coded": 528629,
+        "hctx": 523762.98842901207,
+        "enc_ms": 210.2867,
+        "dec_ms": 235.9502,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err x prev (primary)",
+        "coded": 539863,
+        "hctx": 535383.752182252,
+        "enc_ms": 342.8385,
+        "dec_ms": 270.7891,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Act alone (frozen M1)",
+        "coded": 552653,
+        "hctx": 548923.0536541609,
+        "enc_ms": 176.4348,
+        "dec_ms": 248.9372,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err alone (ablation)",
+        "coded": 568726,
+        "hctx": 566385.787941061,
+        "enc_ms": 265.0675,
+        "dec_ms": 183.0465,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "food_0",
+    "category": "food",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "Act x prev (frozen baseline)",
+        "coded": 1365488,
+        "hctx": 1357785.586806847,
+        "enc_ms": 293.5075,
+        "dec_ms": 378.1776,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err x prev (primary)",
+        "coded": 1355364,
+        "hctx": 1347517.157718369,
+        "enc_ms": 181.1029,
+        "dec_ms": 167.7143,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Act alone (frozen M1)",
+        "coded": 1376766,
+        "hctx": 1371989.441846609,
+        "enc_ms": 242.3071,
+        "dec_ms": 259.2164,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err alone (ablation)",
+        "coded": 1366574,
+        "hctx": 1361808.651808466,
+        "enc_ms": 205.6157,
+        "dec_ms": 231.6707,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "food_1",
+    "category": "food",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "Act x prev (frozen baseline)",
+        "coded": 795598,
+        "hctx": 787751.3172077626,
+        "enc_ms": 296.8331,
+        "dec_ms": 367.527,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err x prev (primary)",
+        "coded": 806650,
+        "hctx": 799038.4700150406,
+        "enc_ms": 233.5613,
+        "dec_ms": 325.8817,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Act alone (frozen M1)",
+        "coded": 824208,
+        "hctx": 817499.8500592366,
+        "enc_ms": 332.2878,
+        "dec_ms": 431.9121,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err alone (ablation)",
+        "coded": 841695,
+        "hctx": 835770.6455262947,
+        "enc_ms": 221.15019999999998,
+        "dec_ms": 401.5062,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "foliage_0",
+    "category": "foliage",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "Act x prev (frozen baseline)",
+        "coded": 1280760,
+        "hctx": 1269222.6120425053,
+        "enc_ms": 402.6323,
+        "dec_ms": 436.084,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err x prev (primary)",
+        "coded": 1285551,
+        "hctx": 1273591.5411193527,
+        "enc_ms": 364.7687,
+        "dec_ms": 312.9959,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Act alone (frozen M1)",
+        "coded": 1302808,
+        "hctx": 1292431.6996881012,
+        "enc_ms": 334.8435,
+        "dec_ms": 605.8588,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err alone (ablation)",
+        "coded": 1309661,
+        "hctx": 1298825.9657612292,
+        "enc_ms": 414.8538,
+        "dec_ms": 374.7082,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "foliage_1",
+    "category": "foliage",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "Act x prev (frozen baseline)",
+        "coded": 669030,
+        "hctx": 661691.4811970893,
+        "enc_ms": 235.0354,
+        "dec_ms": 246.8473,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err x prev (primary)",
+        "coded": 680165,
+        "hctx": 672678.6952517199,
+        "enc_ms": 273.1467,
+        "dec_ms": 238.76919999999998,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Act alone (frozen M1)",
+        "coded": 695516,
+        "hctx": 689090.6199027349,
+        "enc_ms": 221.3059,
+        "dec_ms": 222.8186,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err alone (ablation)",
+        "coded": 711969,
+        "hctx": 705934.4298415289,
+        "enc_ms": 181.7894,
+        "dec_ms": 204.4617,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "night_0",
+    "category": "night",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "Act x prev (frozen baseline)",
+        "coded": 1999783,
+        "hctx": 1982857.2730941789,
+        "enc_ms": 504.80150000000003,
+        "dec_ms": 499.2414,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err x prev (primary)",
+        "coded": 2013287,
+        "hctx": 1995616.4134210106,
+        "enc_ms": 400.75129999999996,
+        "dec_ms": 350.0549,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Act alone (frozen M1)",
+        "coded": 2007705,
+        "hctx": 1993825.9033413318,
+        "enc_ms": 334.3042,
+        "dec_ms": 382.41999999999996,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err alone (ablation)",
+        "coded": 2022334,
+        "hctx": 2006858.9916502568,
+        "enc_ms": 340.0743,
+        "dec_ms": 382.0244,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "night_1",
+    "category": "night",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "Act x prev (frozen baseline)",
+        "coded": 670877,
+        "hctx": 670267.6368465686,
+        "enc_ms": 198.95260000000002,
+        "dec_ms": 238.4137,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err x prev (primary)",
+        "coded": 683283,
+        "hctx": 682327.3773165644,
+        "enc_ms": 258.0351,
+        "dec_ms": 264.3659,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Act alone (frozen M1)",
+        "coded": 703415,
+        "hctx": 704576.6248635785,
+        "enc_ms": 158.9531,
+        "dec_ms": 235.2536,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err alone (ablation)",
+        "coded": 718988,
+        "hctx": 720224.374468726,
+        "enc_ms": 223.5619,
+        "dec_ms": 239.5186,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "blurry_0",
+    "category": "blurry",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "Act x prev (frozen baseline)",
+        "coded": 1133209,
+        "hctx": 1124202.7631917666,
+        "enc_ms": 292.9033,
+        "dec_ms": 323.4084,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err x prev (primary)",
+        "coded": 1135797,
+        "hctx": 1126808.3041968618,
+        "enc_ms": 243.7755,
+        "dec_ms": 289.10400000000004,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Act alone (frozen M1)",
+        "coded": 1155949,
+        "hctx": 1148030.1895848785,
+        "enc_ms": 305.67990000000003,
+        "dec_ms": 358.9662,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err alone (ablation)",
+        "coded": 1159360,
+        "hctx": 1151494.9897070252,
+        "enc_ms": 292.7167,
+        "dec_ms": 308.18240000000003,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "blurry_1",
+    "category": "blurry",
+    "src": "png",
+    "samples": 4194304,
+    "runs": [
+      {
+        "cfg": "Act x prev (frozen baseline)",
+        "coded": 785024,
+        "hctx": 786893.5402303196,
+        "enc_ms": 322.8932,
+        "dec_ms": 328.6857,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err x prev (primary)",
+        "coded": 780518,
+        "hctx": 779356.2662950517,
+        "enc_ms": 309.3791,
+        "dec_ms": 353.0973,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Act alone (frozen M1)",
+        "coded": 791019,
+        "hctx": 793222.8421661056,
+        "enc_ms": 252.92399999999998,
+        "dec_ms": 311.3908,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err alone (ablation)",
+        "coded": 786550,
+        "hctx": 785791.5546519321,
+        "enc_ms": 290.2825,
+        "dec_ms": 285.1653,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "text_0",
+    "category": "text",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "Act x prev (frozen baseline)",
+        "coded": 622632,
+        "hctx": 614338.2242294468,
+        "enc_ms": 246.5368,
+        "dec_ms": 264.2756,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err x prev (primary)",
+        "coded": 621116,
+        "hctx": 612210.9750496382,
+        "enc_ms": 219.6663,
+        "dec_ms": 275.5513,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Act alone (frozen M1)",
+        "coded": 644872,
+        "hctx": 638854.2616482873,
+        "enc_ms": 199.9565,
+        "dec_ms": 216.048,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err alone (ablation)",
+        "coded": 645325,
+        "hctx": 638232.6999988757,
+        "enc_ms": 219.4465,
+        "dec_ms": 255.40610000000004,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "text_1",
+    "category": "text",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "Act x prev (frozen baseline)",
+        "coded": 1136704,
+        "hctx": 1132772.764513883,
+        "enc_ms": 292.23900000000003,
+        "dec_ms": 309.751,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err x prev (primary)",
+        "coded": 1142960,
+        "hctx": 1137994.7011920463,
+        "enc_ms": 194.191,
+        "dec_ms": 210.5753,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Act alone (frozen M1)",
+        "coded": 1171489,
+        "hctx": 1168718.4611074668,
+        "enc_ms": 164.1404,
+        "dec_ms": 198.0908,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err alone (ablation)",
+        "coded": 1179716,
+        "hctx": 1176337.9785543655,
+        "enc_ms": 164.38920000000002,
+        "dec_ms": 151.8967,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "document_0",
+    "category": "document",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "Act x prev (frozen baseline)",
+        "coded": 548420,
+        "hctx": 541169.314252402,
+        "enc_ms": 130.9916,
+        "dec_ms": 146.0755,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err x prev (primary)",
+        "coded": 555241,
+        "hctx": 547868.0155527827,
+        "enc_ms": 126.82740000000001,
+        "dec_ms": 127.2954,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Act alone (frozen M1)",
+        "coded": 556470,
+        "hctx": 549579.1649947421,
+        "enc_ms": 123.9179,
+        "dec_ms": 102.9973,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err alone (ablation)",
+        "coded": 565384,
+        "hctx": 558732.9172978298,
+        "enc_ms": 115.81360000000001,
+        "dec_ms": 132.7147,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "document_1",
+    "category": "document",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "Act x prev (frozen baseline)",
+        "coded": 434033,
+        "hctx": 428474.3084882754,
+        "enc_ms": 136.6736,
+        "dec_ms": 155.7297,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err x prev (primary)",
+        "coded": 445490,
+        "hctx": 439865.71963616123,
+        "enc_ms": 154.0564,
+        "dec_ms": 165.9406,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Act alone (frozen M1)",
+        "coded": 444707,
+        "hctx": 440683.59256707417,
+        "enc_ms": 158.41320000000002,
+        "dec_ms": 177.87449999999998,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err alone (ablation)",
+        "coded": 459659,
+        "hctx": 456691.5416495431,
+        "enc_ms": 166.553,
+        "dec_ms": 189.8048,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "screen_0",
+    "category": "screen",
+    "src": "png",
+    "samples": 4194304,
+    "runs": [
+      {
+        "cfg": "Act x prev (frozen baseline)",
+        "coded": 171930,
+        "hctx": 161362.8778779538,
+        "enc_ms": 182.9223,
+        "dec_ms": 195.5373,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err x prev (primary)",
+        "coded": 174017,
+        "hctx": 164009.50138893316,
+        "enc_ms": 156.4149,
+        "dec_ms": 189.1664,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Act alone (frozen M1)",
+        "coded": 190875,
+        "hctx": 182711.1595000525,
+        "enc_ms": 127.0962,
+        "dec_ms": 154.5658,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err alone (ablation)",
+        "coded": 194833,
+        "hctx": 187921.7761815899,
+        "enc_ms": 271.1457,
+        "dec_ms": 307.60900000000004,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  },
+  {
+    "name": "screen_1",
+    "category": "screen",
+    "src": "png",
+    "samples": 4194304,
+    "runs": [
+      {
+        "cfg": "Act x prev (frozen baseline)",
+        "coded": 191128,
+        "hctx": 187395.10085611223,
+        "enc_ms": 179.50730000000001,
+        "dec_ms": 183.02779999999998,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err x prev (primary)",
+        "coded": 193489,
+        "hctx": 190613.174628182,
+        "enc_ms": 171.3976,
+        "dec_ms": 201.9727,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Act alone (frozen M1)",
+        "coded": 205834,
+        "hctx": 205546.4720260102,
+        "enc_ms": 143.9718,
+        "dec_ms": 169.3476,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Err alone (ablation)",
+        "coded": 208508,
+        "hctx": 209044.87065839188,
+        "enc_ms": 171.7648,
+        "dec_ms": 182.7679,
+        "exact": true,
+        "coupled_frac": 0.0
+      }
+    ]
+  }
+]

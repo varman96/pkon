@@ -14,6 +14,8 @@ pub enum Pred {
     Avg,
     Grad,
     Med,
+    /// CALIC's Gradient-Adjusted Predictor (milestone 3). Not in `PREDS`; uses `gap()`, not `predict()`.
+    Gap,
 }
 pub const PREDS: [Pred; 5] = [Pred::W, Pred::N, Pred::Avg, Pred::Grad, Pred::Med];
 
@@ -39,6 +41,11 @@ pub enum Ctx {
     Act,
     /// activity x 4 buckets of the previous plane's residual magnitude at this pixel
     ActX,
+    /// Milestone 4: bucket of E = zz(eW)+zz(eN)+zz(eNW)+zz(eNE), the zigzag residuals already coded
+    /// for those neighbours in the same plane (zz ~ 2|e|). Same bucket edges as `Act`.
+    Err,
+    /// `Err` x the same 4 previous-plane residual buckets as `ActX`.
+    ErrX,
 }
 impl Ctx {
     fn count(self) -> usize {
@@ -46,6 +53,8 @@ impl Ctx {
             Ctx::None => 1,
             Ctx::Act => 8,
             Ctx::ActX => 32,
+            Ctx::Err => 8,
+            Ctx::ErrX => 32,
         }
     }
 }
@@ -152,6 +161,7 @@ pub fn predict(pred: Pred, b: Nb) -> i32 {
         Pred::N => b.n,
         Pred::Avg => (b.w + b.n) >> 1,
         Pred::Grad => (b.w + b.n - b.nw).clamp(0, 255),
+        Pred::Gap => unreachable!("Gap needs extended neighbours: use gap()"),
         Pred::Med => {
             let (mx, mn) = (b.w.max(b.n), b.w.min(b.n));
             if b.nw >= mx {
@@ -163,6 +173,41 @@ pub fn predict(pred: Pred, b: Nb) -> i32 {
             }
         }
     }
+}
+
+/// GAP (Wu & Memon, CALIC) in integer arithmetic. Uses W,N,NW,NE plus WW,NN,NNE.
+///   dh = |W-WW|+|N-NW|+|N-NE|   dv = |W-NW|+|N-NN|+|NE-NNE|
+///   dv-dh > 80 -> W (sharp horizontal edge); < -80 -> N (sharp vertical edge)
+///   else base = (W+N)/2 + (NE-NW)/4, pulled toward W (or N) by 1/2, 3/4 when |dv-dh| > 32, > 8.
+/// Computed at 4x scale (p4) so no precision is lost before the final rounding.
+/// Versus MED: MED picks min/max/plane from 3 pixels; GAP weighs 7 pixels by local gradient energy.
+/// Extra cost vs MED: 3 more neighbour loads + ~12 integer ops per sample; no state.
+#[inline]
+pub fn gap(p: &[u8], width: usize, x: usize, y: usize, b: Nb) -> i32 {
+    let i = y * width + x;
+    let ww = if x > 1 { p[i - 2] as i32 } else { b.w };
+    let nn = if y > 1 { p[i - 2 * width] as i32 } else { b.n };
+    let nne = if y > 1 && x + 1 < width { p[i - 2 * width + 1] as i32 } else { b.ne };
+    let dh = (b.w - ww).abs() + (b.n - b.nw).abs() + (b.n - b.ne).abs();
+    let dv = (b.w - b.nw).abs() + (b.n - nn).abs() + (b.ne - nne).abs();
+    let d = dv - dh;
+    if d > 80 {
+        return b.w;
+    }
+    if d < -80 {
+        return b.n;
+    }
+    let mut p4 = 2 * (b.w + b.n) + (b.ne - b.nw);
+    if d > 32 {
+        p4 = (p4 + 4 * b.w) >> 1;
+    } else if d > 8 {
+        p4 = (3 * p4 + 4 * b.w) >> 2;
+    } else if d < -32 {
+        p4 = (p4 + 4 * b.n) >> 1;
+    } else if d < -8 {
+        p4 = (3 * p4 + 4 * b.n) >> 2;
+    }
+    ((p4 + 2) >> 2).clamp(0, 255)
 }
 
 /// |a-b| read as a wrapped signed byte, so chroma planes that wrap around 0/255 stay sane.
@@ -361,13 +406,15 @@ pub fn run(pl: &mut Planes, cfg: Config, io: &mut dyn SymIo) -> u64 {
             for x in 0..w {
                 let i = y * w + x;
                 let nb = neighbors(&pl.p[k], w, x, y);
-                let mut pred = predict(cfg.pred, nb);
+                let mut pred = if cfg.pred == Pred::Gap { gap(&pl.p[k], w, x, y, nb) } else { predict(cfg.pred, nb) };
                 if cfg.color == Color::Coupled && (k == 1 || k == 2) {
                     pred = (pred + gerr[i] as i32).clamp(0, 255);
                 }
                 let c = match cfg.ctx {
                     Ctx::None => 0,
                     Ctx::Act => act_bucket(activity(nb)),
+                    Ctx::Err => act_bucket(err_energy(&cur_z, w, x, y)),
+                    Ctx::ErrX => act_bucket(err_energy(&cur_z, w, x, y)) * 4 + prev_q(prev_z[i]),
                     Ctx::ActX => {
                         let q = match prev_z[i] {
                             0 => 0,
@@ -390,6 +437,26 @@ pub fn run(pl: &mut Planes, cfg: Config, io: &mut dyn SymIo) -> u64 {
         std::mem::swap(&mut prev_z, &mut cur_z);
     }
     0
+}
+
+/// Sum of already-coded zigzag residuals at W, N, NW, NE (same plane); outside the image counts 0.
+#[inline]
+fn err_energy(z: &[u8], w: usize, x: usize, y: usize) -> i32 {
+    let i = y * w + x;
+    let mut e = 0i32;
+    if x > 0 {
+        e += z[i - 1] as i32;
+    }
+    if y > 0 {
+        e += z[i - w] as i32;
+        if x > 0 {
+            e += z[i - w - 1] as i32;
+        }
+        if x + 1 < w {
+            e += z[i - w + 1] as i32;
+        }
+    }
+    e
 }
 
 fn prev_q(z: u8) -> usize {
