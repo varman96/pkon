@@ -266,6 +266,10 @@ impl<'a> BinDec<'a> {
         self.pos += 1;
         b
     }
+    /// Bytes read so far. Past `buf.len()` the decoder reads implicit zeros, so `consumed() > buf.len()` means over-read.
+    pub fn consumed(&self) -> usize {
+        self.pos
+    }
 }
 impl BitIo for BinDec<'_> {
     #[inline]
