@@ -1,0 +1,55 @@
+   Compiling nanoscope v0.1.0 (C:\Dev\GitHub\nanoscope)
+warning: unused import: `crate::canon::Canonical`
+  --> src\pkonrel.rs:14:5
+   |
+14 | use crate::canon::Canonical;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `x4p_cfg`
+ --> src\pkonfile.rs:9:28
+  |
+9 | use crate::pkon2x::{run_x, x4p_cfg, BinDec, BinEnc, Coder, In, XCfg, Bias, Ens};
+  |                            ^^^^^^^
+
+warning: `nanoscope` (lib) generated 2 warnings (run `cargo fix --lib -p nanoscope` to apply 2 suggestions)
+    Finished `release` profile [optimized] target(s) in 24.68s
+     Running `target\release\gdir.exe --out results/20261027-203041Z-gdir-directional`
+loaded 35 images
+text_0 OTHER P=565493 GB=581512 (+2.833%) enc 768/862 ms dec 729/599 ms
+clouds_n0 OTHER P=448447 GB=468046 (+4.370%) enc 517/500 ms dec 503/477 ms
+night_1 OTHER P=617913 GB=628210 (+1.666%) enc 546/560 ms dec 488/537 ms
+child_n0 OTHER P=406096 GB=428920 (+5.620%) enc 387/446 ms dec 371/436 ms
+forest_n0 LOSE P=782934 GB=785747 (+0.359%) enc 559/633 ms dec 642/589 ms
+bridge_n0 OTHER P=492319 GB=509270 (+3.443%) enc 427/486 ms dec 408/470 ms
+lake_n0 CONTROL P=837460 GB=851687 (+1.699%) enc 568/628 ms dec 554/613 ms
+street_n0 LOSE P=912364 GB=917899 (+0.607%) enc 602/684 ms dec 586/665 ms
+waterfall_n0 CONTROL P=1031227 GB=1043677 (+1.207%) enc 653/725 ms dec 623/680 ms
+document_0 OTHER P=523638 GB=530852 (+1.378%) enc 439/504 ms dec 431/484 ms
+river_n0 LOSE P=1019443 GB=1025455 (+0.590%) enc 648/714 ms dec 631/705 ms
+coast_n0 OTHER P=444975 GB=452781 (+1.754%) enc 418/469 ms dec 380/441 ms
+macro_n0 OTHER P=804406 GB=822778 (+2.284%) enc 535/604 ms dec 515/605 ms
+building_n0 OTHER P=688393 GB=709119 (+3.011%) enc 516/565 ms dec 483/557 ms
+night_0 LOSE P=1917507 GB=1929902 (+0.646%) enc 1016/1110 ms dec 1069/1034 ms
+indoor_1 OTHER P=600800 GB=613028 (+2.035%) enc 464/586 ms dec 470/521 ms
+peak_n0 OTHER P=1207636 GB=1220619 (+1.075%) enc 731/796 ms dec 709/816 ms
+bird_n0 OTHER P=333092 GB=354365 (+6.387%) enc 385/431 ms dec 360/407 ms
+snow_n0 CONTROL P=1230807 GB=1251144 (+1.652%) enc 723/807 ms dec 715/781 ms
+lighthouse_n0 OTHER P=484986 GB=497947 (+2.672%) enc 431/489 ms dec 411/476 ms
+indoor_0 OTHER P=346721 GB=354568 (+2.263%) enc 360/425 ms dec 347/476 ms
+desert_n0 OTHER P=580105 GB=599746 (+3.386%) enc 467/651 ms dec 447/536 ms
+document_1 CONTROL P=402044 GB=422626 (+5.119%) enc 385/610 ms dec 414/513 ms
+text_1 LOSE P=1039180 GB=1046516 (+0.706%) enc 1082/1587 ms dec 1431/1531 ms
+portrait_0 LOSE P=397667 GB=411864 (+3.570%) enc 870/629 ms dec 790/927 ms
+food_0 LOSE P=1265561 GB=1267802 (+0.177%) enc 1521/1090 ms dec 967/1515 ms
+food_1 OTHER P=729719 GB=743369 (+1.871%) enc 1130/1522 ms dec 770/1365 ms
+path_n0 CONTROL P=1710962 GB=1718127 (+0.419%) enc 2225/1124 ms dec 1203/1192 ms
+boat_n0 CONTROL P=1004572 GB=1019649 (+1.501%) enc 754/740 ms dec 706/687 ms
+flower_n0 OTHER P=758220 GB=764472 (+0.825%) enc 538/616 ms dec 523/597 ms
+beach_n0 OTHER P=560047 GB=574727 (+2.621%) enc 458/589 ms dec 449/739 ms
+woman_n0 OTHER P=335672 GB=347398 (+3.493%) enc 864/508 ms dec 501/465 ms
+outdoor_0 CONTROL P=765924 GB=770455 (+0.592%) enc 742/1498 ms dec 983/1443 ms
+outdoor_1 OTHER P=495025 GB=511292 (+3.286%) enc 995/659 ms dec 542/975 ms
+restaurant_n0 OTHER P=703703 GB=721493 (+2.528%) enc 1037/836 ms dec 807/669 ms
+verdict: REJECT

@@ -17,8 +17,8 @@ use crate::pkon2x::{BinDec, BinEnc, BitIo};
 use std::sync::OnceLock;
 
 const NI: usize = 6;
-const NODES: usize = 27;
-const SIGN: usize = 26;
+pub const NODES: usize = 27;
+pub const SIGN: usize = 26;
 const BASE_CAP: usize = 96;
 const LIMIT: u32 = 255;
 const MIXLR: i32 = 6;
@@ -43,6 +43,10 @@ pub enum Extra {
     SelDummy,
     /// GBLEND: not an input. Plane 0 is predicted by the backward-adaptive MED/linear blend (`crate::gblend`)
     GBlend,
+    /// GDIR: not an input. Plane 0 is predicted by the gradient-adaptive directional predictor (`crate::gdir`)
+    GDir,
+    /// GRAMP: not an input. Plane 0 is predicted by the planar ramp predictor at detected ramps only, MED elsewhere (`crate::gramp`)
+    GRamp,
     /// REL5: the X feature, mixed in ONLY at the sign node, planes >= 1
     XSign,
     /// REL5 control: hash of (plane, x, y, salt) mod card, mixed in ONLY at the sign node, planes >= 1 (same routing as XSign)
@@ -56,7 +60,7 @@ impl Extra {
             Extra::DummySign { card, .. } => card as usize,
             Extra::Joint => FCARD,
             Extra::Dummy { card, .. } => card as usize,
-            Extra::Const | Extra::SelAct | Extra::SelDummy | Extra::GBlend => 1,
+            Extra::Const | Extra::SelAct | Extra::SelDummy | Extra::GBlend | Extra::GDir | Extra::GRamp => 1,
         }
     }
 }
@@ -90,6 +94,18 @@ pub const DIAG_ARMS: [Arm; 5] = [
 pub const GB_ARMS: [Arm; 2] = [
     Arm { name: "P", extras: &[Extra::P] },
     Arm { name: "P+GBlend", extras: &[Extra::P, Extra::GBlend] },
+];
+
+/// GDIR arms (criteria: results/20261027-203041Z-gdir-directional/criteria.md). `P` is production codec 2.
+pub const GD_ARMS: [Arm; 2] = [
+    Arm { name: "P", extras: &[Extra::P] },
+    Arm { name: "P+GDir", extras: &[Extra::P, Extra::GDir] },
+];
+
+/// GRAMP arms (criteria: results/20261027-204338Z-gramp-ramp-only/criteria.md). `P` is production codec 2.
+pub const GR_ARMS: [Arm; 2] = [
+    Arm { name: "P", extras: &[Extra::P] },
+    Arm { name: "P+GRamp", extras: &[Extra::P, Extra::GRamp] },
 ];
 
 pub const SEL_ARMS: [Arm; 3] = [
@@ -213,7 +229,24 @@ impl Bit {
 
 /// `BitIo` plus a hook that tells the sink which (plane, decision category) the next bit belongs to.
 pub trait RelIo: BitIo {
+    /// Compile-time switch for the research bit-cost profiler (`crate::profile`). False for every production sink, so the
+    /// observation hooks below compile away and the coding path is unchanged.
+    const OBSERVE: bool = false;
     fn tag(&mut self, _cat: usize, _plane: usize) {}
+    /// Called right after a mixed binary decision is coded and BEFORE any state update: the node, the (slot, context) of every mixer
+    /// input, each input's own (probability of 1, count) as stored in the model, the final mixed probability handed to the coder, and the bit.
+    fn observe(&mut self, _plane: usize, _node: usize, _slots: &[usize], _ctxs: &[usize], _inputs: &[(u16, u8)], _p: u32, _bit: u32) {}
+    /// Same for a context-free tail bit (probability actually handed to the coder and the model's count before the update).
+    fn observe_tail(&mut self, _plane: usize, _class: usize, _pos: usize, _p: u32, _n: u8, _bit: u32) {}
+}
+/// Ideal cost in bits of coding `bit` when `p1` (16-bit probability of 1) is handed to the coder; the same table `CeEnc` uses.
+pub fn bit_cost(p1: u32, bit: u32) -> f32 {
+    let t = tables();
+    if bit == 1 {
+        t.cost[p1 as usize]
+    } else {
+        t.cost[65536 - p1 as usize]
+    }
 }
 impl RelIo for BinDec<'_> {}
 
@@ -374,6 +407,14 @@ impl Coder {
         let p = t.squash[(d + 2048) as usize] as u32;
         io.tag(cat_of(node), plane);
         let bit = io.code(p, want);
+        if I::OBSERVE {
+            let mut inp = [(0u16, 0u8); NI];
+            for i in 0..nin {
+                let b = self.m[sl[i]][idx[i]];
+                inp[i] = (b.p, b.n);
+            }
+            io.observe(plane, node, &sl[..nin], &cx[..nin], &inp[..nin], p, bit);
+        }
         let err = ((bit as i32) << 12) - (p as i32 >> 4);
         for i in 0..nin {
             ws[i] += (st[i] * err * MIXLR + 0x8000) >> 16;
@@ -386,7 +427,11 @@ impl Coder {
     fn tail_bit<I: RelIo>(&mut self, io: &mut I, plane: usize, class: usize, pos: usize, want: u32) -> u32 {
         let b = &mut self.tail[(plane * 9 + class) * 8 + pos];
         io.tag(3, plane);
-        let bit = io.code((b.p as u32).clamp(32, 65535 - 32), want);
+        let pt = (b.p as u32).clamp(32, 65535 - 32);
+        let bit = io.code(pt, want);
+        if I::OBSERVE {
+            io.observe_tail(plane, class, pos, pt, b.n, bit);
+        }
         b.update(bit, self.t);
         bit
     }
@@ -474,6 +519,9 @@ pub fn run_rel<I: RelIo>(pl: &mut Planes, arm: &Arm, coder: &mut Coder, io: &mut
     let zero = vec![0u8; w * h];
     let gb = arm.extras.contains(&Extra::GBlend);
     let mut gst = crate::gblend::GBlend::new(w, h);
+    let gd = arm.extras.contains(&Extra::GDir);
+    let mut gdst = crate::gdir::GDir::new();
+    let gr = arm.extras.contains(&Extra::GRamp);
     let need_p = arm.extras.iter().any(|e| matches!(e, Extra::P | Extra::Joint)) || stats.is_some();
     let mut trace = 0xcbf29ce484222325u64;
     let mixh = |v: u64, t: &mut u64| {
@@ -490,7 +538,15 @@ pub fn run_rel<I: RelIo>(pl: &mut Planes, arm: &Arm, coder: &mut Coder, io: &mut
                 if gb && k == 0 && x == 0 {
                     gst.start_row(&pl.p[0], y);
                 }
-                let pred = if gb && k == 0 { gst.predict(&pl.p[0], x, y, med) } else { med };
+                let pred = if gb && k == 0 {
+                    gst.predict(&pl.p[0], x, y, med)
+                } else if gd && k == 0 {
+                    gdst.predict(&pl.p[0], w, h, x, y, med)
+                } else if gr && k == 0 {
+                    crate::gramp::ramp_predict(&pl.p[0], w, x, y).unwrap_or(med)
+                } else {
+                    med
+                };
                 let act = act_bucket(activity(nb));
                 let (cur_z, prev_z): (&[u8], &[u8]) = if k > 0 { (&zs[k], &zs[k - 1]) } else { (&zs[0], &zero) };
                 let pq = prev_q(prev_z[i]);
@@ -523,7 +579,7 @@ pub fn run_rel<I: RelIo>(pl: &mut Planes, arm: &Arm, coder: &mut Coder, io: &mut
                             ex.sel = act;
                             None
                         }
-                        Extra::GBlend => None,
+                        Extra::GBlend | Extra::GDir | Extra::GRamp => None,
                         Extra::SelDummy => {
                             ex.sel = dummy_ctx(9, NSEL as u32, k, x, y);
                             None
@@ -546,6 +602,9 @@ pub fn run_rel<I: RelIo>(pl: &mut Planes, arm: &Arm, coder: &mut Coder, io: &mut
                 zs[k][i] = z;
                 if gb && k == 0 {
                     gst.update(x, y, pl.p[0][i]);
+                }
+                if gd && k == 0 {
+                    gdst.update(pl.p[0][i]);
                 }
                 if let Some(s) = stats.as_deref_mut() {
                     let f = pf * 49 + xf;

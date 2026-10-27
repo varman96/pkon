@@ -1,0 +1,72 @@
+warning: unused import: `crate::canon::Canonical`
+  --> src\pkonrel.rs:14:5
+   |
+14 | use crate::canon::Canonical;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `x4p_cfg`
+ --> src\pkonfile.rs:9:28
+  |
+9 | use crate::pkon2x::{run_x, x4p_cfg, BinDec, BinEnc, Coder, In, XCfg, Bias, Ens};
+  |                            ^^^^^^^
+
+warning: `nanoscope` (lib) generated 2 warnings (run `cargo fix --lib -p nanoscope` to apply 2 suggestions)
+warning: field `frozen_x4` is never read
+  --> src\bin\bitprof.rs:75:9
+   |
+71 |     struct Img {
+   |            --- field in this struct
+...
+75 |         frozen_x4: usize,
+   |         ^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `nanoscope` (bin "bitprof") generated 1 warning
+    Finished `release` profile [optimized] target(s) in 0.08s
+     Running `target\release\bitprof.exe --out results/20261027-211729Z-bitprof`
+loaded 20 images; profiler state 16465752 B per image, aggregate 2876328 B
+outdoor_0 [control] file 781152 model 781125 B (1.0000x payload) enc plain 576 ms prof 851 ms ok
+outdoor_1 [control] file 498289 model 498261 B (1.0000x payload) enc plain 369 ms prof 774 ms ok
+indoor_0 [control] file 354417 model 354390 B (1.0000x payload) enc plain 381 ms prof 756 ms ok
+indoor_1 [control] file 607405 model 607377 B (1.0000x payload) enc plain 418 ms prof 780 ms ok
+portrait_0 [control] file 405580 model 405552 B (1.0000x payload) enc plain 359 ms prof 708 ms ok
+pet_0 [control] file 744800 model 744773 B (1.0000x payload) enc plain 469 ms prof 845 ms ok
+pet_1 [control] file 814528 model 814500 B (1.0000x payload) enc plain 551 ms prof 880 ms ok
+pet2_0 [control] file 798916 model 798889 B (1.0000x payload) enc plain 520 ms prof 919 ms ok
+pet2_1 [control] file 492984 model 492957 B (1.0000x payload) enc plain 348 ms prof 693 ms ok
+food_0 [control] file 1283285 model 1283258 B (1.0000x payload) enc plain 756 ms prof 1346 ms ok
+food_1 [control] file 744304 model 744277 B (1.0000x payload) enc plain 427 ms prof 786 ms ok
+foliage_0 [control] file 1208203 model 1208176 B (1.0000x payload) enc plain 715 ms prof 1129 ms ok
+foliage_1 [control] file 630064 model 630037 B (1.0000x payload) enc plain 389 ms prof 701 ms ok
+night_0 [control] file 1943649 model 1943621 B (1.0000x payload) enc plain 923 ms prof 1605 ms ok
+night_1 [control] file 636406 model 636379 B (1.0000x payload) enc plain 392 ms prof 840 ms ok
+blurry_0 [control] file 1076424 model 1076397 B (1.0000x payload) enc plain 546 ms prof 1014 ms ok
+text_0 [control] file 577448 model 577421 B (1.0000x payload) enc plain 373 ms prof 650 ms ok
+text_1 [control] file 1057473 model 1057445 B (1.0000x payload) enc plain 557 ms prof 1035 ms ok
+document_0 [control] file 531813 model 531785 B (1.0000x payload) enc plain 372 ms prof 638 ms ok
+document_1 [control] file 411166 model 411139 B (1.0000x payload) enc plain 319 ms prof 531 ms ok
+outdoor_0 [P] file 765924 model 765896 B (1.0000x payload) enc plain 664 ms prof 1079 ms ok
+outdoor_1 [P] file 495025 model 494997 B (1.0000x payload) enc plain 431 ms prof 874 ms ok
+indoor_0 [P] file 346721 model 346693 B (1.0000x payload) enc plain 358 ms prof 636 ms ok
+indoor_1 [P] file 600800 model 600773 B (1.0000x payload) enc plain 474 ms prof 916 ms ok
+portrait_0 [P] file 397667 model 397640 B (1.0000x payload) enc plain 385 ms prof 709 ms ok
+pet_0 [P] file 731467 model 731440 B (1.0000x payload) enc plain 596 ms prof 960 ms ok
+pet_1 [P] file 787683 model 787656 B (1.0000x payload) enc plain 555 ms prof 1060 ms ok
+pet2_0 [P] file 781117 model 781090 B (1.0000x payload) enc plain 571 ms prof 1000 ms ok
+pet2_1 [P] file 482753 model 482726 B (1.0000x payload) enc plain 414 ms prof 787 ms ok
+food_0 [P] file 1265561 model 1265533 B (1.0000x payload) enc plain 783 ms prof 1425 ms ok
+food_1 [P] file 729719 model 729692 B (1.0000x payload) enc plain 533 ms prof 952 ms ok
+foliage_0 [P] file 1190491 model 1190464 B (1.0000x payload) enc plain 767 ms prof 1332 ms ok
+foliage_1 [P] file 619630 model 619602 B (1.0000x payload) enc plain 507 ms prof 852 ms ok
+night_0 [P] file 1917507 model 1917479 B (1.0000x payload) enc plain 1045 ms prof 2040 ms ok
+night_1 [P] file 617913 model 617885 B (1.0000x payload) enc plain 471 ms prof 883 ms ok
+blurry_0 [P] file 1064089 model 1064062 B (1.0000x payload) enc plain 652 ms prof 1208 ms ok
+text_0 [P] file 565493 model 565466 B (1.0000x payload) enc plain 456 ms prof 815 ms ok
+text_1 [P] file 1039180 model 1039152 B (1.0000x payload) enc plain 710 ms prof 1248 ms ok
+document_0 [P] file 523638 model 523610 B (1.0000x payload) enc plain 438 ms prof 859 ms ok
+document_1 [P] file 402044 model 402017 B (1.0000x payload) enc plain 367 ms prof 659 ms ok
+done
+exit=0

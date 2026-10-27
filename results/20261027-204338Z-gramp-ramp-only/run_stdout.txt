@@ -1,0 +1,54 @@
+warning: unused import: `crate::canon::Canonical`
+  --> src\pkonrel.rs:14:5
+   |
+14 | use crate::canon::Canonical;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `x4p_cfg`
+ --> src\pkonfile.rs:9:28
+  |
+9 | use crate::pkon2x::{run_x, x4p_cfg, BinDec, BinEnc, Coder, In, XCfg, Bias, Ens};
+  |                            ^^^^^^^
+
+warning: `nanoscope` (lib) generated 2 warnings (run `cargo fix --lib -p nanoscope` to apply 2 suggestions)
+    Finished `release` profile [optimized] target(s) in 0.09s
+     Running `target\release\gramp.exe --out results/20261027-204338Z-gramp-ramp-only`
+loaded 35 images
+text_0 OTHER P=565493 GB=570193 (+0.831%) enc 514/541 ms dec 506/748 ms
+clouds_n0 OTHER P=448447 GB=453436 (+1.113%) enc 406/416 ms dec 384/406 ms
+night_1 OTHER P=617913 GB=618552 (+0.103%) enc 485/848 ms dec 461/496 ms
+child_n0 OTHER P=406096 GB=417127 (+2.716%) enc 387/405 ms dec 379/389 ms
+forest_n0 LOSE P=782934 GB=784145 (+0.155%) enc 553/629 ms dec 535/553 ms
+bridge_n0 OTHER P=492319 GB=497163 (+0.984%) enc 421/510 ms dec 435/429 ms
+lake_n0 CONTROL P=837460 GB=841860 (+0.525%) enc 589/596 ms dec 554/570 ms
+street_n0 LOSE P=912364 GB=912843 (+0.053%) enc 593/609 ms dec 700/599 ms
+waterfall_n0 CONTROL P=1031227 GB=1034824 (+0.349%) enc 640/656 ms dec 621/674 ms
+document_0 OTHER P=523638 GB=523902 (+0.050%) enc 430/456 ms dec 425/493 ms
+river_n0 LOSE P=1019443 GB=1019609 (+0.016%) enc 649/670 ms dec 638/649 ms
+coast_n0 OTHER P=444975 GB=450274 (+1.191%) enc 393/480 ms dec 416/403 ms
+macro_n0 OTHER P=804406 GB=808440 (+0.501%) enc 533/614 ms dec 520/553 ms
+building_n0 OTHER P=688393 GB=695049 (+0.967%) enc 514/543 ms dec 497/519 ms
+night_0 LOSE P=1917507 GB=1917647 (+0.007%) enc 1017/1033 ms dec 1013/1003 ms
+indoor_1 OTHER P=600800 GB=603868 (+0.511%) enc 515/912 ms dec 924/683 ms
+peak_n0 OTHER P=1207636 GB=1208084 (+0.037%) enc 1063/1109 ms dec 1107/1250 ms
+bird_n0 OTHER P=333092 GB=351404 (+5.498%) enc 622/1001 ms dec 1066/666 ms
+snow_n0 CONTROL P=1230807 GB=1240176 (+0.761%) enc 1703/1233 ms dec 1347/1156 ms
+lighthouse_n0 OTHER P=484986 GB=488768 (+0.780%) enc 675/782 ms dec 622/1324 ms
+indoor_0 OTHER P=346721 GB=353936 (+2.081%) enc 879/846 ms dec 918/579 ms
+desert_n0 OTHER P=580105 GB=580774 (+0.115%) enc 861/1021 ms dec 1026/723 ms
+document_1 CONTROL P=402044 GB=409921 (+1.959%) enc 564/558 ms dec 569/546 ms
+text_1 LOSE P=1039180 GB=1039309 (+0.012%) enc 1041/1488 ms dec 1025/1785 ms
+portrait_0 LOSE P=397667 GB=403868 (+1.559%) enc 896/798 ms dec 577/586 ms
+food_0 LOSE P=1265561 GB=1266186 (+0.049%) enc 1142/1166 ms dec 1051/1122 ms
+food_1 OTHER P=729719 GB=731241 (+0.209%) enc 729/1045 ms dec 701/799 ms
+path_n0 CONTROL P=1710962 GB=1710971 (+0.001%) enc 1404/809 ms dec 1394/1114 ms
+boat_n0 CONTROL P=1004572 GB=1009560 (+0.497%) enc 1248/1011 ms dec 976/1007 ms
+flower_n0 OTHER P=758220 GB=760022 (+0.238%) enc 839/1055 ms dec 802/1286 ms
+beach_n0 OTHER P=560047 GB=560237 (+0.034%) enc 853/684 ms dec 715/750 ms
+woman_n0 OTHER P=335672 GB=344338 (+2.582%) enc 517/608 ms dec 539/535 ms
+outdoor_0 CONTROL P=765924 GB=766029 (+0.014%) enc 828/943 ms dec 743/914 ms
+outdoor_1 OTHER P=495025 GB=501584 (+1.325%) enc 821/800 ms dec 1007/742 ms
+restaurant_n0 OTHER P=703703 GB=707092 (+0.482%) enc 832/844 ms dec 734/839 ms
+verdict: REJECT
