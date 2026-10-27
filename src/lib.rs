@@ -4,4 +4,5 @@ pub mod codec;
 pub mod corpus;
 pub mod envinfo;
 pub mod ext;
+pub mod pkon2;
 pub mod verify;

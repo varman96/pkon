@@ -1,0 +1,1221 @@
+[
+  {
+    "name": "outdoor_0",
+    "category": "outdoor",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "baseline SubG (frozen)",
+        "coded": 815272,
+        "hctx": 809525.0490651329,
+        "enc_ms": 221.79319999999998,
+        "dec_ms": 237.9065,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "fixed Coupled",
+        "coded": 919147,
+        "hctx": 913699.8530238623,
+        "enc_ms": 253.8154,
+        "dec_ms": 269.21450000000004,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Adaptive win4 (primary)",
+        "coded": 829362,
+        "hctx": 823483.6658145811,
+        "enc_ms": 313.4166,
+        "dec_ms": 334.4381,
+        "exact": true,
+        "coupled_frac": 0.022420883178710938
+      },
+      {
+        "cfg": "Adaptive win2 (sens.)",
+        "coded": 827854,
+        "hctx": 821969.0983765438,
+        "enc_ms": 296.9121,
+        "dec_ms": 303.1573,
+        "exact": true,
+        "coupled_frac": 0.02128314971923828
+      },
+      {
+        "cfg": "Adaptive win6 (sens.)",
+        "coded": 830952,
+        "hctx": 824992.1813175346,
+        "enc_ms": 287.69149999999996,
+        "dec_ms": 306.9004,
+        "exact": true,
+        "coupled_frac": 0.02822256088256836
+      }
+    ]
+  },
+  {
+    "name": "outdoor_1",
+    "category": "outdoor",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "baseline SubG (frozen)",
+        "coded": 547778,
+        "hctx": 545000.0625531174,
+        "enc_ms": 152.451,
+        "dec_ms": 193.6185,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "fixed Coupled",
+        "coded": 634311,
+        "hctx": 630758.9173127185,
+        "enc_ms": 253.95830000000004,
+        "dec_ms": 304.7469,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Adaptive win4 (primary)",
+        "coded": 554025,
+        "hctx": 551231.0822103055,
+        "enc_ms": 374.6335,
+        "dec_ms": 346.75440000000003,
+        "exact": true,
+        "coupled_frac": 0.024852275848388672
+      },
+      {
+        "cfg": "Adaptive win2 (sens.)",
+        "coded": 553767,
+        "hctx": 550947.7483171241,
+        "enc_ms": 332.1232,
+        "dec_ms": 319.7023,
+        "exact": true,
+        "coupled_frac": 0.024230003356933594
+      },
+      {
+        "cfg": "Adaptive win6 (sens.)",
+        "coded": 554841,
+        "hctx": 551992.9372084228,
+        "enc_ms": 347.3689,
+        "dec_ms": 373.2207,
+        "exact": true,
+        "coupled_frac": 0.02462005615234375
+      }
+    ]
+  },
+  {
+    "name": "indoor_0",
+    "category": "indoor",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "baseline SubG (frozen)",
+        "coded": 379149,
+        "hctx": 374223.88364308403,
+        "enc_ms": 187.2873,
+        "dec_ms": 211.489,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "fixed Coupled",
+        "coded": 436653,
+        "hctx": 433391.3123357082,
+        "enc_ms": 235.1332,
+        "dec_ms": 248.4311,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Adaptive win4 (primary)",
+        "coded": 383969,
+        "hctx": 379003.42435852194,
+        "enc_ms": 324.8775,
+        "dec_ms": 380.48720000000003,
+        "exact": true,
+        "coupled_frac": 0.006985187530517578
+      },
+      {
+        "cfg": "Adaptive win2 (sens.)",
+        "coded": 383987,
+        "hctx": 379020.4054693493,
+        "enc_ms": 286.5587,
+        "dec_ms": 293.811,
+        "exact": true,
+        "coupled_frac": 0.006854057312011719
+      },
+      {
+        "cfg": "Adaptive win6 (sens.)",
+        "coded": 384613,
+        "hctx": 379641.727854259,
+        "enc_ms": 318.12469999999996,
+        "dec_ms": 345.67569999999995,
+        "exact": true,
+        "coupled_frac": 0.008799552917480469
+      }
+    ]
+  },
+  {
+    "name": "indoor_1",
+    "category": "indoor",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "baseline SubG (frozen)",
+        "coded": 646697,
+        "hctx": 646423.0538621007,
+        "enc_ms": 230.89000000000001,
+        "dec_ms": 265.4917,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "fixed Coupled",
+        "coded": 745679,
+        "hctx": 748823.7807317642,
+        "enc_ms": 296.7574,
+        "dec_ms": 314.5269,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Adaptive win4 (primary)",
+        "coded": 655520,
+        "hctx": 655216.6494988368,
+        "enc_ms": 379.4148,
+        "dec_ms": 371.7629,
+        "exact": true,
+        "coupled_frac": 0.020595073699951172
+      },
+      {
+        "cfg": "Adaptive win2 (sens.)",
+        "coded": 654659,
+        "hctx": 654338.201505211,
+        "enc_ms": 405.0957,
+        "dec_ms": 455.7475,
+        "exact": true,
+        "coupled_frac": 0.01911020278930664
+      },
+      {
+        "cfg": "Adaptive win6 (sens.)",
+        "coded": 656010,
+        "hctx": 655699.5436346995,
+        "enc_ms": 537.3122,
+        "dec_ms": 487.812,
+        "exact": true,
+        "coupled_frac": 0.02260112762451172
+      }
+    ]
+  },
+  {
+    "name": "portrait_0",
+    "category": "portrait",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "baseline SubG (frozen)",
+        "coded": 455539,
+        "hctx": 451378.85852698376,
+        "enc_ms": 235.8835,
+        "dec_ms": 217.5049,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "fixed Coupled",
+        "coded": 551392,
+        "hctx": 547512.4161987142,
+        "enc_ms": 257.8159,
+        "dec_ms": 267.2471,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Adaptive win4 (primary)",
+        "coded": 461748,
+        "hctx": 457568.6153364217,
+        "enc_ms": 289.7772,
+        "dec_ms": 315.8915,
+        "exact": true,
+        "coupled_frac": 0.006384849548339844
+      },
+      {
+        "cfg": "Adaptive win2 (sens.)",
+        "coded": 462357,
+        "hctx": 458170.5988095717,
+        "enc_ms": 295.9714,
+        "dec_ms": 306.35639999999995,
+        "exact": true,
+        "coupled_frac": 0.0067157745361328125
+      },
+      {
+        "cfg": "Adaptive win6 (sens.)",
+        "coded": 462710,
+        "hctx": 458508.8935025936,
+        "enc_ms": 344.9231,
+        "dec_ms": 381.2464,
+        "exact": true,
+        "coupled_frac": 0.009084701538085938
+      }
+    ]
+  },
+  {
+    "name": "pet_0",
+    "category": "pet",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "baseline SubG (frozen)",
+        "coded": 793308,
+        "hctx": 789392.2849228836,
+        "enc_ms": 258.64799999999997,
+        "dec_ms": 249.22250000000003,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "fixed Coupled",
+        "coded": 879790,
+        "hctx": 875864.7667486997,
+        "enc_ms": 246.5639,
+        "dec_ms": 268.3005,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Adaptive win4 (primary)",
+        "coded": 804932,
+        "hctx": 800709.4517740448,
+        "enc_ms": 363.9846,
+        "dec_ms": 371.7298,
+        "exact": true,
+        "coupled_frac": 0.03400230407714844
+      },
+      {
+        "cfg": "Adaptive win2 (sens.)",
+        "coded": 802448,
+        "hctx": 798293.4791737043,
+        "enc_ms": 319.2633,
+        "dec_ms": 335.91900000000004,
+        "exact": true,
+        "coupled_frac": 0.02672100067138672
+      },
+      {
+        "cfg": "Adaptive win6 (sens.)",
+        "coded": 807424,
+        "hctx": 803115.4784993607,
+        "enc_ms": 328.28839999999997,
+        "dec_ms": 354.78150000000005,
+        "exact": true,
+        "coupled_frac": 0.038472652435302734
+      }
+    ]
+  },
+  {
+    "name": "pet_1",
+    "category": "pet",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "baseline SubG (frozen)",
+        "coded": 857767,
+        "hctx": 850959.6593202738,
+        "enc_ms": 209.3216,
+        "dec_ms": 225.0873,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "fixed Coupled",
+        "coded": 953400,
+        "hctx": 946606.5816264699,
+        "enc_ms": 241.1925,
+        "dec_ms": 251.5542,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Adaptive win4 (primary)",
+        "coded": 873174,
+        "hctx": 866176.9553461858,
+        "enc_ms": 331.1459,
+        "dec_ms": 351.6357,
+        "exact": true,
+        "coupled_frac": 0.043157100677490234
+      },
+      {
+        "cfg": "Adaptive win2 (sens.)",
+        "coded": 869868,
+        "hctx": 862906.2122464994,
+        "enc_ms": 379.23580000000004,
+        "dec_ms": 539.734,
+        "exact": true,
+        "coupled_frac": 0.03404998779296875
+      },
+      {
+        "cfg": "Adaptive win6 (sens.)",
+        "coded": 875780,
+        "hctx": 868758.0299434422,
+        "enc_ms": 551.4523,
+        "dec_ms": 665.5174999999999,
+        "exact": true,
+        "coupled_frac": 0.04820728302001953
+      }
+    ]
+  },
+  {
+    "name": "pet2_0",
+    "category": "pet",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "baseline SubG (frozen)",
+        "coded": 859192,
+        "hctx": 854376.5322862836,
+        "enc_ms": 270.3598,
+        "dec_ms": 313.4657,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "fixed Coupled",
+        "coded": 984461,
+        "hctx": 979850.7596931838,
+        "enc_ms": 273.9244,
+        "dec_ms": 296.7652,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Adaptive win4 (primary)",
+        "coded": 879648,
+        "hctx": 874671.0886996269,
+        "enc_ms": 360.2822,
+        "dec_ms": 399.8607,
+        "exact": true,
+        "coupled_frac": 0.03940582275390625
+      },
+      {
+        "cfg": "Adaptive win2 (sens.)",
+        "coded": 878812,
+        "hctx": 873816.7054360269,
+        "enc_ms": 314.4982,
+        "dec_ms": 296.7053,
+        "exact": true,
+        "coupled_frac": 0.03815412521362305
+      },
+      {
+        "cfg": "Adaptive win6 (sens.)",
+        "coded": 879956,
+        "hctx": 874932.968742567,
+        "enc_ms": 340.561,
+        "dec_ms": 351.7,
+        "exact": true,
+        "coupled_frac": 0.04469776153564453
+      }
+    ]
+  },
+  {
+    "name": "pet2_1",
+    "category": "pet",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "baseline SubG (frozen)",
+        "coded": 528629,
+        "hctx": 523762.98842901207,
+        "enc_ms": 176.7641,
+        "dec_ms": 203.8354,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "fixed Coupled",
+        "coded": 624664,
+        "hctx": 622386.3520700968,
+        "enc_ms": 215.2585,
+        "dec_ms": 225.6453,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Adaptive win4 (primary)",
+        "coded": 536415,
+        "hctx": 531417.1501550907,
+        "enc_ms": 269.5238,
+        "dec_ms": 266.2335,
+        "exact": true,
+        "coupled_frac": 0.013559341430664062
+      },
+      {
+        "cfg": "Adaptive win2 (sens.)",
+        "coded": 536806,
+        "hctx": 531778.7134233303,
+        "enc_ms": 216.67239999999998,
+        "dec_ms": 232.5325,
+        "exact": true,
+        "coupled_frac": 0.013257980346679688
+      },
+      {
+        "cfg": "Adaptive win6 (sens.)",
+        "coded": 537149,
+        "hctx": 532092.6591882014,
+        "enc_ms": 263.90950000000004,
+        "dec_ms": 254.6308,
+        "exact": true,
+        "coupled_frac": 0.016228675842285156
+      }
+    ]
+  },
+  {
+    "name": "food_0",
+    "category": "food",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "baseline SubG (frozen)",
+        "coded": 1365488,
+        "hctx": 1357785.586806847,
+        "enc_ms": 213.55089999999998,
+        "dec_ms": 241.9598,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "fixed Coupled",
+        "coded": 1446257,
+        "hctx": 1441117.953960557,
+        "enc_ms": 237.1579,
+        "dec_ms": 271.6214,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Adaptive win4 (primary)",
+        "coded": 1370302,
+        "hctx": 1362564.6584947929,
+        "enc_ms": 305.32730000000004,
+        "dec_ms": 299.7574,
+        "exact": true,
+        "coupled_frac": 0.13642454147338867
+      },
+      {
+        "cfg": "Adaptive win2 (sens.)",
+        "coded": 1371547,
+        "hctx": 1363734.541697069,
+        "enc_ms": 265.2832,
+        "dec_ms": 270.062,
+        "exact": true,
+        "coupled_frac": 0.12721538543701172
+      },
+      {
+        "cfg": "Adaptive win6 (sens.)",
+        "coded": 1370286,
+        "hctx": 1362489.1332494025,
+        "enc_ms": 254.62709999999998,
+        "dec_ms": 271.16659999999996,
+        "exact": true,
+        "coupled_frac": 0.13409042358398438
+      }
+    ]
+  },
+  {
+    "name": "food_1",
+    "category": "food",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "baseline SubG (frozen)",
+        "coded": 795598,
+        "hctx": 787751.3172077626,
+        "enc_ms": 135.4058,
+        "dec_ms": 149.6958,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "fixed Coupled",
+        "coded": 919098,
+        "hctx": 911518.3465774086,
+        "enc_ms": 165.2653,
+        "dec_ms": 187.3411,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Adaptive win4 (primary)",
+        "coded": 811265,
+        "hctx": 803335.4279723486,
+        "enc_ms": 204.9185,
+        "dec_ms": 216.3242,
+        "exact": true,
+        "coupled_frac": 0.037418365478515625
+      },
+      {
+        "cfg": "Adaptive win2 (sens.)",
+        "coded": 810888,
+        "hctx": 802929.1490235453,
+        "enc_ms": 191.62380000000002,
+        "dec_ms": 204.77429999999998,
+        "exact": true,
+        "coupled_frac": 0.03658771514892578
+      },
+      {
+        "cfg": "Adaptive win6 (sens.)",
+        "coded": 811645,
+        "hctx": 803672.9333003111,
+        "enc_ms": 213.7363,
+        "dec_ms": 230.37550000000002,
+        "exact": true,
+        "coupled_frac": 0.041384220123291016
+      }
+    ]
+  },
+  {
+    "name": "foliage_0",
+    "category": "foliage",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "baseline SubG (frozen)",
+        "coded": 1280760,
+        "hctx": 1269222.6120425053,
+        "enc_ms": 167.0643,
+        "dec_ms": 181.5427,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "fixed Coupled",
+        "coded": 1327836,
+        "hctx": 1316182.2173629384,
+        "enc_ms": 184.6388,
+        "dec_ms": 197.7531,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Adaptive win4 (primary)",
+        "coded": 1262524,
+        "hctx": 1251148.195382252,
+        "enc_ms": 240.0426,
+        "dec_ms": 247.685,
+        "exact": true,
+        "coupled_frac": 0.11834144592285156
+      },
+      {
+        "cfg": "Adaptive win2 (sens.)",
+        "coded": 1272447,
+        "hctx": 1260936.987777563,
+        "enc_ms": 251.6356,
+        "dec_ms": 291.8975,
+        "exact": true,
+        "coupled_frac": 0.09781217575073242
+      },
+      {
+        "cfg": "Adaptive win6 (sens.)",
+        "coded": 1262349,
+        "hctx": 1250949.7624901882,
+        "enc_ms": 537.5852,
+        "dec_ms": 483.2907,
+        "exact": true,
+        "coupled_frac": 0.12623834609985352
+      }
+    ]
+  },
+  {
+    "name": "foliage_1",
+    "category": "foliage",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "baseline SubG (frozen)",
+        "coded": 669030,
+        "hctx": 661691.4811970893,
+        "enc_ms": 211.0102,
+        "dec_ms": 270.4656,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "fixed Coupled",
+        "coded": 785141,
+        "hctx": 778079.0173397402,
+        "enc_ms": 220.5959,
+        "dec_ms": 245.9888,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Adaptive win4 (primary)",
+        "coded": 680941,
+        "hctx": 673538.4050230407,
+        "enc_ms": 355.42420000000004,
+        "dec_ms": 366.4408,
+        "exact": true,
+        "coupled_frac": 0.019854068756103516
+      },
+      {
+        "cfg": "Adaptive win2 (sens.)",
+        "coded": 681229,
+        "hctx": 673813.8189414879,
+        "enc_ms": 265.4767,
+        "dec_ms": 264.54359999999997,
+        "exact": true,
+        "coupled_frac": 0.01973247528076172
+      },
+      {
+        "cfg": "Adaptive win6 (sens.)",
+        "coded": 681861,
+        "hctx": 674446.75473082,
+        "enc_ms": 271.9863,
+        "dec_ms": 333.84580000000005,
+        "exact": true,
+        "coupled_frac": 0.02388143539428711
+      }
+    ]
+  },
+  {
+    "name": "night_0",
+    "category": "night",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "baseline SubG (frozen)",
+        "coded": 1999783,
+        "hctx": 1982857.2730941789,
+        "enc_ms": 212.5862,
+        "dec_ms": 286.88399999999996,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "fixed Coupled",
+        "coded": 1986408,
+        "hctx": 1971519.5455483142,
+        "enc_ms": 230.5273,
+        "dec_ms": 277.1175,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Adaptive win4 (primary)",
+        "coded": 1979953,
+        "hctx": 1963942.8074342904,
+        "enc_ms": 307.1857,
+        "dec_ms": 369.8665,
+        "exact": true,
+        "coupled_frac": 0.2847723960876465
+      },
+      {
+        "cfg": "Adaptive win2 (sens.)",
+        "coded": 1984782,
+        "hctx": 1968395.5170833103,
+        "enc_ms": 351.15200000000004,
+        "dec_ms": 333.63169999999997,
+        "exact": true,
+        "coupled_frac": 0.2458343505859375
+      },
+      {
+        "cfg": "Adaptive win6 (sens.)",
+        "coded": 1979621,
+        "hctx": 1963709.005468058,
+        "enc_ms": 331.8591,
+        "dec_ms": 373.02930000000003,
+        "exact": true,
+        "coupled_frac": 0.2973799705505371
+      }
+    ]
+  },
+  {
+    "name": "night_1",
+    "category": "night",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "baseline SubG (frozen)",
+        "coded": 670877,
+        "hctx": 670267.6368465686,
+        "enc_ms": 173.20589999999999,
+        "dec_ms": 146.60039999999998,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "fixed Coupled",
+        "coded": 754252,
+        "hctx": 760959.898709083,
+        "enc_ms": 190.3158,
+        "dec_ms": 211.3947,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Adaptive win4 (primary)",
+        "coded": 681077,
+        "hctx": 680011.2826070997,
+        "enc_ms": 241.1747,
+        "dec_ms": 290.66110000000003,
+        "exact": true,
+        "coupled_frac": 0.02743387222290039
+      },
+      {
+        "cfg": "Adaptive win2 (sens.)",
+        "coded": 679346,
+        "hctx": 678350.5757557281,
+        "enc_ms": 169.2747,
+        "dec_ms": 194.501,
+        "exact": true,
+        "coupled_frac": 0.021578311920166016
+      },
+      {
+        "cfg": "Adaptive win6 (sens.)",
+        "coded": 682823,
+        "hctx": 681659.0254928295,
+        "enc_ms": 221.66459999999998,
+        "dec_ms": 298.86109999999996,
+        "exact": true,
+        "coupled_frac": 0.03076457977294922
+      }
+    ]
+  },
+  {
+    "name": "blurry_0",
+    "category": "blurry",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "baseline SubG (frozen)",
+        "coded": 1133209,
+        "hctx": 1124202.7631917666,
+        "enc_ms": 193.53629999999998,
+        "dec_ms": 216.1337,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "fixed Coupled",
+        "coded": 1227435,
+        "hctx": 1218374.0958197962,
+        "enc_ms": 190.13250000000002,
+        "dec_ms": 214.38979999999998,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Adaptive win4 (primary)",
+        "coded": 1155044,
+        "hctx": 1145936.2269623228,
+        "enc_ms": 237.2396,
+        "dec_ms": 285.6767,
+        "exact": true,
+        "coupled_frac": 0.12098407745361328
+      },
+      {
+        "cfg": "Adaptive win2 (sens.)",
+        "coded": 1152516,
+        "hctx": 1143398.9764280017,
+        "enc_ms": 243.2688,
+        "dec_ms": 255.72859999999997,
+        "exact": true,
+        "coupled_frac": 0.1132054328918457
+      },
+      {
+        "cfg": "Adaptive win6 (sens.)",
+        "coded": 1153118,
+        "hctx": 1144010.1825907435,
+        "enc_ms": 244.8448,
+        "dec_ms": 267.1647,
+        "exact": true,
+        "coupled_frac": 0.1159677505493164
+      }
+    ]
+  },
+  {
+    "name": "blurry_1",
+    "category": "blurry",
+    "src": "png",
+    "samples": 4194304,
+    "runs": [
+      {
+        "cfg": "baseline SubG (frozen)",
+        "coded": 785024,
+        "hctx": 786893.5402303196,
+        "enc_ms": 185.1167,
+        "dec_ms": 202.48479999999998,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "fixed Coupled",
+        "coded": 841350,
+        "hctx": 841571.9302012483,
+        "enc_ms": 195.4716,
+        "dec_ms": 209.8326,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Adaptive win4 (primary)",
+        "coded": 791382,
+        "hctx": 792964.501336671,
+        "enc_ms": 241.7468,
+        "dec_ms": 261.05460000000005,
+        "exact": true,
+        "coupled_frac": 0.034862518310546875
+      },
+      {
+        "cfg": "Adaptive win2 (sens.)",
+        "coded": 790083,
+        "hctx": 791772.9142870789,
+        "enc_ms": 241.19899999999998,
+        "dec_ms": 243.6565,
+        "exact": true,
+        "coupled_frac": 0.022531509399414062
+      },
+      {
+        "cfg": "Adaptive win6 (sens.)",
+        "coded": 792458,
+        "hctx": 793968.332177936,
+        "enc_ms": 285.4252,
+        "dec_ms": 286.51919999999996,
+        "exact": true,
+        "coupled_frac": 0.03914356231689453
+      }
+    ]
+  },
+  {
+    "name": "text_0",
+    "category": "text",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "baseline SubG (frozen)",
+        "coded": 622632,
+        "hctx": 614338.2242294468,
+        "enc_ms": 143.259,
+        "dec_ms": 165.48930000000001,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "fixed Coupled",
+        "coded": 709766,
+        "hctx": 702367.4340748468,
+        "enc_ms": 168.7209,
+        "dec_ms": 182.0366,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Adaptive win4 (primary)",
+        "coded": 629054,
+        "hctx": 620835.8985712442,
+        "enc_ms": 205.63799999999998,
+        "dec_ms": 217.21579999999997,
+        "exact": true,
+        "coupled_frac": 0.03765392303466797
+      },
+      {
+        "cfg": "Adaptive win2 (sens.)",
+        "coded": 627685,
+        "hctx": 619476.1051571071,
+        "enc_ms": 251.60870000000003,
+        "dec_ms": 260.72650000000004,
+        "exact": true,
+        "coupled_frac": 0.03318977355957031
+      },
+      {
+        "cfg": "Adaptive win6 (sens.)",
+        "coded": 629148,
+        "hctx": 620930.6023713159,
+        "enc_ms": 397.8491,
+        "dec_ms": 446.1025,
+        "exact": true,
+        "coupled_frac": 0.040195465087890625
+      }
+    ]
+  },
+  {
+    "name": "text_1",
+    "category": "text",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "baseline SubG (frozen)",
+        "coded": 1136704,
+        "hctx": 1132772.764513883,
+        "enc_ms": 280.776,
+        "dec_ms": 311.4838,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "fixed Coupled",
+        "coded": 1214329,
+        "hctx": 1213351.1943952404,
+        "enc_ms": 347.0301,
+        "dec_ms": 375.2747,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Adaptive win4 (primary)",
+        "coded": 1149102,
+        "hctx": 1144957.404463019,
+        "enc_ms": 383.6017,
+        "dec_ms": 364.1531,
+        "exact": true,
+        "coupled_frac": 0.06400680541992188
+      },
+      {
+        "cfg": "Adaptive win2 (sens.)",
+        "coded": 1147363,
+        "hctx": 1143268.3914841262,
+        "enc_ms": 502.16209999999995,
+        "dec_ms": 495.5156,
+        "exact": true,
+        "coupled_frac": 0.04962301254272461
+      },
+      {
+        "cfg": "Adaptive win6 (sens.)",
+        "coded": 1150283,
+        "hctx": 1146101.0780346568,
+        "enc_ms": 537.8176,
+        "dec_ms": 480.8308,
+        "exact": true,
+        "coupled_frac": 0.06817817687988281
+      }
+    ]
+  },
+  {
+    "name": "document_0",
+    "category": "document",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "baseline SubG (frozen)",
+        "coded": 548420,
+        "hctx": 541169.314252402,
+        "enc_ms": 268.8064,
+        "dec_ms": 261.8873,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "fixed Coupled",
+        "coded": 596624,
+        "hctx": 589390.4055116378,
+        "enc_ms": 360.86220000000003,
+        "dec_ms": 334.976,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Adaptive win4 (primary)",
+        "coded": 550377,
+        "hctx": 543117.8095290799,
+        "enc_ms": 417.6237,
+        "dec_ms": 362.2502,
+        "exact": true,
+        "coupled_frac": 0.0015401840209960938
+      },
+      {
+        "cfg": "Adaptive win2 (sens.)",
+        "coded": 550842,
+        "hctx": 543579.7707393185,
+        "enc_ms": 373.80609999999996,
+        "dec_ms": 387.8628,
+        "exact": true,
+        "coupled_frac": 0.0018391609191894531
+      },
+      {
+        "cfg": "Adaptive win6 (sens.)",
+        "coded": 550967,
+        "hctx": 543698.8940709783,
+        "enc_ms": 455.60970000000003,
+        "dec_ms": 454.37579999999997,
+        "exact": true,
+        "coupled_frac": 0.0024623870849609375
+      }
+    ]
+  },
+  {
+    "name": "document_1",
+    "category": "document",
+    "src": "jpeg",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "baseline SubG (frozen)",
+        "coded": 434033,
+        "hctx": 428474.3084882754,
+        "enc_ms": 286.5524,
+        "dec_ms": 299.9871,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "fixed Coupled",
+        "coded": 474150,
+        "hctx": 468958.336172787,
+        "enc_ms": 285.3122,
+        "dec_ms": 360.4454,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Adaptive win4 (primary)",
+        "coded": 434081,
+        "hctx": 428398.6961394369,
+        "enc_ms": 426.2995,
+        "dec_ms": 381.4069,
+        "exact": true,
+        "coupled_frac": 0.0077190399169921875
+      },
+      {
+        "cfg": "Adaptive win2 (sens.)",
+        "coded": 435845,
+        "hctx": 430172.6036260539,
+        "enc_ms": 374.8512,
+        "dec_ms": 404.2525,
+        "exact": true,
+        "coupled_frac": 0.005416393280029297
+      },
+      {
+        "cfg": "Adaptive win6 (sens.)",
+        "coded": 434373,
+        "hctx": 428631.47043867956,
+        "enc_ms": 411.42859999999996,
+        "dec_ms": 497.4544,
+        "exact": true,
+        "coupled_frac": 0.00975942611694336
+      }
+    ]
+  },
+  {
+    "name": "screen_0",
+    "category": "screen",
+    "src": "png",
+    "samples": 4194304,
+    "runs": [
+      {
+        "cfg": "baseline SubG (frozen)",
+        "coded": 171930,
+        "hctx": 161362.8778779538,
+        "enc_ms": 251.7385,
+        "dec_ms": 263.5402,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "fixed Coupled",
+        "coded": 171715,
+        "hctx": 162142.36603639252,
+        "enc_ms": 219.5279,
+        "dec_ms": 260.2347,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Adaptive win4 (primary)",
+        "coded": 168820,
+        "hctx": 158460.34733456446,
+        "enc_ms": 261.4729,
+        "dec_ms": 203.8976,
+        "exact": true,
+        "coupled_frac": 0.005206584930419922
+      },
+      {
+        "cfg": "Adaptive win2 (sens.)",
+        "coded": 169834,
+        "hctx": 159409.51752630167,
+        "enc_ms": 215.7202,
+        "dec_ms": 148.6118,
+        "exact": true,
+        "coupled_frac": 0.004039287567138672
+      },
+      {
+        "cfg": "Adaptive win6 (sens.)",
+        "coded": 168744,
+        "hctx": 158391.09921462447,
+        "enc_ms": 215.5117,
+        "dec_ms": 184.22830000000002,
+        "exact": true,
+        "coupled_frac": 0.0053577423095703125
+      }
+    ]
+  },
+  {
+    "name": "screen_1",
+    "category": "screen",
+    "src": "png",
+    "samples": 4194304,
+    "runs": [
+      {
+        "cfg": "baseline SubG (frozen)",
+        "coded": 191128,
+        "hctx": 187395.10085611223,
+        "enc_ms": 140.9754,
+        "dec_ms": 147.6189,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "fixed Coupled",
+        "coded": 175656,
+        "hctx": 171999.62386517535,
+        "enc_ms": 116.65780000000001,
+        "dec_ms": 128.2954,
+        "exact": true,
+        "coupled_frac": 0.0
+      },
+      {
+        "cfg": "Adaptive win4 (primary)",
+        "coded": 183344,
+        "hctx": 179274.00511495376,
+        "enc_ms": 155.20059999999998,
+        "dec_ms": 183.9939,
+        "exact": true,
+        "coupled_frac": 0.019947528839111328
+      },
+      {
+        "cfg": "Adaptive win2 (sens.)",
+        "coded": 185685,
+        "hctx": 181633.85288997987,
+        "enc_ms": 143.6695,
+        "dec_ms": 168.6353,
+        "exact": true,
+        "coupled_frac": 0.016784191131591797
+      },
+      {
+        "cfg": "Adaptive win6 (sens.)",
+        "coded": 183389,
+        "hctx": 179274.61389479757,
+        "enc_ms": 255.67319999999998,
+        "dec_ms": 150.5969,
+        "exact": true,
+        "coupled_frac": 0.021312236785888672
+      }
+    ]
+  }
+]
