@@ -33,6 +33,9 @@ pub enum In {
     C,
     /// wide error energy over 8 neighbours(8) x fine prev-plane magnitude(8)
     D,
+    /// A x MED branch identity (min / max / gradient), 32*3 = 96 contexts. Promoted N3: replaces `A` in `x4_cfg`.
+    /// `A` stays as the frozen M6-M8 baseline context so those probes keep reproducing their reports.
+    Ab,
 }
 const MAG_CTX: usize = 96;
 
@@ -136,6 +139,11 @@ pub struct XCfg {
     pub sign_ctx: bool,
     pub bias: Bias,
     pub ens: Ens,
+}
+
+/// The production X4 configuration (N3: context A carries the MED branch). The frozen M6 X4 is the same config with `In::A`.
+pub fn x4_cfg() -> XCfg {
+    XCfg { name: "X4", inputs: vec![In::Ab, In::B, In::C, In::D], sign_ctx: true, bias: Bias::Off, ens: Ens::Off }
 }
 
 struct Tables {
@@ -507,6 +515,11 @@ pub fn run_x<I: BitIo>(pl: &mut Planes, cfg: &XCfg, coder: &mut Coder, io: &mut 
                 for (s, kind) in cfg.inputs.iter().enumerate() {
                     mc[s] = match kind {
                         In::A => act * 4 + pq,
+                        In::Ab => {
+                            let (mx, mn) = (nb.w.max(nb.n), nb.w.min(nb.n));
+                            let br = if nb.nw >= mx { 0 } else if nb.nw <= mn { 1 } else { 2 };
+                            (act * 4 + pq) * 3 + br
+                        }
                         In::B => (prev_q(zw) * 4 + prev_q(zn)) * 4 + pq,
                         In::C => (act * 3 + err_level(e)) * 4 + pq,
                         In::D => {

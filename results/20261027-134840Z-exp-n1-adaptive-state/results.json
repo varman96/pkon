@@ -1,0 +1,290 @@
+[
+  {
+    "name": "indoor_0",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "V0 cold (X4 as shipped)",
+        "coded": 357324,
+        "enc_ms": 268.805,
+        "dec_ms": 288.5394,
+        "exact": true
+      },
+      {
+        "cfg": "V1 primed, all state, counts kept",
+        "coded": 357616,
+        "enc_ms": 430.5058,
+        "dec_ms": 514.2211,
+        "exact": true
+      },
+      {
+        "cfg": "V2 primed, all state, counts capped at 30",
+        "coded": 357344,
+        "enc_ms": 1280.7505999999998,
+        "dec_ms": 560.9966,
+        "exact": true
+      },
+      {
+        "cfg": "V3 primed, mixer weights only",
+        "coded": 357388,
+        "enc_ms": 453.6103,
+        "dec_ms": 355.4176,
+        "exact": true
+      },
+      {
+        "cfg": "V4 primed, counters+tail only (cap 30), mixer cold",
+        "coded": 357291,
+        "enc_ms": 302.2837,
+        "dec_ms": 303.199,
+        "exact": true
+      },
+      {
+        "cfg": "V5 SAME-IMAGE prime, all state (contaminated upper bound)",
+        "coded": 356976,
+        "enc_ms": 261.5202,
+        "dec_ms": 278.41139999999996,
+        "exact": true
+      }
+    ]
+  },
+  {
+    "name": "document_1",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "V0 cold (X4 as shipped)",
+        "coded": 413671,
+        "enc_ms": 562.557,
+        "dec_ms": 964.8630999999999,
+        "exact": true
+      },
+      {
+        "cfg": "V1 primed, all state, counts kept",
+        "coded": 414438,
+        "enc_ms": 984.5844999999999,
+        "dec_ms": 885.3401,
+        "exact": true
+      },
+      {
+        "cfg": "V2 primed, all state, counts capped at 30",
+        "coded": 413884,
+        "enc_ms": 877.4118,
+        "dec_ms": 696.9272,
+        "exact": true
+      },
+      {
+        "cfg": "V3 primed, mixer weights only",
+        "coded": 413758,
+        "enc_ms": 471.8328,
+        "dec_ms": 403.8548,
+        "exact": true
+      },
+      {
+        "cfg": "V4 primed, counters+tail only (cap 30), mixer cold",
+        "coded": 413811,
+        "enc_ms": 311.4622,
+        "dec_ms": 388.6475,
+        "exact": true
+      },
+      {
+        "cfg": "V5 SAME-IMAGE prime, all state (contaminated upper bound)",
+        "coded": 413429,
+        "enc_ms": 349.0929,
+        "dec_ms": 353.8635,
+        "exact": true
+      }
+    ]
+  },
+  {
+    "name": "outdoor_1",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "V0 cold (X4 as shipped)",
+        "coded": 500260,
+        "enc_ms": 362.23810000000003,
+        "dec_ms": 453.0405,
+        "exact": true
+      },
+      {
+        "cfg": "V1 primed, all state, counts kept",
+        "coded": 500849,
+        "enc_ms": 407.2581,
+        "dec_ms": 355.5433,
+        "exact": true
+      },
+      {
+        "cfg": "V2 primed, all state, counts capped at 30",
+        "coded": 500341,
+        "enc_ms": 416.157,
+        "dec_ms": 429.4436,
+        "exact": true
+      },
+      {
+        "cfg": "V3 primed, mixer weights only",
+        "coded": 500236,
+        "enc_ms": 621.5402,
+        "dec_ms": 663.1606,
+        "exact": true
+      },
+      {
+        "cfg": "V4 primed, counters+tail only (cap 30), mixer cold",
+        "coded": 500388,
+        "enc_ms": 1042.2958,
+        "dec_ms": 906.9663,
+        "exact": true
+      },
+      {
+        "cfg": "V5 SAME-IMAGE prime, all state (contaminated upper bound)",
+        "coded": 499890,
+        "enc_ms": 385.7061,
+        "dec_ms": 351.87190000000004,
+        "exact": true
+      }
+    ]
+  },
+  {
+    "name": "pet_1",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "V0 cold (X4 as shipped)",
+        "coded": 820140,
+        "enc_ms": 388.8321,
+        "dec_ms": 426.184,
+        "exact": true
+      },
+      {
+        "cfg": "V1 primed, all state, counts kept",
+        "coded": 820278,
+        "enc_ms": 423.2561,
+        "dec_ms": 458.7474,
+        "exact": true
+      },
+      {
+        "cfg": "V2 primed, all state, counts capped at 30",
+        "coded": 820024,
+        "enc_ms": 425.0221,
+        "dec_ms": 509.50680000000006,
+        "exact": true
+      },
+      {
+        "cfg": "V3 primed, mixer weights only",
+        "coded": 820126,
+        "enc_ms": 413.23470000000003,
+        "dec_ms": 497.7282,
+        "exact": true
+      },
+      {
+        "cfg": "V4 primed, counters+tail only (cap 30), mixer cold",
+        "coded": 820045,
+        "enc_ms": 416.03040000000004,
+        "dec_ms": 464.05429999999996,
+        "exact": true
+      },
+      {
+        "cfg": "V5 SAME-IMAGE prime, all state (contaminated upper bound)",
+        "coded": 819727,
+        "enc_ms": 438.3547,
+        "dec_ms": 554.2973,
+        "exact": true
+      }
+    ]
+  },
+  {
+    "name": "foliage_0",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "V0 cold (X4 as shipped)",
+        "coded": 1214450,
+        "enc_ms": 538.3439,
+        "dec_ms": 632.6629,
+        "exact": true
+      },
+      {
+        "cfg": "V1 primed, all state, counts kept",
+        "coded": 1214663,
+        "enc_ms": 561.4302,
+        "dec_ms": 551.4869,
+        "exact": true
+      },
+      {
+        "cfg": "V2 primed, all state, counts capped at 30",
+        "coded": 1214355,
+        "enc_ms": 565.469,
+        "dec_ms": 602.2123,
+        "exact": true
+      },
+      {
+        "cfg": "V3 primed, mixer weights only",
+        "coded": 1214419,
+        "enc_ms": 586.7816,
+        "dec_ms": 665.0216,
+        "exact": true
+      },
+      {
+        "cfg": "V4 primed, counters+tail only (cap 30), mixer cold",
+        "coded": 1214402,
+        "enc_ms": 553.6908999999999,
+        "dec_ms": 612.7108,
+        "exact": true
+      },
+      {
+        "cfg": "V5 SAME-IMAGE prime, all state (contaminated upper bound)",
+        "coded": 1213918,
+        "enc_ms": 617.1881999999999,
+        "dec_ms": 596.6631,
+        "exact": true
+      }
+    ]
+  },
+  {
+    "name": "night_0",
+    "samples": 3145728,
+    "runs": [
+      {
+        "cfg": "V0 cold (X4 as shipped)",
+        "coded": 1946369,
+        "enc_ms": 774.9690999999999,
+        "dec_ms": 881.9048,
+        "exact": true
+      },
+      {
+        "cfg": "V1 primed, all state, counts kept",
+        "coded": 1946792,
+        "enc_ms": 800.8973000000001,
+        "dec_ms": 794.6963000000001,
+        "exact": true
+      },
+      {
+        "cfg": "V2 primed, all state, counts capped at 30",
+        "coded": 1946423,
+        "enc_ms": 841.3525,
+        "dec_ms": 863.6325,
+        "exact": true
+      },
+      {
+        "cfg": "V3 primed, mixer weights only",
+        "coded": 1946425,
+        "enc_ms": 776.0289,
+        "dec_ms": 804.559,
+        "exact": true
+      },
+      {
+        "cfg": "V4 primed, counters+tail only (cap 30), mixer cold",
+        "coded": 1946390,
+        "enc_ms": 768.2904000000001,
+        "dec_ms": 944.637,
+        "exact": true
+      },
+      {
+        "cfg": "V5 SAME-IMAGE prime, all state (contaminated upper bound)",
+        "coded": 1945557,
+        "enc_ms": 1083.4727,
+        "dec_ms": 1643.2493,
+        "exact": true
+      }
+    ]
+  }
+]

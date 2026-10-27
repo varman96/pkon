@@ -97,3 +97,14 @@ fn weighted_ensemble_round_trips_exactly() {
         }
     }
 }
+
+#[test]
+fn production_x4_with_med_branch_round_trips_exactly() {
+    use nanoscope::pkon2x::*;
+    let cfg = x4_cfg();
+    assert!(cfg.inputs.contains(&In::Ab) && !cfg.inputs.contains(&In::A));
+    for e in synthetic().iter().filter(|e| supported(&e.image.spec)) {
+        let o = measure_x(&e.image, &cfg);
+        assert!(o.exact, "{} did not round-trip", e.name);
+    }
+}
