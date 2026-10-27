@@ -10,7 +10,7 @@ All multi-byte integers are **little-endian, unsigned**. A file is exactly: `hea
 | 0 | 4 | `magic` | `89 50 4B 32` (`\x89PK2`) | Mismatch -> `BadMagic`. High-bit first byte detects 7-bit stripping; not a ZIP (`PK\x03\x04`) or PNG signature. |
 | 4 | 1 | `version` | `1` | Any other value -> `UnsupportedVersion`. Single integer: a new version means a new layout/semantics; there is no minor version. |
 | 5 | 1 | `flags` | `0` | Every bit is reserved and mandatory-to-understand; non-zero -> `ReservedFlags`. Writers MUST write 0. |
-| 6 | 1 | `codec` | `1` | Codec id (section 3). Unknown -> `UnsupportedCodec`; never substituted. |
+| 6 | 1 | `codec` | `1` or `2` | Codec id (section 3). Writers use 2; readers MUST accept both. Unknown -> `UnsupportedCodec`; never substituted. |
 | 7 | 1 | `pixel_format` | `0` gray8, `1` gray+alpha8, `2` RGB8, `3` RGBA8 | Unknown -> `UnsupportedPixelFormat`. Determines channel count and plane mapping. |
 | 8 | 4 | `width` | 1 ..= limit | 0 -> `InvalidDimensions`. |
 | 12 | 4 | `height` | 1 ..= limit | 0 -> `InvalidDimensions`. |
@@ -40,7 +40,7 @@ colour-space conversion, normalisation, resampling or channel dropping occurs. *
 16-bit or float samples, palettes, ICC profiles, EXIF, orientation, animation, multiple frames, tiling, arbitrary metadata.
 The encoder returns `UnsupportedImage` for 16-bit input rather than converting.
 
-## 3. Codec id 1 and its mapping to the internal stream
+## 3. Codec ids 1 and 2 and their mapping to the internal stream
 
 `codec = 1` means "PKON2 X4 as promoted by N3", frozen as:
 
@@ -62,6 +62,22 @@ Independent-implementation note: the payload is *defined by* the reference algor
 (predictor, contexts, mixer, integer tables). There is no prose specification of that model beyond those sources; a
 second implementation must reproduce them bit-exactly, including the `f64`-derived stretch/squash/rate tables built in
 `pkon2x::tables()`.
+
+### Codec id 2 (PKON2P): X4 plus predictor disagreement
+
+`codec = 2` is codec 1 with exactly one additional mixer input and nothing else changed (same planes, `SubG`, MED prediction, contexts
+`Ab,B,C,D`, sign contexts, binarization, range coder, tables). `pkonfile::codec2_cfg()` = `XCfg { inputs: [Ab, B, C, D, P], sign_ctx: true,
+bias: Off, ens: Off }`. Version stays 1 and the header layout is unchanged; per section 5 a new model is a new codec id.
+
+* Feature `P` (49 classes) = `qd(GAP - MED) * 7 + qd(GRAD - MED)`, where MED, GAP and GRAD are the predictions `pkon2::predict(Med|Grad)` and
+  `pkon2::gap` of the current plane from already-decoded pixels (W, N, NW, NE, WW, NN, NNE; outside-image pixels substituted exactly as for MED),
+  `GRAD = clamp(W + N - NW, 0, 255)` (`pkon2::predict(Pred::Grad)`), and
+  `qd(d)` = 0 for d <= -9, 1 for -8..-3, 2 for -2..-1, 3 for 0, 4 for 1..2, 5 for 3..8, 6 for d >= 9.
+* P is the 5th (last) input of every magnitude decision (context = P, probability table = per plane x P x node) and the 4th input of the sign decision.
+  Its mixer weight starts at 0 (the other inputs keep their codec-1 initial weights 1.25/4 and 1.25/3), then adapts with the same rule as the others.
+* Adaptive-state update order is unchanged: after each coded bit every input's probability and the mixer weights update.
+* Decoders MUST implement both codecs. A codec-1 file is never reinterpreted as codec 2 (the stream differs, so a patched codec byte fails the pixel CRC).
+* Compatibility: all files written before codec 2 (codec byte 1) decode unchanged; `tests/golden_codec1/` holds 44 such files from the pre-change encoder.
 
 ## 4. Integrity
 
@@ -100,6 +116,6 @@ input slice, never trusted for allocation. Peak decode memory is roughly 3-4x th
 
 ## 7. API (`nanoscope::pkonfile`)
 
-`encode(&Canonical) -> Result<Vec<u8>, PkonError>`; `decode(&[u8]) -> Result<Canonical, PkonError>` (metadata is in
+`encode(&Canonical) -> Result<Vec<u8>, PkonError>` (codec 2); `encode_with_codec(&Canonical, codec)` (1 or 2); `decode(&[u8]) -> Result<Canonical, PkonError>` (metadata is in
 `.spec`); `decode_with_limit`; `parse_header` / `parse_header_with_limit` -> `Header { spec, codec, payload_len, crc32 }`
-(header-only validation, no payload access); `encode_payload` / `decode_payload` (bare stream); `crc32`.
+(header-only validation, no payload access); `encode_payload` / `decode_payload` (bare codec-1 stream); `encode_payload_codec` / `decode_payload_codec` (either codec); `crc32`.

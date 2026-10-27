@@ -6,5 +6,7 @@ pub mod envinfo;
 pub mod ext;
 pub mod pkon2;
 pub mod pkon2x;
+pub mod pkonlearn;
+pub mod pkonrel;
 pub mod pkonfile;
 pub mod verify;

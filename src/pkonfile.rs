@@ -1,12 +1,12 @@
 //! The `.pkon2` container, format version 1. Normative spec: `docs/pkon2-format-v1.md`.
 //!
-//! A file is a fixed 24-byte header followed by exactly `payload_len` bytes of PKON2 X4 range-coder stream (the
-//! unchanged output of `pkon2x::run_x` + `BinEnc::finish`). All integers are little-endian and written/read byte by
+//! A file is a fixed 24-byte header followed by exactly `payload_len` bytes of PKON2 range-coder stream (the
+//! unchanged output of `pkon2x::run_x` + `BinEnc::finish`); codec 1 = X4, codec 2 = X4 + predictor disagreement (X4P). All integers are little-endian and written/read byte by
 //! byte; nothing here depends on struct layout or host endianness. Parsing (`parse_header`), validation, and the
 //! pixel pipeline (`encode_payload` / `decode_payload`) are separate functions so each can be audited on its own.
 use crate::canon::{Canonical, Layout, Spec};
 use crate::pkon2::{color_fwd, color_inv, to_planes, Color, Planes};
-use crate::pkon2x::{run_x, BinDec, BinEnc, Coder, In, XCfg, Bias, Ens};
+use crate::pkon2x::{run_x, x4p_cfg, BinDec, BinEnc, Coder, In, XCfg, Bias, Ens};
 use std::fmt;
 
 pub const MAGIC: [u8; 4] = [0x89, b'P', b'K', b'2'];
@@ -16,6 +16,11 @@ pub const HEADER_LEN: usize = 24;
 /// Codec id 1: PKON2 X4 as promoted by N3 (inputs Ab,B,C,D; sign contexts; no bias; no ensemble), planes coded in
 /// G,R,B,(A) order for RGB(A) / natural order otherwise, SubG colour transform when >= 3 planes.
 pub const CODEC_X4: u8 = 1;
+/// Codec id 2: codec 1 plus the predictor-disagreement mixer input (`In::P`, PKON2P), nothing else changed. This is what `encode` writes.
+/// Files with codec id 1 remain valid and decodable; `encode_with_codec(img, CODEC_X4)` still produces them.
+pub const CODEC_X4P: u8 = 2;
+/// The codec `encode` uses.
+pub const CODEC_CURRENT: u8 = CODEC_X4P;
 
 /// Default resource policy: largest reconstructed pixel buffer a decode will allocate. Peak decode memory is about
 /// 3-4x this (planes + two residual planes + output). Raise per call with `decode_with_limit`.
@@ -141,7 +146,7 @@ pub fn parse_header_with_limit(bytes: &[u8], max_decoded_bytes: u64) -> Result<H
     if bytes[5] != 0 {
         return Err(PkonError::ReservedFlags(bytes[5]));
     }
-    if bytes[6] != CODEC_X4 {
+    if bytes[6] != CODEC_X4 && bytes[6] != CODEC_X4P {
         return Err(PkonError::UnsupportedCodec(bytes[6]));
     }
     let layout = format_layout(bytes[7]).ok_or(PkonError::UnsupportedPixelFormat(bytes[7]))?;
@@ -169,6 +174,18 @@ fn codec1_cfg() -> XCfg {
     XCfg { name: "X4", inputs: vec![In::Ab, In::B, In::C, In::D], sign_ctx: true, bias: Bias::Off, ens: Ens::Off }
 }
 
+/// The frozen configuration behind codec id 2, spelled out for the same reason as `codec1_cfg`.
+fn codec2_cfg() -> XCfg {
+    XCfg { name: "X4P", inputs: vec![In::Ab, In::B, In::C, In::D, In::P], sign_ctx: true, bias: Bias::Off, ens: Ens::Off }
+}
+
+fn cfg_for(codec: u8) -> XCfg {
+    match codec {
+        CODEC_X4 => codec1_cfg(),
+        _ => codec2_cfg(),
+    }
+}
+
 /// Coding-order plane -> interleaved channel index. RGB(A) is coded as G,R,B,(A); gray(+alpha) in natural order.
 fn plane_channels(l: Layout) -> &'static [usize] {
     match l {
@@ -179,9 +196,14 @@ fn plane_channels(l: Layout) -> &'static [usize] {
     }
 }
 
-/// The bare X4 range-coder stream for `img` (what `measure_x` counts, minus its notional 11 header bytes).
+/// The bare codec-1 (X4) range-coder stream for `img` (what `measure_x` counts, minus its notional 11 header bytes).
 pub fn encode_payload(img: &Canonical) -> Vec<u8> {
-    let cfg = codec1_cfg();
+    encode_payload_codec(img, CODEC_X4)
+}
+
+/// The bare range-coder stream of codec `codec` (1 or 2).
+pub fn encode_payload_codec(img: &Canonical, codec: u8) -> Vec<u8> {
+    let cfg = cfg_for(codec);
     let mut work = to_planes(img);
     color_fwd(&mut work, Color::SubG);
     let mut coder = Coder::new(work.p.len(), &cfg);
@@ -190,9 +212,14 @@ pub fn encode_payload(img: &Canonical) -> Vec<u8> {
     enc.finish()
 }
 
-/// Decode a bare stream for an already-validated `spec` (8-bit). Caller has checked the size against its limit.
+/// Decode a bare codec-1 stream for an already-validated `spec` (8-bit). Caller has checked the size against its limit.
 pub fn decode_payload(stream: &[u8], spec: &Spec) -> Result<Vec<u8>, PkonError> {
-    let cfg = codec1_cfg();
+    decode_payload_codec(stream, spec, CODEC_X4)
+}
+
+/// Decode a bare stream of codec `codec` (1 or 2, already validated by `parse_header`).
+pub fn decode_payload_codec(stream: &[u8], spec: &Spec, codec: u8) -> Result<Vec<u8>, PkonError> {
+    let cfg = cfg_for(codec);
     let (w, h) = (spec.width as usize, spec.height as usize);
     let order = plane_channels(spec.layout);
     let mut pl = Planes { w, h, p: vec![vec![0; w * h]; order.len()] };
@@ -214,19 +241,27 @@ pub fn decode_payload(stream: &[u8], spec: &Spec) -> Result<Vec<u8>, PkonError> 
     Ok(data)
 }
 
-/// Encode a complete `.pkon2` file. Only 8-bit gray / gray+alpha / RGB / RGBA are representable.
+/// Encode a complete `.pkon2` file with the current codec (id 2). Only 8-bit gray / gray+alpha / RGB / RGBA are representable.
 pub fn encode(img: &Canonical) -> Result<Vec<u8>, PkonError> {
+    encode_with_codec(img, CODEC_CURRENT)
+}
+
+/// Encode a complete `.pkon2` file with a specific codec id (1 = X4, 2 = X4P).
+pub fn encode_with_codec(img: &Canonical, codec: u8) -> Result<Vec<u8>, PkonError> {
+    if codec != CODEC_X4 && codec != CODEC_X4P {
+        return Err(PkonError::UnsupportedCodec(codec));
+    }
     if img.spec.bit_depth != 8 {
         return Err(PkonError::UnsupportedImage(format!("{}-bit samples (v1 is 8-bit only)", img.spec.bit_depth)));
     }
     if img.spec.width == 0 || img.spec.height == 0 || img.data.len() != img.spec.byte_len() {
         return Err(PkonError::UnsupportedImage("inconsistent image buffer".into()));
     }
-    let payload = encode_payload(img);
+    let payload = encode_payload_codec(img, codec);
     let payload_len = u32::try_from(payload.len()).map_err(|_| PkonError::UnsupportedImage("payload exceeds 4 GiB".into()))?;
     let mut out = Vec::with_capacity(HEADER_LEN + payload.len());
     out.extend_from_slice(&MAGIC);
-    out.extend_from_slice(&[VERSION, 0, CODEC_X4, format_code(img.spec.layout)]);
+    out.extend_from_slice(&[VERSION, 0, codec, format_code(img.spec.layout)]);
     out.extend_from_slice(&img.spec.width.to_le_bytes());
     out.extend_from_slice(&img.spec.height.to_le_bytes());
     out.extend_from_slice(&payload_len.to_le_bytes());
@@ -253,7 +288,7 @@ pub fn decode_with_limit(bytes: &[u8], max_decoded_bytes: u64) -> Result<Canonic
     if bytes.len() > end {
         return Err(PkonError::TrailingBytes(bytes.len() - end));
     }
-    let data = decode_payload(&bytes[HEADER_LEN..end], &hdr.spec)?;
+    let data = decode_payload_codec(&bytes[HEADER_LEN..end], &hdr.spec, hdr.codec)?;
     let actual = crc32(&data);
     if actual != hdr.crc32 {
         return Err(PkonError::ChecksumMismatch { expected: hdr.crc32, actual });
@@ -275,5 +310,10 @@ mod tests {
     #[test]
     fn codec1_is_the_production_x4_config() {
         assert_eq!(format!("{:?}", codec1_cfg()), format!("{:?}", x4_cfg()));
+    }
+
+    #[test]
+    fn codec2_is_the_production_x4p_config() {
+        assert_eq!(format!("{:?}", codec2_cfg()), format!("{:?}", crate::pkon2x::x4p_cfg()));
     }
 }

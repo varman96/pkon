@@ -1,0 +1,110 @@
+{
+  "dup_crop_hash": false,
+  "dup_url": false,
+  "nearest_cross_split": [
+    "blurry_1",
+    "document_0"
+  ],
+  "nearest_cross_split_rms": 0.5105042257352748,
+  "nearest_pairs": [
+    {
+      "a": "blurry_1",
+      "a_split": "test",
+      "b": "document_0",
+      "b_split": "train",
+      "rms": 0.5105042257352748
+    },
+    {
+      "a": "blurry_1",
+      "a_split": "test",
+      "b": "desert_n0",
+      "b_split": "train",
+      "rms": 0.5156248868093484
+    },
+    {
+      "a": "outdoor_1",
+      "a_split": "val",
+      "b": "document_0",
+      "b_split": "train",
+      "rms": 0.5302032872847121
+    },
+    {
+      "a": "document_0",
+      "a_split": "train",
+      "b": "clouds_n0",
+      "b_split": "train",
+      "rms": 0.5501032667939244
+    },
+    {
+      "a": "desert_n0",
+      "a_split": "train",
+      "b": "clouds_n0",
+      "b_split": "train",
+      "rms": 0.5652243007828011
+    },
+    {
+      "a": "document_0",
+      "a_split": "train",
+      "b": "desert_n0",
+      "b_split": "train",
+      "rms": 0.5895294312818746
+    }
+  ],
+  "rule": "group = name before '_' without trailing digits; groups sorted by sha256('group:'+g); first groups fill test (>=15 imgs), then val (>=10), rest train pool; train pool ordered by sha256('img:'+name); stage n uses first n",
+  "test": [
+    "graffiti_n0",
+    "blurry_0",
+    "blurry_1",
+    "pet_0",
+    "pet_1",
+    "pet2_0",
+    "pet2_1",
+    "skyline_n0",
+    "station_n0",
+    "stairs_n0",
+    "bicycle_n0",
+    "church_n0",
+    "sunset_n0",
+    "foliage_0",
+    "foliage_1"
+  ],
+  "train_pool": [
+    "text_0",
+    "clouds_n0",
+    "night_1",
+    "child_n0",
+    "forest_n0",
+    "bridge_n0",
+    "lake_n0",
+    "street_n0",
+    "waterfall_n0",
+    "document_0",
+    "river_n0",
+    "coast_n0",
+    "macro_n0",
+    "building_n0",
+    "night_0",
+    "indoor_1",
+    "peak_n0",
+    "bird_n0",
+    "snow_n0",
+    "lighthouse_n0",
+    "indoor_0",
+    "desert_n0",
+    "document_1",
+    "text_1",
+    "portrait_0"
+  ],
+  "val": [
+    "food_0",
+    "food_1",
+    "path_n0",
+    "boat_n0",
+    "flower_n0",
+    "beach_n0",
+    "woman_n0",
+    "outdoor_0",
+    "outdoor_1",
+    "restaurant_n0"
+  ]
+}

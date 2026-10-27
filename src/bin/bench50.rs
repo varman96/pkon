@@ -172,7 +172,7 @@ impl Codec for Pkon2File {
         "pkon2-file".into()
     }
     fn version(&self) -> String {
-        "pkon2 v1 codec 1 (X4)".into()
+        "pkon2 v1 codec 2 (X4P)".into()
     }
     fn config(&self) -> String {
         String::new()

@@ -108,3 +108,16 @@ fn production_x4_with_med_branch_round_trips_exactly() {
         assert!(o.exact, "{} did not round-trip", e.name);
     }
 }
+
+#[test]
+fn production_x4p_round_trips_exactly_and_p_is_the_last_input() {
+    use nanoscope::pkon2x::*;
+    let cfg = x4p_cfg();
+    assert_eq!(cfg.inputs.last(), Some(&In::P));
+    assert_eq!(&cfg.inputs[..4], &x4_cfg().inputs[..]);
+    for e in synthetic().iter().filter(|e| supported(&e.image.spec)) {
+        let o = measure_x(&e.image, &cfg);
+        assert!(o.exact, "{} did not round-trip", e.name);
+        assert!(measure_x(&e.image, &cfg).coded_bytes == o.coded_bytes, "{} not deterministic", e.name);
+    }
+}

@@ -1,0 +1,198 @@
+{
+  "E_dev": 0.11695836646665514,
+  "E_val": 0.03663574574958384,
+  "Ecap_dev": 0.16880907721031324,
+  "Ecap_val": 0.08191188575715747,
+  "S_dev": [
+    {
+      "S_dev": 0.0,
+      "S_val": 0.0,
+      "arm": "control"
+    },
+    {
+      "S_dev": 0.11408349705624221,
+      "S_val": 0.12595537692682865,
+      "arm": "dummy"
+    },
+    {
+      "S_dev": 1.7373541003774216,
+      "S_val": 1.278162025763546,
+      "arm": "P"
+    },
+    {
+      "S_dev": 0.48740969926696254,
+      "S_val": 0.17684955106099656,
+      "arm": "X"
+    },
+    {
+      "S_dev": 2.2131395635188835,
+      "S_val": 1.46973224852334,
+      "arm": "P+X"
+    },
+    {
+      "S_dev": 2.3300979299855387,
+      "S_val": 1.5063679942729238,
+      "arm": "PxX"
+    },
+    {
+      "S_dev": 0.12825714567776944,
+      "S_val": 0.13639733487098374,
+      "arm": "dummy2"
+    },
+    {
+      "S_dev": 0.07640643493411124,
+      "S_val": 0.09112119486341007,
+      "arm": "dummyJ"
+    }
+  ],
+  "confounded": true,
+  "criteria_sha256": "f7eec0082c88eaa2ad705f31a24b8e4e803eaa6aa047f3b93371da8e82420c22",
+  "info": [
+    {
+      "I_sign": 0.03920223150062739,
+      "I_sign_given_S1": 0.03942405141944292,
+      "I_zero_given_Ab": 0.005090943979550531,
+      "feature": "P",
+      "plane": 0,
+      "realised_sign": 0.03604587239173554,
+      "realised_zero_ge2": 0.0027098433306439063,
+      "set": "DEV"
+    },
+    {
+      "I_sign": 0.029104429899487486,
+      "I_sign_given_S1": 0.02714810078010256,
+      "I_zero_given_Ab": 0.011864121794092455,
+      "feature": "P",
+      "plane": 1,
+      "realised_sign": 0.02421719292485264,
+      "realised_zero_ge2": 0.005329359817826287,
+      "set": "DEV"
+    },
+    {
+      "I_sign": 0.00975522953998496,
+      "I_sign_given_S1": 0.00993906580956299,
+      "I_zero_given_Ab": 0.0018887138846391594,
+      "feature": "X",
+      "plane": 1,
+      "realised_sign": 0.0004877503699367836,
+      "realised_zero_ge2": 0.0033463212678262267,
+      "set": "DEV"
+    },
+    {
+      "I_sign": 0.038754126900822854,
+      "I_sign_given_S1": 0.03629261530143769,
+      "I_zero_given_Ab": 0.01504338724722757,
+      "feature": "PxX",
+      "plane": 1,
+      "realised_sign": 0.02523696529143571,
+      "realised_zero_ge2": 0.0056712448138350165,
+      "set": "DEV"
+    },
+    {
+      "I_sign": 0.028279564051786322,
+      "I_sign_given_S1": 0.02580320139477493,
+      "I_zero_given_Ab": 0.013598818636921592,
+      "feature": "P",
+      "plane": 2,
+      "realised_sign": 0.021384396429677537,
+      "realised_zero_ge2": 0.0034524637120355805,
+      "set": "DEV"
+    },
+    {
+      "I_sign": 0.0423157689403525,
+      "I_sign_given_S1": 0.045620801659746385,
+      "I_zero_given_Ab": 0.004530125500850559,
+      "feature": "X",
+      "plane": 2,
+      "realised_sign": 0.016240804898190683,
+      "realised_zero_ge2": 0.0038850245809847195,
+      "set": "DEV"
+    },
+    {
+      "I_sign": 0.07399908198617573,
+      "I_sign_given_S1": 0.07189322059652448,
+      "I_zero_given_Ab": 0.020489542022463354,
+      "feature": "PxX",
+      "plane": 2,
+      "realised_sign": 0.03788489911096903,
+      "realised_zero_ge2": 0.013468662146787125,
+      "set": "DEV"
+    },
+    {
+      "I_sign": 0.032909982580757544,
+      "I_sign_given_S1": 0.040422483006072076,
+      "I_zero_given_Ab": 0.0031528256008038547,
+      "feature": "P",
+      "plane": 0,
+      "realised_sign": 0.03048579771926807,
+      "realised_zero_ge2": 0.0007108653292409173,
+      "set": "VAL"
+    },
+    {
+      "I_sign": 0.030504838666016186,
+      "I_sign_given_S1": 0.024431713941497214,
+      "I_zero_given_Ab": 0.013949259731935459,
+      "feature": "P",
+      "plane": 1,
+      "realised_sign": 0.019949534792356394,
+      "realised_zero_ge2": 0.0038895083995241107,
+      "set": "VAL"
+    },
+    {
+      "I_sign": 0.009908873396245443,
+      "I_sign_given_S1": 0.01000107169782365,
+      "I_zero_given_Ab": 0.0011829488121959386,
+      "feature": "X",
+      "plane": 1,
+      "realised_sign": 0.00019020177871187371,
+      "realised_zero_ge2": 0.004532640125657128,
+      "set": "VAL"
+    },
+    {
+      "I_sign": 0.041387238278359065,
+      "I_sign_given_S1": 0.034300542299150735,
+      "I_zero_given_Ab": 0.016360176243651915,
+      "feature": "PxX",
+      "plane": 1,
+      "realised_sign": 0.020974405337337788,
+      "realised_zero_ge2": 0.003957879683815779,
+      "set": "VAL"
+    },
+    {
+      "I_sign": 0.03554680395126315,
+      "I_sign_given_S1": 0.02704906079869085,
+      "I_zero_given_Ab": 0.017315389501374946,
+      "feature": "P",
+      "plane": 2,
+      "realised_sign": 0.021082605996358427,
+      "realised_zero_ge2": 0.003147500934556824,
+      "set": "VAL"
+    },
+    {
+      "I_sign": 0.02957907952443617,
+      "I_sign_given_S1": 0.034869632435803946,
+      "I_zero_given_Ab": 0.003653977244009443,
+      "feature": "X",
+      "plane": 2,
+      "realised_sign": 0.0033946638897942804,
+      "realised_zero_ge2": 0.0018323784071293757,
+      "set": "VAL"
+    },
+    {
+      "I_sign": 0.07167771582994295,
+      "I_sign_given_S1": 0.06424540941218768,
+      "I_zero_given_Ab": 0.023040891627676176,
+      "feature": "PxX",
+      "plane": 2,
+      "realised_sign": 0.02751417407857275,
+      "realised_zero_ge2": 0.008157798085846667,
+      "set": "VAL"
+    }
+  ],
+  "joint_promising": false,
+  "little_signal": false,
+  "overall": "CONFOUNDED (extra capacity alone helps)",
+  "p_promising": true,
+  "splits_sha256": "90ea95aa3220276181b57be6f4217414010451af39308a1f0c9aa188534da3bb",
+  "x_promising": false
+}

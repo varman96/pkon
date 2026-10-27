@@ -17,7 +17,7 @@ use crate::canon::Canonical;
 use crate::pkon2::*;
 use std::sync::OnceLock;
 
-pub const NI: usize = 4;
+pub const NI: usize = 5;
 const NODES: usize = 27;
 const SIGN: usize = 26;
 const LIMIT: usize = 255;
@@ -36,6 +36,9 @@ pub enum In {
     /// A x MED branch identity (min / max / gradient), 32*3 = 96 contexts. Promoted N3: replaces `A` in `x4_cfg`.
     /// `A` stays as the frozen M6-M8 baseline context so those probes keep reproducing their reports.
     Ab,
+    /// PKON2P predictor disagreement (49 classes): qd(GAP - MED) x qd(Grad - MED). Must be the LAST input; an EXTRA mixer input that
+    /// starts at weight 0 (the base inputs keep their 1.25/n_base initial weights) and also feeds the sign decision.
+    P,
 }
 const MAG_CTX: usize = 96;
 
@@ -96,6 +99,26 @@ impl Ens {
     }
 }
 
+/// Signed difference quantiser for `In::P` (7 classes): cuts {<=-9, -8..-3, -2..-1, 0, 1..2, 3..8, >=9}.
+#[inline]
+fn qd(d: i32) -> usize {
+    match d {
+        i32::MIN..=-9 => 0,
+        -8..=-3 => 1,
+        -2..=-1 => 2,
+        0 => 3,
+        1..=2 => 4,
+        3..=8 => 5,
+        _ => 6,
+    }
+}
+/// `In::P` context in 0..49. Reads only pixels before (x,y) of the plane being coded (the ones `neighbors()`/`gap()` read), so the
+/// decoder computes the identical value from what it has already reconstructed.
+#[inline]
+pub fn p_class(p: &[u8], w: usize, x: usize, y: usize, nb: Nb, med: i32) -> usize {
+    qd(gap(p, w, x, y, nb) - med) * 7 + qd(predict(Pred::Grad, nb) - med)
+}
+
 const BIAS_CTX: usize = 25 * 7 * 7;
 const BIAS_RESET: i32 = 64;
 
@@ -139,6 +162,11 @@ pub struct XCfg {
     pub sign_ctx: bool,
     pub bias: Bias,
     pub ens: Ens,
+}
+
+/// Production codec id 2 (PKON2P): X4 plus the predictor-disagreement input.
+pub fn x4p_cfg() -> XCfg {
+    XCfg { name: "X4P", inputs: vec![In::Ab, In::B, In::C, In::D, In::P], sign_ctx: true, bias: Bias::Off, ens: Ens::Off }
 }
 
 /// The production X4 configuration (N3: context A carries the MED branch). The frozen M6 X4 is the same config with `In::A`.
@@ -298,6 +326,8 @@ pub struct SignCtx {
     w: usize,
     n: usize,
     ne: usize,
+    /// `p_class` of the pixel (0 when `In::P` is not configured)
+    pf: usize,
 }
 
 pub struct Coder {
@@ -307,25 +337,34 @@ pub struct Coder {
     tail: Vec<Bit>,   // [(plane*9 + class)*8 + bitpos]
     nmag: usize,
     sign_ctx: bool,
+    /// `In::P` is configured: magnitude decisions mix `nmag` inputs (P last), the sign decision mixes 3 + P
+    has_p: bool,
 }
 impl Coder {
     pub fn new(planes: usize, cfg: &XCfg) -> Self {
         let nmag = cfg.inputs.len();
+        let has_p = cfg.inputs.contains(&In::P);
+        if has_p {
+            assert!(nmag == 5 && cfg.inputs[4] == In::P && cfg.sign_ctx, "In::P must be the 5th and last input of a 4-input config with sign contexts");
+        }
+        let nbase = nmag - has_p as usize;
         let nsign = if cfg.sign_ctx { 3 } else { 1 };
         let mut mixw = vec![[0i32; NI]; planes * NODES];
         for (i, w) in mixw.iter_mut().enumerate() {
-            let nin = if i % NODES == SIGN { nsign } else { nmag };
+            // the P weight stays 0, so the first prediction equals X4's
+            let nin = if i % NODES == SIGN { nsign } else { nbase };
             for j in 0..nin {
                 w[j] = (65536.0 * 1.25 / nin as f64) as i32;
             }
         }
         Coder {
             t: tables(),
-            m: (0..NI).map(|_| vec![Bit::NEW; planes * MAG_CTX * NODES]).collect(),
+            m: (0..if has_p { NI } else { 4 }).map(|_| vec![Bit::NEW; planes * MAG_CTX * NODES]).collect(),
             mixw,
             tail: vec![Bit::NEW; planes * 9 * 8],
             nmag,
             sign_ctx: cfg.sign_ctx,
+            has_p,
         }
     }
     /// Bytes of adaptive state (probabilities + mixer weights + tail), for the memory report.
@@ -412,8 +451,9 @@ impl Coder {
         let want = (z_in & 1) as u32;
         let neg = if self.sign_ctx {
             let cls = (c - 1).min(3);
-            let sc = [sg.p * 4 + cls, sg.w * 9 + sg.n * 3 + sg.ne, sg.p * 9 + sg.w * 3 + sg.n, 0];
-            self.bit(io, k, SIGN, &sc, 3, want)
+            // 4th sign input (P) uses probability table 3 at the SIGN node, which no magnitude input ever touches
+            let sc = [sg.p * 4 + cls, sg.w * 9 + sg.n * 3 + sg.ne, sg.p * 9 + sg.w * 3 + sg.n, sg.pf, 0];
+            self.bit(io, k, SIGN, &sc, 3 + self.has_p as usize, want)
         } else {
             self.bit(io, k, SIGN, &[0; NI], 1, want)
         };
@@ -524,6 +564,7 @@ pub fn run_x<I: BitIo>(pl: &mut Planes, cfg: &XCfg, coder: &mut Coder, io: &mut 
                             let br = if nb.nw >= mx { 0 } else if nb.nw <= mn { 1 } else { 2 };
                             (act * 4 + pq) * 3 + br
                         }
+                        In::P => p_class(&pl.p[k], w, x, y, nb, med),
                         In::B => (prev_q(zw) * 4 + prev_q(zn)) * 4 + pq,
                         In::C => (act * 3 + err_level(e)) * 4 + pq,
                         In::D => {
@@ -533,7 +574,7 @@ pub fn run_x<I: BitIo>(pl: &mut Planes, cfg: &XCfg, coder: &mut Coder, io: &mut 
                         }
                     };
                 }
-                let sg = SignCtx { p: sgn(prev_z[i]), w: sgn(zw), n: sgn(zn), ne: sgn(zne) };
+                let sg = SignCtx { p: sgn(prev_z[i]), w: sgn(zw), n: sgn(zn), ne: sgn(zne), pf: mc[4] };
                 let z_in = zigzag((pl.p[k][i] as i32 - pred) as u8);
                 let z = coder.code_sym(io, k, &mc, &sg, z_in);
                 pl.p[k][i] = (pred as u8).wrapping_add(unzigzag(z));

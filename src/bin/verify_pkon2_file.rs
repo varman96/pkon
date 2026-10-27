@@ -27,7 +27,7 @@ fn main() {
             let full = Canonical::load(&data.join(m["file"].as_str().unwrap())).unwrap();
             let img = center_crop(&full, CROP);
             let t = Instant::now();
-            let file = encode(&img).unwrap();
+            let file = encode_with_codec(&img, CODEC_X4).unwrap();
             let enc = t.elapsed().as_secs_f64() * 1e3;
             let t = Instant::now();
             let dec = decode(&file).unwrap();
@@ -38,7 +38,7 @@ fn main() {
             let same_payload = payload + HEADER_BYTES == hist && hdr.payload_len as usize == payload && encode_payload(&img) == file[HEADER_LEN..];
             let meta = dec.spec == img.spec && hdr.spec == img.spec;
             let exact = first_mismatch(&img, &dec).is_none() && dec.data == img.data;
-            let det = encode(&img).unwrap() == file;
+            let det = encode_with_codec(&img, CODEC_X4).unwrap() == file;
             ok &= same_payload && meta && exact && det;
             let over = file.len() - payload;
             tp += payload;

@@ -1,0 +1,42 @@
+# REL2: final diagnostic (constant-context bias input vs predictor-disagreement P)
+
+Criteria frozen before the run (sha256 050c72195dc4d6c64805bdfd52f20589e78084f74f891bf6f711afb6c7b324a4); REL1 criteria untouched. DEV 25 / VAL 10, test list never loaded. Sizes = stream + 11 B header.
+
+**Correctness gates G1-G6: PASS** (exact pixels incl. interleaved compare, control == production `encode_payload` and `measure_x`, enc/dec trace+state hashes equal, re-encode identical, no over-read, control/dummy/P bytes equal REL1 per-image bytes on all 35 images).
+
+## Aggregate (savings vs control)
+
+| arm | DEV bytes | S(DEV) % | improves | VAL bytes | S(VAL) % | improves | enc ms (VAL, 1 thr) | dec ms |
+|---|---|---|---|---|---|---|---|---|
+| control | 18435620 | +0.000 | 0/25 | 8437115 | +0.000 | 0/10 | 4630 | 4386 |
+| const | 18418570 | +0.092 | 25/25 | 8429462 | +0.091 | 10/10 | 5043 | 4847 |
+| dummy | 18414588 | +0.114 | 25/25 | 8426488 | +0.126 | 10/10 | 5336 | 5180 |
+| P | 18115328 | +1.737 | 25/25 | 8329275 | +1.278 | 10/10 | 5958 | 5720 |
+| P+const | 18083071 | +1.912 | 25/25 | 8314014 | +1.459 | 10/10 | 8967 | 8429 |
+
+## Bias-controlled attribution (savings relative to the `const` arm)
+
+| arm | Sc(DEV) % | improves vs const | Sc(VAL) % | improves vs const |
+|---|---|---|---|---|
+| P | +1.646 | 25/25 | +1.189 | 10/10 |
+| P+const | +1.822 | 25/25 | +1.370 | 10/10 |
+| dummy | +0.022 | 22/25 | +0.035 | 10/10 |
+
+P+const vs P alone (does bias add anything once P is present?): DEV +0.178 %, VAL +0.183 %.
+
+## Cross-entropy by decision type (DEV, % fewer bits vs control)
+
+| arm | zero | ge2 | class | mantissa | sign | total |
+|---|---|---|---|---|---|---|
+| const | +0.124 | +0.087 | +0.192 | +0.048 | +0.022 | +0.092 |
+| dummy | +0.175 | +0.139 | +0.219 | +0.036 | +0.007 | +0.114 |
+| P | +0.445 | +0.485 | +0.447 | +0.065 | +7.295 | +1.737 |
+| P+const | +0.670 | +0.683 | +0.792 | +0.161 | +7.330 | +1.912 |
+
+## Decision (criteria.md)
+
+- (2) Sc(P+const,DEV) = +1.822 (>=0.5), improves 25/25 (>=80%): true
+- (3) Sc(P+const,VAL) = +1.370 (>=0.25), improves 10/10 (>=7): true
+- (4) S(P,DEV) = +1.737 >= 2 x max(S(const)=+0.092, S(dummy)=+0.114) = 0.228: true
+
+**Verdict: P SUPPORTED.** REL1's recorded CONFOUNDED label (S(dummy,DEV) >= 0.10) is not altered by this diagnostic.

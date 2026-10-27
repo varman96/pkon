@@ -1,0 +1,49 @@
+     Running unittests src\lib.rs (target\release\deps\nanoscope-4f8f2ff1b62a5c8d.exe)
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.88s
+     Running unittests src\bin\bench.rs (target\release\deps\bench-200fbe4fd5ee8e57.exe)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\bench50.rs (target\release\deps\bench50-951b7b776668ca2f.exe)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\bench_external.rs (target\release\deps\bench_external-258971547b5bf05b.exe)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\exp_n3_full.rs (target\release\deps\exp_n3_full-a186ac2284d1705a.exe)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\exp_n3_med_branch.rs (target\release\deps\exp_n3_med_branch-cb1f621cc86a3fea.exe)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\learn1.rs (target\release\deps\learn1-5fd169b0c383cb5a.exe)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\probe.rs (target\release\deps\probe-cb3a285216e6983c.exe)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\probe_m2.rs (target\release\deps\probe_m2-ee20e6bb1e288910.exe)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\probe_m3.rs (target\release\deps\probe_m3-1fb288e965548129.exe)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\probe_m3_diag.rs (target\release\deps\probe_m3_diag-21f512e4c672b9b0.exe)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\probe_m4.rs (target\release\deps\probe_m4-5c28d448065e5551.exe)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\probe_m5.rs (target\release\deps\probe_m5-cac3183714ed83a5.exe)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\probe_m5_cuts.rs (target\release\deps\probe_m5_cuts-700a48817447cab0.exe)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\probe_m6.rs (target\release\deps\probe_m6-1a0d647885b90082.exe)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\probe_m7.rs (target\release\deps\probe_m7-00a46caf92f8f4b9.exe)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\probe_m8.rs (target\release\deps\probe_m8-bc96414f071bf987.exe)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\rel1.rs (target\release\deps\rel1-081c00f5967f478b.exe)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\rel2.rs (target\release\deps\rel2-baac6fd88844089f.exe)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\verify_pkon2_file.rs (target\release\deps\verify_pkon2_file-1d2e90cbd85a9f5d.exe)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\verify_x4_promotion.rs (target\release\deps\verify_x4_promotion-4551e266d46cc060.exe)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests\pkon2.rs (target\release\deps\pkon2-98e4917a9377f1c4.exe)
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.87s
+     Running tests\pkonfile.rs (target\release\deps\pkonfile-fecf0cb3ab13eb6f.exe)
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.07s
+     Running tests\roundtrip.rs (target\release\deps\roundtrip-1d6dc7d34f8ebf8b.exe)
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 17.27s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
