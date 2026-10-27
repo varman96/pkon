@@ -4,6 +4,7 @@ pub mod codec;
 pub mod corpus;
 pub mod envinfo;
 pub mod ext;
+pub mod gblend;
 pub mod pkon2;
 pub mod pkon2x;
 pub mod pkonlearn;

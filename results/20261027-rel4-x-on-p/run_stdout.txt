@@ -1,0 +1,59 @@
+warning: unused import: `crate::canon::Canonical`
+  --> src\pkonrel.rs:14:5
+   |
+14 | use crate::canon::Canonical;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `x4p_cfg`
+ --> src\pkonfile.rs:9:28
+  |
+9 | use crate::pkon2x::{run_x, x4p_cfg, BinDec, BinEnc, Coder, In, XCfg, Bias, Ens};
+  |                            ^^^^^^^
+
+warning: `nanoscope` (lib) generated 2 warnings (run `cargo fix --lib -p nanoscope` to apply 2 suggestions)
+warning: field `stream` is never read
+  --> src\bin\rel4.rs:68:5
+   |
+60 | struct Res {
+   |        --- field in this struct
+...
+68 |     stream: Vec<u8>,
+   |     ^^^^^^
+   |
+   = note: `Res` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `nanoscope` (bin "rel4") generated 1 warning
+    Finished `release` profile [optimized] target(s) in 0.08s
+     Running `target\release\rel4.exe --out results/20261027-rel4-x-on-p`
+loaded 35 images; criteria c311a5b312ebe5355cda710367437f29b28151a48e1bca0b2569068ba90612b6
+gates G1-G6 PASS on 35 x 3 runs
+# REL4: X on top of production codec 2
+
+Criteria frozen before the run (sha256 c311a5b312ebe5355cda710367437f29b28151a48e1bca0b2569068ba90612b6). DEV 25 / VAL 10, test list never loaded. Sizes = complete file (24-byte header + payload). Baseline `P` = production codec 2.
+
+**Correctness gates G1-G6: PASS** (exact pixels from the file bytes + CRC, P file == production `encode` output on every image, enc/dec trace+state hashes equal, re-encode identical, no over-read, P and P+X bytes equal REL1 per-image bytes + 13).
+
+| arm | DEV bytes | S(DEV) % vs P | improves | VAL bytes | S(VAL) % | improves | enc ms (VAL, 1 thr) | dec ms |
+|---|---|---|---|---|---|---|---|---|
+| P | 18115653 | +0.000 | 0/25 | 8329405 | +0.000 | 0/10 | 5713 | 5464 |
+| P+X | 18027939 | +0.484 | 25/25 | 8313242 | +0.194 | 10/10 | 6124 | 5708 |
+| P+dummy | 18071862 | +0.242 | 25/25 | 8309049 | +0.244 | 10/10 | 6314 | 5989 |
+
+## Cross-entropy by decision type (DEV, % fewer bits vs P)
+
+| arm | zero | ge2 | class | mantissa | sign | total |
+|---|---|---|---|---|---|---|
+| P+X | +0.342 | +0.260 | +0.346 | +0.055 | +1.488 | +0.484 |
+| P+dummy | +0.402 | +0.281 | +0.397 | +0.082 | +0.016 | +0.242 |
+
+## Decision (criteria.md)
+
+- (1) S(P+X,DEV) = +0.484 (>=0.5), improves 25/25 (>=80%): false
+- (2) S(P+X,VAL) = +0.194 (>=0.25), improves 10/10 (>=7): false
+- (3) S(P+X,DEV) >= 2 x max(S(P+dummy,DEV)=+0.242, 0): true
+
+**Verdict: MODIFY / AMBIGUOUS (see failed criteria).**
+

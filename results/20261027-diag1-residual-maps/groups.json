@@ -1,0 +1,257 @@
+{
+ "lose": [
+  "text_1",
+  "forest_n0",
+  "portrait_0",
+  "river_n0",
+  "night_0",
+  "street_n0",
+  "food_0"
+ ],
+ "control": [
+  "waterfall_n0",
+  "outdoor_0",
+  "document_1",
+  "boat_n0",
+  "path_n0",
+  "lake_n0",
+  "snow_n0"
+ ],
+ "other": [
+  "beach_n0",
+  "bird_n0",
+  "bridge_n0",
+  "building_n0",
+  "child_n0",
+  "clouds_n0",
+  "coast_n0",
+  "desert_n0",
+  "document_0",
+  "flower_n0",
+  "food_1",
+  "indoor_0",
+  "indoor_1",
+  "lighthouse_n0",
+  "macro_n0",
+  "night_1",
+  "outdoor_1",
+  "peak_n0",
+  "restaurant_n0",
+  "text_0",
+  "woman_n0"
+ ],
+ "gap": {
+  "beach_n0": -23.378846127536153,
+  "bird_n0": -0.5624283530760412,
+  "boat_n0": -2.371583371802036,
+  "bridge_n0": -7.253117817715987,
+  "building_n0": -2.881831776755735,
+  "child_n0": -1.443295966683089,
+  "clouds_n0": -19.61341763121053,
+  "coast_n0": -12.669004782867248,
+  "desert_n0": -19.63768698172227,
+  "document_0": -1.1610282584198615,
+  "document_1": -2.842864323551019,
+  "flower_n0": -1.1823399696595298,
+  "food_0": 0.8361306607535693,
+  "food_1": -0.6756655591595286,
+  "forest_n0": 3.4306738092249973,
+  "indoor_0": -3.4684655840124283,
+  "indoor_1": -0.7175175413374051,
+  "lake_n0": -1.060212609606892,
+  "lighthouse_n0": -3.529144984962047,
+  "macro_n0": -1.2010783789924895,
+  "night_0": 1.3986886698814474,
+  "night_1": -11.91986144668477,
+  "outdoor_0": -6.718743720245381,
+  "outdoor_1": -3.0581171507967437,
+  "path_n0": -0.36233740822183297,
+  "peak_n0": -0.704568719911528,
+  "portrait_0": 1.8121350063621864,
+  "restaurant_n0": -2.8434428922901898,
+  "river_n0": 1.7128016634140695,
+  "snow_n0": -1.434193203258387,
+  "street_n0": 1.1358837046635857,
+  "text_0": -2.1653642071317227,
+  "text_1": 4.06608604043554,
+  "waterfall_n0": -2.3328872510439367,
+  "woman_n0": -7.019414813316972
+ },
+ "convention_check": {
+  "beach_n0": [
+   true,
+   true,
+   true
+  ],
+  "bird_n0": [
+   true,
+   true,
+   true
+  ],
+  "boat_n0": [
+   true,
+   true,
+   true
+  ],
+  "bridge_n0": [
+   true,
+   true,
+   true
+  ],
+  "building_n0": [
+   true,
+   true,
+   true
+  ],
+  "child_n0": [
+   true,
+   true,
+   true
+  ],
+  "clouds_n0": [
+   true,
+   true,
+   true
+  ],
+  "coast_n0": [
+   true,
+   true,
+   true
+  ],
+  "desert_n0": [
+   true,
+   true,
+   true
+  ],
+  "document_0": [
+   true,
+   true,
+   true
+  ],
+  "document_1": [
+   true,
+   true,
+   true
+  ],
+  "flower_n0": [
+   true,
+   true,
+   true
+  ],
+  "food_0": [
+   true,
+   true,
+   true
+  ],
+  "food_1": [
+   true,
+   true,
+   true
+  ],
+  "forest_n0": [
+   true,
+   true,
+   true
+  ],
+  "indoor_0": [
+   true,
+   true,
+   true
+  ],
+  "indoor_1": [
+   true,
+   true,
+   true
+  ],
+  "lake_n0": [
+   true,
+   true,
+   true
+  ],
+  "lighthouse_n0": [
+   true,
+   true,
+   true
+  ],
+  "macro_n0": [
+   true,
+   true,
+   true
+  ],
+  "night_0": [
+   true,
+   true,
+   true
+  ],
+  "night_1": [
+   true,
+   true,
+   true
+  ],
+  "outdoor_0": [
+   true,
+   true,
+   true
+  ],
+  "outdoor_1": [
+   true,
+   true,
+   true
+  ],
+  "path_n0": [
+   true,
+   true,
+   true
+  ],
+  "peak_n0": [
+   true,
+   true,
+   true
+  ],
+  "portrait_0": [
+   true,
+   true,
+   true
+  ],
+  "restaurant_n0": [
+   true,
+   true,
+   true
+  ],
+  "river_n0": [
+   true,
+   true,
+   true
+  ],
+  "snow_n0": [
+   true,
+   true,
+   true
+  ],
+  "street_n0": [
+   true,
+   true,
+   true
+  ],
+  "text_0": [
+   true,
+   true,
+   true
+  ],
+  "text_1": [
+   true,
+   true,
+   true
+  ],
+  "waterfall_n0": [
+   true,
+   true,
+   true
+  ],
+  "woman_n0": [
+   true,
+   true,
+   true
+  ]
+ }
+}

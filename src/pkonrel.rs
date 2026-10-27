@@ -37,14 +37,26 @@ pub enum Extra {
     Dummy { salt: u32, card: u32 },
     /// REL2 diagnostic: ONE class, always 0 -- a pure per-(plane, decision node) adaptive probability fed to the mixer (bias input)
     Const,
+    /// REL3: NOT an input. Selects the mixer weight set (8 sets per plane x node) by activity bucket
+    SelAct,
+    /// REL3 control: weight set chosen by a hash of (plane, x, y), no image information
+    SelDummy,
+    /// GBLEND: not an input. Plane 0 is predicted by the backward-adaptive MED/linear blend (`crate::gblend`)
+    GBlend,
+    /// REL5: the X feature, mixed in ONLY at the sign node, planes >= 1
+    XSign,
+    /// REL5 control: hash of (plane, x, y, salt) mod card, mixed in ONLY at the sign node, planes >= 1 (same routing as XSign)
+    DummySign { salt: u32, card: u32 },
 }
+pub const NSEL: usize = 8;
 impl Extra {
     pub fn card(self) -> usize {
         match self {
-            Extra::P | Extra::X => 49,
+            Extra::P | Extra::X | Extra::XSign => 49,
+            Extra::DummySign { card, .. } => card as usize,
             Extra::Joint => FCARD,
             Extra::Dummy { card, .. } => card as usize,
-            Extra::Const => 1,
+            Extra::Const | Extra::SelAct | Extra::SelDummy | Extra::GBlend => 1,
         }
     }
 }
@@ -71,6 +83,33 @@ pub const DIAG_ARMS: [Arm; 5] = [
     Arm { name: "dummy", extras: &[Extra::Dummy { salt: 1, card: 49 }] },
     Arm { name: "P", extras: &[Extra::P] },
     Arm { name: "P+const", extras: &[Extra::P, Extra::Const] },
+];
+
+/// REL3 arms (criteria: results/20261027-rel3-mixer-sets/criteria.md). `P` is production codec 2.
+/// GBLEND arms (criteria: results/20261027-gblend-final/criteria.md). `P` is production codec 2.
+pub const GB_ARMS: [Arm; 2] = [
+    Arm { name: "P", extras: &[Extra::P] },
+    Arm { name: "P+GBlend", extras: &[Extra::P, Extra::GBlend] },
+];
+
+pub const SEL_ARMS: [Arm; 3] = [
+    Arm { name: "P", extras: &[Extra::P] },
+    Arm { name: "P+selAct", extras: &[Extra::P, Extra::SelAct] },
+    Arm { name: "P+selDummy", extras: &[Extra::P, Extra::SelDummy] },
+];
+
+/// REL4 arms (criteria: results/20261027-rel4-x-on-p/criteria.md). `P` is production codec 2.
+pub const X_ARMS: [Arm; 3] = [
+    Arm { name: "P", extras: &[Extra::P] },
+    Arm { name: "P+X", extras: &[Extra::P, Extra::X] },
+    Arm { name: "P+dummy", extras: &[Extra::P, Extra::Dummy { salt: 1, card: 49 }] },
+];
+
+/// REL5 arms (criteria: results/20261027-rel5-x-sign/criteria.md). `P` is production codec 2.
+pub const XS_ARMS: [Arm; 3] = [
+    Arm { name: "P", extras: &[Extra::P] },
+    Arm { name: "P+Xsign", extras: &[Extra::P, Extra::XSign] },
+    Arm { name: "P+dummysign", extras: &[Extra::P, Extra::DummySign { salt: 1, card: 49 }] },
 ];
 
 // ---------------------------------------------------------------- features
@@ -227,6 +266,10 @@ struct ExtCtx {
     n: usize,
     slot: [usize; 2],
     ctx: [usize; 2],
+    /// mixer weight set
+    sel: usize,
+    /// number of extras active on non-sign nodes (sign-only extras come last)
+    nm: usize,
 }
 struct SignCtx {
     p: usize,
@@ -252,14 +295,21 @@ impl Coder {
         for (j, e) in arm.extras.iter().enumerate() {
             caps[4 + j] = e.card();
         }
-        let mut mixw = vec![[0i32; NI]; planes * NODES];
+        let mut mixw = vec![[0i32; NI]; planes * NODES * NSEL];
         for (i, w) in mixw.iter_mut().enumerate() {
-            let nin = if i % NODES == SIGN { 3 } else { 4 };
+            let nin = if (i / NSEL) % NODES == SIGN { 3 } else { 4 };
             for j in 0..nin {
                 w[j] = (65536.0 * 1.25 / nin as f64) as i32;
             }
         }
         Coder { t: tables(), caps, m: (0..NI).map(|s| vec![Bit::NEW; planes * caps[s] * NODES]).collect(), mixw, tail: vec![Bit::NEW; planes * 9 * 8] }
+    }
+
+    /// (allocated extra bit models, their bytes, reachable extra bit models) for the slots >= 4 (the extra inputs), given the arm.
+    pub fn extra_model_counts(&self, planes: usize, arm: &Arm) -> (usize, usize, usize) {
+        let alloc: usize = self.m[4..4 + arm.extras.len()].iter().map(|t| t.len()).sum();
+        let reach: usize = arm.extras.iter().map(|e| match e { Extra::XSign | Extra::DummySign { .. } => (planes - 1) * e.card(), _ => 0 }).sum();
+        (alloc, alloc * std::mem::size_of::<Bit>(), reach)
     }
 
     /// Hash of every probability, count and mixer weight: encoder and decoder must end in the same state.
@@ -289,7 +339,7 @@ impl Coder {
         let mut v = vec![];
         for p in 0..planes {
             for j in 0..n_extra {
-                v.push((p, j, self.mixw[p * NODES][4 + j] as f64 / 65536.0, self.mixw[p * NODES + SIGN][3 + j] as f64 / 65536.0));
+                v.push((p, j, self.mixw[p * NODES * NSEL][4 + j] as f64 / 65536.0, self.mixw[(p * NODES + SIGN) * NSEL][3 + j] as f64 / 65536.0));
             }
         }
         v
@@ -298,14 +348,14 @@ impl Coder {
     #[inline]
     fn bit<I: RelIo>(&mut self, io: &mut I, plane: usize, node: usize, base: &[usize; 4], nb: usize, ex: &ExtCtx, want: u32) -> u32 {
         let t = self.t;
-        let nin = nb + ex.n;
+        let nin = nb + if node == SIGN { ex.n } else { ex.nm };
         let mut sl = [0usize; NI];
         let mut cx = [0usize; NI];
         for i in 0..nb {
             sl[i] = i;
             cx[i] = base[i];
         }
-        for j in 0..ex.n {
+        for j in 0..nin - nb {
             sl[nb + j] = ex.slot[j];
             cx[nb + j] = ex.ctx[j];
         }
@@ -314,7 +364,7 @@ impl Coder {
             idx[i] = (plane * self.caps[sl[i]] + cx[i]) * NODES + node;
         }
         let mut st = [0i32; NI];
-        let ws = &mut self.mixw[plane * NODES + node];
+        let ws = &mut self.mixw[(plane * NODES + node) * NSEL + ex.sel];
         let mut dot = 0i64;
         for i in 0..nin {
             st[i] = t.stretch[(self.m[sl[i]][idx[i]].p >> 4) as usize] as i32;
@@ -422,6 +472,8 @@ pub fn run_rel<I: RelIo>(pl: &mut Planes, arm: &Arm, coder: &mut Coder, io: &mut
     let (w, h, np) = (pl.w, pl.h, pl.p.len());
     let mut zs: Vec<Vec<u8>> = vec![vec![0u8; w * h]; np];
     let zero = vec![0u8; w * h];
+    let gb = arm.extras.contains(&Extra::GBlend);
+    let mut gst = crate::gblend::GBlend::new(w, h);
     let need_p = arm.extras.iter().any(|e| matches!(e, Extra::P | Extra::Joint)) || stats.is_some();
     let mut trace = 0xcbf29ce484222325u64;
     let mixh = |v: u64, t: &mut u64| {
@@ -435,7 +487,10 @@ pub fn run_rel<I: RelIo>(pl: &mut Planes, arm: &Arm, coder: &mut Coder, io: &mut
                 let (xi, yi) = (x as isize, y as isize);
                 let nb = neighbors(&pl.p[k], w, x, y);
                 let med = predict(Pred::Med, nb);
-                let pred = med;
+                if gb && k == 0 && x == 0 {
+                    gst.start_row(&pl.p[0], y);
+                }
+                let pred = if gb && k == 0 { gst.predict(&pl.p[0], x, y, med) } else { med };
                 let act = act_bucket(activity(nb));
                 let (cur_z, prev_z): (&[u8], &[u8]) = if k > 0 { (&zs[k], &zs[k - 1]) } else { (&zs[0], &zero) };
                 let pq = prev_q(prev_z[i]);
@@ -462,11 +517,26 @@ pub fn run_rel<I: RelIo>(pl: &mut Planes, arm: &Arm, coder: &mut Coder, io: &mut
                         Extra::Joint => Some(pf * 49 + xf),
                         Extra::Dummy { salt, card } => Some(dummy_ctx(salt, card, k, x, y)),
                         Extra::Const => Some(0),
+                        Extra::XSign => (k > 0).then_some(xf),
+                        Extra::DummySign { salt, card } => (k > 0).then(|| dummy_ctx(salt, card, k, x, y)),
+                        Extra::SelAct => {
+                            ex.sel = act;
+                            None
+                        }
+                        Extra::GBlend => None,
+                        Extra::SelDummy => {
+                            ex.sel = dummy_ctx(9, NSEL as u32, k, x, y);
+                            None
+                        }
                     };
                     if let Some(c) = c {
                         assert!(c < e.card(), "context out of range");
                         ex.slot[ex.n] = 4 + j;
                         ex.ctx[ex.n] = c;
+                        if !matches!(*e, Extra::XSign | Extra::DummySign { .. }) {
+                            assert_eq!(ex.nm, ex.n, "sign-only extras must come last");
+                            ex.nm += 1;
+                        }
                         ex.n += 1;
                     }
                 }
@@ -474,6 +544,9 @@ pub fn run_rel<I: RelIo>(pl: &mut Planes, arm: &Arm, coder: &mut Coder, io: &mut
                 let z = coder.code_sym(io, k, &mc, &sg, &ex, z_in);
                 pl.p[k][i] = (pred as u8).wrapping_add(unzigzag(z));
                 zs[k][i] = z;
+                if gb && k == 0 {
+                    gst.update(x, y, pl.p[0][i]);
+                }
                 if let Some(s) = stats.as_deref_mut() {
                     let f = pf * 49 + xf;
                     s.npix[k] += 1;

@@ -1,0 +1,1296 @@
+image,group,plane,quantity,bits_per_pixel
+beach_n0,OTHER_WIN,G,H(T|base ctx),3.592919518271105
+beach_n0,OTHER_WIN,G,P (production feature; real gain known),0.042862217865357266
+beach_n0,OTHER_WIN,G,dummy hash card 49 (overfit floor),-0.0630311075705916
+beach_n0,OTHER_WIN,G,dummy hash card 7 (overfit floor),-0.011806089497258476
+beach_n0,OTHER_WIN,G,dummy hash card 8 (overfit floor),-0.012425322754948454
+beach_n0,OTHER_WIN,G,dummy hash card 27 (overfit floor),-0.04016919056010115
+beach_n0,OTHER_WIN,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.011184096792268505
+beach_n0,OTHER_WIN,R-G,H(T|base ctx),0.32221879573376844
+beach_n0,OTHER_WIN,R-G,P (production feature; real gain known),0.007292332451221961
+beach_n0,OTHER_WIN,R-G,dummy hash card 49 (overfit floor),-0.08109164520266715
+beach_n0,OTHER_WIN,R-G,dummy hash card 7 (overfit floor),-0.018286078708290854
+beach_n0,OTHER_WIN,R-G,dummy hash card 8 (overfit floor),-0.01303252346690087
+beach_n0,OTHER_WIN,R-G,dummy hash card 27 (overfit floor),-0.054029301417946485
+beach_n0,OTHER_WIN,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.007875727938072286
+beach_n0,OTHER_WIN,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.007887112315423106
+beach_n0,OTHER_WIN,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.005851840027327748
+beach_n0,OTHER_WIN,R-G,"plane0 |r| at pixel, 8 buckets",-0.0035918470236746547
+beach_n0,OTHER_WIN,R-G,plane0 signed r at pixel (q7),-0.011498336875873136
+beach_n0,OTHER_WIN,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.010922730035821726
+beach_n0,OTHER_WIN,B-G,H(T|base ctx),0.3117877326700274
+beach_n0,OTHER_WIN,B-G,P (production feature; real gain known),0.00650202416260065
+beach_n0,OTHER_WIN,B-G,dummy hash card 49 (overfit floor),-0.07083406076222815
+beach_n0,OTHER_WIN,B-G,dummy hash card 7 (overfit floor),-0.01859466210925087
+beach_n0,OTHER_WIN,B-G,dummy hash card 8 (overfit floor),-0.017339296868297438
+beach_n0,OTHER_WIN,B-G,dummy hash card 27 (overfit floor),-0.05107337880125823
+beach_n0,OTHER_WIN,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.006996128636004739
+beach_n0,OTHER_WIN,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.010268844722188197
+beach_n0,OTHER_WIN,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.00820414940950237
+beach_n0,OTHER_WIN,B-G,"plane0 |r| at pixel, 8 buckets",-0.013281917362042317
+beach_n0,OTHER_WIN,B-G,plane0 signed r at pixel (q7),-0.019902725206138783
+beach_n0,OTHER_WIN,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.011838996956151093
+beach_n0,OTHER_WIN,B-G,plane1 |r| 3x3 window energy (incl. E/S),-0.004980416528962861
+beach_n0,OTHER_WIN,B-G,plane1 |r| 5x5 window energy (incl. E/S),-0.002238007818931076
+beach_n0,OTHER_WIN,B-G,"plane1 |r| at pixel, 8 buckets",-0.00035839205330007173
+beach_n0,OTHER_WIN,B-G,plane1 signed r at pixel (q7),0.011128806648364187
+beach_n0,OTHER_WIN,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),-0.004905664562246337
+beach_n0,OTHER_WIN,B-G,plane0 signed r given plane1 signed r,-0.019902725206138783
+bird_n0,OTHER_WIN,G,H(T|base ctx),1.75955240855058
+bird_n0,OTHER_WIN,G,P (production feature; real gain known),0.09375330175715813
+bird_n0,OTHER_WIN,G,dummy hash card 49 (overfit floor),-0.0660509534339615
+bird_n0,OTHER_WIN,G,dummy hash card 7 (overfit floor),-0.010462788729716399
+bird_n0,OTHER_WIN,G,dummy hash card 8 (overfit floor),-0.008035935278136952
+bird_n0,OTHER_WIN,G,dummy hash card 27 (overfit floor),-0.03840331382015272
+bird_n0,OTHER_WIN,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.06967574594889592
+bird_n0,OTHER_WIN,R-G,H(T|base ctx),0.4386902824204741
+bird_n0,OTHER_WIN,R-G,P (production feature; real gain known),0.022595431129748822
+bird_n0,OTHER_WIN,R-G,dummy hash card 49 (overfit floor),-0.08326848111003998
+bird_n0,OTHER_WIN,R-G,dummy hash card 7 (overfit floor),-0.016343941097957393
+bird_n0,OTHER_WIN,R-G,dummy hash card 8 (overfit floor),0.009068809245550924
+bird_n0,OTHER_WIN,R-G,dummy hash card 27 (overfit floor),-0.0529858003158466
+bird_n0,OTHER_WIN,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.035261457230773174
+bird_n0,OTHER_WIN,R-G,plane0 |r| 3x3 window energy (incl. E/S),0.005797165785807412
+bird_n0,OTHER_WIN,R-G,plane0 |r| 5x5 window energy (incl. E/S),0.0029982219455010894
+bird_n0,OTHER_WIN,R-G,"plane0 |r| at pixel, 8 buckets",0.0016635010258105876
+bird_n0,OTHER_WIN,R-G,plane0 signed r at pixel (q7),-0.0059209952430809495
+bird_n0,OTHER_WIN,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),0.011407822881676022
+bird_n0,OTHER_WIN,B-G,H(T|base ctx),0.4572255418163169
+bird_n0,OTHER_WIN,B-G,P (production feature; real gain known),0.03420794630171692
+bird_n0,OTHER_WIN,B-G,dummy hash card 49 (overfit floor),-0.06245519261635857
+bird_n0,OTHER_WIN,B-G,dummy hash card 7 (overfit floor),-0.01245184700409141
+bird_n0,OTHER_WIN,B-G,dummy hash card 8 (overfit floor),0.004369950618751284
+bird_n0,OTHER_WIN,B-G,dummy hash card 27 (overfit floor),-0.03994822909053519
+bird_n0,OTHER_WIN,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.04246930071127847
+bird_n0,OTHER_WIN,B-G,plane0 |r| 3x3 window energy (incl. E/S),0.01070812967350715
+bird_n0,OTHER_WIN,B-G,plane0 |r| 5x5 window energy (incl. E/S),0.008495791744432935
+bird_n0,OTHER_WIN,B-G,"plane0 |r| at pixel, 8 buckets",0.034662264208604354
+bird_n0,OTHER_WIN,B-G,plane0 signed r at pixel (q7),0.06870249088586922
+bird_n0,OTHER_WIN,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),0.017294734657304967
+bird_n0,OTHER_WIN,B-G,plane1 |r| 3x3 window energy (incl. E/S),0.012154040936530608
+bird_n0,OTHER_WIN,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.007965313909012783
+bird_n0,OTHER_WIN,B-G,"plane1 |r| at pixel, 8 buckets",6.63038596787624e-05
+bird_n0,OTHER_WIN,B-G,plane1 signed r at pixel (q7),0.012073302782348083
+bird_n0,OTHER_WIN,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),0.01252570761534938
+bird_n0,OTHER_WIN,B-G,plane0 signed r given plane1 signed r,0.06870249088586922
+boat_n0,CONTROL,G,H(T|base ctx),2.559686739440975
+boat_n0,CONTROL,G,P (production feature; real gain known),0.03200341607921642
+boat_n0,CONTROL,G,dummy hash card 49 (overfit floor),-0.08669480792309336
+boat_n0,CONTROL,G,dummy hash card 7 (overfit floor),-0.01573842951531379
+boat_n0,CONTROL,G,dummy hash card 8 (overfit floor),-0.016966374901798087
+boat_n0,CONTROL,G,dummy hash card 27 (overfit floor),-0.053809691642826785
+boat_n0,CONTROL,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.025564061151794437
+boat_n0,CONTROL,R-G,H(T|base ctx),2.2561277467551304
+boat_n0,CONTROL,R-G,P (production feature; real gain known),0.03529361139916265
+boat_n0,CONTROL,R-G,dummy hash card 49 (overfit floor),-0.15723465175303364
+boat_n0,CONTROL,R-G,dummy hash card 7 (overfit floor),-0.03337706241009597
+boat_n0,CONTROL,R-G,dummy hash card 8 (overfit floor),-0.037066574177571976
+boat_n0,CONTROL,R-G,dummy hash card 27 (overfit floor),-0.10434388612394185
+boat_n0,CONTROL,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.04715968227072098
+boat_n0,CONTROL,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.006778390567703685
+boat_n0,CONTROL,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.0052227443718146915
+boat_n0,CONTROL,R-G,"plane0 |r| at pixel, 8 buckets",-0.00592852646797537
+boat_n0,CONTROL,R-G,plane0 signed r at pixel (q7),-0.025814652081015965
+boat_n0,CONTROL,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.0077366648604759725
+boat_n0,CONTROL,B-G,H(T|base ctx),2.087236707806933
+boat_n0,CONTROL,B-G,P (production feature; real gain known),0.03203352835528639
+boat_n0,CONTROL,B-G,dummy hash card 49 (overfit floor),-0.1479023210075483
+boat_n0,CONTROL,B-G,dummy hash card 7 (overfit floor),-0.032524974734869705
+boat_n0,CONTROL,B-G,dummy hash card 8 (overfit floor),-0.035111212785493784
+boat_n0,CONTROL,B-G,dummy hash card 27 (overfit floor),-0.09922022595851088
+boat_n0,CONTROL,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.040959699757781465
+boat_n0,CONTROL,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.006904969221971147
+boat_n0,CONTROL,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.004590836772484508
+boat_n0,CONTROL,B-G,"plane0 |r| at pixel, 8 buckets",-0.013050104626588066
+boat_n0,CONTROL,B-G,plane0 signed r at pixel (q7),-0.013442007310647153
+boat_n0,CONTROL,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.0053840928634216745
+boat_n0,CONTROL,B-G,plane1 |r| 3x3 window energy (incl. E/S),-0.001322489456509146
+boat_n0,CONTROL,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.005194364611922353
+boat_n0,CONTROL,B-G,"plane1 |r| at pixel, 8 buckets",0.0035925243602190626
+boat_n0,CONTROL,B-G,plane1 signed r at pixel (q7),0.07862298662819622
+boat_n0,CONTROL,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),0.006765584885350506
+boat_n0,CONTROL,B-G,plane0 signed r given plane1 signed r,-0.013442007310647153
+bridge_n0,OTHER_WIN,G,H(T|base ctx),2.5999920877756466
+bridge_n0,OTHER_WIN,G,P (production feature; real gain known),0.05580161898731806
+bridge_n0,OTHER_WIN,G,dummy hash card 49 (overfit floor),-0.07272902586024799
+bridge_n0,OTHER_WIN,G,dummy hash card 7 (overfit floor),-0.012958125470016402
+bridge_n0,OTHER_WIN,G,dummy hash card 8 (overfit floor),-0.01564267231152794
+bridge_n0,OTHER_WIN,G,dummy hash card 27 (overfit floor),-0.045185175872807015
+bridge_n0,OTHER_WIN,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.04683818346795254
+bridge_n0,OTHER_WIN,R-G,H(T|base ctx),0.5948344935375738
+bridge_n0,OTHER_WIN,R-G,P (production feature; real gain known),0.03029430255206189
+bridge_n0,OTHER_WIN,R-G,dummy hash card 49 (overfit floor),-0.10759095773044758
+bridge_n0,OTHER_WIN,R-G,dummy hash card 7 (overfit floor),-0.022917927466425403
+bridge_n0,OTHER_WIN,R-G,dummy hash card 8 (overfit floor),-0.0022504825599354294
+bridge_n0,OTHER_WIN,R-G,dummy hash card 27 (overfit floor),-0.07197602868116826
+bridge_n0,OTHER_WIN,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.03672162781592614
+bridge_n0,OTHER_WIN,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.008047736311296627
+bridge_n0,OTHER_WIN,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.004022472087514384
+bridge_n0,OTHER_WIN,R-G,"plane0 |r| at pixel, 8 buckets",-0.0040208437651669815
+bridge_n0,OTHER_WIN,R-G,plane0 signed r at pixel (q7),-0.013527252515504323
+bridge_n0,OTHER_WIN,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.009526806184168457
+bridge_n0,OTHER_WIN,B-G,H(T|base ctx),0.4866843955537601
+bridge_n0,OTHER_WIN,B-G,P (production feature; real gain known),0.031074753331657767
+bridge_n0,OTHER_WIN,B-G,dummy hash card 49 (overfit floor),-0.07867000250010414
+bridge_n0,OTHER_WIN,B-G,dummy hash card 7 (overfit floor),-0.015369850376950156
+bridge_n0,OTHER_WIN,B-G,dummy hash card 8 (overfit floor),-0.0067236964795048815
+bridge_n0,OTHER_WIN,B-G,dummy hash card 27 (overfit floor),-0.0508027865001075
+bridge_n0,OTHER_WIN,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.02732720116719589
+bridge_n0,OTHER_WIN,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.003976310029643382
+bridge_n0,OTHER_WIN,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.0011501803390110976
+bridge_n0,OTHER_WIN,B-G,"plane0 |r| at pixel, 8 buckets",-0.008934030696479522
+bridge_n0,OTHER_WIN,B-G,plane0 signed r at pixel (q7),-0.016117851287793583
+bridge_n0,OTHER_WIN,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.004373251102710529
+bridge_n0,OTHER_WIN,B-G,plane1 |r| 3x3 window energy (incl. E/S),-0.0010881010489151022
+bridge_n0,OTHER_WIN,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.004641849482254212
+bridge_n0,OTHER_WIN,B-G,"plane1 |r| at pixel, 8 buckets",0.0021900154779492254
+bridge_n0,OTHER_WIN,B-G,plane1 signed r at pixel (q7),0.02543135534510038
+bridge_n0,OTHER_WIN,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),0.007783585325949083
+bridge_n0,OTHER_WIN,B-G,plane0 signed r given plane1 signed r,-0.016117851287793583
+building_n0,OTHER_WIN,G,H(T|base ctx),2.370611058418776
+building_n0,OTHER_WIN,G,P (production feature; real gain known),0.032316683524307166
+building_n0,OTHER_WIN,G,dummy hash card 49 (overfit floor),-0.07891240146586931
+building_n0,OTHER_WIN,G,dummy hash card 7 (overfit floor),-0.014336497705829565
+building_n0,OTHER_WIN,G,dummy hash card 8 (overfit floor),-0.014930199478157213
+building_n0,OTHER_WIN,G,dummy hash card 27 (overfit floor),-0.049764867468047314
+building_n0,OTHER_WIN,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.03734517831281625
+building_n0,OTHER_WIN,R-G,H(T|base ctx),1.5283242742961862
+building_n0,OTHER_WIN,R-G,P (production feature; real gain known),0.03353599790792838
+building_n0,OTHER_WIN,R-G,dummy hash card 49 (overfit floor),-0.14376018017689463
+building_n0,OTHER_WIN,R-G,dummy hash card 7 (overfit floor),-0.028340134214594137
+building_n0,OTHER_WIN,R-G,dummy hash card 8 (overfit floor),-0.0279024494066058
+building_n0,OTHER_WIN,R-G,dummy hash card 27 (overfit floor),-0.09139081342478916
+building_n0,OTHER_WIN,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.049267596250948564
+building_n0,OTHER_WIN,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.004789673097630676
+building_n0,OTHER_WIN,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.0014185410288400924
+building_n0,OTHER_WIN,R-G,"plane0 |r| at pixel, 8 buckets",-0.0044595376651350715
+building_n0,OTHER_WIN,R-G,plane0 signed r at pixel (q7),-0.021839143951038198
+building_n0,OTHER_WIN,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.009425128567571273
+building_n0,OTHER_WIN,B-G,H(T|base ctx),1.4452027740876954
+building_n0,OTHER_WIN,B-G,P (production feature; real gain known),0.0540181679998728
+building_n0,OTHER_WIN,B-G,dummy hash card 49 (overfit floor),-0.11920284234025358
+building_n0,OTHER_WIN,B-G,dummy hash card 7 (overfit floor),-0.023503040235633987
+building_n0,OTHER_WIN,B-G,dummy hash card 8 (overfit floor),-0.02215440807339908
+building_n0,OTHER_WIN,B-G,dummy hash card 27 (overfit floor),-0.07428670716528485
+building_n0,OTHER_WIN,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.06251508015131768
+building_n0,OTHER_WIN,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.004772727292959411
+building_n0,OTHER_WIN,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.00046192772085262845
+building_n0,OTHER_WIN,B-G,"plane0 |r| at pixel, 8 buckets",-0.0072808964327544246
+building_n0,OTHER_WIN,B-G,plane0 signed r at pixel (q7),-0.011851540718135656
+building_n0,OTHER_WIN,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.005471306225635075
+building_n0,OTHER_WIN,B-G,plane1 |r| 3x3 window energy (incl. E/S),0.0026006750407163715
+building_n0,OTHER_WIN,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.0052663311926897105
+building_n0,OTHER_WIN,B-G,"plane1 |r| at pixel, 8 buckets",0.003256810305591884
+building_n0,OTHER_WIN,B-G,plane1 signed r at pixel (q7),0.08738875307288696
+building_n0,OTHER_WIN,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),0.010332412097222798
+building_n0,OTHER_WIN,B-G,plane0 signed r given plane1 signed r,-0.011851540718135656
+child_n0,OTHER_WIN,G,H(T|base ctx),1.9237935267958832
+child_n0,OTHER_WIN,G,P (production feature; real gain known),0.08378889846534987
+child_n0,OTHER_WIN,G,dummy hash card 49 (overfit floor),-0.04444432580420132
+child_n0,OTHER_WIN,G,dummy hash card 7 (overfit floor),-0.006986170712201645
+child_n0,OTHER_WIN,G,dummy hash card 8 (overfit floor),-0.005388022934580183
+child_n0,OTHER_WIN,G,dummy hash card 27 (overfit floor),-0.025881038876638396
+child_n0,OTHER_WIN,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.08411144644941881
+child_n0,OTHER_WIN,R-G,H(T|base ctx),0.7091563531754708
+child_n0,OTHER_WIN,R-G,P (production feature; real gain known),0.05040434219029222
+child_n0,OTHER_WIN,R-G,dummy hash card 49 (overfit floor),-0.07436464660317799
+child_n0,OTHER_WIN,R-G,dummy hash card 7 (overfit floor),-0.013837426252091056
+child_n0,OTHER_WIN,R-G,dummy hash card 8 (overfit floor),0.01933732755413642
+child_n0,OTHER_WIN,R-G,dummy hash card 27 (overfit floor),-0.046114454081886636
+child_n0,OTHER_WIN,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.05631126991849367
+child_n0,OTHER_WIN,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.0017565607717124898
+child_n0,OTHER_WIN,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.00210569863931398
+child_n0,OTHER_WIN,R-G,"plane0 |r| at pixel, 8 buckets",-0.00047490355688895036
+child_n0,OTHER_WIN,R-G,plane0 signed r at pixel (q7),-0.004900591374281352
+child_n0,OTHER_WIN,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.00623081006028714
+child_n0,OTHER_WIN,B-G,H(T|base ctx),0.6177902740673713
+child_n0,OTHER_WIN,B-G,P (production feature; real gain known),0.05751537601385237
+child_n0,OTHER_WIN,B-G,dummy hash card 49 (overfit floor),-0.06537367140041894
+child_n0,OTHER_WIN,B-G,dummy hash card 7 (overfit floor),-0.011442187459252295
+child_n0,OTHER_WIN,B-G,dummy hash card 8 (overfit floor),0.007172990987074801
+child_n0,OTHER_WIN,B-G,dummy hash card 27 (overfit floor),-0.040576416606002086
+child_n0,OTHER_WIN,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.053405289467216566
+child_n0,OTHER_WIN,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.004320573490964041
+child_n0,OTHER_WIN,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.002470512468637054
+child_n0,OTHER_WIN,B-G,"plane0 |r| at pixel, 8 buckets",-0.0016187613706762916
+child_n0,OTHER_WIN,B-G,plane0 signed r at pixel (q7),-0.0028943306260904578
+child_n0,OTHER_WIN,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.005417636779379231
+child_n0,OTHER_WIN,B-G,plane1 |r| 3x3 window energy (incl. E/S),0.0022796376012781394
+child_n0,OTHER_WIN,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.00017686764901936325
+child_n0,OTHER_WIN,B-G,"plane1 |r| at pixel, 8 buckets",0.0022959574866170396
+child_n0,OTHER_WIN,B-G,plane1 signed r at pixel (q7),0.04857327619963292
+child_n0,OTHER_WIN,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),0.009424167125978933
+child_n0,OTHER_WIN,B-G,plane0 signed r given plane1 signed r,-0.0028943306260904578
+clouds_n0,OTHER_WIN,G,H(T|base ctx),2.509320313508798
+clouds_n0,OTHER_WIN,G,P (production feature; real gain known),0.04176779845083578
+clouds_n0,OTHER_WIN,G,dummy hash card 49 (overfit floor),-0.06592245398486973
+clouds_n0,OTHER_WIN,G,dummy hash card 7 (overfit floor),-0.0123112561664942
+clouds_n0,OTHER_WIN,G,dummy hash card 8 (overfit floor),-0.014079183686648733
+clouds_n0,OTHER_WIN,G,dummy hash card 27 (overfit floor),-0.04208403847012976
+clouds_n0,OTHER_WIN,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.03418918050635167
+clouds_n0,OTHER_WIN,R-G,H(T|base ctx),0.3793657787455352
+clouds_n0,OTHER_WIN,R-G,P (production feature; real gain known),0.01546077854531569
+clouds_n0,OTHER_WIN,R-G,dummy hash card 49 (overfit floor),-0.07273321909409297
+clouds_n0,OTHER_WIN,R-G,dummy hash card 7 (overfit floor),-0.014118773940233698
+clouds_n0,OTHER_WIN,R-G,dummy hash card 8 (overfit floor),-0.0046969210961801955
+clouds_n0,OTHER_WIN,R-G,dummy hash card 27 (overfit floor),-0.046922966175297176
+clouds_n0,OTHER_WIN,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.01690433829158766
+clouds_n0,OTHER_WIN,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.0038055331955261784
+clouds_n0,OTHER_WIN,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.0018204603946706532
+clouds_n0,OTHER_WIN,R-G,"plane0 |r| at pixel, 8 buckets",-0.002236051187999577
+clouds_n0,OTHER_WIN,R-G,plane0 signed r at pixel (q7),-0.007214544990071327
+clouds_n0,OTHER_WIN,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.005331896444872142
+clouds_n0,OTHER_WIN,B-G,H(T|base ctx),0.3560199009092595
+clouds_n0,OTHER_WIN,B-G,P (production feature; real gain known),0.03130834107462599
+clouds_n0,OTHER_WIN,B-G,dummy hash card 49 (overfit floor),-0.061483775640350846
+clouds_n0,OTHER_WIN,B-G,dummy hash card 7 (overfit floor),-0.012426289988154315
+clouds_n0,OTHER_WIN,B-G,dummy hash card 8 (overfit floor),-0.007453643487109973
+clouds_n0,OTHER_WIN,B-G,dummy hash card 27 (overfit floor),-0.03978136013504863
+clouds_n0,OTHER_WIN,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.02828343960980978
+clouds_n0,OTHER_WIN,B-G,plane0 |r| 3x3 window energy (incl. E/S),0.0030104115117220998
+clouds_n0,OTHER_WIN,B-G,plane0 |r| 5x5 window energy (incl. E/S),0.005796452604312163
+clouds_n0,OTHER_WIN,B-G,"plane0 |r| at pixel, 8 buckets",-0.0035340279163884047
+clouds_n0,OTHER_WIN,B-G,plane0 signed r at pixel (q7),-0.00782330709056206
+clouds_n0,OTHER_WIN,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),0.002488593092590752
+clouds_n0,OTHER_WIN,B-G,plane1 |r| 3x3 window energy (incl. E/S),-0.001564243117876174
+clouds_n0,OTHER_WIN,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.0029906717665340588
+clouds_n0,OTHER_WIN,B-G,"plane1 |r| at pixel, 8 buckets",5.624467810511069e-05
+clouds_n0,OTHER_WIN,B-G,plane1 signed r at pixel (q7),0.023892963826942337
+clouds_n0,OTHER_WIN,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),0.0005648920985141803
+clouds_n0,OTHER_WIN,B-G,plane0 signed r given plane1 signed r,-0.00782330709056206
+coast_n0,OTHER_WIN,G,H(T|base ctx),2.527722389645999
+coast_n0,OTHER_WIN,G,P (production feature; real gain known),0.008758141174714407
+coast_n0,OTHER_WIN,G,dummy hash card 49 (overfit floor),-0.07868315664380976
+coast_n0,OTHER_WIN,G,dummy hash card 7 (overfit floor),-0.014656160521133277
+coast_n0,OTHER_WIN,G,dummy hash card 8 (overfit floor),-0.01596423878815667
+coast_n0,OTHER_WIN,G,dummy hash card 27 (overfit floor),-0.04917177171939624
+coast_n0,OTHER_WIN,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.02732604074879852
+coast_n0,OTHER_WIN,R-G,H(T|base ctx),0.22088339613466063
+coast_n0,OTHER_WIN,R-G,P (production feature; real gain known),0.0056400296336815425
+coast_n0,OTHER_WIN,R-G,dummy hash card 49 (overfit floor),-0.0599743809345214
+coast_n0,OTHER_WIN,R-G,dummy hash card 7 (overfit floor),-0.012570930469662511
+coast_n0,OTHER_WIN,R-G,dummy hash card 8 (overfit floor),-0.0072585403656894865
+coast_n0,OTHER_WIN,R-G,dummy hash card 27 (overfit floor),-0.03892997495087941
+coast_n0,OTHER_WIN,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.0091711363058945
+coast_n0,OTHER_WIN,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.00511299589882655
+coast_n0,OTHER_WIN,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.0039327697032791875
+coast_n0,OTHER_WIN,R-G,"plane0 |r| at pixel, 8 buckets",-0.0024613644127115253
+coast_n0,OTHER_WIN,R-G,plane0 signed r at pixel (q7),-0.0062044945483246405
+coast_n0,OTHER_WIN,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.006621009572706837
+coast_n0,OTHER_WIN,B-G,H(T|base ctx),0.1841630618320066
+coast_n0,OTHER_WIN,B-G,P (production feature; real gain known),0.010270900873408373
+coast_n0,OTHER_WIN,B-G,dummy hash card 49 (overfit floor),-0.04449667793129891
+coast_n0,OTHER_WIN,B-G,dummy hash card 7 (overfit floor),-0.009123238431303193
+coast_n0,OTHER_WIN,B-G,dummy hash card 8 (overfit floor),-0.005875651602038179
+coast_n0,OTHER_WIN,B-G,dummy hash card 27 (overfit floor),-0.02808364367903779
+coast_n0,OTHER_WIN,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.010573568432157315
+coast_n0,OTHER_WIN,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.003623031985747094
+coast_n0,OTHER_WIN,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.0022577929307802114
+coast_n0,OTHER_WIN,B-G,"plane0 |r| at pixel, 8 buckets",-0.005706725026745685
+coast_n0,OTHER_WIN,B-G,plane0 signed r at pixel (q7),-0.00756804759434096
+coast_n0,OTHER_WIN,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.004284796667284763
+coast_n0,OTHER_WIN,B-G,plane1 |r| 3x3 window energy (incl. E/S),-0.0006067344324001134
+coast_n0,OTHER_WIN,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.0032405196082048726
+coast_n0,OTHER_WIN,B-G,"plane1 |r| at pixel, 8 buckets",-9.258219761573705e-05
+coast_n0,OTHER_WIN,B-G,plane1 signed r at pixel (q7),0.007150765401764236
+coast_n0,OTHER_WIN,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),0.00035196254158184614
+coast_n0,OTHER_WIN,B-G,plane0 signed r given plane1 signed r,-0.00756804759434096
+desert_n0,OTHER_WIN,G,H(T|base ctx),3.278115362418255
+desert_n0,OTHER_WIN,G,P (production feature; real gain known),0.0343146789940878
+desert_n0,OTHER_WIN,G,dummy hash card 49 (overfit floor),-0.056295684140884816
+desert_n0,OTHER_WIN,G,dummy hash card 7 (overfit floor),-0.009197179653115839
+desert_n0,OTHER_WIN,G,dummy hash card 8 (overfit floor),-0.009964109351409789
+desert_n0,OTHER_WIN,G,dummy hash card 27 (overfit floor),-0.0353430406920241
+desert_n0,OTHER_WIN,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.013600607835671852
+desert_n0,OTHER_WIN,R-G,H(T|base ctx),0.6529001913388326
+desert_n0,OTHER_WIN,R-G,P (production feature; real gain known),0.019098767867268496
+desert_n0,OTHER_WIN,R-G,dummy hash card 49 (overfit floor),-0.08773694379869712
+desert_n0,OTHER_WIN,R-G,dummy hash card 7 (overfit floor),-0.016740893566654647
+desert_n0,OTHER_WIN,R-G,dummy hash card 8 (overfit floor),-0.015948971625640906
+desert_n0,OTHER_WIN,R-G,dummy hash card 27 (overfit floor),-0.05591175045184271
+desert_n0,OTHER_WIN,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.02418110282879471
+desert_n0,OTHER_WIN,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.0044649606555825505
+desert_n0,OTHER_WIN,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.002955343013404499
+desert_n0,OTHER_WIN,R-G,"plane0 |r| at pixel, 8 buckets",-0.0019587424152692767
+desert_n0,OTHER_WIN,R-G,plane0 signed r at pixel (q7),-0.01006380955083122
+desert_n0,OTHER_WIN,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.005046343660311425
+desert_n0,OTHER_WIN,B-G,H(T|base ctx),0.5838688077152303
+desert_n0,OTHER_WIN,B-G,P (production feature; real gain known),0.030571895347225486
+desert_n0,OTHER_WIN,B-G,dummy hash card 49 (overfit floor),-0.0692753323865204
+desert_n0,OTHER_WIN,B-G,dummy hash card 7 (overfit floor),-0.012203624618693842
+desert_n0,OTHER_WIN,B-G,dummy hash card 8 (overfit floor),-0.011561523803063967
+desert_n0,OTHER_WIN,B-G,dummy hash card 27 (overfit floor),-0.042689591332583876
+desert_n0,OTHER_WIN,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.03480015092355382
+desert_n0,OTHER_WIN,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.0023210721072796092
+desert_n0,OTHER_WIN,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.0011062815062294895
+desert_n0,OTHER_WIN,B-G,"plane0 |r| at pixel, 8 buckets",-0.005594189828553531
+desert_n0,OTHER_WIN,B-G,plane0 signed r at pixel (q7),-0.013627621021296665
+desert_n0,OTHER_WIN,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.0024637547054844333
+desert_n0,OTHER_WIN,B-G,plane1 |r| 3x3 window energy (incl. E/S),0.003635491556711279
+desert_n0,OTHER_WIN,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.00424174246779474
+desert_n0,OTHER_WIN,B-G,"plane1 |r| at pixel, 8 buckets",0.002010367810115987
+desert_n0,OTHER_WIN,B-G,plane1 signed r at pixel (q7),0.032892324324077515
+desert_n0,OTHER_WIN,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),0.012381104986542879
+desert_n0,OTHER_WIN,B-G,plane0 signed r given plane1 signed r,-0.013627621021296665
+document_0,OTHER_WIN,G,H(T|base ctx),3.4930653803359135
+document_0,OTHER_WIN,G,P (production feature; real gain known),0.043332811886609424
+document_0,OTHER_WIN,G,dummy hash card 49 (overfit floor),-0.06922326299475579
+document_0,OTHER_WIN,G,dummy hash card 7 (overfit floor),-0.012756469654586766
+document_0,OTHER_WIN,G,dummy hash card 8 (overfit floor),-0.012875015362833864
+document_0,OTHER_WIN,G,dummy hash card 27 (overfit floor),-0.043063377578105744
+document_0,OTHER_WIN,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.017080296517022475
+document_0,OTHER_WIN,R-G,H(T|base ctx),0.12369670601426196
+document_0,OTHER_WIN,R-G,P (production feature; real gain known),0.002386158639941155
+document_0,OTHER_WIN,R-G,dummy hash card 49 (overfit floor),-0.0452396340531558
+document_0,OTHER_WIN,R-G,dummy hash card 7 (overfit floor),-0.00834496780193135
+document_0,OTHER_WIN,R-G,dummy hash card 8 (overfit floor),0.001068340583344679
+document_0,OTHER_WIN,R-G,dummy hash card 27 (overfit floor),-0.028030926964092748
+document_0,OTHER_WIN,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.0017458295343939223
+document_0,OTHER_WIN,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.004071504679855689
+document_0,OTHER_WIN,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.003050020193408484
+document_0,OTHER_WIN,R-G,"plane0 |r| at pixel, 8 buckets",-0.0017528851280859264
+document_0,OTHER_WIN,R-G,plane0 signed r at pixel (q7),-0.003284644446277159
+document_0,OTHER_WIN,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.005398845692818496
+document_0,OTHER_WIN,B-G,H(T|base ctx),0.11841194348536757
+document_0,OTHER_WIN,B-G,P (production feature; real gain known),0.006836633425132452
+document_0,OTHER_WIN,B-G,dummy hash card 49 (overfit floor),-0.028030882222341236
+document_0,OTHER_WIN,B-G,dummy hash card 7 (overfit floor),-0.006264556575986943
+document_0,OTHER_WIN,B-G,dummy hash card 8 (overfit floor),0.0010940908276565325
+document_0,OTHER_WIN,B-G,dummy hash card 27 (overfit floor),-0.018470333125810978
+document_0,OTHER_WIN,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.005279087611794658
+document_0,OTHER_WIN,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.002122657335611261
+document_0,OTHER_WIN,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.0009446049378960819
+document_0,OTHER_WIN,B-G,"plane0 |r| at pixel, 8 buckets",-0.004355961736832711
+document_0,OTHER_WIN,B-G,plane0 signed r at pixel (q7),-0.006434404757168236
+document_0,OTHER_WIN,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.0025254080313166505
+document_0,OTHER_WIN,B-G,plane1 |r| 3x3 window energy (incl. E/S),-0.0005428467569651985
+document_0,OTHER_WIN,B-G,plane1 |r| 5x5 window energy (incl. E/S),1.5615424893991592e-05
+document_0,OTHER_WIN,B-G,"plane1 |r| at pixel, 8 buckets",1.5849667206274676e-05
+document_0,OTHER_WIN,B-G,plane1 signed r at pixel (q7),0.005396914782829082
+document_0,OTHER_WIN,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),0.0019778796661685943
+document_0,OTHER_WIN,B-G,plane0 signed r given plane1 signed r,-0.006434404757168236
+document_1,CONTROL,G,H(T|base ctx),2.1262270486135453
+document_1,CONTROL,G,P (production feature; real gain known),0.070481892442813
+document_1,CONTROL,G,dummy hash card 49 (overfit floor),-0.07094099493787631
+document_1,CONTROL,G,dummy hash card 7 (overfit floor),-0.015120538376729442
+document_1,CONTROL,G,dummy hash card 8 (overfit floor),-0.01647524325478189
+document_1,CONTROL,G,dummy hash card 27 (overfit floor),-0.04726561229462689
+document_1,CONTROL,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.062310444568036694
+document_1,CONTROL,R-G,H(T|base ctx),0.3914112157984596
+document_1,CONTROL,R-G,P (production feature; real gain known),0.010369207076048936
+document_1,CONTROL,R-G,dummy hash card 49 (overfit floor),-0.07919317698062084
+document_1,CONTROL,R-G,dummy hash card 7 (overfit floor),-0.015597724786435063
+document_1,CONTROL,R-G,dummy hash card 8 (overfit floor),-0.007617648304567459
+document_1,CONTROL,R-G,dummy hash card 27 (overfit floor),-0.05086557402534275
+document_1,CONTROL,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.008882527806537754
+document_1,CONTROL,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.0058378588968390766
+document_1,CONTROL,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.0032872265720036986
+document_1,CONTROL,R-G,"plane0 |r| at pixel, 8 buckets",-0.0029934154997177664
+document_1,CONTROL,R-G,plane0 signed r at pixel (q7),-0.007803712727207694
+document_1,CONTROL,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.0033088543622292743
+document_1,CONTROL,B-G,H(T|base ctx),0.33192149704861973
+document_1,CONTROL,B-G,P (production feature; real gain known),0.018455318319723024
+document_1,CONTROL,B-G,dummy hash card 49 (overfit floor),-0.06136253518425272
+document_1,CONTROL,B-G,dummy hash card 7 (overfit floor),-0.012220330132888813
+document_1,CONTROL,B-G,dummy hash card 8 (overfit floor),-0.008159567829534864
+document_1,CONTROL,B-G,dummy hash card 27 (overfit floor),-0.040289292492893036
+document_1,CONTROL,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.02007133268994732
+document_1,CONTROL,B-G,plane0 |r| 3x3 window energy (incl. E/S),0.0008365775373281314
+document_1,CONTROL,B-G,plane0 |r| 5x5 window energy (incl. E/S),0.0013961404768567665
+document_1,CONTROL,B-G,"plane0 |r| at pixel, 8 buckets",0.012073944044800333
+document_1,CONTROL,B-G,plane0 signed r at pixel (q7),0.020134540273728463
+document_1,CONTROL,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),0.0044076278035357075
+document_1,CONTROL,B-G,plane1 |r| 3x3 window energy (incl. E/S),0.00485685265277469
+document_1,CONTROL,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.008746265387964636
+document_1,CONTROL,B-G,"plane1 |r| at pixel, 8 buckets",-4.429794080595961e-05
+document_1,CONTROL,B-G,plane1 signed r at pixel (q7),0.007901915502155077
+document_1,CONTROL,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),0.00858876213764248
+document_1,CONTROL,B-G,plane0 signed r given plane1 signed r,0.020134540273728463
+flower_n0,OTHER_WIN,G,H(T|base ctx),2.868551468195353
+flower_n0,OTHER_WIN,G,P (production feature; real gain known),0.03782761046148586
+flower_n0,OTHER_WIN,G,dummy hash card 49 (overfit floor),-0.0851582127249162
+flower_n0,OTHER_WIN,G,dummy hash card 7 (overfit floor),-0.015382858980101943
+flower_n0,OTHER_WIN,G,dummy hash card 8 (overfit floor),-0.016177413229825355
+flower_n0,OTHER_WIN,G,dummy hash card 27 (overfit floor),-0.05408372998735933
+flower_n0,OTHER_WIN,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.02488135583461437
+flower_n0,OTHER_WIN,R-G,H(T|base ctx),1.1491757264832465
+flower_n0,OTHER_WIN,R-G,P (production feature; real gain known),0.052505519350843244
+flower_n0,OTHER_WIN,R-G,dummy hash card 49 (overfit floor),-0.12960779383544585
+flower_n0,OTHER_WIN,R-G,dummy hash card 7 (overfit floor),-0.02572153755928941
+flower_n0,OTHER_WIN,R-G,dummy hash card 8 (overfit floor),-0.01697138128249276
+flower_n0,OTHER_WIN,R-G,dummy hash card 27 (overfit floor),-0.08172987499778261
+flower_n0,OTHER_WIN,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.05642205210609652
+flower_n0,OTHER_WIN,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.008945348390409613
+flower_n0,OTHER_WIN,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.007152187806202637
+flower_n0,OTHER_WIN,R-G,"plane0 |r| at pixel, 8 buckets",-0.003474853702960967
+flower_n0,OTHER_WIN,R-G,plane0 signed r at pixel (q7),-0.01623905568936218
+flower_n0,OTHER_WIN,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.011989766409417069
+flower_n0,OTHER_WIN,B-G,H(T|base ctx),1.2330412469941763
+flower_n0,OTHER_WIN,B-G,P (production feature; real gain known),0.05342063594759705
+flower_n0,OTHER_WIN,B-G,dummy hash card 49 (overfit floor),-0.12153402080653741
+flower_n0,OTHER_WIN,B-G,dummy hash card 7 (overfit floor),-0.026859457553560118
+flower_n0,OTHER_WIN,B-G,dummy hash card 8 (overfit floor),-0.02211592164002929
+flower_n0,OTHER_WIN,B-G,dummy hash card 27 (overfit floor),-0.07860101355701721
+flower_n0,OTHER_WIN,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.049991326954200055
+flower_n0,OTHER_WIN,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.013788544615181308
+flower_n0,OTHER_WIN,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.010953077721149507
+flower_n0,OTHER_WIN,B-G,"plane0 |r| at pixel, 8 buckets",-0.013039768567649546
+flower_n0,OTHER_WIN,B-G,plane0 signed r at pixel (q7),-0.010784827162384492
+flower_n0,OTHER_WIN,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.015442021855595733
+flower_n0,OTHER_WIN,B-G,plane1 |r| 3x3 window energy (incl. E/S),-0.002609997515798268
+flower_n0,OTHER_WIN,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.0021375928405140687
+flower_n0,OTHER_WIN,B-G,"plane1 |r| at pixel, 8 buckets",-0.001589237678977895
+flower_n0,OTHER_WIN,B-G,plane1 signed r at pixel (q7),0.03929189165393332
+flower_n0,OTHER_WIN,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),-0.00210083114851245
+flower_n0,OTHER_WIN,B-G,plane0 signed r given plane1 signed r,-0.010784827162384492
+food_0,LOSE,G,H(T|base ctx),3.493007345845505
+food_0,LOSE,G,P (production feature; real gain known),0.0484195174639086
+food_0,LOSE,G,dummy hash card 49 (overfit floor),-0.08413579417383854
+food_0,LOSE,G,dummy hash card 7 (overfit floor),-0.014614123412779012
+food_0,LOSE,G,dummy hash card 8 (overfit floor),-0.01646955299649555
+food_0,LOSE,G,dummy hash card 27 (overfit floor),-0.052811767117018515
+food_0,LOSE,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.016934314486316104
+food_0,LOSE,R-G,H(T|base ctx),2.6455356327106916
+food_0,LOSE,R-G,P (production feature; real gain known),0.09157474817131028
+food_0,LOSE,R-G,dummy hash card 49 (overfit floor),-0.17424614505017155
+food_0,LOSE,R-G,dummy hash card 7 (overfit floor),-0.03249305662570645
+food_0,LOSE,R-G,dummy hash card 8 (overfit floor),-0.03457480468692431
+food_0,LOSE,R-G,dummy hash card 27 (overfit floor),-0.10762986142418329
+food_0,LOSE,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.0681516931654591
+food_0,LOSE,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.016475499519252423
+food_0,LOSE,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.011510360724758417
+food_0,LOSE,R-G,"plane0 |r| at pixel, 8 buckets",-0.006048899309957889
+food_0,LOSE,R-G,plane0 signed r at pixel (q7),-0.023476014838897608
+food_0,LOSE,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.01966202263914596
+food_0,LOSE,B-G,H(T|base ctx),2.6429218099523286
+food_0,LOSE,B-G,P (production feature; real gain known),0.08677236495927243
+food_0,LOSE,B-G,dummy hash card 49 (overfit floor),-0.15455696127052976
+food_0,LOSE,B-G,dummy hash card 7 (overfit floor),-0.030832578718804182
+food_0,LOSE,B-G,dummy hash card 8 (overfit floor),-0.03372403857751305
+food_0,LOSE,B-G,dummy hash card 27 (overfit floor),-0.09984614972214345
+food_0,LOSE,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.06485769409578968
+food_0,LOSE,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.015594319327832729
+food_0,LOSE,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.011292781116863715
+food_0,LOSE,B-G,"plane0 |r| at pixel, 8 buckets",-0.013778760390919409
+food_0,LOSE,B-G,plane0 signed r at pixel (q7),-0.019902744883144585
+food_0,LOSE,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.01880043633466766
+food_0,LOSE,B-G,plane1 |r| 3x3 window energy (incl. E/S),-0.006466869455445945
+food_0,LOSE,B-G,plane1 |r| 5x5 window energy (incl. E/S),-0.001108503077822398
+food_0,LOSE,B-G,"plane1 |r| at pixel, 8 buckets",-0.0009944189791619706
+food_0,LOSE,B-G,plane1 signed r at pixel (q7),0.023257062927086736
+food_0,LOSE,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),-0.007032285556344942
+food_0,LOSE,B-G,plane0 signed r given plane1 signed r,-0.019902744883144585
+food_1,OTHER_WIN,G,H(T|base ctx),3.1598246230940896
+food_1,OTHER_WIN,G,P (production feature; real gain known),0.05326163714968679
+food_1,OTHER_WIN,G,dummy hash card 49 (overfit floor),-0.0765110124455104
+food_1,OTHER_WIN,G,dummy hash card 7 (overfit floor),-0.013052789256079667
+food_1,OTHER_WIN,G,dummy hash card 8 (overfit floor),-0.014429230315363917
+food_1,OTHER_WIN,G,dummy hash card 27 (overfit floor),-0.04597496481715524
+food_1,OTHER_WIN,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.028025973834401086
+food_1,OTHER_WIN,R-G,H(T|base ctx),1.018698866875828
+food_1,OTHER_WIN,R-G,P (production feature; real gain known),0.05401491754304599
+food_1,OTHER_WIN,R-G,dummy hash card 49 (overfit floor),-0.09896056446941004
+food_1,OTHER_WIN,R-G,dummy hash card 7 (overfit floor),-0.017286395604457327
+food_1,OTHER_WIN,R-G,dummy hash card 8 (overfit floor),0.0017594500007804825
+food_1,OTHER_WIN,R-G,dummy hash card 27 (overfit floor),-0.06090294874573421
+food_1,OTHER_WIN,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.05951841452122686
+food_1,OTHER_WIN,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.001179426531606076
+food_1,OTHER_WIN,R-G,plane0 |r| 5x5 window energy (incl. E/S),0.0029127752699180665
+food_1,OTHER_WIN,R-G,"plane0 |r| at pixel, 8 buckets",-0.002890366183266435
+food_1,OTHER_WIN,R-G,plane0 signed r at pixel (q7),-0.009997739353384869
+food_1,OTHER_WIN,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.003969314746531838
+food_1,OTHER_WIN,B-G,H(T|base ctx),1.1451611338457464
+food_1,OTHER_WIN,B-G,P (production feature; real gain known),0.10830552373887214
+food_1,OTHER_WIN,B-G,dummy hash card 49 (overfit floor),-0.10159969377412414
+food_1,OTHER_WIN,B-G,dummy hash card 7 (overfit floor),-0.017784223879157235
+food_1,OTHER_WIN,B-G,dummy hash card 8 (overfit floor),-0.009289993309438138
+food_1,OTHER_WIN,B-G,dummy hash card 27 (overfit floor),-0.0629088969460434
+food_1,OTHER_WIN,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.09796260596910589
+food_1,OTHER_WIN,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.006626191696707195
+food_1,OTHER_WIN,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.0036061590422415968
+food_1,OTHER_WIN,B-G,"plane0 |r| at pixel, 8 buckets",-0.011122224726596741
+food_1,OTHER_WIN,B-G,plane0 signed r at pixel (q7),-0.019068762564944608
+food_1,OTHER_WIN,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.00889766829267069
+food_1,OTHER_WIN,B-G,plane1 |r| 3x3 window energy (incl. E/S),-0.0006720728547739974
+food_1,OTHER_WIN,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.005172043518332448
+food_1,OTHER_WIN,B-G,"plane1 |r| at pixel, 8 buckets",0.001318709952079944
+food_1,OTHER_WIN,B-G,plane1 signed r at pixel (q7),0.06271205528445667
+food_1,OTHER_WIN,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),0.0065820970671910395
+food_1,OTHER_WIN,B-G,plane0 signed r given plane1 signed r,-0.019068762564944608
+forest_n0,LOSE,G,H(T|base ctx),3.1117214320544164
+forest_n0,LOSE,G,P (production feature; real gain known),0.093916831728313
+forest_n0,LOSE,G,dummy hash card 49 (overfit floor),-0.07520873184630528
+forest_n0,LOSE,G,dummy hash card 7 (overfit floor),-0.013161475020556868
+forest_n0,LOSE,G,dummy hash card 8 (overfit floor),-0.01131213247257179
+forest_n0,LOSE,G,dummy hash card 27 (overfit floor),-0.04614799582505169
+forest_n0,LOSE,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.057527339935605326
+forest_n0,LOSE,R-G,H(T|base ctx),1.3112187555803083
+forest_n0,LOSE,R-G,P (production feature; real gain known),0.09559945571216688
+forest_n0,LOSE,R-G,dummy hash card 49 (overfit floor),-0.11699891025565723
+forest_n0,LOSE,R-G,dummy hash card 7 (overfit floor),-0.019338298046346125
+forest_n0,LOSE,R-G,dummy hash card 8 (overfit floor),0.013315537941049893
+forest_n0,LOSE,R-G,dummy hash card 27 (overfit floor),-0.07018345807325188
+forest_n0,LOSE,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.10204276627568376
+forest_n0,LOSE,R-G,plane0 |r| 3x3 window energy (incl. E/S),0.001048348731298443
+forest_n0,LOSE,R-G,plane0 |r| 5x5 window energy (incl. E/S),0.003305719783508687
+forest_n0,LOSE,R-G,"plane0 |r| at pixel, 8 buckets",-0.002925025375459356
+forest_n0,LOSE,R-G,plane0 signed r at pixel (q7),-0.01060358382017973
+forest_n0,LOSE,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.0020720909999532022
+forest_n0,LOSE,B-G,H(T|base ctx),1.2981536883014808
+forest_n0,LOSE,B-G,P (production feature; real gain known),0.11066357817646733
+forest_n0,LOSE,B-G,dummy hash card 49 (overfit floor),-0.11451390008318585
+forest_n0,LOSE,B-G,dummy hash card 7 (overfit floor),-0.019135841541288556
+forest_n0,LOSE,B-G,dummy hash card 8 (overfit floor),-0.005792288431892834
+forest_n0,LOSE,B-G,dummy hash card 27 (overfit floor),-0.06859518073329696
+forest_n0,LOSE,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.10384291771709986
+forest_n0,LOSE,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.0011048321204567557
+forest_n0,LOSE,B-G,plane0 |r| 5x5 window energy (incl. E/S),0.0017886891466640797
+forest_n0,LOSE,B-G,"plane0 |r| at pixel, 8 buckets",-0.006621111339026431
+forest_n0,LOSE,B-G,plane0 signed r at pixel (q7),-0.010940557814285157
+forest_n0,LOSE,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.004085929467822158
+forest_n0,LOSE,B-G,plane1 |r| 3x3 window energy (incl. E/S),0.0013913710541499924
+forest_n0,LOSE,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.008663806499522586
+forest_n0,LOSE,B-G,"plane1 |r| at pixel, 8 buckets",0.00250523263555813
+forest_n0,LOSE,B-G,plane1 signed r at pixel (q7),0.056913215263508565
+forest_n0,LOSE,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),0.011569332113091857
+forest_n0,LOSE,B-G,plane0 signed r given plane1 signed r,-0.010940557814285157
+indoor_0,OTHER_WIN,G,H(T|base ctx),1.7518373364784128
+indoor_0,OTHER_WIN,G,P (production feature; real gain known),0.04174224705152496
+indoor_0,OTHER_WIN,G,dummy hash card 49 (overfit floor),-0.06419327176260081
+indoor_0,OTHER_WIN,G,dummy hash card 7 (overfit floor),-0.013001045809896805
+indoor_0,OTHER_WIN,G,dummy hash card 8 (overfit floor),-0.012827450781814687
+indoor_0,OTHER_WIN,G,dummy hash card 27 (overfit floor),-0.042196343468536845
+indoor_0,OTHER_WIN,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.04102812824416713
+indoor_0,OTHER_WIN,R-G,H(T|base ctx),0.3600489300770662
+indoor_0,OTHER_WIN,R-G,P (production feature; real gain known),0.017194663808008825
+indoor_0,OTHER_WIN,R-G,dummy hash card 49 (overfit floor),-0.08479176785389264
+indoor_0,OTHER_WIN,R-G,dummy hash card 7 (overfit floor),-0.017898995409344864
+indoor_0,OTHER_WIN,R-G,dummy hash card 8 (overfit floor),-0.007135079153279655
+indoor_0,OTHER_WIN,R-G,dummy hash card 27 (overfit floor),-0.055383592401123005
+indoor_0,OTHER_WIN,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.016494776981987758
+indoor_0,OTHER_WIN,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.008308047448572553
+indoor_0,OTHER_WIN,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.007286984283503051
+indoor_0,OTHER_WIN,R-G,"plane0 |r| at pixel, 8 buckets",-0.004094531739124829
+indoor_0,OTHER_WIN,R-G,plane0 signed r at pixel (q7),-0.009214276314671872
+indoor_0,OTHER_WIN,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.00957978009539251
+indoor_0,OTHER_WIN,B-G,H(T|base ctx),0.2886198099071957
+indoor_0,OTHER_WIN,B-G,P (production feature; real gain known),0.018255056894124322
+indoor_0,OTHER_WIN,B-G,dummy hash card 49 (overfit floor),-0.05904903906708203
+indoor_0,OTHER_WIN,B-G,dummy hash card 7 (overfit floor),-0.011954746776642766
+indoor_0,OTHER_WIN,B-G,dummy hash card 8 (overfit floor),-0.006484327354670971
+indoor_0,OTHER_WIN,B-G,dummy hash card 27 (overfit floor),-0.03846412323690318
+indoor_0,OTHER_WIN,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.015318087344358466
+indoor_0,OTHER_WIN,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.007957414357520176
+indoor_0,OTHER_WIN,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.006521747050544091
+indoor_0,OTHER_WIN,B-G,"plane0 |r| at pixel, 8 buckets",-0.008625423381307173
+indoor_0,OTHER_WIN,B-G,plane0 signed r at pixel (q7),-0.01221646352372735
+indoor_0,OTHER_WIN,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.007626500869203523
+indoor_0,OTHER_WIN,B-G,plane1 |r| 3x3 window energy (incl. E/S),-0.0014217773814397816
+indoor_0,OTHER_WIN,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.002431627489274224
+indoor_0,OTHER_WIN,B-G,"plane1 |r| at pixel, 8 buckets",0.0006370449613916085
+indoor_0,OTHER_WIN,B-G,plane1 signed r at pixel (q7),0.014380013574086747
+indoor_0,OTHER_WIN,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),0.00399808144845637
+indoor_0,OTHER_WIN,B-G,plane0 signed r given plane1 signed r,-0.01221646352372735
+indoor_1,OTHER_WIN,G,H(T|base ctx),2.964334189124627
+indoor_1,OTHER_WIN,G,P (production feature; real gain known),0.02561651621325023
+indoor_1,OTHER_WIN,G,dummy hash card 49 (overfit floor),-0.08701221917714896
+indoor_1,OTHER_WIN,G,dummy hash card 7 (overfit floor),-0.016088149464426493
+indoor_1,OTHER_WIN,G,dummy hash card 8 (overfit floor),-0.015408791195137717
+indoor_1,OTHER_WIN,G,dummy hash card 27 (overfit floor),-0.0541772738969426
+indoor_1,OTHER_WIN,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.0194566550387254
+indoor_1,OTHER_WIN,R-G,H(T|base ctx),0.7585656538100306
+indoor_1,OTHER_WIN,R-G,P (production feature; real gain known),0.03159495314635952
+indoor_1,OTHER_WIN,R-G,dummy hash card 49 (overfit floor),-0.12745946265162156
+indoor_1,OTHER_WIN,R-G,dummy hash card 7 (overfit floor),-0.02627004691356505
+indoor_1,OTHER_WIN,R-G,dummy hash card 8 (overfit floor),-0.021116014906673697
+indoor_1,OTHER_WIN,R-G,dummy hash card 27 (overfit floor),-0.08412066984328626
+indoor_1,OTHER_WIN,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.0326748542193146
+indoor_1,OTHER_WIN,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.01383264451971511
+indoor_1,OTHER_WIN,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.012030536295775551
+indoor_1,OTHER_WIN,R-G,"plane0 |r| at pixel, 8 buckets",-0.005375934368653579
+indoor_1,OTHER_WIN,R-G,plane0 signed r at pixel (q7),-0.016411643084845107
+indoor_1,OTHER_WIN,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.01741035593397333
+indoor_1,OTHER_WIN,B-G,H(T|base ctx),0.583792111500145
+indoor_1,OTHER_WIN,B-G,P (production feature; real gain known),0.025689492989673823
+indoor_1,OTHER_WIN,B-G,dummy hash card 49 (overfit floor),-0.08764206311949352
+indoor_1,OTHER_WIN,B-G,dummy hash card 7 (overfit floor),-0.01779115458482372
+indoor_1,OTHER_WIN,B-G,dummy hash card 8 (overfit floor),-0.016295297773265993
+indoor_1,OTHER_WIN,B-G,dummy hash card 27 (overfit floor),-0.05744803527341302
+indoor_1,OTHER_WIN,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.025274103417583182
+indoor_1,OTHER_WIN,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.012070543577464732
+indoor_1,OTHER_WIN,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.010098521354008572
+indoor_1,OTHER_WIN,B-G,"plane0 |r| at pixel, 8 buckets",-0.014159209416782281
+indoor_1,OTHER_WIN,B-G,plane0 signed r at pixel (q7),-0.021529493067851013
+indoor_1,OTHER_WIN,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.013455321336979131
+indoor_1,OTHER_WIN,B-G,plane1 |r| 3x3 window energy (incl. E/S),-0.00300229917186956
+indoor_1,OTHER_WIN,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.0020574393961740878
+indoor_1,OTHER_WIN,B-G,"plane1 |r| at pixel, 8 buckets",0.0006608697524905782
+indoor_1,OTHER_WIN,B-G,plane1 signed r at pixel (q7),0.02561217774542579
+indoor_1,OTHER_WIN,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),-0.000526902256601014
+indoor_1,OTHER_WIN,B-G,plane0 signed r given plane1 signed r,-0.021529493067851013
+lake_n0,CONTROL,G,H(T|base ctx),2.9871008457884525
+lake_n0,CONTROL,G,P (production feature; real gain known),0.03802560459290083
+lake_n0,CONTROL,G,dummy hash card 49 (overfit floor),-0.07975787201606277
+lake_n0,CONTROL,G,dummy hash card 7 (overfit floor),-0.014442179037866154
+lake_n0,CONTROL,G,dummy hash card 8 (overfit floor),-0.016141049318926015
+lake_n0,CONTROL,G,dummy hash card 27 (overfit floor),-0.04868183493774847
+lake_n0,CONTROL,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.02817955489375512
+lake_n0,CONTROL,R-G,H(T|base ctx),1.4370062969804867
+lake_n0,CONTROL,R-G,P (production feature; real gain known),0.08532625442594322
+lake_n0,CONTROL,R-G,dummy hash card 49 (overfit floor),-0.1180367163536884
+lake_n0,CONTROL,R-G,dummy hash card 7 (overfit floor),-0.019840206646199787
+lake_n0,CONTROL,R-G,dummy hash card 8 (overfit floor),-0.010498874512473888
+lake_n0,CONTROL,R-G,dummy hash card 27 (overfit floor),-0.0706909163946392
+lake_n0,CONTROL,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.08532485821152047
+lake_n0,CONTROL,R-G,plane0 |r| 3x3 window energy (incl. E/S),0.004146608102164606
+lake_n0,CONTROL,R-G,plane0 |r| 5x5 window energy (incl. E/S),0.009602044594780867
+lake_n0,CONTROL,R-G,"plane0 |r| at pixel, 8 buckets",-0.003470252485042513
+lake_n0,CONTROL,R-G,plane0 signed r at pixel (q7),-0.012494623511634662
+lake_n0,CONTROL,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),0.0015859530167969815
+lake_n0,CONTROL,B-G,H(T|base ctx),1.515300683965495
+lake_n0,CONTROL,B-G,P (production feature; real gain known),0.09118343959844277
+lake_n0,CONTROL,B-G,dummy hash card 49 (overfit floor),-0.11236550257540334
+lake_n0,CONTROL,B-G,dummy hash card 7 (overfit floor),-0.020440489576846632
+lake_n0,CONTROL,B-G,dummy hash card 8 (overfit floor),-0.017599320003921948
+lake_n0,CONTROL,B-G,dummy hash card 27 (overfit floor),-0.06792470539633544
+lake_n0,CONTROL,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.08269033979318796
+lake_n0,CONTROL,B-G,plane0 |r| 3x3 window energy (incl. E/S),0.0002178641038483864
+lake_n0,CONTROL,B-G,plane0 |r| 5x5 window energy (incl. E/S),0.005524926941178565
+lake_n0,CONTROL,B-G,"plane0 |r| at pixel, 8 buckets",-0.008887622326487987
+lake_n0,CONTROL,B-G,plane0 signed r at pixel (q7),-0.015293502711686724
+lake_n0,CONTROL,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.0010819196806235443
+lake_n0,CONTROL,B-G,plane1 |r| 3x3 window energy (incl. E/S),-0.0024222771209712057
+lake_n0,CONTROL,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.008158272460401239
+lake_n0,CONTROL,B-G,"plane1 |r| at pixel, 8 buckets",0.0014172644326289063
+lake_n0,CONTROL,B-G,plane1 signed r at pixel (q7),0.04567884660243582
+lake_n0,CONTROL,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),0.004654355494078333
+lake_n0,CONTROL,B-G,plane0 signed r given plane1 signed r,-0.015293502711686724
+lighthouse_n0,OTHER_WIN,G,H(T|base ctx),2.5750834633694373
+lighthouse_n0,OTHER_WIN,G,P (production feature; real gain known),0.053330663328714945
+lighthouse_n0,OTHER_WIN,G,dummy hash card 49 (overfit floor),-0.08096099510642674
+lighthouse_n0,OTHER_WIN,G,dummy hash card 7 (overfit floor),-0.014119926282928574
+lighthouse_n0,OTHER_WIN,G,dummy hash card 8 (overfit floor),-0.015689060312018555
+lighthouse_n0,OTHER_WIN,G,dummy hash card 27 (overfit floor),-0.051032952292768385
+lighthouse_n0,OTHER_WIN,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.03849560218124459
+lighthouse_n0,OTHER_WIN,R-G,H(T|base ctx),0.3994460868457227
+lighthouse_n0,OTHER_WIN,R-G,P (production feature; real gain known),0.014369216815153907
+lighthouse_n0,OTHER_WIN,R-G,dummy hash card 49 (overfit floor),-0.08001836168309617
+lighthouse_n0,OTHER_WIN,R-G,dummy hash card 7 (overfit floor),-0.01611024755728696
+lighthouse_n0,OTHER_WIN,R-G,dummy hash card 8 (overfit floor),-0.003815604852967669
+lighthouse_n0,OTHER_WIN,R-G,dummy hash card 27 (overfit floor),-0.051544593911145964
+lighthouse_n0,OTHER_WIN,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.016709022917431704
+lighthouse_n0,OTHER_WIN,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.00868295441996253
+lighthouse_n0,OTHER_WIN,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.007259640967952952
+lighthouse_n0,OTHER_WIN,R-G,"plane0 |r| at pixel, 8 buckets",-0.0035542497854734734
+lighthouse_n0,OTHER_WIN,R-G,plane0 signed r at pixel (q7),-0.009347633960820861
+lighthouse_n0,OTHER_WIN,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.009663454875690869
+lighthouse_n0,OTHER_WIN,B-G,H(T|base ctx),0.39477394383950537
+lighthouse_n0,OTHER_WIN,B-G,P (production feature; real gain known),0.02202381446689783
+lighthouse_n0,OTHER_WIN,B-G,dummy hash card 49 (overfit floor),-0.062098674138711396
+lighthouse_n0,OTHER_WIN,B-G,dummy hash card 7 (overfit floor),-0.014398014109108126
+lighthouse_n0,OTHER_WIN,B-G,dummy hash card 8 (overfit floor),-0.007041130616900704
+lighthouse_n0,OTHER_WIN,B-G,dummy hash card 27 (overfit floor),-0.04237665784711331
+lighthouse_n0,OTHER_WIN,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.019711233595443245
+lighthouse_n0,OTHER_WIN,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.006807443572486582
+lighthouse_n0,OTHER_WIN,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.0045502174606194545
+lighthouse_n0,OTHER_WIN,B-G,"plane0 |r| at pixel, 8 buckets",-0.006153781741851327
+lighthouse_n0,OTHER_WIN,B-G,plane0 signed r at pixel (q7),-0.009526322479213534
+lighthouse_n0,OTHER_WIN,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.006771080090238024
+lighthouse_n0,OTHER_WIN,B-G,plane1 |r| 3x3 window energy (incl. E/S),-0.001630454524211733
+lighthouse_n0,OTHER_WIN,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.004327605319854988
+lighthouse_n0,OTHER_WIN,B-G,"plane1 |r| at pixel, 8 buckets",-0.0004369940776874359
+lighthouse_n0,OTHER_WIN,B-G,plane1 signed r at pixel (q7),0.013903879030530586
+lighthouse_n0,OTHER_WIN,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),0.0013280518613387748
+lighthouse_n0,OTHER_WIN,B-G,plane0 signed r given plane1 signed r,-0.009526322479213534
+macro_n0,OTHER_WIN,G,H(T|base ctx),2.6737323423325057
+macro_n0,OTHER_WIN,G,P (production feature; real gain known),0.0703832107641027
+macro_n0,OTHER_WIN,G,dummy hash card 49 (overfit floor),-0.05495882520621054
+macro_n0,OTHER_WIN,G,dummy hash card 7 (overfit floor),-0.00992880629321391
+macro_n0,OTHER_WIN,G,dummy hash card 8 (overfit floor),-0.007604506820017676
+macro_n0,OTHER_WIN,G,dummy hash card 27 (overfit floor),-0.0338558742725672
+macro_n0,OTHER_WIN,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.05422255111892582
+macro_n0,OTHER_WIN,R-G,H(T|base ctx),1.4093126036939085
+macro_n0,OTHER_WIN,R-G,P (production feature; real gain known),0.04170605934780913
+macro_n0,OTHER_WIN,R-G,dummy hash card 49 (overfit floor),-0.10073114187235355
+macro_n0,OTHER_WIN,R-G,dummy hash card 7 (overfit floor),-0.018288665242518043
+macro_n0,OTHER_WIN,R-G,dummy hash card 8 (overfit floor),-0.017767256908471918
+macro_n0,OTHER_WIN,R-G,dummy hash card 27 (overfit floor),-0.06111723344679998
+macro_n0,OTHER_WIN,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.05494059881416691
+macro_n0,OTHER_WIN,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.0026667569627454313
+macro_n0,OTHER_WIN,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.001545143197577259
+macro_n0,OTHER_WIN,R-G,"plane0 |r| at pixel, 8 buckets",-0.00036249772958929505
+macro_n0,OTHER_WIN,R-G,plane0 signed r at pixel (q7),-0.010665506885144838
+macro_n0,OTHER_WIN,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.002331123064111429
+macro_n0,OTHER_WIN,B-G,H(T|base ctx),2.226459466129276
+macro_n0,OTHER_WIN,B-G,P (production feature; real gain known),0.07533373747575878
+macro_n0,OTHER_WIN,B-G,dummy hash card 49 (overfit floor),-0.10502138759061763
+macro_n0,OTHER_WIN,B-G,dummy hash card 7 (overfit floor),-0.019807570722274903
+macro_n0,OTHER_WIN,B-G,dummy hash card 8 (overfit floor),-0.0210896033256045
+macro_n0,OTHER_WIN,B-G,dummy hash card 27 (overfit floor),-0.06612052027909998
+macro_n0,OTHER_WIN,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.07727124607339242
+macro_n0,OTHER_WIN,B-G,plane0 |r| 3x3 window energy (incl. E/S),0.013826504250965765
+macro_n0,OTHER_WIN,B-G,plane0 |r| 5x5 window energy (incl. E/S),0.006052194106841657
+macro_n0,OTHER_WIN,B-G,"plane0 |r| at pixel, 8 buckets",0.06137802736169995
+macro_n0,OTHER_WIN,B-G,plane0 signed r at pixel (q7),0.1610734019263771
+macro_n0,OTHER_WIN,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),0.011757901203717225
+macro_n0,OTHER_WIN,B-G,plane1 |r| 3x3 window energy (incl. E/S),-0.0023068244656738734
+macro_n0,OTHER_WIN,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.0004506448379020256
+macro_n0,OTHER_WIN,B-G,"plane1 |r| at pixel, 8 buckets",0.0006497347149889698
+macro_n0,OTHER_WIN,B-G,plane1 signed r at pixel (q7),0.08089171919491278
+macro_n0,OTHER_WIN,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),-0.0005294537802296162
+macro_n0,OTHER_WIN,B-G,plane0 signed r given plane1 signed r,0.1610734019263771
+night_0,LOSE,G,H(T|base ctx),3.3738710097364226
+night_0,LOSE,G,P (production feature; real gain known),0.042229306443526404
+night_0,LOSE,G,dummy hash card 49 (overfit floor),-0.08766512002806337
+night_0,LOSE,G,dummy hash card 7 (overfit floor),-0.014883588474202458
+night_0,LOSE,G,dummy hash card 8 (overfit floor),-0.017204517390065455
+night_0,LOSE,G,dummy hash card 27 (overfit floor),-0.05302906894169812
+night_0,LOSE,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.010364749119042393
+night_0,LOSE,R-G,H(T|base ctx),3.587619037965668
+night_0,LOSE,R-G,P (production feature; real gain known),0.025441962633334647
+night_0,LOSE,R-G,dummy hash card 49 (overfit floor),-0.15668064234517143
+night_0,LOSE,R-G,dummy hash card 7 (overfit floor),-0.03660129989637673
+night_0,LOSE,R-G,dummy hash card 8 (overfit floor),-0.04007096241340724
+night_0,LOSE,R-G,dummy hash card 27 (overfit floor),-0.10658166431971416
+night_0,LOSE,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",-0.0003729962287657429
+night_0,LOSE,R-G,plane0 |r| 3x3 window energy (incl. E/S),0.0024567944619624527
+night_0,LOSE,R-G,plane0 |r| 5x5 window energy (incl. E/S),0.0014267731371893078
+night_0,LOSE,R-G,"plane0 |r| at pixel, 8 buckets",0.0017159434125346706
+night_0,LOSE,R-G,plane0 signed r at pixel (q7),-0.028905086233536048
+night_0,LOSE,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),0.0036390186909294187
+night_0,LOSE,B-G,H(T|base ctx),3.4513702565548097
+night_0,LOSE,B-G,P (production feature; real gain known),0.01507390787711449
+night_0,LOSE,B-G,dummy hash card 49 (overfit floor),-0.17533539008331545
+night_0,LOSE,B-G,dummy hash card 7 (overfit floor),-0.04095766370485876
+night_0,LOSE,B-G,dummy hash card 8 (overfit floor),-0.04524498900803264
+night_0,LOSE,B-G,dummy hash card 27 (overfit floor),-0.12021659903405757
+night_0,LOSE,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",-0.002914032815907852
+night_0,LOSE,B-G,plane0 |r| 3x3 window energy (incl. E/S),0.028993813768235732
+night_0,LOSE,B-G,plane0 |r| 5x5 window energy (incl. E/S),0.019188144401184104
+night_0,LOSE,B-G,"plane0 |r| at pixel, 8 buckets",0.09476641665398411
+night_0,LOSE,B-G,plane0 signed r at pixel (q7),0.22862872418990188
+night_0,LOSE,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),0.027181959371219033
+night_0,LOSE,B-G,plane1 |r| 3x3 window energy (incl. E/S),-0.00537131136494251
+night_0,LOSE,B-G,plane1 |r| 5x5 window energy (incl. E/S),-0.002781597129261737
+night_0,LOSE,B-G,"plane1 |r| at pixel, 8 buckets",0.0059749375034905405
+night_0,LOSE,B-G,plane1 signed r at pixel (q7),0.03242862471244212
+night_0,LOSE,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),-0.002703224576833474
+night_0,LOSE,B-G,plane0 signed r given plane1 signed r,0.22862872418990188
+night_1,OTHER_WIN,G,H(T|base ctx),3.3616937622275556
+night_1,OTHER_WIN,G,P (production feature; real gain known),0.05773394867750792
+night_1,OTHER_WIN,G,dummy hash card 49 (overfit floor),-0.050995727119523604
+night_1,OTHER_WIN,G,dummy hash card 7 (overfit floor),-0.01003055735407088
+night_1,OTHER_WIN,G,dummy hash card 8 (overfit floor),-0.010918734880449588
+night_1,OTHER_WIN,G,dummy hash card 27 (overfit floor),-0.031709157142070676
+night_1,OTHER_WIN,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.02236591775025154
+night_1,OTHER_WIN,R-G,H(T|base ctx),0.904574303926826
+night_1,OTHER_WIN,R-G,P (production feature; real gain known),0.031557999288902794
+night_1,OTHER_WIN,R-G,dummy hash card 49 (overfit floor),-0.08952628139640517
+night_1,OTHER_WIN,R-G,dummy hash card 7 (overfit floor),-0.018104659005958035
+night_1,OTHER_WIN,R-G,dummy hash card 8 (overfit floor),-0.021239719719021166
+night_1,OTHER_WIN,R-G,dummy hash card 27 (overfit floor),-0.057321522444266804
+night_1,OTHER_WIN,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.04081673363210936
+night_1,OTHER_WIN,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.003994717775210543
+night_1,OTHER_WIN,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.0019261732784265906
+night_1,OTHER_WIN,R-G,"plane0 |r| at pixel, 8 buckets",-0.0022110779573084605
+night_1,OTHER_WIN,R-G,plane0 signed r at pixel (q7),-0.012869431879996646
+night_1,OTHER_WIN,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.00686343181532989
+night_1,OTHER_WIN,B-G,H(T|base ctx),0.5721131491221131
+night_1,OTHER_WIN,B-G,P (production feature; real gain known),0.028072467613333596
+night_1,OTHER_WIN,B-G,dummy hash card 49 (overfit floor),-0.07174760233595234
+night_1,OTHER_WIN,B-G,dummy hash card 7 (overfit floor),-0.01348550592910136
+night_1,OTHER_WIN,B-G,dummy hash card 8 (overfit floor),-0.015407831922892856
+night_1,OTHER_WIN,B-G,dummy hash card 27 (overfit floor),-0.04567205236319194
+night_1,OTHER_WIN,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.03477999255123898
+night_1,OTHER_WIN,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.005603524623732148
+night_1,OTHER_WIN,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.004216249345632472
+night_1,OTHER_WIN,B-G,"plane0 |r| at pixel, 8 buckets",-0.006925844108281232
+night_1,OTHER_WIN,B-G,plane0 signed r at pixel (q7),-0.017003735882097137
+night_1,OTHER_WIN,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.0063306271984636675
+night_1,OTHER_WIN,B-G,plane1 |r| 3x3 window energy (incl. E/S),0.006968541940057471
+night_1,OTHER_WIN,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.007494193682241024
+night_1,OTHER_WIN,B-G,"plane1 |r| at pixel, 8 buckets",0.0028337680759022987
+night_1,OTHER_WIN,B-G,plane1 signed r at pixel (q7),0.05878707045251541
+night_1,OTHER_WIN,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),0.013128567342041042
+night_1,OTHER_WIN,B-G,plane0 signed r given plane1 signed r,-0.017003735882097137
+outdoor_0,CONTROL,G,H(T|base ctx),3.6953666531872056
+outdoor_0,CONTROL,G,P (production feature; real gain known),0.03855241161170353
+outdoor_0,CONTROL,G,dummy hash card 49 (overfit floor),-0.07092140261969426
+outdoor_0,CONTROL,G,dummy hash card 7 (overfit floor),-0.013222048009907006
+outdoor_0,CONTROL,G,dummy hash card 8 (overfit floor),-0.006559518965192801
+outdoor_0,CONTROL,G,dummy hash card 27 (overfit floor),-0.04187092432373074
+outdoor_0,CONTROL,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.013510021865332789
+outdoor_0,CONTROL,R-G,H(T|base ctx),0.9191159640381068
+outdoor_0,CONTROL,R-G,P (production feature; real gain known),0.049891514958043226
+outdoor_0,CONTROL,R-G,dummy hash card 49 (overfit floor),-0.0936794819915221
+outdoor_0,CONTROL,R-G,dummy hash card 7 (overfit floor),-0.01715823941652239
+outdoor_0,CONTROL,R-G,dummy hash card 8 (overfit floor),-0.01707204872555068
+outdoor_0,CONTROL,R-G,dummy hash card 27 (overfit floor),-0.05727963046826923
+outdoor_0,CONTROL,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.07249461382775013
+outdoor_0,CONTROL,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.0036710616173931676
+outdoor_0,CONTROL,R-G,plane0 |r| 5x5 window energy (incl. E/S),0.0003457411816407685
+outdoor_0,CONTROL,R-G,"plane0 |r| at pixel, 8 buckets",-0.0029031579887368597
+outdoor_0,CONTROL,R-G,plane0 signed r at pixel (q7),-0.010581507586924777
+outdoor_0,CONTROL,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.005102009290109066
+outdoor_0,CONTROL,B-G,H(T|base ctx),0.8228123287247
+outdoor_0,CONTROL,B-G,P (production feature; real gain known),0.061037671901321144
+outdoor_0,CONTROL,B-G,dummy hash card 49 (overfit floor),-0.07939000512425198
+outdoor_0,CONTROL,B-G,dummy hash card 7 (overfit floor),-0.014467742218198576
+outdoor_0,CONTROL,B-G,dummy hash card 8 (overfit floor),-0.01497780345551325
+outdoor_0,CONTROL,B-G,dummy hash card 27 (overfit floor),-0.0484556769438822
+outdoor_0,CONTROL,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.06598434153441768
+outdoor_0,CONTROL,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.0019729081892412292
+outdoor_0,CONTROL,B-G,plane0 |r| 5x5 window energy (incl. E/S),0.00155198708214499
+outdoor_0,CONTROL,B-G,"plane0 |r| at pixel, 8 buckets",-0.010029899939620002
+outdoor_0,CONTROL,B-G,plane0 signed r at pixel (q7),-0.016144623113399148
+outdoor_0,CONTROL,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.003203319512385505
+outdoor_0,CONTROL,B-G,plane1 |r| 3x3 window energy (incl. E/S),2.5570892677517776e-05
+outdoor_0,CONTROL,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.0035271686170619265
+outdoor_0,CONTROL,B-G,"plane1 |r| at pixel, 8 buckets",0.002015415415185573
+outdoor_0,CONTROL,B-G,plane1 signed r at pixel (q7),0.04377235465287688
+outdoor_0,CONTROL,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),0.009663813939345789
+outdoor_0,CONTROL,B-G,plane0 signed r given plane1 signed r,-0.016144623113399148
+outdoor_1,OTHER_WIN,G,H(T|base ctx),2.040458282668915
+outdoor_1,OTHER_WIN,G,P (production feature; real gain known),0.0357730391432769
+outdoor_1,OTHER_WIN,G,dummy hash card 49 (overfit floor),-0.07523311648425945
+outdoor_1,OTHER_WIN,G,dummy hash card 7 (overfit floor),-0.013863448833091319
+outdoor_1,OTHER_WIN,G,dummy hash card 8 (overfit floor),-0.009203671877071162
+outdoor_1,OTHER_WIN,G,dummy hash card 27 (overfit floor),-0.04568175698482513
+outdoor_1,OTHER_WIN,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.032218591666370866
+outdoor_1,OTHER_WIN,R-G,H(T|base ctx),0.6977622821510001
+outdoor_1,OTHER_WIN,R-G,P (production feature; real gain known),0.01631547346086759
+outdoor_1,OTHER_WIN,R-G,dummy hash card 49 (overfit floor),-0.10688235756206044
+outdoor_1,OTHER_WIN,R-G,dummy hash card 7 (overfit floor),-0.02246652101278679
+outdoor_1,OTHER_WIN,R-G,dummy hash card 8 (overfit floor),-0.007794889660106996
+outdoor_1,OTHER_WIN,R-G,dummy hash card 27 (overfit floor),-0.06944698902311197
+outdoor_1,OTHER_WIN,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.020566334847980428
+outdoor_1,OTHER_WIN,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.008239780915787476
+outdoor_1,OTHER_WIN,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.005850914511983829
+outdoor_1,OTHER_WIN,R-G,"plane0 |r| at pixel, 8 buckets",-0.004709301800287613
+outdoor_1,OTHER_WIN,R-G,plane0 signed r at pixel (q7),-0.018176593151129933
+outdoor_1,OTHER_WIN,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.009058890761958649
+outdoor_1,OTHER_WIN,B-G,H(T|base ctx),0.7106287916512045
+outdoor_1,OTHER_WIN,B-G,P (production feature; real gain known),0.020045356526031455
+outdoor_1,OTHER_WIN,B-G,dummy hash card 49 (overfit floor),-0.09691341952379828
+outdoor_1,OTHER_WIN,B-G,dummy hash card 7 (overfit floor),-0.02277315281145431
+outdoor_1,OTHER_WIN,B-G,dummy hash card 8 (overfit floor),-0.013972857020339458
+outdoor_1,OTHER_WIN,B-G,dummy hash card 27 (overfit floor),-0.0650534780083325
+outdoor_1,OTHER_WIN,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.0233071941892411
+outdoor_1,OTHER_WIN,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.012314445669165286
+outdoor_1,OTHER_WIN,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.009581578779544353
+outdoor_1,OTHER_WIN,B-G,"plane0 |r| at pixel, 8 buckets",-0.015118093291985546
+outdoor_1,OTHER_WIN,B-G,plane0 signed r at pixel (q7),-0.019631262163151586
+outdoor_1,OTHER_WIN,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.012144649742927394
+outdoor_1,OTHER_WIN,B-G,plane1 |r| 3x3 window energy (incl. E/S),-0.004636859549833061
+outdoor_1,OTHER_WIN,B-G,plane1 |r| 5x5 window energy (incl. E/S),-0.0025777449314872136
+outdoor_1,OTHER_WIN,B-G,"plane1 |r| at pixel, 8 buckets",-0.0001620101524519857
+outdoor_1,OTHER_WIN,B-G,plane1 signed r at pixel (q7),0.00890851386312752
+outdoor_1,OTHER_WIN,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),-0.006221099172099787
+outdoor_1,OTHER_WIN,B-G,plane0 signed r given plane1 signed r,-0.019631262163151586
+path_n0,CONTROL,G,H(T|base ctx),3.1341455804632306
+path_n0,CONTROL,G,P (production feature; real gain known),0.014970698356929546
+path_n0,CONTROL,G,dummy hash card 49 (overfit floor),-0.07195607412880456
+path_n0,CONTROL,G,dummy hash card 7 (overfit floor),-0.012841972415451597
+path_n0,CONTROL,G,dummy hash card 8 (overfit floor),-0.014337699969651396
+path_n0,CONTROL,G,dummy hash card 27 (overfit floor),-0.043538023540731
+path_n0,CONTROL,G,"texture dir sgn(W-NW,N-NW,NE-N)",-0.002804115368274296
+path_n0,CONTROL,R-G,H(T|base ctx),3.484064704446078
+path_n0,CONTROL,R-G,P (production feature; real gain known),0.023002510686909172
+path_n0,CONTROL,R-G,dummy hash card 49 (overfit floor),-0.14241416037242471
+path_n0,CONTROL,R-G,dummy hash card 7 (overfit floor),-0.030607263446411626
+path_n0,CONTROL,R-G,dummy hash card 8 (overfit floor),-0.03368799626080232
+path_n0,CONTROL,R-G,dummy hash card 27 (overfit floor),-0.09458787099201382
+path_n0,CONTROL,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.015233488954966123
+path_n0,CONTROL,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.005545160392746773
+path_n0,CONTROL,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.0023212435087005545
+path_n0,CONTROL,R-G,"plane0 |r| at pixel, 8 buckets",-0.006300664612294948
+path_n0,CONTROL,R-G,plane0 signed r at pixel (q7),-0.025775228479643975
+path_n0,CONTROL,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.008387685211336482
+path_n0,CONTROL,B-G,H(T|base ctx),3.4783430919774734
+path_n0,CONTROL,B-G,P (production feature; real gain known),0.020363611920221736
+path_n0,CONTROL,B-G,dummy hash card 49 (overfit floor),-0.1728967463794029
+path_n0,CONTROL,B-G,dummy hash card 7 (overfit floor),-0.034833261926729975
+path_n0,CONTROL,B-G,dummy hash card 8 (overfit floor),-0.0402056375397164
+path_n0,CONTROL,B-G,dummy hash card 27 (overfit floor),-0.11285274149542168
+path_n0,CONTROL,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.010971452460116549
+path_n0,CONTROL,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.008515547563628267
+path_n0,CONTROL,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.004536936309492923
+path_n0,CONTROL,B-G,"plane0 |r| at pixel, 8 buckets",-0.026975949847814817
+path_n0,CONTROL,B-G,plane0 signed r at pixel (q7),-0.03401938768539736
+path_n0,CONTROL,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.009749351750627078
+path_n0,CONTROL,B-G,plane1 |r| 3x3 window energy (incl. E/S),-0.010454082003460208
+path_n0,CONTROL,B-G,plane1 |r| 5x5 window energy (incl. E/S),-0.005431727497491767
+path_n0,CONTROL,B-G,"plane1 |r| at pixel, 8 buckets",0.003330641225146813
+path_n0,CONTROL,B-G,plane1 signed r at pixel (q7),0.0892409512103276
+path_n0,CONTROL,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),-0.011554558392001812
+path_n0,CONTROL,B-G,plane0 signed r given plane1 signed r,-0.03401938768539736
+peak_n0,OTHER_WIN,G,H(T|base ctx),3.405322335725712
+peak_n0,OTHER_WIN,G,P (production feature; real gain known),0.038863887759597926
+peak_n0,OTHER_WIN,G,dummy hash card 49 (overfit floor),-0.0910197000190367
+peak_n0,OTHER_WIN,G,dummy hash card 7 (overfit floor),-0.01602699571015087
+peak_n0,OTHER_WIN,G,dummy hash card 8 (overfit floor),-0.018063803181886495
+peak_n0,OTHER_WIN,G,dummy hash card 27 (overfit floor),-0.056085989559807814
+peak_n0,OTHER_WIN,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.010196958274919066
+peak_n0,OTHER_WIN,R-G,H(T|base ctx),2.432008803077215
+peak_n0,OTHER_WIN,R-G,P (production feature; real gain known),0.06712457411501482
+peak_n0,OTHER_WIN,R-G,dummy hash card 49 (overfit floor),-0.16835106856322657
+peak_n0,OTHER_WIN,R-G,dummy hash card 7 (overfit floor),-0.0333809559040823
+peak_n0,OTHER_WIN,R-G,dummy hash card 8 (overfit floor),-0.03556187596962124
+peak_n0,OTHER_WIN,R-G,dummy hash card 27 (overfit floor),-0.1065029866955669
+peak_n0,OTHER_WIN,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.06565634169348522
+peak_n0,OTHER_WIN,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.012010925647083948
+peak_n0,OTHER_WIN,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.007010958093001118
+peak_n0,OTHER_WIN,R-G,"plane0 |r| at pixel, 8 buckets",-0.0059508334834399434
+peak_n0,OTHER_WIN,R-G,plane0 signed r at pixel (q7),-0.026928804126211348
+peak_n0,OTHER_WIN,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.018038980425140405
+peak_n0,OTHER_WIN,B-G,H(T|base ctx),2.260645149220948
+peak_n0,OTHER_WIN,B-G,P (production feature; real gain known),0.0663968920213116
+peak_n0,OTHER_WIN,B-G,dummy hash card 49 (overfit floor),-0.15907920451765278
+peak_n0,OTHER_WIN,B-G,dummy hash card 7 (overfit floor),-0.03348982996065697
+peak_n0,OTHER_WIN,B-G,dummy hash card 8 (overfit floor),-0.035930226037585555
+peak_n0,OTHER_WIN,B-G,dummy hash card 27 (overfit floor),-0.10537538848343075
+peak_n0,OTHER_WIN,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.06159148591467112
+peak_n0,OTHER_WIN,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.015615623116695065
+peak_n0,OTHER_WIN,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.010278097453389812
+peak_n0,OTHER_WIN,B-G,"plane0 |r| at pixel, 8 buckets",-0.02478489411436957
+peak_n0,OTHER_WIN,B-G,plane0 signed r at pixel (q7),-0.03454504936229519
+peak_n0,OTHER_WIN,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.018380077289499308
+peak_n0,OTHER_WIN,B-G,plane1 |r| 3x3 window energy (incl. E/S),-0.007953298435340983
+peak_n0,OTHER_WIN,B-G,plane1 |r| 5x5 window energy (incl. E/S),-0.001343683428944864
+peak_n0,OTHER_WIN,B-G,"plane1 |r| at pixel, 8 buckets",0.002933133572276869
+peak_n0,OTHER_WIN,B-G,plane1 signed r at pixel (q7),0.10383417340331746
+peak_n0,OTHER_WIN,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),-0.006842703496327207
+peak_n0,OTHER_WIN,B-G,plane0 signed r given plane1 signed r,-0.03454504936229519
+portrait_0,LOSE,G,H(T|base ctx),2.5016611698209674
+portrait_0,LOSE,G,P (production feature; real gain known),0.08748564216168653
+portrait_0,LOSE,G,dummy hash card 49 (overfit floor),-0.060085085331766486
+portrait_0,LOSE,G,dummy hash card 7 (overfit floor),-0.010349403675534496
+portrait_0,LOSE,G,dummy hash card 8 (overfit floor),-0.010745377095121356
+portrait_0,LOSE,G,dummy hash card 27 (overfit floor),-0.03640200898301016
+portrait_0,LOSE,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.06992826562309506
+portrait_0,LOSE,R-G,H(T|base ctx),0.38615140748419857
+portrait_0,LOSE,R-G,P (production feature; real gain known),0.02337075572489461
+portrait_0,LOSE,R-G,dummy hash card 49 (overfit floor),-0.0741077196159905
+portrait_0,LOSE,R-G,dummy hash card 7 (overfit floor),-0.014650467933993883
+portrait_0,LOSE,R-G,dummy hash card 8 (overfit floor),0.003051745586912069
+portrait_0,LOSE,R-G,dummy hash card 27 (overfit floor),-0.04713555362465599
+portrait_0,LOSE,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.0255811582052487
+portrait_0,LOSE,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.0058383042710244415
+portrait_0,LOSE,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.004913185896740779
+portrait_0,LOSE,R-G,"plane0 |r| at pixel, 8 buckets",-0.0019133144811036007
+portrait_0,LOSE,R-G,plane0 signed r at pixel (q7),-0.006704129009829349
+portrait_0,LOSE,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.008963360378270557
+portrait_0,LOSE,B-G,H(T|base ctx),0.3069228923142976
+portrait_0,LOSE,B-G,P (production feature; real gain known),0.0268011328825134
+portrait_0,LOSE,B-G,dummy hash card 49 (overfit floor),-0.05025197560225575
+portrait_0,LOSE,B-G,dummy hash card 7 (overfit floor),-0.00969396580980142
+portrait_0,LOSE,B-G,dummy hash card 8 (overfit floor),-0.0015145066921171124
+portrait_0,LOSE,B-G,dummy hash card 27 (overfit floor),-0.03244721530649397
+portrait_0,LOSE,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.022477801695255817
+portrait_0,LOSE,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.0061538153640063875
+portrait_0,LOSE,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.0052035969064119225
+portrait_0,LOSE,B-G,"plane0 |r| at pixel, 8 buckets",-0.005136076184093397
+portrait_0,LOSE,B-G,plane0 signed r at pixel (q7),-0.009740241313439701
+portrait_0,LOSE,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.007035473719501306
+portrait_0,LOSE,B-G,plane1 |r| 3x3 window energy (incl. E/S),-0.0013427224838560847
+portrait_0,LOSE,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.002961318553410308
+portrait_0,LOSE,B-G,"plane1 |r| at pixel, 8 buckets",0.0009827905725253716
+portrait_0,LOSE,B-G,plane1 signed r at pixel (q7),0.017665274261818964
+portrait_0,LOSE,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),0.0037385820796393965
+portrait_0,LOSE,B-G,plane0 signed r given plane1 signed r,-0.009740241313439701
+restaurant_n0,OTHER_WIN,G,H(T|base ctx),2.6704293178710605
+restaurant_n0,OTHER_WIN,G,P (production feature; real gain known),0.06917927940755941
+restaurant_n0,OTHER_WIN,G,dummy hash card 49 (overfit floor),-0.06312046770547397
+restaurant_n0,OTHER_WIN,G,dummy hash card 7 (overfit floor),-0.012101479593624731
+restaurant_n0,OTHER_WIN,G,dummy hash card 8 (overfit floor),-0.012151019731580615
+restaurant_n0,OTHER_WIN,G,dummy hash card 27 (overfit floor),-0.04010624774563443
+restaurant_n0,OTHER_WIN,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.05222643394909987
+restaurant_n0,OTHER_WIN,R-G,H(T|base ctx),1.2451607583977213
+restaurant_n0,OTHER_WIN,R-G,P (production feature; real gain known),0.028102958404351064
+restaurant_n0,OTHER_WIN,R-G,dummy hash card 49 (overfit floor),-0.11157875192807487
+restaurant_n0,OTHER_WIN,R-G,dummy hash card 7 (overfit floor),-0.02072970401327412
+restaurant_n0,OTHER_WIN,R-G,dummy hash card 8 (overfit floor),-0.015052910656957685
+restaurant_n0,OTHER_WIN,R-G,dummy hash card 27 (overfit floor),-0.06904192841691437
+restaurant_n0,OTHER_WIN,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.044688276847520525
+restaurant_n0,OTHER_WIN,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.00760789480698465
+restaurant_n0,OTHER_WIN,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.006493908422692485
+restaurant_n0,OTHER_WIN,R-G,"plane0 |r| at pixel, 8 buckets",-0.002574406758018455
+restaurant_n0,OTHER_WIN,R-G,plane0 signed r at pixel (q7),-0.014181005430353444
+restaurant_n0,OTHER_WIN,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.011397332895588308
+restaurant_n0,OTHER_WIN,B-G,H(T|base ctx),1.6249004379235241
+restaurant_n0,OTHER_WIN,B-G,P (production feature; real gain known),0.07400683404390307
+restaurant_n0,OTHER_WIN,B-G,dummy hash card 49 (overfit floor),-0.1141477732584224
+restaurant_n0,OTHER_WIN,B-G,dummy hash card 7 (overfit floor),-0.02241491547912422
+restaurant_n0,OTHER_WIN,B-G,dummy hash card 8 (overfit floor),-0.01958980148040168
+restaurant_n0,OTHER_WIN,B-G,dummy hash card 27 (overfit floor),-0.07408849192912625
+restaurant_n0,OTHER_WIN,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.08460437134626386
+restaurant_n0,OTHER_WIN,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.01298148765423468
+restaurant_n0,OTHER_WIN,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.011335458865598946
+restaurant_n0,OTHER_WIN,B-G,"plane0 |r| at pixel, 8 buckets",-0.010362921612626197
+restaurant_n0,OTHER_WIN,B-G,plane0 signed r at pixel (q7),-0.022059621283130326
+restaurant_n0,OTHER_WIN,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.01686550101893558
+restaurant_n0,OTHER_WIN,B-G,plane1 |r| 3x3 window energy (incl. E/S),0.0027183526489042986
+restaurant_n0,OTHER_WIN,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.009521827233794022
+restaurant_n0,OTHER_WIN,B-G,"plane1 |r| at pixel, 8 buckets",0.0006832279607185132
+restaurant_n0,OTHER_WIN,B-G,plane1 signed r at pixel (q7),0.06465805299253558
+restaurant_n0,OTHER_WIN,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),0.0019496608448572594
+restaurant_n0,OTHER_WIN,B-G,plane0 signed r given plane1 signed r,-0.022059621283130326
+river_n0,LOSE,G,H(T|base ctx),3.3630284765015785
+river_n0,LOSE,G,P (production feature; real gain known),0.10217168249547903
+river_n0,LOSE,G,dummy hash card 49 (overfit floor),-0.06734047435039958
+river_n0,LOSE,G,dummy hash card 7 (overfit floor),-0.011973490276329102
+river_n0,LOSE,G,dummy hash card 8 (overfit floor),-0.01364911737723773
+river_n0,LOSE,G,dummy hash card 27 (overfit floor),-0.0416812174083141
+river_n0,LOSE,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.0538503145964353
+river_n0,LOSE,R-G,H(T|base ctx),2.3576412616833764
+river_n0,LOSE,R-G,P (production feature; real gain known),0.15039761343274893
+river_n0,LOSE,R-G,dummy hash card 49 (overfit floor),-0.17489319950564486
+river_n0,LOSE,R-G,dummy hash card 7 (overfit floor),-0.03260148714729105
+river_n0,LOSE,R-G,dummy hash card 8 (overfit floor),-0.032680640610122325
+river_n0,LOSE,R-G,dummy hash card 27 (overfit floor),-0.1089274706909431
+river_n0,LOSE,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.12450946840763777
+river_n0,LOSE,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.007526327644453268
+river_n0,LOSE,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.00546042749995479
+river_n0,LOSE,R-G,"plane0 |r| at pixel, 8 buckets",2.5811269206421628e-05
+river_n0,LOSE,R-G,plane0 signed r at pixel (q7),-0.018011592683241928
+river_n0,LOSE,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.012678225510526886
+river_n0,LOSE,B-G,H(T|base ctx),2.199461327370216
+river_n0,LOSE,B-G,P (production feature; real gain known),0.13012036822560935
+river_n0,LOSE,B-G,dummy hash card 49 (overfit floor),-0.12774948115323115
+river_n0,LOSE,B-G,dummy hash card 7 (overfit floor),-0.023308079518996827
+river_n0,LOSE,B-G,dummy hash card 8 (overfit floor),-0.023008601811814966
+river_n0,LOSE,B-G,dummy hash card 27 (overfit floor),-0.08022914367883915
+river_n0,LOSE,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.1067819747007639
+river_n0,LOSE,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.008659224507655772
+river_n0,LOSE,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.004561394051313616
+river_n0,LOSE,B-G,"plane0 |r| at pixel, 8 buckets",-0.012635330602854378
+river_n0,LOSE,B-G,plane0 signed r at pixel (q7),-0.018486554904639352
+river_n0,LOSE,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.010891062591130485
+river_n0,LOSE,B-G,plane1 |r| 3x3 window energy (incl. E/S),-0.0005801302377830275
+river_n0,LOSE,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.0023964735714643304
+river_n0,LOSE,B-G,"plane1 |r| at pixel, 8 buckets",0.004186256834267876
+river_n0,LOSE,B-G,plane1 signed r at pixel (q7),0.09084210684953087
+river_n0,LOSE,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),0.0038689197853827295
+river_n0,LOSE,B-G,plane0 signed r given plane1 signed r,-0.018486554904639352
+snow_n0,CONTROL,G,H(T|base ctx),2.8366092913505847
+snow_n0,CONTROL,G,P (production feature; real gain known),0.01977293289451154
+snow_n0,CONTROL,G,dummy hash card 49 (overfit floor),-0.08350091939581983
+snow_n0,CONTROL,G,dummy hash card 7 (overfit floor),-0.014339042445803862
+snow_n0,CONTROL,G,dummy hash card 8 (overfit floor),-0.015600005370023595
+snow_n0,CONTROL,G,dummy hash card 27 (overfit floor),-0.051789241009543296
+snow_n0,CONTROL,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.032573693492071065
+snow_n0,CONTROL,R-G,H(T|base ctx),2.734768744417093
+snow_n0,CONTROL,R-G,P (production feature; real gain known),0.03113038731853557
+snow_n0,CONTROL,R-G,dummy hash card 49 (overfit floor),-0.15704441785230427
+snow_n0,CONTROL,R-G,dummy hash card 7 (overfit floor),-0.03116348454628337
+snow_n0,CONTROL,R-G,dummy hash card 8 (overfit floor),-0.03489399675749816
+snow_n0,CONTROL,R-G,dummy hash card 27 (overfit floor),-0.09932583880440138
+snow_n0,CONTROL,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.03820635286319796
+snow_n0,CONTROL,R-G,plane0 |r| 3x3 window energy (incl. E/S),0.007239490649441294
+snow_n0,CONTROL,R-G,plane0 |r| 5x5 window energy (incl. E/S),0.01187742245354162
+snow_n0,CONTROL,R-G,"plane0 |r| at pixel, 8 buckets",-0.004900371571128215
+snow_n0,CONTROL,R-G,plane0 signed r at pixel (q7),-0.024882821539504496
+snow_n0,CONTROL,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),0.0048271109728021955
+snow_n0,CONTROL,B-G,H(T|base ctx),2.860415204545176
+snow_n0,CONTROL,B-G,P (production feature; real gain known),0.03255947823116623
+snow_n0,CONTROL,B-G,dummy hash card 49 (overfit floor),-0.16197586124254437
+snow_n0,CONTROL,B-G,dummy hash card 7 (overfit floor),-0.03264869055437458
+snow_n0,CONTROL,B-G,dummy hash card 8 (overfit floor),-0.03753251425089399
+snow_n0,CONTROL,B-G,dummy hash card 27 (overfit floor),-0.10650319351394533
+snow_n0,CONTROL,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.034883601047519974
+snow_n0,CONTROL,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.0008923404233684984
+snow_n0,CONTROL,B-G,plane0 |r| 5x5 window energy (incl. E/S),0.0001649185452077262
+snow_n0,CONTROL,B-G,"plane0 |r| at pixel, 8 buckets",0.003599802021892362
+snow_n0,CONTROL,B-G,plane0 signed r at pixel (q7),0.03097267774697121
+snow_n0,CONTROL,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.0004395136357233653
+snow_n0,CONTROL,B-G,plane1 |r| 3x3 window energy (incl. E/S),-0.0050665189063581195
+snow_n0,CONTROL,B-G,plane1 |r| 5x5 window energy (incl. E/S),-0.0007654701875408065
+snow_n0,CONTROL,B-G,"plane1 |r| at pixel, 8 buckets",0.0015488627246913467
+snow_n0,CONTROL,B-G,plane1 signed r at pixel (q7),0.06983563340388743
+snow_n0,CONTROL,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),-0.0006863062983963886
+snow_n0,CONTROL,B-G,plane0 signed r given plane1 signed r,0.03097267774697121
+street_n0,LOSE,G,H(T|base ctx),3.433245988553219
+street_n0,LOSE,G,P (production feature; real gain known),0.04470337609232988
+street_n0,LOSE,G,dummy hash card 49 (overfit floor),-0.07577740636543329
+street_n0,LOSE,G,dummy hash card 7 (overfit floor),-0.01393692224461951
+street_n0,LOSE,G,dummy hash card 8 (overfit floor),-0.016054893263766967
+street_n0,LOSE,G,dummy hash card 27 (overfit floor),-0.04746075655951687
+street_n0,LOSE,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.020170532375471062
+street_n0,LOSE,R-G,H(T|base ctx),1.782198315183865
+street_n0,LOSE,R-G,P (production feature; real gain known),0.04149565924046339
+street_n0,LOSE,R-G,dummy hash card 49 (overfit floor),-0.14157257479528074
+street_n0,LOSE,R-G,dummy hash card 7 (overfit floor),-0.028000514752891892
+street_n0,LOSE,R-G,dummy hash card 8 (overfit floor),-0.03241661165160381
+street_n0,LOSE,R-G,dummy hash card 27 (overfit floor),-0.09037488497113966
+street_n0,LOSE,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.057049207377097844
+street_n0,LOSE,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.012389617900902428
+street_n0,LOSE,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.009969726742815155
+street_n0,LOSE,R-G,"plane0 |r| at pixel, 8 buckets",-0.004770652799615194
+street_n0,LOSE,R-G,plane0 signed r at pixel (q7),-0.021268948498016582
+street_n0,LOSE,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.016587099446512266
+street_n0,LOSE,B-G,H(T|base ctx),1.6443144416437114
+street_n0,LOSE,B-G,P (production feature; real gain known),0.0525107033855825
+street_n0,LOSE,B-G,dummy hash card 49 (overfit floor),-0.11568044806963185
+street_n0,LOSE,B-G,dummy hash card 7 (overfit floor),-0.023126358655705115
+street_n0,LOSE,B-G,dummy hash card 8 (overfit floor),-0.026972433910650295
+street_n0,LOSE,B-G,dummy hash card 27 (overfit floor),-0.07431162151662196
+street_n0,LOSE,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.05789943227860617
+street_n0,LOSE,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.011880060215329724
+street_n0,LOSE,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.009021160797938688
+street_n0,LOSE,B-G,"plane0 |r| at pixel, 8 buckets",-0.015984271846023024
+street_n0,LOSE,B-G,plane0 signed r at pixel (q7),-0.027006582932892265
+street_n0,LOSE,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.014536161551317983
+street_n0,LOSE,B-G,plane1 |r| 3x3 window energy (incl. E/S),0.001999484171905541
+street_n0,LOSE,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.005567316742101758
+street_n0,LOSE,B-G,"plane1 |r| at pixel, 8 buckets",0.0027153758522340254
+street_n0,LOSE,B-G,plane1 signed r at pixel (q7),0.08368332791789523
+street_n0,LOSE,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),0.010141622661798744
+street_n0,LOSE,B-G,plane0 signed r given plane1 signed r,-0.027006582932892265
+text_0,OTHER_WIN,G,H(T|base ctx),2.4650381674636908
+text_0,OTHER_WIN,G,P (production feature; real gain known),0.04693720934274648
+text_0,OTHER_WIN,G,dummy hash card 49 (overfit floor),-0.07767862175735107
+text_0,OTHER_WIN,G,dummy hash card 7 (overfit floor),-0.015035660003465345
+text_0,OTHER_WIN,G,dummy hash card 8 (overfit floor),-0.012442988862853
+text_0,OTHER_WIN,G,dummy hash card 27 (overfit floor),-0.04927758631367496
+text_0,OTHER_WIN,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.03574829518393363
+text_0,OTHER_WIN,R-G,H(T|base ctx),0.8646314972362007
+text_0,OTHER_WIN,R-G,P (production feature; real gain known),0.024386774963395252
+text_0,OTHER_WIN,R-G,dummy hash card 49 (overfit floor),-0.16156313320048088
+text_0,OTHER_WIN,R-G,dummy hash card 7 (overfit floor),-0.034983822088120675
+text_0,OTHER_WIN,R-G,dummy hash card 8 (overfit floor),-0.03475282609058683
+text_0,OTHER_WIN,R-G,dummy hash card 27 (overfit floor),-0.10809851041360541
+text_0,OTHER_WIN,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.024691598289181882
+text_0,OTHER_WIN,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.008522917745647729
+text_0,OTHER_WIN,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.005281360448991079
+text_0,OTHER_WIN,R-G,"plane0 |r| at pixel, 8 buckets",-0.00460999756578484
+text_0,OTHER_WIN,R-G,plane0 signed r at pixel (q7),-0.021553136849042753
+text_0,OTHER_WIN,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.014093884131503587
+text_0,OTHER_WIN,B-G,H(T|base ctx),0.7805218956429498
+text_0,OTHER_WIN,B-G,P (production feature; real gain known),0.021969019810483825
+text_0,OTHER_WIN,B-G,dummy hash card 49 (overfit floor),-0.1301387167006487
+text_0,OTHER_WIN,B-G,dummy hash card 7 (overfit floor),-0.028528900899748133
+text_0,OTHER_WIN,B-G,dummy hash card 8 (overfit floor),-0.02881018555389725
+text_0,OTHER_WIN,B-G,dummy hash card 27 (overfit floor),-0.08649668906740682
+text_0,OTHER_WIN,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.022844923110498794
+text_0,OTHER_WIN,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.01430093089415263
+text_0,OTHER_WIN,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.010493959579057077
+text_0,OTHER_WIN,B-G,"plane0 |r| at pixel, 8 buckets",-0.019376217581696276
+text_0,OTHER_WIN,B-G,plane0 signed r at pixel (q7),-0.027498270683395276
+text_0,OTHER_WIN,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.016293818433129825
+text_0,OTHER_WIN,B-G,plane1 |r| 3x3 window energy (incl. E/S),-0.006966336611651247
+text_0,OTHER_WIN,B-G,plane1 |r| 5x5 window energy (incl. E/S),7.211199106471611e-05
+text_0,OTHER_WIN,B-G,"plane1 |r| at pixel, 8 buckets",-0.0024456331639519657
+text_0,OTHER_WIN,B-G,plane1 signed r at pixel (q7),0.022386240035582428
+text_0,OTHER_WIN,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),-0.007735792754346216
+text_0,OTHER_WIN,B-G,plane0 signed r given plane1 signed r,-0.027498270683395276
+text_1,LOSE,G,H(T|base ctx),3.568563709545252
+text_1,LOSE,G,P (production feature; real gain known),0.042029899604379306
+text_1,LOSE,G,dummy hash card 49 (overfit floor),-0.08045719539707852
+text_1,LOSE,G,dummy hash card 7 (overfit floor),-0.014392724153504233
+text_1,LOSE,G,dummy hash card 8 (overfit floor),-0.01575998938652834
+text_1,LOSE,G,dummy hash card 27 (overfit floor),-0.04964124382292168
+text_1,LOSE,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.020168462825196354
+text_1,LOSE,R-G,H(T|base ctx),1.8264761524730844
+text_1,LOSE,R-G,P (production feature; real gain known),0.09175641261701473
+text_1,LOSE,R-G,dummy hash card 49 (overfit floor),-0.11350840730744682
+text_1,LOSE,R-G,dummy hash card 7 (overfit floor),-0.021620822011612084
+text_1,LOSE,R-G,dummy hash card 8 (overfit floor),-0.02372390638484312
+text_1,LOSE,R-G,dummy hash card 27 (overfit floor),-0.07116799132853435
+text_1,LOSE,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.10705650098830688
+text_1,LOSE,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.01086142174591953
+text_1,LOSE,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.009845189185988534
+text_1,LOSE,R-G,"plane0 |r| at pixel, 8 buckets",-0.0035631706411025643
+text_1,LOSE,R-G,plane0 signed r at pixel (q7),-0.014789736553487365
+text_1,LOSE,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.012812453849414318
+text_1,LOSE,B-G,H(T|base ctx),1.7740539702886962
+text_1,LOSE,B-G,P (production feature; real gain known),0.10811813567421469
+text_1,LOSE,B-G,dummy hash card 49 (overfit floor),-0.10169016758559812
+text_1,LOSE,B-G,dummy hash card 7 (overfit floor),-0.019131464439967605
+text_1,LOSE,B-G,dummy hash card 8 (overfit floor),-0.02173058424323493
+text_1,LOSE,B-G,dummy hash card 27 (overfit floor),-0.06339962384899067
+text_1,LOSE,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.10484199986445009
+text_1,LOSE,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.011384743872767222
+text_1,LOSE,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.009269849979116396
+text_1,LOSE,B-G,"plane0 |r| at pixel, 8 buckets",-0.014575400809448746
+text_1,LOSE,B-G,plane0 signed r at pixel (q7),-0.02146278700558346
+text_1,LOSE,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.01234185931169196
+text_1,LOSE,B-G,plane1 |r| 3x3 window energy (incl. E/S),0.009277365063826926
+text_1,LOSE,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.009195444416101761
+text_1,LOSE,B-G,"plane1 |r| at pixel, 8 buckets",0.006759836372030703
+text_1,LOSE,B-G,plane1 signed r at pixel (q7),0.09099759112306827
+text_1,LOSE,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),0.017666072148009304
+text_1,LOSE,B-G,plane0 signed r given plane1 signed r,-0.02146278700558346
+waterfall_n0,CONTROL,G,H(T|base ctx),2.7865155481055903
+waterfall_n0,CONTROL,G,P (production feature; real gain known),0.019135405508645675
+waterfall_n0,CONTROL,G,dummy hash card 49 (overfit floor),-0.08085855555053856
+waterfall_n0,CONTROL,G,dummy hash card 7 (overfit floor),-0.01496057835593767
+waterfall_n0,CONTROL,G,dummy hash card 8 (overfit floor),-0.016396407407892166
+waterfall_n0,CONTROL,G,dummy hash card 27 (overfit floor),-0.05117754334641278
+waterfall_n0,CONTROL,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.03245466919113982
+waterfall_n0,CONTROL,R-G,H(T|base ctx),2.315573901061976
+waterfall_n0,CONTROL,R-G,P (production feature; real gain known),0.02767554335548006
+waterfall_n0,CONTROL,R-G,dummy hash card 49 (overfit floor),-0.14539103138778886
+waterfall_n0,CONTROL,R-G,dummy hash card 7 (overfit floor),-0.029163544612806014
+waterfall_n0,CONTROL,R-G,dummy hash card 8 (overfit floor),-0.03276239022488925
+waterfall_n0,CONTROL,R-G,dummy hash card 27 (overfit floor),-0.09507404917277995
+waterfall_n0,CONTROL,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.024789658238266732
+waterfall_n0,CONTROL,R-G,plane0 |r| 3x3 window energy (incl. E/S),5.1301307038009725e-06
+waterfall_n0,CONTROL,R-G,plane0 |r| 5x5 window energy (incl. E/S),0.0028493859678500044
+waterfall_n0,CONTROL,R-G,"plane0 |r| at pixel, 8 buckets",-0.005055095978772961
+waterfall_n0,CONTROL,R-G,plane0 signed r at pixel (q7),-0.023290903303685218
+waterfall_n0,CONTROL,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.0027965907841980275
+waterfall_n0,CONTROL,B-G,H(T|base ctx),2.225111824340946
+waterfall_n0,CONTROL,B-G,P (production feature; real gain known),0.036642670800707045
+waterfall_n0,CONTROL,B-G,dummy hash card 49 (overfit floor),-0.13783641482852982
+waterfall_n0,CONTROL,B-G,dummy hash card 7 (overfit floor),-0.029072138722333385
+waterfall_n0,CONTROL,B-G,dummy hash card 8 (overfit floor),-0.03130825485637434
+waterfall_n0,CONTROL,B-G,dummy hash card 27 (overfit floor),-0.08877490461192838
+waterfall_n0,CONTROL,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.03119288719873259
+waterfall_n0,CONTROL,B-G,plane0 |r| 3x3 window energy (incl. E/S),0.0034186427100393324
+waterfall_n0,CONTROL,B-G,plane0 |r| 5x5 window energy (incl. E/S),0.005996296498487652
+waterfall_n0,CONTROL,B-G,"plane0 |r| at pixel, 8 buckets",-0.005026117548884379
+waterfall_n0,CONTROL,B-G,plane0 signed r at pixel (q7),-0.0066579193257290115
+waterfall_n0,CONTROL,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),0.000879611475181008
+waterfall_n0,CONTROL,B-G,plane1 |r| 3x3 window energy (incl. E/S),0.003600314950211736
+waterfall_n0,CONTROL,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.007175070213545798
+waterfall_n0,CONTROL,B-G,"plane1 |r| at pixel, 8 buckets",0.002163753435612925
+waterfall_n0,CONTROL,B-G,plane1 signed r at pixel (q7),0.07042993616611692
+waterfall_n0,CONTROL,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),0.008872892121182474
+waterfall_n0,CONTROL,B-G,plane0 signed r given plane1 signed r,-0.0066579193257290115
+woman_n0,OTHER_WIN,G,H(T|base ctx),1.1278558817439706
+woman_n0,OTHER_WIN,G,P (production feature; real gain known),0.02373126315629359
+woman_n0,OTHER_WIN,G,dummy hash card 49 (overfit floor),-0.06038346200030986
+woman_n0,OTHER_WIN,G,dummy hash card 7 (overfit floor),-0.013389814741843864
+woman_n0,OTHER_WIN,G,dummy hash card 8 (overfit floor),-0.01368738285837967
+woman_n0,OTHER_WIN,G,dummy hash card 27 (overfit floor),-0.040806948504914065
+woman_n0,OTHER_WIN,G,"texture dir sgn(W-NW,N-NW,NE-N)",0.032225990076569344
+woman_n0,OTHER_WIN,R-G,H(T|base ctx),0.6806217673406632
+woman_n0,OTHER_WIN,R-G,P (production feature; real gain known),0.0047123457295819016
+woman_n0,OTHER_WIN,R-G,dummy hash card 49 (overfit floor),-0.10943861303071722
+woman_n0,OTHER_WIN,R-G,dummy hash card 7 (overfit floor),-0.025945440682067833
+woman_n0,OTHER_WIN,R-G,dummy hash card 8 (overfit floor),-0.02911158747058329
+woman_n0,OTHER_WIN,R-G,dummy hash card 27 (overfit floor),-0.07659383307002843
+woman_n0,OTHER_WIN,R-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.0043021305514781005
+woman_n0,OTHER_WIN,R-G,plane0 |r| 3x3 window energy (incl. E/S),-0.006258700870213962
+woman_n0,OTHER_WIN,R-G,plane0 |r| 5x5 window energy (incl. E/S),-0.0036012044903893647
+woman_n0,OTHER_WIN,R-G,"plane0 |r| at pixel, 8 buckets",-0.003990173235889571
+woman_n0,OTHER_WIN,R-G,plane0 signed r at pixel (q7),-0.018620245647997136
+woman_n0,OTHER_WIN,R-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.008432619519678664
+woman_n0,OTHER_WIN,B-G,H(T|base ctx),0.6176456448986908
+woman_n0,OTHER_WIN,B-G,P (production feature; real gain known),0.012059766427637952
+woman_n0,OTHER_WIN,B-G,dummy hash card 49 (overfit floor),-0.09167486035855965
+woman_n0,OTHER_WIN,B-G,dummy hash card 7 (overfit floor),-0.020500848265485927
+woman_n0,OTHER_WIN,B-G,dummy hash card 8 (overfit floor),-0.02232494640968874
+woman_n0,OTHER_WIN,B-G,dummy hash card 27 (overfit floor),-0.06142563162500492
+woman_n0,OTHER_WIN,B-G,"texture dir sgn(W-NW,N-NW,NE-N)",0.0100111765544445
+woman_n0,OTHER_WIN,B-G,plane0 |r| 3x3 window energy (incl. E/S),-0.0051164667557386245
+woman_n0,OTHER_WIN,B-G,plane0 |r| 5x5 window energy (incl. E/S),-0.003674952848145452
+woman_n0,OTHER_WIN,B-G,"plane0 |r| at pixel, 8 buckets",-0.006386479045205284
+woman_n0,OTHER_WIN,B-G,plane0 signed r at pixel (q7),-0.01183513617858123
+woman_n0,OTHER_WIN,B-G,plane0 pixel 3x3 range (edge strength incl. E/S),-0.004966267142946124
+woman_n0,OTHER_WIN,B-G,plane1 |r| 3x3 window energy (incl. E/S),-0.0012627609791059369
+woman_n0,OTHER_WIN,B-G,plane1 |r| 5x5 window energy (incl. E/S),0.0012701166748888548
+woman_n0,OTHER_WIN,B-G,"plane1 |r| at pixel, 8 buckets",-0.0004181488285064372
+woman_n0,OTHER_WIN,B-G,plane1 signed r at pixel (q7),0.012571741753247712
+woman_n0,OTHER_WIN,B-G,plane1 pixel 3x3 range (edge strength incl. E/S),-0.0004597496546446811
+woman_n0,OTHER_WIN,B-G,plane0 signed r given plane1 signed r,-0.01183513617858123

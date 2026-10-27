@@ -1,0 +1,37 @@
+loaded 35 images
+text_0 OTHER P=565493 GB=571569 (+1.074%) enc 715/910 ms dec 674/923 ms
+clouds_n0 OTHER P=448447 GB=445758 (-0.600%) enc 685/750 ms dec 595/691 ms
+night_1 OTHER P=617913 GB=610212 (-1.246%) enc 784/964 ms dec 861/862 ms
+child_n0 OTHER P=406096 GB=405296 (-0.197%) enc 640/815 ms dec 514/730 ms
+forest_n0 LOSE P=782934 GB=770628 (-1.572%) enc 792/634 ms dec 488/896 ms
+bridge_n0 OTHER P=492319 GB=486442 (-1.194%) enc 670/810 ms dec 686/788 ms
+lake_n0 CONTROL P=837460 GB=822897 (-1.739%) enc 955/981 ms dec 990/1011 ms
+street_n0 LOSE P=912364 GB=904135 (-0.902%) enc 1043/1115 ms dec 1148/1146 ms
+waterfall_n0 CONTROL P=1031227 GB=1027816 (-0.331%) enc 1147/1223 ms dec 902/1177 ms
+document_0 OTHER P=523638 GB=522165 (-0.281%) enc 758/816 ms dec 728/870 ms
+river_n0 LOSE P=1019443 GB=1013837 (-0.550%) enc 1086/1279 ms dec 992/723 ms
+coast_n0 OTHER P=444975 GB=443987 (-0.222%) enc 850/771 ms dec 600/747 ms
+macro_n0 OTHER P=804406 GB=801651 (-0.342%) enc 848/1055 ms dec 918/922 ms
+building_n0 OTHER P=688393 GB=692635 (+0.616%) enc 876/991 ms dec 724/1129 ms
+night_0 LOSE P=1917507 GB=1918674 (+0.061%) enc 1752/1780 ms dec 1821/1686 ms
+indoor_1 OTHER P=600800 GB=597485 (-0.552%) enc 797/876 ms dec 785/772 ms
+peak_n0 OTHER P=1207636 GB=1198886 (-0.725%) enc 1300/1407 ms dec 1248/1116 ms
+bird_n0 OTHER P=333092 GB=327739 (-1.607%) enc 577/791 ms dec 570/601 ms
+snow_n0 CONTROL P=1230807 GB=1227428 (-0.275%) enc 1133/1312 ms dec 1189/1260 ms
+lighthouse_n0 OTHER P=484986 GB=468594 (-3.380%) enc 722/854 ms dec 631/758 ms
+indoor_0 OTHER P=346721 GB=347037 (+0.091%) enc 617/723 ms dec 589/381 ms
+desert_n0 OTHER P=580105 GB=573162 (-1.197%) enc 489/651 ms dec 505/918 ms
+document_1 CONTROL P=402044 GB=409270 (+1.797%) enc 602/386 ms dec 620/368 ms
+text_1 LOSE P=1039180 GB=1000752 (-3.698%) enc 578/773 ms dec 716/720 ms
+portrait_0 LOSE P=397667 GB=385255 (-3.121%) enc 416/467 ms dec 394/452 ms
+food_0 LOSE P=1265561 GB=1253228 (-0.975%) enc 788/850 ms dec 752/815 ms
+food_1 OTHER P=729719 GB=719664 (-1.378%) enc 535/609 ms dec 520/802 ms
+path_n0 CONTROL P=1710962 GB=1701993 (-0.524%) enc 1216/1029 ms dec 908/972 ms
+boat_n0 CONTROL P=1004572 GB=1006784 (+0.220%) enc 649/724 ms dec 635/728 ms
+flower_n0 OTHER P=758220 GB=756724 (-0.197%) enc 626/1125 ms dec 993/1210 ms
+beach_n0 OTHER P=560047 GB=548358 (-2.087%) enc 1101/867 ms dec 930/911 ms
+woman_n0 OTHER P=335672 GB=338873 (+0.954%) enc 388/806 ms dec 545/644 ms
+outdoor_0 CONTROL P=765924 GB=759738 (-0.808%) enc 910/1101 ms dec 730/916 ms
+outdoor_1 OTHER P=495025 GB=481799 (-2.672%) enc 809/855 ms dec 689/815 ms
+restaurant_n0 OTHER P=703703 GB=695833 (-1.118%) enc 834/938 ms dec 822/947 ms
+verdict: FAIL

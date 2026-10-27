@@ -1,0 +1,40 @@
+beach_n0 OTHER_WIN ok
+bird_n0 OTHER_WIN ok
+boat_n0 CONTROL ok
+bridge_n0 OTHER_WIN ok
+building_n0 OTHER_WIN ok
+child_n0 OTHER_WIN ok
+clouds_n0 OTHER_WIN ok
+coast_n0 OTHER_WIN ok
+desert_n0 OTHER_WIN ok
+document_0 OTHER_WIN ok
+document_1 CONTROL ok
+flower_n0 OTHER_WIN ok
+food_0 LOSE ok
+food_1 OTHER_WIN ok
+forest_n0 LOSE ok
+indoor_0 OTHER_WIN ok
+indoor_1 OTHER_WIN ok
+lake_n0 CONTROL ok
+lighthouse_n0 OTHER_WIN ok
+macro_n0 OTHER_WIN ok
+night_0 LOSE ok
+night_1 OTHER_WIN ok
+outdoor_0 CONTROL ok
+outdoor_1 OTHER_WIN ok
+path_n0 CONTROL ok
+peak_n0 OTHER_WIN ok
+portrait_0 LOSE ok
+restaurant_n0 OTHER_WIN ok
+river_n0 LOSE ok
+snow_n0 CONTROL ok
+street_n0 LOSE ok
+text_0 OTHER_WIN ok
+text_1 LOSE ok
+waterfall_n0 CONTROL ok
+woman_n0 OTHER_WIN ok
+done
+
+real	4m14.371s
+user	0m0.015s
+sys	0m0.000s
