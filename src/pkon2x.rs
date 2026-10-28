@@ -208,12 +208,22 @@ fn tables() -> &'static Tables {
 }
 
 #[derive(Clone, Copy)]
-struct Bit {
+pub(crate) struct Bit {
     p: u16, // P(bit = 1), 16-bit
     n: u8,
 }
 impl Bit {
-    const NEW: Bit = Bit { p: 32768, n: 0 };
+    pub(crate) const NEW: Bit = Bit { p: 32768, n: 0 };
+    /// P(bit = 1), 16-bit, for `BitIo::code`.
+    #[inline]
+    pub(crate) fn p1(&self) -> u32 {
+        self.p as u32
+    }
+    /// Adapts this single probability state with PKON's count-based rate.
+    #[inline]
+    pub(crate) fn adapt(&mut self, bit: u32) {
+        self.update(bit, tables());
+    }
     #[inline]
     fn update(&mut self, bit: u32, t: &Tables) {
         let target = (bit as i32) << 16;
