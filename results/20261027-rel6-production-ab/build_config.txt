@@ -1,0 +1,7 @@
+rustc 1.99.1 (58cf8f9c3 2026-10-13)
+cargo 1.99.1 (5f94df478 2026-08-27)
+profile.release: opt-level=3 lto=thin codegen-units=1 (Cargo.toml, no target-cpu=native)
+d7687368ee4ac26c004852cb1bb69f96b65e9603
+cargo build --release --bin prod_ab; cargo run --release --bin prod_ab -- --phase 1 --out results/20261027-rel6-production-ab
+cargo run --release --bin prod_ab -- --phase 2 --out results/20261027-rel6-production-ab   (run after Phase 1 artifacts saved; no source change since)
+harness-only fix before any TEST result existed: removed Rgb-only layout assertion (a TEST image is RGBA; codec supports it)

@@ -16,11 +16,13 @@ pub const HEADER_LEN: usize = 24;
 /// Codec id 1: PKON2 X4 as promoted by N3 (inputs Ab,B,C,D; sign contexts; no bias; no ensemble), planes coded in
 /// G,R,B,(A) order for RGB(A) / natural order otherwise, SubG colour transform when >= 3 planes.
 pub const CODEC_X4: u8 = 1;
-/// Codec id 2: codec 1 plus the predictor-disagreement mixer input (`In::P`, PKON2P), nothing else changed. This is what `encode` writes.
+/// Codec id 2: codec 1 plus the predictor-disagreement mixer input (`In::P`, PKON2P), nothing else changed. Still readable and writable via `encode_with_codec(img, CODEC_X4P)`; no longer the default writer.
 /// Files with codec id 1 remain valid and decodable; `encode_with_codec(img, CODEC_X4)` still produces them.
 pub const CODEC_X4P: u8 = 2;
+/// Codec id 3 (REL6): codec 2 plus the joint sign-context mixer input at the sign node (`In::J`), nothing else changed. This is what `encode` writes.
+pub const CODEC_X4PJ: u8 = 3;
 /// The codec `encode` uses.
-pub const CODEC_CURRENT: u8 = CODEC_X4P;
+pub const CODEC_CURRENT: u8 = CODEC_X4PJ;
 
 /// Default resource policy: largest reconstructed pixel buffer a decode will allocate. Peak decode memory is about
 /// 3-4x this (planes + two residual planes + output). Raise per call with `decode_with_limit`.
@@ -146,7 +148,7 @@ pub fn parse_header_with_limit(bytes: &[u8], max_decoded_bytes: u64) -> Result<H
     if bytes[5] != 0 {
         return Err(PkonError::ReservedFlags(bytes[5]));
     }
-    if bytes[6] != CODEC_X4 && bytes[6] != CODEC_X4P {
+    if bytes[6] != CODEC_X4 && bytes[6] != CODEC_X4P && bytes[6] != CODEC_X4PJ {
         return Err(PkonError::UnsupportedCodec(bytes[6]));
     }
     let layout = format_layout(bytes[7]).ok_or(PkonError::UnsupportedPixelFormat(bytes[7]))?;
@@ -179,9 +181,15 @@ fn codec2_cfg() -> XCfg {
     XCfg { name: "X4P", inputs: vec![In::Ab, In::B, In::C, In::D, In::P], sign_ctx: true, bias: Bias::Off, ens: Ens::Off }
 }
 
+/// The frozen configuration behind codec id 3, spelled out for the same reason as `codec1_cfg`.
+fn codec3_cfg() -> XCfg {
+    XCfg { name: "X4PJ", inputs: vec![In::Ab, In::B, In::C, In::D, In::P, In::J], sign_ctx: true, bias: Bias::Off, ens: Ens::Off }
+}
+
 fn cfg_for(codec: u8) -> XCfg {
     match codec {
         CODEC_X4 => codec1_cfg(),
+        CODEC_X4PJ => codec3_cfg(),
         _ => codec2_cfg(),
     }
 }
@@ -241,14 +249,14 @@ pub fn decode_payload_codec(stream: &[u8], spec: &Spec, codec: u8) -> Result<Vec
     Ok(data)
 }
 
-/// Encode a complete `.pkon2` file with the current codec (id 2). Only 8-bit gray / gray+alpha / RGB / RGBA are representable.
+/// Encode a complete `.pkon2` file with the current codec (id 3). Only 8-bit gray / gray+alpha / RGB / RGBA are representable.
 pub fn encode(img: &Canonical) -> Result<Vec<u8>, PkonError> {
     encode_with_codec(img, CODEC_CURRENT)
 }
 
 /// Encode a complete `.pkon2` file with a specific codec id (1 = X4, 2 = X4P).
 pub fn encode_with_codec(img: &Canonical, codec: u8) -> Result<Vec<u8>, PkonError> {
-    if codec != CODEC_X4 && codec != CODEC_X4P {
+    if codec != CODEC_X4 && codec != CODEC_X4P && codec != CODEC_X4PJ {
         return Err(PkonError::UnsupportedCodec(codec));
     }
     if img.spec.bit_depth != 8 {
@@ -315,5 +323,10 @@ mod tests {
     #[test]
     fn codec2_is_the_production_x4p_config() {
         assert_eq!(format!("{:?}", codec2_cfg()), format!("{:?}", crate::pkon2x::x4p_cfg()));
+    }
+
+    #[test]
+    fn codec3_is_the_production_x4pj_config() {
+        assert_eq!(format!("{:?}", codec3_cfg()), format!("{:?}", crate::pkon2x::x4pj_cfg()));
     }
 }

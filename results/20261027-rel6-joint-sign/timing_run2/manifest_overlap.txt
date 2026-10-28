@@ -1,0 +1,4 @@
+DEV=25 VAL=10 DEV&VAL=0 union=35
+discovery20 & DEV = 9
+discovery20 & VAL = 4
+discovery20 & TEST (not loaded) = 7

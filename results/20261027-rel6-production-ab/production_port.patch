@@ -1,0 +1,241 @@
+diff --git a/docs/pkon2-format-v1.md b/docs/pkon2-format-v1.md
+index 095e5f8..09bf6b6 100644
+--- a/docs/pkon2-format-v1.md
++++ b/docs/pkon2-format-v1.md
+@@ -10,7 +10,7 @@ All multi-byte integers are **little-endian, unsigned**. A file is exactly: `hea
+ | 0 | 4 | `magic` | `89 50 4B 32` (`\x89PK2`) | Mismatch -> `BadMagic`. High-bit first byte detects 7-bit stripping; not a ZIP (`PK\x03\x04`) or PNG signature. |
+ | 4 | 1 | `version` | `1` | Any other value -> `UnsupportedVersion`. Single integer: a new version means a new layout/semantics; there is no minor version. |
+ | 5 | 1 | `flags` | `0` | Every bit is reserved and mandatory-to-understand; non-zero -> `ReservedFlags`. Writers MUST write 0. |
+-| 6 | 1 | `codec` | `1` or `2` | Codec id (section 3). Writers use 2; readers MUST accept both. Unknown -> `UnsupportedCodec`; never substituted. |
++| 6 | 1 | `codec` | `1`, `2` or `3` | Codec id (section 3). Writers use 2 (codec 3 is opt-in via `encode_with_codec`, not the default); readers MUST accept all three. Unknown -> `UnsupportedCodec`; never substituted. |
+ | 7 | 1 | `pixel_format` | `0` gray8, `1` gray+alpha8, `2` RGB8, `3` RGBA8 | Unknown -> `UnsupportedPixelFormat`. Determines channel count and plane mapping. |
+ | 8 | 4 | `width` | 1 ..= limit | 0 -> `InvalidDimensions`. |
+ | 12 | 4 | `height` | 1 ..= limit | 0 -> `InvalidDimensions`. |
+@@ -79,6 +79,17 @@ bias: Off, ens: Off }`. Version stays 1 and the header layout is unchanged; per
+ * Decoders MUST implement both codecs. A codec-1 file is never reinterpreted as codec 2 (the stream differs, so a patched codec byte fails the pixel CRC).
+ * Compatibility: all files written before codec 2 (codec byte 1) decode unchanged; `tests/golden_codec1/` holds 44 such files from the pre-change encoder.
+ 
++### Codec id 3 (PKON2PJ, REL6): codec 2 plus a joint sign context
++
++`codec = 3` is codec 2 with exactly one additional mixer input, at the sign decision only (magnitude decisions are unchanged).
++`pkonfile::codec3_cfg()` = `XCfg { inputs: [Ab, B, C, D, P, J], sign_ctx: true, bias: Off, ens: Off }`. It is NOT the default writer codec.
++
++* The sign decision mixes five inputs: the four codec-2 sign inputs plus a 5th with one bit model per plane x context, context =
++  `((sgn(prev-plane z) * 27 + sgn(W) * 9 + sgn(N) * 3 + sgn(NE)) * 49 + P) * 4 + min(class - 1, 3)`, i.e. 3 x 27 x 49 x 4 = 15,876 contexts per plane.
++  (`sgn` is 0 for z = 0, 1 for odd z, 2 for even nonzero z, as in the codec-2 sign contexts.)
++* Its mixer weight starts at 0, its bit models start at p = 1/2, n = 0, and it updates in the same pass as the other inputs.
++* Decoders MUST implement all three codecs. Codec 1 and 2 streams are unchanged.
++
+ ## 4. Integrity
+ 
+ `crc32` = CRC-32/ISO-HDLC (reflected polynomial `0xEDB88320`, init and final XOR `0xFFFFFFFF`; the zlib/PNG CRC; check value
+diff --git a/src/pkon2x.rs b/src/pkon2x.rs
+index 2436bc9..86add3d 100644
+--- a/src/pkon2x.rs
++++ b/src/pkon2x.rs
+@@ -39,6 +39,9 @@ pub enum In {
+     /// PKON2P predictor disagreement (49 classes): qd(GAP - MED) x qd(Grad - MED). Must be the LAST input; an EXTRA mixer input that
+     /// starts at weight 0 (the base inputs keep their 1.25/n_base initial weights) and also feeds the sign decision.
+     P,
++    /// REL6 joint sign context (codec 3): sign-node-only mixer input, NOT a magnitude input. Must come after `P` as the 6th and last entry; it
++    /// conditions the sign on (prev-plane sign, W/N/NE signs, `P` class, magnitude class) = 3*27*49*4 contexts per plane. Starts at weight 0.
++    J,
+ }
+ const MAG_CTX: usize = 96;
+ 
+@@ -169,6 +172,14 @@ pub fn x4p_cfg() -> XCfg {
+     XCfg { name: "X4P", inputs: vec![In::Ab, In::B, In::C, In::D, In::P], sign_ctx: true, bias: Bias::Off, ens: Ens::Off }
+ }
+ 
++/// Production codec id 3 (REL6): codec 2 plus the joint sign context input at the sign node only.
++pub fn x4pj_cfg() -> XCfg {
++    XCfg { name: "X4PJ", inputs: vec![In::Ab, In::B, In::C, In::D, In::P, In::J], sign_ctx: true, bias: Bias::Off, ens: Ens::Off }
++}
++
++/// Contexts of the joint sign input per plane: prev-plane sign (3) x W,N,NE signs (27) x P class (49) x magnitude class (4).
++pub const JCARD: usize = 3 * 27 * 49 * 4;
++
+ /// The production X4 configuration (N3: context A carries the MED branch). The frozen M6 X4 is the same config with `In::A`.
+ pub fn x4_cfg() -> XCfg {
+     XCfg { name: "X4", inputs: vec![In::Ab, In::B, In::C, In::D], sign_ctx: true, bias: Bias::Off, ens: Ens::Off }
+@@ -339,11 +350,19 @@ pub struct Coder {
+     sign_ctx: bool,
+     /// `In::P` is configured: magnitude decisions mix `nmag` inputs (P last), the sign decision mixes 3 + P
+     has_p: bool,
++    /// `In::J` is configured: the sign decision mixes a 5th input from `joint`
++    has_j: bool,
++    /// [plane*JCARD + ctx]: one bit model per joint sign context (sign node only); empty unless `has_j`
++    joint: Vec<Bit>,
+ }
+ impl Coder {
+     pub fn new(planes: usize, cfg: &XCfg) -> Self {
+-        let nmag = cfg.inputs.len();
++        let has_j = cfg.inputs.contains(&In::J);
++        let nmag = cfg.inputs.len() - has_j as usize;
+         let has_p = cfg.inputs.contains(&In::P);
++        if has_j {
++            assert!(nmag == 5 && cfg.inputs[5] == In::J && has_p, "In::J must be the 6th and last input, after P");
++        }
+         if has_p {
+             assert!(nmag == 5 && cfg.inputs[4] == In::P && cfg.sign_ctx, "In::P must be the 5th and last input of a 4-input config with sign contexts");
+         }
+@@ -365,6 +384,8 @@ impl Coder {
+             nmag,
+             sign_ctx: cfg.sign_ctx,
+             has_p,
++            has_j,
++            joint: if has_j { vec![Bit::NEW; planes * JCARD] } else { vec![] },
+         }
+     }
+     /// Bytes of adaptive state (probabilities + mixer weights + tail), for the memory report.
+@@ -372,6 +393,39 @@ impl Coder {
+         self.m.iter().map(|v| v.len() * std::mem::size_of::<Bit>()).sum::<usize>()
+             + self.mixw.len() * std::mem::size_of::<[i32; NI]>()
+             + self.tail.len() * std::mem::size_of::<Bit>()
++            + self.joint.len() * std::mem::size_of::<Bit>()
++    }
++
++    /// Sign decision with the joint input: the 4 codec-2 inputs plus `joint[plane][jctx]` as a 5th (weight starts at 0).
++    #[inline]
++    fn sign_bit_j<I: BitIo>(&mut self, io: &mut I, plane: usize, sc: &[usize; NI], jctx: usize, want: u32) -> u32 {
++        let t = self.t;
++        let mut idx = [0usize; 4];
++        for i in 0..4 {
++            idx[i] = (plane * MAG_CTX + sc[i]) * NODES + SIGN;
++        }
++        let ji = plane * JCARD + jctx;
++        let mut st = [0i32; NI];
++        let ws = &mut self.mixw[plane * NODES + SIGN];
++        let mut dot = 0i64;
++        for i in 0..4 {
++            st[i] = t.stretch[(self.m[i][idx[i]].p >> 4) as usize] as i32;
++            dot += ws[i] as i64 * st[i] as i64;
++        }
++        st[4] = t.stretch[(self.joint[ji].p >> 4) as usize] as i32;
++        dot += ws[4] as i64 * st[4] as i64;
++        let d = ((dot >> 16) as i32).clamp(-2047, 2047);
++        let p = t.squash[(d + 2048) as usize] as u32;
++        let bit = io.code(p, want);
++        let err = ((bit as i32) << 12) - (p as i32 >> 4);
++        for i in 0..5 {
++            ws[i] += (st[i] * err * MIXLR + 0x8000) >> 16;
++        }
++        for i in 0..4 {
++            self.m[i][idx[i]].update(bit, t);
++        }
++        self.joint[ji].update(bit, t);
++        bit
+     }
+ 
+     #[inline]
+@@ -453,7 +507,12 @@ impl Coder {
+             let cls = (c - 1).min(3);
+             // 4th sign input (P) uses probability table 3 at the SIGN node, which no magnitude input ever touches
+             let sc = [sg.p * 4 + cls, sg.w * 9 + sg.n * 3 + sg.ne, sg.p * 9 + sg.w * 3 + sg.n, sg.pf, 0];
+-            self.bit(io, k, SIGN, &sc, 3 + self.has_p as usize, want)
++            if self.has_j {
++                let jctx = ((sg.p * 27 + sg.w * 9 + sg.n * 3 + sg.ne) * 49 + sg.pf) * 4 + cls;
++                self.sign_bit_j(io, k, &sc, jctx, want)
++            } else {
++                self.bit(io, k, SIGN, &sc, 3 + self.has_p as usize, want)
++            }
+         } else {
+             self.bit(io, k, SIGN, &[0; NI], 1, want)
+         };
+@@ -556,7 +615,7 @@ pub fn run_x<I: BitIo>(pl: &mut Planes, cfg: &XCfg, coder: &mut Coder, io: &mut
+                 let e = err_energy(&cur_z, w, x, y);
+                 let (zw, zn, zne) = (zat(&cur_z, w, xi - 1, yi), zat(&cur_z, w, xi, yi - 1), zat(&cur_z, w, xi + 1, yi - 1));
+                 let mut mc = [0usize; NI];
+-                for (s, kind) in cfg.inputs.iter().enumerate() {
++                for (s, kind) in cfg.inputs.iter().enumerate().take(NI) {
+                     mc[s] = match kind {
+                         In::A => act * 4 + pq,
+                         In::Ab => {
+@@ -565,6 +624,7 @@ pub fn run_x<I: BitIo>(pl: &mut Planes, cfg: &XCfg, coder: &mut Coder, io: &mut
+                             (act * 4 + pq) * 3 + br
+                         }
+                         In::P => p_class(&pl.p[k], w, x, y, nb, med),
++                        In::J => unreachable!("In::J is never among the first NI inputs"),
+                         In::B => (prev_q(zw) * 4 + prev_q(zn)) * 4 + pq,
+                         In::C => (act * 3 + err_level(e)) * 4 + pq,
+                         In::D => {
+diff --git a/src/pkonfile.rs b/src/pkonfile.rs
+index e1ee24b..4f171b1 100644
+--- a/src/pkonfile.rs
++++ b/src/pkonfile.rs
+@@ -19,6 +19,9 @@ pub const CODEC_X4: u8 = 1;
+ /// Codec id 2: codec 1 plus the predictor-disagreement mixer input (`In::P`, PKON2P), nothing else changed. This is what `encode` writes.
+ /// Files with codec id 1 remain valid and decodable; `encode_with_codec(img, CODEC_X4)` still produces them.
+ pub const CODEC_X4P: u8 = 2;
++/// Codec id 3 (REL6): codec 2 plus the joint sign-context mixer input at the sign node (`In::J`), nothing else changed. NOT the default;
++/// `encode` still writes codec 2. Only `encode_with_codec(img, CODEC_X4PJ)` produces it.
++pub const CODEC_X4PJ: u8 = 3;
+ /// The codec `encode` uses.
+ pub const CODEC_CURRENT: u8 = CODEC_X4P;
+ 
+@@ -146,7 +149,7 @@ pub fn parse_header_with_limit(bytes: &[u8], max_decoded_bytes: u64) -> Result<H
+     if bytes[5] != 0 {
+         return Err(PkonError::ReservedFlags(bytes[5]));
+     }
+-    if bytes[6] != CODEC_X4 && bytes[6] != CODEC_X4P {
++    if bytes[6] != CODEC_X4 && bytes[6] != CODEC_X4P && bytes[6] != CODEC_X4PJ {
+         return Err(PkonError::UnsupportedCodec(bytes[6]));
+     }
+     let layout = format_layout(bytes[7]).ok_or(PkonError::UnsupportedPixelFormat(bytes[7]))?;
+@@ -179,9 +182,15 @@ fn codec2_cfg() -> XCfg {
+     XCfg { name: "X4P", inputs: vec![In::Ab, In::B, In::C, In::D, In::P], sign_ctx: true, bias: Bias::Off, ens: Ens::Off }
+ }
+ 
++/// The frozen configuration behind codec id 3, spelled out for the same reason as `codec1_cfg`.
++fn codec3_cfg() -> XCfg {
++    XCfg { name: "X4PJ", inputs: vec![In::Ab, In::B, In::C, In::D, In::P, In::J], sign_ctx: true, bias: Bias::Off, ens: Ens::Off }
++}
++
+ fn cfg_for(codec: u8) -> XCfg {
+     match codec {
+         CODEC_X4 => codec1_cfg(),
++        CODEC_X4PJ => codec3_cfg(),
+         _ => codec2_cfg(),
+     }
+ }
+@@ -248,7 +257,7 @@ pub fn encode(img: &Canonical) -> Result<Vec<u8>, PkonError> {
+ 
+ /// Encode a complete `.pkon2` file with a specific codec id (1 = X4, 2 = X4P).
+ pub fn encode_with_codec(img: &Canonical, codec: u8) -> Result<Vec<u8>, PkonError> {
+-    if codec != CODEC_X4 && codec != CODEC_X4P {
++    if codec != CODEC_X4 && codec != CODEC_X4P && codec != CODEC_X4PJ {
+         return Err(PkonError::UnsupportedCodec(codec));
+     }
+     if img.spec.bit_depth != 8 {
+@@ -316,4 +325,9 @@ mod tests {
+     fn codec2_is_the_production_x4p_config() {
+         assert_eq!(format!("{:?}", codec2_cfg()), format!("{:?}", crate::pkon2x::x4p_cfg()));
+     }
++
++    #[test]
++    fn codec3_is_the_production_x4pj_config() {
++        assert_eq!(format!("{:?}", codec3_cfg()), format!("{:?}", crate::pkon2x::x4pj_cfg()));
++    }
+ }
+diff --git a/tests/pkonfile.rs b/tests/pkonfile.rs
+index 440298e..b317c20 100644
+--- a/tests/pkonfile.rs
++++ b/tests/pkonfile.rs
+@@ -111,7 +111,7 @@ fn both_codecs_round_trip_and_codec_byte_mismatch_is_rejected() {
+         assert!(decode(&patched(&f1, 6, &[2])).is_err(), "{l:?}: codec-1 stream read as codec 2 was accepted");
+         assert!(decode(&patched(&f2, 6, &[1])).is_err(), "{l:?}: codec-2 stream read as codec 1 was accepted");
+     }
+-    assert_eq!(encode_with_codec(&img(4, 4, Layout::Rgb, 1), 3).err(), Some(PkonError::UnsupportedCodec(3)));
++    assert_eq!(encode_with_codec(&img(4, 4, Layout::Rgb, 1), 4).err(), Some(PkonError::UnsupportedCodec(4)));
+ }
+ 
+ #[test]
+@@ -137,7 +137,7 @@ fn bad_magic_version_flags_codec_format() {
+     for fl in [1u8, 0x80, 0xFF] {
+         assert_eq!(derr(&patched(&f, 5, &[fl])), Some(PkonError::ReservedFlags(fl)));
+     }
+-    for c in [0u8, 3, 255] {
++    for c in [0u8, 4, 255] {
+         assert_eq!(derr(&patched(&f, 6, &[c])), Some(PkonError::UnsupportedCodec(c)));
+     }
+     for p in [4u8, 5, 255] {

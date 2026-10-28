@@ -1,0 +1,28 @@
+# REL6 source-diff audit
+
+Revision: HEAD `d7687368ee4ac26c004852cb1bb69f96b65e9603` ("bitprofil"). Working tree at the start of the task: **clean** (`git status` empty). Note: the task text says GDIR/GRAMP changes were uncommitted; they are in fact committed in HEAD (`src/gdir.rs`, `src/gramp.rs`, `src/bin/gdir.rs`, `src/bin/gramp.rs`, `results/*gdir*`, `results/*gramp*`), so there was nothing uncommitted to preserve and nothing was touched.
+
+Files changed by this task (nothing committed): `src/pkonrel.rs` (research copy, +91/-6, full patch in `source_diff_pkonrel.patch`) and the new `src/bin/rel6.rs`. Unmodified vs HEAD (checked with `git diff --quiet HEAD`): `pkon2x.rs`, `pkonfile.rs`, `pkon2.rs`, `canon.rs`, `codec.rs`, `gblend.rs`, `gdir.rs`, `gramp.rs`, `profile.rs`.
+
+## Verified properties
+
+| # | Claim | Evidence |
+|---|---|---|
+| 1 | Arm A is unchanged production codec 2 | Arm A never touches the new code paths (`jx` stays `None`, no new extra). Production encode path is `pkonfile` -> `pkon2x`, not modified, and does not reference `pkonrel`. Gate G7 (every image): research Arm A file == `pkonfile::encode` file byte-for-byte, and equals the frozen reference bytes (bit-cost profile for discovery images, REL4 for all). Unit test `rel6_arms_round_trip_and_arm_a_is_production` (edge images). |
+| 2 | B and C differ only in the intended extra sign input | `J_ARMS` = `[P]`, `[P, DummyJointSign]`, `[P, JointSign]`. B and C share routing (sign node, all planes), cardinality (`JCARD` = 15,876 through `Extra::card`), slot (5), initial weight (0, as for every extra), bit-model init (`Bit::NEW`) and update order (same loop as the base inputs). The only difference is the context value: hash of (plane,x,y,salt) vs the joint feature. |
+| 3 | Input used only at the sign decision | Extras are flagged sign-only in `run_rel` (`!matches!(.. JointSign | DummyJointSign)` keeps `ex.nm` = 1 = only P); `Coder::bit` uses `ex.n` at node `SIGN` and `ex.nm` elsewhere. Mixer weights and bit models are per (plane, node), so no non-sign probability can change. Gate G7 enforces it empirically: non-sign cross-entropy (f64 `==`) and decision counts are identical in B/C vs A on every image and plane. |
+| 4 | Cardinality and component encoding | ctx = `(((p*27 + (w*9+n*3+ne))*49 + pf)*4 + cls)`: p = previous-plane residual sign class (3; plane 0 has an all-zero previous plane so p = 0 there), w/n/ne = signs of W/N/NE zigzag residuals (3 each = 27), pf = existing P predictor-disagreement feature (49), cls = `min(c-1, 3)` magnitude class (4) -> 3x4x27x49 = 15,876. Asserts `base < JCARD/4` and `ctx < JCARD`. The bit-cost profiler's key (S0 x S1 x S2 x P = 12x27x27x49 = 428,652 slots) contains the redundant duplicate `p,w,n` in S2; its effective support is exactly these 15,876 contexts. |
+| 5 | MED, SubG, residual map, families A/B/C/D, existing P input, non-sign decisions, tail model, coder, framing, file format unchanged | None of the code for these is edited. The edit list is exactly: enum variants, `J_ARMS`, `ExtCtx.jx`, joint-context finish in `code_sym` (sign node only), feature construction in `run_rel`, diagnostics (`diag`, `sign_trace`, `ckpt`; off by default), `slot_node_stats`, `impl RelIo for BinEnc`, one unit test. Tail bits, range coder, header layout are untouched. File framing for B/C is the production 24-byte header with codec byte 3 (not accepted by production `parse_header`). |
+| 6 | Encoder and decoder derive identical causal inputs | Joint context uses only sg.{p,w,n,ne} (already-decoded residuals of the previous plane and the W/N/NE pixels of the current plane), `pf` (`p_feature`, reads only plane-k pixels before (x,y) — the existing, already-tested `features_are_causal`), and `cls`, which is derived from the magnitude bits already coded in this symbol. Gates G5/G6: encoder/decoder context+symbol trace hashes, sign-node (plane, extra contexts, final p) hash, and model-state hash after every plane all equal on every image/arm. |
+| 7 | No experimental behaviour reachable through the production default | `pkonrel` is referenced only by research binaries and `profile.rs`; `pkonfile`/`pkon2x` do not import it; `CODEC_CURRENT` unchanged; `J_ARMS` is used only by `src/bin/rel6.rs`. |
+
+## Remaining differences between Arms B and C (not controlled by the dummy)
+
+* The dummy's context is a uniform position hash: every one of 15,876 contexts is visited ~equally (per plane), while the real context's occupancy is highly skewed. Capacity-wise they are identical (same table, same update count per decision), but the dummy's per-context sample sizes are not distribution-matched to the real contexts' (so any "learning-cost" component in B is larger per context than in C's frequent contexts, smaller than in C's rare ones).
+* The dummy has no dependence on `cls` while the joint context does; the dummy cannot reproduce the redundancy between the joint feature and base inputs S0/S1/S2 (by design, "no information").
+* B and C context-construction costs differ (C reuses already-computed signs and `pf`; B computes a small integer hash per pixel): B's timing is not a timing prediction for C.
+
+## Diagnostic hooks inside the shared coder
+`Coder.diag` is false in every production-equivalent and timing run. When true it only reads state (`state_hash`, a multiply-xor of the sign decision tuple) and never feeds back into coding; verified by gate G7 (instrumented stream/trace/state == uninstrumented) and the unit test.
+
+Audit status: **PASS — no unrelated behaviour changed** (re-confirmed after the regression tests; see `regression_tests_summary.txt`).

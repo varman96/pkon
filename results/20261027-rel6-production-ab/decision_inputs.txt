@@ -1,0 +1,20 @@
+1 exact+format gates (DEV/VAL): True
+2 DEV/VAL union >= 0.25%: True
+3 DEV >= 0.25%: True
+4 VAL >= 0.25%: True
+5 >=80% DEV/VAL images smaller: True
+6 no DEV/VAL image >0.10% larger: True
+DEV/VAL timing (median of per-image median-of-3 ratios) enc 1.0301 dec 1.0467; aggregate-sum enc 1.0474 dec 1.0495; ratio-of-median-times enc 1.0968 dec 1.0712
+10 timing <=1.15: True   reject timing >1.25: False
+DEV/VAL reject conditions triggered: none
+DEV/VAL-only promotion criteria (1-6,10) all hold: True
+TEST_light8: n=8 A=6180445 B=6129028 agg=0.8319% smaller=8/8 larger=0 max_growth=0.0000% exact=True
+TEST_used7: n=7 A=5657230 B=5607896 agg=0.8721% smaller=7/7 larger=0 max_growth=0.0000% exact=True
+TEST_all15: n=15 A=11837675 B=11736924 agg=0.8511% smaller=15/15 larger=0 max_growth=0.0000% exact=True
+TEST_all15 rule checks: 7 agg>=0.25: True; 8 >=80% smaller: True; 9 no image >0.10% larger: True; reject: agg<0.10 False, >20% grow False, any >0.5% False
+timing[DEV] enc: med A 571.9 ms B 600.6 ms, per-image ratio min/med/max 0.773/1.030/1.323, agg 1.050, rep spread median/max 0.256/1.194; dec: med A 592.4 B 636.1, ratio min/med/max 0.769/1.051/1.941, agg 1.092, spread 0.223/1.146
+timing[VAL] enc: med A 633.9 ms B 679.3 ms, per-image ratio min/med/max 0.842/1.042/1.330, agg 1.042, rep spread median/max 0.278/0.799; dec: med A 607.2 B 636.1, ratio min/med/max 0.634/1.005/1.140, agg 0.950, spread 0.275/0.713
+timing[DEV+VAL] enc: med A 586.8 ms B 643.6 ms, per-image ratio min/med/max 0.773/1.030/1.330, agg 1.047, rep spread median/max 0.271/1.194; dec: med A 593.8 B 636.1, ratio min/med/max 0.634/1.047/1.941, agg 1.050, spread 0.234/1.146
+timing[TEST_light8] enc: med A 722.6 ms B 749.0 ms, per-image ratio min/med/max 0.608/0.935/1.343, agg 0.958, rep spread median/max 0.167/0.725; dec: med A 754.4 B 802.1, ratio min/med/max 0.689/0.998/1.248, agg 0.998, spread 0.150/0.655
+timing[TEST_used7] enc: med A 690.0 ms B 725.5 ms, per-image ratio min/med/max 0.899/1.004/1.186, agg 1.036, rep spread median/max 0.143/0.443; dec: med A 752.4 B 741.9, ratio min/med/max 0.970/1.038/1.179, agg 1.052, spread 0.150/0.368
+timing[TEST_all15] enc: med A 702.5 ms B 725.5 ms, per-image ratio min/med/max 0.608/0.961/1.343, agg 0.994, rep spread median/max 0.149/0.725; dec: med A 752.4 B 759.6, ratio min/med/max 0.689/1.004/1.248, agg 1.023, spread 0.150/0.655

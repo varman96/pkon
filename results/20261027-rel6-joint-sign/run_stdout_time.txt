@@ -1,0 +1,3 @@
+timing rep 1 done, elapsed 262s
+timing rep 2 done, elapsed 451s
+timing rep 3 done, elapsed 604s

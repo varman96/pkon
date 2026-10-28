@@ -1,0 +1,10 @@
+Exact reconstruction on every image (all gates) | True | gates passed, 35×3 runs
+S(C,A,DEV) >= 0.30% | True | +0.730%
+S(C,A,VAL) >= 0.15% | True | +0.703%
+S(C,A,union) >= 0.25% | True | +0.722%
+sign-CE gain C vs B >= 2.0% | True | +3.864%
+no DEV/VAL image grows > 0.1% (C vs A) | True | worst -0.313% (night_0)
+median enc and dec time ratios <= 1.15 (aggregate and median-of-ratios) | True | enc 1.062/1.039 dec 1.076/1.034
+incremental memory measured and bounded | True | see section 9
+source-diff audit confirms isolation | True | source_diff_audit.md
+verdict=CANDIDATE FOR FURTHER VALIDATION (research candidate only; no production change)

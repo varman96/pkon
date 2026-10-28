@@ -111,14 +111,14 @@ fn both_codecs_round_trip_and_codec_byte_mismatch_is_rejected() {
         assert!(decode(&patched(&f1, 6, &[2])).is_err(), "{l:?}: codec-1 stream read as codec 2 was accepted");
         assert!(decode(&patched(&f2, 6, &[1])).is_err(), "{l:?}: codec-2 stream read as codec 1 was accepted");
     }
-    assert_eq!(encode_with_codec(&img(4, 4, Layout::Rgb, 1), 3).err(), Some(PkonError::UnsupportedCodec(3)));
+    assert_eq!(encode_with_codec(&img(4, 4, Layout::Rgb, 1), 4).err(), Some(PkonError::UnsupportedCodec(4)));
 }
 
 #[test]
 fn header_layout_is_byte_exact() {
     let (i, f) = sample_file();
     assert_eq!(&f[0..4], &[0x89, b'P', b'K', b'2']);
-    assert_eq!(&f[4..8], &[1, 0, 2, 3]); // version, flags, codec (current = 2), rgba
+    assert_eq!(&f[4..8], &[1, 0, 3, 3]); // version, flags, codec (current = 3), rgba
     assert_eq!(&f[8..12], &13u32.to_le_bytes());
     assert_eq!(&f[12..16], &7u32.to_le_bytes());
     assert_eq!(&f[16..20], &((f.len() - 24) as u32).to_le_bytes());
@@ -137,7 +137,7 @@ fn bad_magic_version_flags_codec_format() {
     for fl in [1u8, 0x80, 0xFF] {
         assert_eq!(derr(&patched(&f, 5, &[fl])), Some(PkonError::ReservedFlags(fl)));
     }
-    for c in [0u8, 3, 255] {
+    for c in [0u8, 4, 255] {
         assert_eq!(derr(&patched(&f, 6, &[c])), Some(PkonError::UnsupportedCodec(c)));
     }
     for p in [4u8, 5, 255] {
@@ -333,10 +333,13 @@ fn files_written_by_the_previous_release_still_decode_and_codec1_encoding_is_unc
         let sha: String = Sha256::digest(&d.data).iter().map(|b| format!("{b:02x}")).collect();
         assert_eq!(sha, want, "{name}: decoded pixels differ from the recorded ones");
         assert_eq!(encode_with_codec(&d, CODEC_X4).unwrap(), bytes, "{name}: codec-1 encoder output changed");
-        // the same pixels through the new default codec are exact too
-        let f2 = encode(&d).unwrap();
+        // the same pixels through codec 2 (explicit) and through the current default codec (3) are exact too
+        let f2 = encode_with_codec(&d, CODEC_X4P).unwrap();
         assert_eq!(parse_header(&f2).unwrap().codec, CODEC_X4P);
         assert_eq!(decode(&f2).unwrap().data, d.data, "{name}: codec 2 round trip");
+        let f3 = encode(&d).unwrap();
+        assert_eq!(parse_header(&f3).unwrap().codec, CODEC_X4PJ);
+        assert_eq!(decode(&f3).unwrap().data, d.data, "{name}: codec 3 (default) round trip");
         n += 1;
     }
     assert_eq!(n, 44);

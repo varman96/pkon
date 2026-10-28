@@ -1,0 +1,8 @@
+# Discovery-20 images that were NOT loaded because they belong to the TEST split of results/learn1-splits.json
+pet_0
+pet_1
+pet2_0
+pet2_1
+foliage_0
+foliage_1
+blurry_0

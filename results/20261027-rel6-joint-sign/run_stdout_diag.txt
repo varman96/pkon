@@ -1,0 +1,40 @@
+diag bridge_n0 done
+diag child_n0 done
+diag clouds_n0 done
+diag night_1 done
+diag text_0 done
+diag forest_n0 done
+diag lake_n0 done
+diag street_n0 done
+diag document_0 done
+diag coast_n0 done
+diag macro_n0 done
+diag river_n0 done
+diag building_n0 done
+diag indoor_1 done
+diag waterfall_n0 done
+diag bird_n0 done
+diag indoor_0 done
+diag document_1 done
+diag lighthouse_n0 done
+diag desert_n0 done
+diag peak_n0 done
+diag night_0 done
+diag snow_n0 done
+diag portrait_0 done
+diag text_1 done
+diag food_1 done
+diag flower_n0 done
+diag beach_n0 done
+diag woman_n0 done
+diag boat_n0 done
+diag food_0 done
+diag outdoor_1 done
+diag path_n0 done
+diag outdoor_0 done
+diag restaurant_n0 done
+diagnostics written
+
+real	1m4.515s
+user	0m0.046s
+sys	0m0.000s

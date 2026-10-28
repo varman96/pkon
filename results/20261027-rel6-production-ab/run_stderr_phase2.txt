@@ -1,0 +1,56 @@
+warning: unused import: `crate::canon::Canonical`
+  --> src\pkonrel.rs:14:5
+   |
+14 | use crate::canon::Canonical;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unnecessary parentheses around function argument
+   --> src\pkonrel.rs:622:50
+    |
+622 |                         Extra::JointSign => Some((((sg.p * 27 + sg.w * 9 + sg.n * 3 + sg.ne) * 49) + pf)),
+    |                                                  ^                                                     ^
+    |
+    = note: `#[warn(unused_parens)]` (part of `#[warn(unused)]`) on by default
+help: remove these parentheses
+    |
+622 -                         Extra::JointSign => Some((((sg.p * 27 + sg.w * 9 + sg.n * 3 + sg.ne) * 49) + pf)),
+622 +                         Extra::JointSign => Some(((sg.p * 27 + sg.w * 9 + sg.n * 3 + sg.ne) * 49) + pf),
+    |
+
+warning: unused import: `x4p_cfg`
+ --> src\pkonfile.rs:9:28
+  |
+9 | use crate::pkon2x::{run_x, x4p_cfg, BinDec, BinEnc, Coder, In, XCfg, Bias, Ens};
+  |                            ^^^^^^^
+
+warning: `nanoscope` (lib) generated 3 warnings (run `cargo fix --lib -p nanoscope` to apply 3 suggestions)
+   Compiling nanoscope v0.1.0 (C:\Dev\GitHub\nanoscope)
+warning: unused variable: `ai`
+   --> src\bin\prod_ab.rs:140:14
+    |
+140 |         for (ai, (_, codec)) in codecs.iter().enumerate() {
+    |              ^^ help: if this is intentional, prefix it with an underscore: `_ai`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: `nanoscope` (bin "prod_ab") generated 1 warning (run `cargo fix --bin "prod_ab" -p nanoscope` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 7.40s
+     Running `target\release\prod_ab.exe --phase 2 --out results/20261027-rel6-production-ab`
+phase 2: 15 images loaded
+graffiti_n0    test_light A=831930 B=823354 (+1.031%)
+blurry_1       test_light A=677268 B=669903 (+1.087%)
+skyline_n0     test_light A=327725 B=323207 (+1.379%)
+station_n0     test_light A=535534 B=532231 (+0.617%)
+stairs_n0      test_light A=1096140 B=1084703 (+1.043%)
+bicycle_n0     test_light A=1096143 B=1089238 (+0.630%)
+church_n0      test_light A=718552 B=714230 (+0.601%)
+sunset_n0      test_light A=897153 B=892162 (+0.556%)
+blurry_0       test_used  A=1064089 B=1054239 (+0.926%)
+pet_0          test_used  A=731467 B=724469 (+0.957%)
+pet_1          test_used  A=787683 B=781968 (+0.726%)
+pet2_0         test_used  A=781117 B=774209 (+0.884%)
+pet2_1         test_used  A=482753 B=479628 (+0.647%)
+foliage_0      test_used  A=1190491 B=1178415 (+1.014%)
+foliage_1      test_used  A=619630 B=614968 (+0.752%)

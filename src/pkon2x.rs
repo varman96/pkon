@@ -39,6 +39,9 @@ pub enum In {
     /// PKON2P predictor disagreement (49 classes): qd(GAP - MED) x qd(Grad - MED). Must be the LAST input; an EXTRA mixer input that
     /// starts at weight 0 (the base inputs keep their 1.25/n_base initial weights) and also feeds the sign decision.
     P,
+    /// REL6 joint sign context (codec 3): sign-node-only mixer input, NOT a magnitude input. Must come after `P` as the 6th and last entry; it
+    /// conditions the sign on (prev-plane sign, W/N/NE signs, `P` class, magnitude class) = 3*27*49*4 contexts per plane. Starts at weight 0.
+    J,
 }
 const MAG_CTX: usize = 96;
 
@@ -168,6 +171,14 @@ pub struct XCfg {
 pub fn x4p_cfg() -> XCfg {
     XCfg { name: "X4P", inputs: vec![In::Ab, In::B, In::C, In::D, In::P], sign_ctx: true, bias: Bias::Off, ens: Ens::Off }
 }
+
+/// Production codec id 3 (REL6): codec 2 plus the joint sign context input at the sign node only.
+pub fn x4pj_cfg() -> XCfg {
+    XCfg { name: "X4PJ", inputs: vec![In::Ab, In::B, In::C, In::D, In::P, In::J], sign_ctx: true, bias: Bias::Off, ens: Ens::Off }
+}
+
+/// Contexts of the joint sign input per plane: prev-plane sign (3) x W,N,NE signs (27) x P class (49) x magnitude class (4).
+pub const JCARD: usize = 3 * 27 * 49 * 4;
 
 /// The production X4 configuration (N3: context A carries the MED branch). The frozen M6 X4 is the same config with `In::A`.
 pub fn x4_cfg() -> XCfg {
@@ -339,11 +350,19 @@ pub struct Coder {
     sign_ctx: bool,
     /// `In::P` is configured: magnitude decisions mix `nmag` inputs (P last), the sign decision mixes 3 + P
     has_p: bool,
+    /// `In::J` is configured: the sign decision mixes a 5th input from `joint`
+    has_j: bool,
+    /// [plane*JCARD + ctx]: one bit model per joint sign context (sign node only); empty unless `has_j`
+    joint: Vec<Bit>,
 }
 impl Coder {
     pub fn new(planes: usize, cfg: &XCfg) -> Self {
-        let nmag = cfg.inputs.len();
+        let has_j = cfg.inputs.contains(&In::J);
+        let nmag = cfg.inputs.len() - has_j as usize;
         let has_p = cfg.inputs.contains(&In::P);
+        if has_j {
+            assert!(nmag == 5 && cfg.inputs[5] == In::J && has_p, "In::J must be the 6th and last input, after P");
+        }
         if has_p {
             assert!(nmag == 5 && cfg.inputs[4] == In::P && cfg.sign_ctx, "In::P must be the 5th and last input of a 4-input config with sign contexts");
         }
@@ -365,6 +384,8 @@ impl Coder {
             nmag,
             sign_ctx: cfg.sign_ctx,
             has_p,
+            has_j,
+            joint: if has_j { vec![Bit::NEW; planes * JCARD] } else { vec![] },
         }
     }
     /// Bytes of adaptive state (probabilities + mixer weights + tail), for the memory report.
@@ -372,6 +393,39 @@ impl Coder {
         self.m.iter().map(|v| v.len() * std::mem::size_of::<Bit>()).sum::<usize>()
             + self.mixw.len() * std::mem::size_of::<[i32; NI]>()
             + self.tail.len() * std::mem::size_of::<Bit>()
+            + self.joint.len() * std::mem::size_of::<Bit>()
+    }
+
+    /// Sign decision with the joint input: the 4 codec-2 inputs plus `joint[plane][jctx]` as a 5th (weight starts at 0).
+    #[inline]
+    fn sign_bit_j<I: BitIo>(&mut self, io: &mut I, plane: usize, sc: &[usize; NI], jctx: usize, want: u32) -> u32 {
+        let t = self.t;
+        let mut idx = [0usize; 4];
+        for i in 0..4 {
+            idx[i] = (plane * MAG_CTX + sc[i]) * NODES + SIGN;
+        }
+        let ji = plane * JCARD + jctx;
+        let mut st = [0i32; NI];
+        let ws = &mut self.mixw[plane * NODES + SIGN];
+        let mut dot = 0i64;
+        for i in 0..4 {
+            st[i] = t.stretch[(self.m[i][idx[i]].p >> 4) as usize] as i32;
+            dot += ws[i] as i64 * st[i] as i64;
+        }
+        st[4] = t.stretch[(self.joint[ji].p >> 4) as usize] as i32;
+        dot += ws[4] as i64 * st[4] as i64;
+        let d = ((dot >> 16) as i32).clamp(-2047, 2047);
+        let p = t.squash[(d + 2048) as usize] as u32;
+        let bit = io.code(p, want);
+        let err = ((bit as i32) << 12) - (p as i32 >> 4);
+        for i in 0..5 {
+            ws[i] += (st[i] * err * MIXLR + 0x8000) >> 16;
+        }
+        for i in 0..4 {
+            self.m[i][idx[i]].update(bit, t);
+        }
+        self.joint[ji].update(bit, t);
+        bit
     }
 
     #[inline]
@@ -453,7 +507,12 @@ impl Coder {
             let cls = (c - 1).min(3);
             // 4th sign input (P) uses probability table 3 at the SIGN node, which no magnitude input ever touches
             let sc = [sg.p * 4 + cls, sg.w * 9 + sg.n * 3 + sg.ne, sg.p * 9 + sg.w * 3 + sg.n, sg.pf, 0];
-            self.bit(io, k, SIGN, &sc, 3 + self.has_p as usize, want)
+            if self.has_j {
+                let jctx = ((sg.p * 27 + sg.w * 9 + sg.n * 3 + sg.ne) * 49 + sg.pf) * 4 + cls;
+                self.sign_bit_j(io, k, &sc, jctx, want)
+            } else {
+                self.bit(io, k, SIGN, &sc, 3 + self.has_p as usize, want)
+            }
         } else {
             self.bit(io, k, SIGN, &[0; NI], 1, want)
         };
@@ -556,7 +615,7 @@ pub fn run_x<I: BitIo>(pl: &mut Planes, cfg: &XCfg, coder: &mut Coder, io: &mut 
                 let e = err_energy(&cur_z, w, x, y);
                 let (zw, zn, zne) = (zat(&cur_z, w, xi - 1, yi), zat(&cur_z, w, xi, yi - 1), zat(&cur_z, w, xi + 1, yi - 1));
                 let mut mc = [0usize; NI];
-                for (s, kind) in cfg.inputs.iter().enumerate() {
+                for (s, kind) in cfg.inputs.iter().enumerate().take(NI) {
                     mc[s] = match kind {
                         In::A => act * 4 + pq,
                         In::Ab => {
@@ -565,6 +624,7 @@ pub fn run_x<I: BitIo>(pl: &mut Planes, cfg: &XCfg, coder: &mut Coder, io: &mut 
                             (act * 4 + pq) * 3 + br
                         }
                         In::P => p_class(&pl.p[k], w, x, y, nb, med),
+                        In::J => unreachable!("In::J is never among the first NI inputs"),
                         In::B => (prev_q(zw) * 4 + prev_q(zn)) * 4 + pq,
                         In::C => (act * 3 + err_level(e)) * 4 + pq,
                         In::D => {

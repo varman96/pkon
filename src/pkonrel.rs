@@ -26,6 +26,8 @@ pub const NCAT: usize = 5;
 pub const CAT_NAMES: [&str; NCAT] = ["zero", "ge2", "class", "mantissa", "sign"];
 pub const MAXP: usize = 4;
 pub const FCARD: usize = 2401;
+/// REL6 joint sign context cardinality: prev-plane sign (3) x magnitude class (4) x W,N,NE signs (27) x P (49)
+pub const JCARD: usize = 3 * 4 * 27 * 49;
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Extra {
@@ -51,6 +53,10 @@ pub enum Extra {
     XSign,
     /// REL5 control: hash of (plane, x, y, salt) mod card, mixed in ONLY at the sign node, planes >= 1 (same routing as XSign)
     DummySign { salt: u32, card: u32 },
+    /// REL6: joint sign context (prev-plane sign, magnitude class, W/N/NE signs, P feature), mixed in ONLY at the sign node, ALL planes
+    JointSign,
+    /// REL6 control: hash of (plane, x, y, salt) mod JCARD, mixed in ONLY at the sign node, ALL planes (same routing/cardinality as JointSign)
+    DummyJointSign { salt: u32 },
 }
 pub const NSEL: usize = 8;
 impl Extra {
@@ -58,6 +64,7 @@ impl Extra {
         match self {
             Extra::P | Extra::X | Extra::XSign => 49,
             Extra::DummySign { card, .. } => card as usize,
+            Extra::JointSign | Extra::DummyJointSign { .. } => JCARD,
             Extra::Joint => FCARD,
             Extra::Dummy { card, .. } => card as usize,
             Extra::Const | Extra::SelAct | Extra::SelDummy | Extra::GBlend | Extra::GDir | Extra::GRamp => 1,
@@ -126,6 +133,12 @@ pub const XS_ARMS: [Arm; 3] = [
     Arm { name: "P", extras: &[Extra::P] },
     Arm { name: "P+Xsign", extras: &[Extra::P, Extra::XSign] },
     Arm { name: "P+dummysign", extras: &[Extra::P, Extra::DummySign { salt: 1, card: 49 }] },
+];
+
+pub const J_ARMS: [Arm; 3] = [
+    Arm { name: "A:P", extras: &[Extra::P] },
+    Arm { name: "B:P+dummyJ", extras: &[Extra::P, Extra::DummyJointSign { salt: 1 }] },
+    Arm { name: "C:P+jointsign", extras: &[Extra::P, Extra::JointSign] },
 ];
 
 // ---------------------------------------------------------------- features
@@ -249,6 +262,8 @@ pub fn bit_cost(p1: u32, bit: u32) -> f32 {
     }
 }
 impl RelIo for BinDec<'_> {}
+/// REL6: the plain range encoder as a `RelIo` sink (no cross-entropy bookkeeping), for the uninstrumented timing runs.
+impl RelIo for BinEnc {}
 
 pub struct CeEnc {
     inner: BinEnc,
@@ -303,6 +318,8 @@ struct ExtCtx {
     sel: usize,
     /// number of extras active on non-sign nodes (sign-only extras come last)
     nm: usize,
+    /// index into slot/ctx of the JointSign extra whose context is finished (x4 + magnitude class) once the class is known
+    jx: Option<usize>,
 }
 struct SignCtx {
     p: usize,
@@ -317,6 +334,10 @@ pub struct Coder {
     m: Vec<Vec<Bit>>,
     mixw: Vec<[i32; NI]>,
     tail: Vec<Bit>,
+    /// REL6 diagnostics (off by default, never affects coding): hash of every sign decision's (plane, extra contexts, final p), and the model-state hash at the end of each plane
+    pub diag: bool,
+    pub sign_trace: u64,
+    pub ckpt: Vec<u64>,
 }
 impl Coder {
     pub fn new(planes: usize, arm: &Arm) -> Self {
@@ -335,13 +356,13 @@ impl Coder {
                 w[j] = (65536.0 * 1.25 / nin as f64) as i32;
             }
         }
-        Coder { t: tables(), caps, m: (0..NI).map(|s| vec![Bit::NEW; planes * caps[s] * NODES]).collect(), mixw, tail: vec![Bit::NEW; planes * 9 * 8] }
+        Coder { t: tables(), caps, m: (0..NI).map(|s| vec![Bit::NEW; planes * caps[s] * NODES]).collect(), mixw, tail: vec![Bit::NEW; planes * 9 * 8], diag: false, sign_trace: 0xcbf29ce484222325, ckpt: vec![] }
     }
 
     /// (allocated extra bit models, their bytes, reachable extra bit models) for the slots >= 4 (the extra inputs), given the arm.
     pub fn extra_model_counts(&self, planes: usize, arm: &Arm) -> (usize, usize, usize) {
         let alloc: usize = self.m[4..4 + arm.extras.len()].iter().map(|t| t.len()).sum();
-        let reach: usize = arm.extras.iter().map(|e| match e { Extra::XSign | Extra::DummySign { .. } => (planes - 1) * e.card(), _ => 0 }).sum();
+        let reach: usize = arm.extras.iter().map(|e| match e { Extra::XSign | Extra::DummySign { .. } => (planes - 1) * e.card(), Extra::JointSign | Extra::DummyJointSign { .. } => planes * e.card(), _ => 0 }).sum();
         (alloc, alloc * std::mem::size_of::<Bit>(), reach)
     }
 
@@ -366,6 +387,17 @@ impl Coder {
             }
         }
         h
+    }
+    /// REL6 diagnostic: (contexts with n>0, contexts saturated at the count limit) of the bit models in `slot` at `node` for `plane`.
+    pub fn slot_node_stats(&self, plane: usize, slot: usize, node: usize) -> (usize, usize) {
+        let cap = self.caps[slot];
+        let (mut active, mut sat) = (0, 0);
+        for c in 0..cap {
+            let b = self.m[slot][(plane * cap + c) * NODES + node];
+            active += (b.n > 0) as usize;
+            sat += (b.n as u32 == LIMIT) as usize;
+        }
+        (active, sat)
     }
     /// Mean final mixer weight of the extra inputs for the sign node and node 0, per plane (adaptation diagnostic).
     pub fn extra_weights(&self, planes: usize, n_extra: usize) -> Vec<(usize, usize, f64, f64)> {
@@ -406,6 +438,13 @@ impl Coder {
         let d = ((dot >> 16) as i32).clamp(-2047, 2047);
         let p = t.squash[(d + 2048) as usize] as u32;
         io.tag(cat_of(node), plane);
+        if self.diag && node == SIGN {
+            let mut v = (plane as u64) << 60 | (p as u64) << 40;
+            for i in nb..nin {
+                v ^= (cx[i] as u64 + 1).wrapping_mul(0x9E37_79B9_7F4A_7C15 >> (8 * (i - nb)));
+            }
+            self.sign_trace = (self.sign_trace ^ v).wrapping_mul(0x100000001b3);
+        }
         let bit = io.code(p, want);
         if I::OBSERVE {
             let mut inp = [(0u16, 0u8); NI];
@@ -472,7 +511,12 @@ impl Coder {
         let want = (z_in & 1) as u32;
         let cls = (c - 1).min(3);
         let sc = [sg.p * 4 + cls, sg.w * 9 + sg.n * 3 + sg.ne, sg.p * 9 + sg.w * 3 + sg.n, 0];
-        let neg = self.bit(io, k, SIGN, &sc, 3, ex, want);
+        let mut exs = *ex;
+        if let Some(j) = exs.jx {
+            exs.ctx[j] = exs.ctx[j] * 4 + cls;
+            assert!(exs.ctx[j] < JCARD, "joint sign context out of range");
+        }
+        let neg = self.bit(io, k, SIGN, &sc, 3, &exs, want);
         (2 * m - 1 + (1 - neg)) as u8
     }
 }
@@ -522,7 +566,7 @@ pub fn run_rel<I: RelIo>(pl: &mut Planes, arm: &Arm, coder: &mut Coder, io: &mut
     let gd = arm.extras.contains(&Extra::GDir);
     let mut gdst = crate::gdir::GDir::new();
     let gr = arm.extras.contains(&Extra::GRamp);
-    let need_p = arm.extras.iter().any(|e| matches!(e, Extra::P | Extra::Joint)) || stats.is_some();
+    let need_p = arm.extras.iter().any(|e| matches!(e, Extra::P | Extra::Joint | Extra::JointSign)) || stats.is_some();
     let mut trace = 0xcbf29ce484222325u64;
     let mixh = |v: u64, t: &mut u64| {
         *t ^= v;
@@ -575,6 +619,8 @@ pub fn run_rel<I: RelIo>(pl: &mut Planes, arm: &Arm, coder: &mut Coder, io: &mut
                         Extra::Const => Some(0),
                         Extra::XSign => (k > 0).then_some(xf),
                         Extra::DummySign { salt, card } => (k > 0).then(|| dummy_ctx(salt, card, k, x, y)),
+                        Extra::JointSign => Some((((sg.p * 27 + sg.w * 9 + sg.n * 3 + sg.ne) * 49) + pf)),
+                        Extra::DummyJointSign { salt } => Some(dummy_ctx(salt, JCARD as u32, k, x, y)),
                         Extra::SelAct => {
                             ex.sel = act;
                             None
@@ -586,10 +632,13 @@ pub fn run_rel<I: RelIo>(pl: &mut Planes, arm: &Arm, coder: &mut Coder, io: &mut
                         }
                     };
                     if let Some(c) = c {
-                        assert!(c < e.card(), "context out of range");
+                        assert!(c < e.card() && (!matches!(*e, Extra::JointSign) || c < JCARD / 4), "context out of range");
+                        if matches!(*e, Extra::JointSign) {
+                            ex.jx = Some(ex.n);
+                        }
                         ex.slot[ex.n] = 4 + j;
                         ex.ctx[ex.n] = c;
-                        if !matches!(*e, Extra::XSign | Extra::DummySign { .. }) {
+                        if !matches!(*e, Extra::XSign | Extra::DummySign { .. } | Extra::JointSign | Extra::DummyJointSign { .. }) {
                             assert_eq!(ex.nm, ex.n, "sign-only extras must come last");
                             ex.nm += 1;
                         }
@@ -617,6 +666,10 @@ pub fn run_rel<I: RelIo>(pl: &mut Planes, arm: &Arm, coder: &mut Coder, io: &mut
                 mixh(k as u64 | (mc[0] as u64) << 4 | (mc[1] as u64) << 14 | (mc[2] as u64) << 24 | (mc[3] as u64) << 34, &mut trace);
                 mixh((ex.ctx[0] as u64) | (ex.ctx[1] as u64) << 12 | (ex.n as u64) << 24 | (z as u64) << 32, &mut trace);
             }
+        }
+        if coder.diag {
+            let h = coder.state_hash();
+            coder.ckpt.push(h);
         }
     }
     trace
@@ -739,6 +792,38 @@ mod tests {
                         if arm.extras.is_empty() {
                             assert_eq!(stream, prod);
                         }
+                    }
+                }
+            }
+        }
+    }
+
+    /// REL6: arm A equals production codec 2; the joint-sign and dummy-joint-sign arms round trip (with diagnostics on, trace/ckpt equal); the
+    /// diagnostics flag never changes the stream; joint context stays in range.
+    #[test]
+    fn rel6_arms_round_trip_and_arm_a_is_production() {
+        use crate::pkonfile::{encode_payload_codec, CODEC_X4P};
+        for layout in [Layout::Rgb, Layout::Gray] {
+            for &(w, h) in &[(1u32, 1u32), (1, 7), (9, 1), (3, 3), (17, 13), (64, 33)] {
+                for kind in 0..7 {
+                    let c = img(w, h, layout, kind);
+                    let (sub, _) = crate::pkonlearn::prepared(&c);
+                    for (ai, arm) in J_ARMS.iter().enumerate() {
+                        let (_, stream) = roundtrip(&c, arm);
+                        if ai == 0 {
+                            assert_eq!(stream, encode_payload_codec(&c, CODEC_X4P), "{w}x{h} {layout:?} kind {kind}");
+                        }
+                        let mut work = Planes { w: sub.w, h: sub.h, p: sub.p.clone() };
+                        let mut coder = Coder::new(work.p.len(), arm);
+                        coder.diag = true;
+                        let mut io = CeEnc::new();
+                        run_rel(&mut work, arm, &mut coder, &mut io, None);
+                        assert_eq!(io.finish().0, stream, "diag flag changed the stream");
+                        let mut dec = Coder::new(sub.p.len(), arm);
+                        dec.diag = true;
+                        let mut pl = Planes { w: sub.w, h: sub.h, p: vec![vec![0; sub.w * sub.h]; sub.p.len()] };
+                        run_rel(&mut pl, arm, &mut dec, &mut BinDec::new(&stream), None);
+                        assert_eq!((dec.sign_trace, &dec.ckpt), (coder.sign_trace, &coder.ckpt));
                     }
                 }
             }

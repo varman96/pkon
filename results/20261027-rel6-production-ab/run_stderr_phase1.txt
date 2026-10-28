@@ -1,0 +1,76 @@
+warning: unused import: `crate::canon::Canonical`
+  --> src\pkonrel.rs:14:5
+   |
+14 | use crate::canon::Canonical;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unnecessary parentheses around function argument
+   --> src\pkonrel.rs:622:50
+    |
+622 |                         Extra::JointSign => Some((((sg.p * 27 + sg.w * 9 + sg.n * 3 + sg.ne) * 49) + pf)),
+    |                                                  ^                                                     ^
+    |
+    = note: `#[warn(unused_parens)]` (part of `#[warn(unused)]`) on by default
+help: remove these parentheses
+    |
+622 -                         Extra::JointSign => Some((((sg.p * 27 + sg.w * 9 + sg.n * 3 + sg.ne) * 49) + pf)),
+622 +                         Extra::JointSign => Some(((sg.p * 27 + sg.w * 9 + sg.n * 3 + sg.ne) * 49) + pf),
+    |
+
+warning: unused import: `x4p_cfg`
+ --> src\pkonfile.rs:9:28
+  |
+9 | use crate::pkon2x::{run_x, x4p_cfg, BinDec, BinEnc, Coder, In, XCfg, Bias, Ens};
+  |                            ^^^^^^^
+
+warning: `nanoscope` (lib) generated 3 warnings (run `cargo fix --lib -p nanoscope` to apply 3 suggestions)
+warning: unused variable: `ai`
+   --> src\bin\prod_ab.rs:141:14
+    |
+141 |         for (ai, (_, codec)) in codecs.iter().enumerate() {
+    |              ^^ help: if this is intentional, prefix it with an underscore: `_ai`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: `nanoscope` (bin "prod_ab") generated 1 warning (run `cargo fix --bin "prod_ab" -p nanoscope` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 0.12s
+     Running `target\release\prod_ab.exe --phase 1 --out results/20261027-rel6-production-ab`
+phase 1: 35 images loaded
+text_0         dev        A=565493 B=561080 (+0.780%)
+clouds_n0      dev        A=448447 B=445873 (+0.574%)
+night_1        dev        A=617913 B=612703 (+0.843%)
+child_n0       dev        A=406096 B=403061 (+0.747%)
+forest_n0      dev        A=782934 B=772921 (+1.279%)
+bridge_n0      dev        A=492319 B=488274 (+0.822%)
+lake_n0        dev        A=837460 B=829589 (+0.940%)
+street_n0      dev        A=912364 B=906251 (+0.670%)
+waterfall_n0   dev        A=1031227 B=1026434 (+0.465%)
+document_0     dev        A=523638 B=519887 (+0.716%)
+river_n0       dev        A=1019443 B=1010117 (+0.915%)
+coast_n0       dev        A=444975 B=442661 (+0.520%)
+macro_n0       dev        A=804406 B=799244 (+0.642%)
+building_n0    dev        A=688393 B=684544 (+0.559%)
+night_0        dev        A=1917507 B=1911500 (+0.313%)
+indoor_1       dev        A=600800 B=596615 (+0.697%)
+peak_n0        dev        A=1207636 B=1199744 (+0.654%)
+bird_n0        dev        A=333092 B=330078 (+0.905%)
+snow_n0        dev        A=1230807 B=1223563 (+0.589%)
+lighthouse_n0  dev        A=484986 B=479675 (+1.095%)
+indoor_0       dev        A=346721 B=343593 (+0.902%)
+desert_n0      dev        A=580105 B=574284 (+1.003%)
+document_1     dev        A=402044 B=399299 (+0.683%)
+text_1         dev        A=1039180 B=1029283 (+0.952%)
+portrait_0     dev        A=397667 B=393153 (+1.135%)
+food_0         val        A=1265561 B=1255156 (+0.822%)
+food_1         val        A=729719 B=722829 (+0.944%)
+path_n0        val        A=1710962 B=1703432 (+0.440%)
+boat_n0        val        A=1004572 B=998282 (+0.626%)
+flower_n0      val        A=758220 B=753428 (+0.632%)
+beach_n0       val        A=560047 B=555125 (+0.879%)
+woman_n0       val        A=335672 B=333701 (+0.587%)
+outdoor_0      val        A=765924 B=761096 (+0.630%)
+outdoor_1      val        A=495025 B=489985 (+1.018%)
+restaurant_n0  val        A=703703 B=697787 (+0.841%)
+done

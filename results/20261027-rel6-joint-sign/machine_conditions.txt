@@ -1,0 +1,20 @@
+rustc: rustc 1.99.1 (58cf8f9c3 2026-10-13)
+cpu: Intel64 Family 6 Model 140 Stepping 1, GenuineIntel
+logical cpus: 8
+profile: release (opt-level 3, lto thin, codegen-units 1), no target-cpu=native
+start: 2026-10-27T23:01:54Z
+
+
+Name              : 11th Gen Intel(R) Core(TM) i7-1185G7 @ 3.00GHz
+MaxClockSpeed     : 2995
+CurrentClockSpeed : 2995
+
+
+
+
+
+FreePhysicalMemory     : 4388516
+TotalVisibleMemorySize : 16476968
+
+
+

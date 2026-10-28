@@ -1,0 +1,16 @@
+image,split,A_bytes,B_bytes,diff_B_minus_A,pct_change,exact_A,exact_B,codec_byte_A,codec_byte_B,A_equals_default_encode,A_equals_frozen_reference,deterministic
+graffiti_n0,test_light,831930,823354,-8576,1.0309,true,true,2,3,true,n/a,true
+blurry_1,test_light,677268,669903,-7365,1.0875,true,true,2,3,true,n/a,true
+skyline_n0,test_light,327725,323207,-4518,1.3786,true,true,2,3,true,n/a,true
+station_n0,test_light,535534,532231,-3303,0.6168,true,true,2,3,true,n/a,true
+stairs_n0,test_light,1096140,1084703,-11437,1.0434,true,true,2,3,true,n/a,true
+bicycle_n0,test_light,1096143,1089238,-6905,0.6299,true,true,2,3,true,n/a,true
+church_n0,test_light,718552,714230,-4322,0.6015,true,true,2,3,true,n/a,true
+sunset_n0,test_light,897153,892162,-4991,0.5563,true,true,2,3,true,n/a,true
+blurry_0,test_used,1064089,1054239,-9850,0.9257,true,true,2,3,true,n/a,true
+pet_0,test_used,731467,724469,-6998,0.9567,true,true,2,3,true,n/a,true
+pet_1,test_used,787683,781968,-5715,0.7255,true,true,2,3,true,n/a,true
+pet2_0,test_used,781117,774209,-6908,0.8844,true,true,2,3,true,n/a,true
+pet2_1,test_used,482753,479628,-3125,0.6473,true,true,2,3,true,n/a,true
+foliage_0,test_used,1190491,1178415,-12076,1.0144,true,true,2,3,true,n/a,true
+foliage_1,test_used,619630,614968,-4662,0.7524,true,true,2,3,true,n/a,true

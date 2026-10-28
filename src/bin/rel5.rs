@@ -5,7 +5,7 @@
 //! Loads ONLY the 25 development + 10 validation images of results/learn1-splits.json (never the test list).
 use nanoscope::canon::{Canonical, Layout};
 use nanoscope::pkon2::center_crop;
-use nanoscope::pkonfile::{crc32, encode, HEADER_LEN};
+use nanoscope::pkonfile::{crc32, encode_with_codec, HEADER_LEN, CODEC_X4P};
 use nanoscope::pkonlearn::prepared;
 use nanoscope::pkonrel::*;
 use sha2::{Digest, Sha256};
@@ -345,4 +345,9 @@ Gates G7/G8 passed: non-sign cross-entropy of both extra arms is exactly equal t
     }
     std::fs::write(out.join("per_image.csv"), csv).unwrap();
     println!("{md}");
+}
+
+/// Codec 2 (the control/baseline these research runs were frozen against); the production default is now codec 3.
+fn encode(c: &nanoscope::canon::Canonical) -> Result<Vec<u8>, nanoscope::pkonfile::PkonError> {
+    encode_with_codec(c, CODEC_X4P)
 }

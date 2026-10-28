@@ -1,0 +1,4 @@
+arm,bit_models_total,bit_model_bytes_total,mixer_weight_bytes,tail_bytes,extra_models_alloc,extra_models_bytes,extra_models_reachable_sign_node,size_independent_of_image_dims
+A:P,35154,140616,15552,864,3969,15876,0,true
+B:P+dummyJ,1321029,5284116,15552,864,1289925,5159700,47628,true
+C:P+jointsign,1321029,5284116,15552,864,1289925,5159700,47628,true

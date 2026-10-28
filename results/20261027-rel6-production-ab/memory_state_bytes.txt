@@ -1,0 +1,6 @@
+codec2 planes=1 coder_state_bytes=52668
+codec2 planes=3 coder_state_bytes=158004
+codec2 planes=4 coder_state_bytes=210672
+codec3 planes=1 coder_state_bytes=116172
+codec3 planes=3 coder_state_bytes=348516
+codec3 planes=4 coder_state_bytes=464688

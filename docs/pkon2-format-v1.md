@@ -10,7 +10,7 @@ All multi-byte integers are **little-endian, unsigned**. A file is exactly: `hea
 | 0 | 4 | `magic` | `89 50 4B 32` (`\x89PK2`) | Mismatch -> `BadMagic`. High-bit first byte detects 7-bit stripping; not a ZIP (`PK\x03\x04`) or PNG signature. |
 | 4 | 1 | `version` | `1` | Any other value -> `UnsupportedVersion`. Single integer: a new version means a new layout/semantics; there is no minor version. |
 | 5 | 1 | `flags` | `0` | Every bit is reserved and mandatory-to-understand; non-zero -> `ReservedFlags`. Writers MUST write 0. |
-| 6 | 1 | `codec` | `1` or `2` | Codec id (section 3). Writers use 2; readers MUST accept both. Unknown -> `UnsupportedCodec`; never substituted. |
+| 6 | 1 | `codec` | `1`, `2` or `3` | Codec id (section 3). Writers use 3 (codecs 1 and 2 remain selectable via `encode_with_codec`); readers MUST accept all three. Unknown -> `UnsupportedCodec`; never substituted. |
 | 7 | 1 | `pixel_format` | `0` gray8, `1` gray+alpha8, `2` RGB8, `3` RGBA8 | Unknown -> `UnsupportedPixelFormat`. Determines channel count and plane mapping. |
 | 8 | 4 | `width` | 1 ..= limit | 0 -> `InvalidDimensions`. |
 | 12 | 4 | `height` | 1 ..= limit | 0 -> `InvalidDimensions`. |
@@ -78,6 +78,17 @@ bias: Off, ens: Off }`. Version stays 1 and the header layout is unchanged; per 
 * Adaptive-state update order is unchanged: after each coded bit every input's probability and the mixer weights update.
 * Decoders MUST implement both codecs. A codec-1 file is never reinterpreted as codec 2 (the stream differs, so a patched codec byte fails the pixel CRC).
 * Compatibility: all files written before codec 2 (codec byte 1) decode unchanged; `tests/golden_codec1/` holds 44 such files from the pre-change encoder.
+
+### Codec id 3 (PKON2PJ, REL6): codec 2 plus a joint sign context
+
+`codec = 3` is codec 2 with exactly one additional mixer input, at the sign decision only (magnitude decisions are unchanged). It is the default writer codec (`pkonfile::encode`); promoted after the production A/B in `results/20261027-rel6-production-ab/`.
+`pkonfile::codec3_cfg()` = `XCfg { inputs: [Ab, B, C, D, P, J], sign_ctx: true, bias: Off, ens: Off }`.
+
+* The sign decision mixes five inputs: the four codec-2 sign inputs plus a 5th with one bit model per plane x context, context =
+  `((sgn(prev-plane z) * 27 + sgn(W) * 9 + sgn(N) * 3 + sgn(NE)) * 49 + P) * 4 + min(class - 1, 3)`, i.e. 3 x 27 x 49 x 4 = 15,876 contexts per plane.
+  (`sgn` is 0 for z = 0, 1 for odd z, 2 for even nonzero z, as in the codec-2 sign contexts.)
+* Its mixer weight starts at 0, its bit models start at p = 1/2, n = 0, and it updates in the same pass as the other inputs.
+* Decoders MUST implement all three codecs. Codec 1 and 2 streams are unchanged.
 
 ## 4. Integrity
 

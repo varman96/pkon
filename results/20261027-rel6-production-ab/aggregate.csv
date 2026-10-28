@@ -1,0 +1,7 @@
+group,images,A_bytes,B_bytes,B_minus_A,aggregate_reduction_pct,images_smaller,images_equal,images_larger,min_image_pct,median_image_pct,max_image_growth_pct,all_exact,enc_ratio_median_of_per_image,enc_ratio_aggregate,dec_ratio_median_of_per_image,dec_ratio_aggregate
+DEV,25,18115653,17983426,-132227,0.7299,25,0,0,0.3133,0.7474,0.0000,True,1.0301,1.0495,1.0514,1.0919
+VAL,10,8329405,8270821,-58584,0.7033,10,0,0,0.4401,0.7271,0.0000,True,1.0417,1.0422,1.0045,0.9496
+DEV+VAL,35,26445058,26254247,-190811,0.7215,35,0,0,0.3133,0.7474,0.0000,True,1.0301,1.0474,1.0467,1.0495
+TEST_light8,8,6180445,6129028,-51417,0.8319,8,0,0,0.5563,0.8304,0.0000,True,0.9347,0.9584,0.9976,0.9984
+TEST_used7,7,5657230,5607896,-49334,0.8721,7,0,0,0.6473,0.8844,0.0000,True,1.0041,1.0362,1.0376,1.0524
+TEST_all15,15,11837675,11736924,-100751,0.8511,15,0,0,0.5563,0.8844,0.0000,True,0.9612,0.9941,1.0042,1.0232
