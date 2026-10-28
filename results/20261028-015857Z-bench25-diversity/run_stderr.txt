@@ -1,0 +1,150 @@
+[1/25] outdoor_0      pkon2-file   761096 B enc     338 ms dec     354 ms (median) valid true
+[1/25] outdoor_0      jxl-e7-t1    824676 B enc    1156 ms dec     466 ms (median) valid true
+[1/25] outdoor_0      jxl-e9-t1    821091 B enc    4147 ms dec     491 ms (median) valid true
+[1/25] outdoor_0      webp-m6-t1   989404 B enc    8975 ms dec     145 ms (median) valid true
+[1/25] outdoor_0      png-rs      1417416 B enc     434 ms dec      10 ms (median) valid true
+== 1/25 images done, elapsed 69s, ETA 1647s ==
+[2/25] indoor_0       pkon2-file   343593 B enc     281 ms dec     280 ms (median) valid true
+[2/25] indoor_0       jxl-e7-t1    365779 B enc     806 ms dec     387 ms (median) valid true
+[2/25] indoor_0       jxl-e9-t1    359179 B enc    3262 ms dec     404 ms (median) valid true
+[2/25] indoor_0       webp-m6-t1   447900 B enc    6756 ms dec     115 ms (median) valid true
+[2/25] indoor_0       png-rs       775015 B enc     586 ms dec      10 ms (median) valid true
+== 2/25 images done, elapsed 121s, ETA 1389s ==
+[3/25] portrait_0     pkon2-file   393153 B enc     298 ms dec     302 ms (median) valid true
+[3/25] portrait_0     jxl-e7-t1    398485 B enc     781 ms dec     398 ms (median) valid true
+[3/25] portrait_0     jxl-e9-t1    390589 B enc    3156 ms dec     424 ms (median) valid true
+[3/25] portrait_0     webp-m6-t1   483336 B enc   11976 ms dec     137 ms (median) valid true
+[3/25] portrait_0     png-rs       880271 B enc     693 ms dec       9 ms (median) valid true
+== 3/25 images done, elapsed 192s, ETA 1407s ==
+[4/25] pet_0          pkon2-file   724469 B enc     392 ms dec     392 ms (median) valid true
+[4/25] pet_0          jxl-e7-t1    709641 B enc     965 ms dec     418 ms (median) valid true
+[4/25] pet_0          jxl-e9-t1    698480 B enc    3400 ms dec     461 ms (median) valid true
+[4/25] pet_0          webp-m6-t1   911822 B enc    8755 ms dec     132 ms (median) valid true
+[4/25] pet_0          png-rs      1279408 B enc     552 ms dec      10 ms (median) valid true
+== 4/25 images done, elapsed 255s, ETA 1337s ==
+[5/25] pet2_1         pkon2-file   479628 B enc     317 ms dec     329 ms (median) valid true
+[5/25] pet2_1         jxl-e7-t1    495526 B enc     860 ms dec     425 ms (median) valid true
+[5/25] pet2_1         jxl-e9-t1    488803 B enc    3451 ms dec     457 ms (median) valid true
+[5/25] pet2_1         webp-m6-t1   603644 B enc   11871 ms dec     122 ms (median) valid true
+[5/25] pet2_1         png-rs       983672 B enc    1123 ms dec      18 ms (median) valid true
+== 5/25 images done, elapsed 335s, ETA 1338s ==
+[6/25] food_0         pkon2-file  1255156 B enc    1313 ms dec    1385 ms (median) valid true
+[6/25] food_0         jxl-e7-t1   1264540 B enc    1724 ms dec     705 ms (median) valid true
+[6/25] food_0         jxl-e9-t1   1255067 B enc    7845 ms dec     604 ms (median) valid true
+[6/25] food_0         webp-m6-t1  1400906 B enc   12296 ms dec     182 ms (median) valid true
+[6/25] food_0         png-rs      1996090 B enc     211 ms dec      15 ms (median) valid true
+== 6/25 images done, elapsed 468s, ETA 1483s ==
+[7/25] foliage_0      pkon2-file  1178415 B enc     553 ms dec     632 ms (median) valid true
+[7/25] foliage_0      jxl-e7-t1   1184936 B enc    1488 ms dec     552 ms (median) valid true
+[7/25] foliage_0      jxl-e9-t1   1180499 B enc    5162 ms dec     593 ms (median) valid true
+[7/25] foliage_0      webp-m6-t1  1357336 B enc   12850 ms dec     140 ms (median) valid true
+[7/25] foliage_0      png-rs      2016330 B enc     302 ms dec      25 ms (median) valid true
+== 7/25 images done, elapsed 554s, ETA 1426s ==
+[8/25] night_0        pkon2-file  1911500 B enc    1354 ms dec    1401 ms (median) valid true
+[8/25] night_0        jxl-e7-t1   1881297 B enc    2712 ms dec     802 ms (median) valid true
+[8/25] night_0        jxl-e9-t1   1891057 B enc   12538 ms dec     641 ms (median) valid true
+[8/25] night_0        webp-m6-t1  1933568 B enc   15973 ms dec     138 ms (median) valid true
+[8/25] night_0        png-rs      2290163 B enc     232 ms dec      37 ms (median) valid true
+== 8/25 images done, elapsed 700s, ETA 1487s ==
+[9/25] night_1        pkon2-file   612703 B enc     773 ms dec     717 ms (median) valid true
+[9/25] night_1        jxl-e7-t1    712137 B enc    1035 ms dec     449 ms (median) valid true
+[9/25] night_1        jxl-e9-t1    701535 B enc    4761 ms dec     366 ms (median) valid true
+[9/25] night_1        webp-m6-t1   705974 B enc   10184 ms dec     115 ms (median) valid true
+[9/25] night_1        png-rs      1046156 B enc     998 ms dec      13 ms (median) valid true
+== 9/25 images done, elapsed 784s, ETA 1393s ==
+[10/25] blurry_1       pkon2-file   669903 B enc     949 ms dec     859 ms (median) valid true
+[10/25] blurry_1       jxl-e7-t1    667721 B enc    1226 ms dec     592 ms (median) valid true
+[10/25] blurry_1       jxl-e9-t1    655667 B enc    5847 ms dec     474 ms (median) valid true
+[10/25] blurry_1       webp-m6-t1   828564 B enc   11623 ms dec     122 ms (median) valid true
+[10/25] blurry_1       png-rs      1280963 B enc    1319 ms dec      13 ms (median) valid true
+== 10/25 images done, elapsed 881s, ETA 1322s ==
+[11/25] screen_0       pkon2-file   136850 B enc     339 ms dec     372 ms (median) valid true
+[11/25] screen_0       jxl-e7-t1    121247 B enc     363 ms dec     181 ms (median) valid true
+[11/25] screen_0       jxl-e9-t1    112699 B enc    1538 ms dec     226 ms (median) valid true
+[11/25] screen_0       webp-m6-t1    70464 B enc    3483 ms dec      76 ms (median) valid true
+[11/25] screen_0       png-rs       229481 B enc     164 ms dec       7 ms (median) valid true
+== 11/25 images done, elapsed 910s, ETA 1158s ==
+[12/25] text_1         pkon2-file  1029283 B enc     538 ms dec     619 ms (median) valid true
+[12/25] text_1         jxl-e7-t1   1008865 B enc    1213 ms dec     501 ms (median) valid true
+[12/25] text_1         jxl-e9-t1    998577 B enc    4890 ms dec     461 ms (median) valid true
+[12/25] text_1         webp-m6-t1  1239866 B enc    8350 ms dec     113 ms (median) valid true
+[12/25] text_1         png-rs      1716246 B enc     343 ms dec      18 ms (median) valid true
+== 12/25 images done, elapsed 980s, ETA 1062s ==
+[13/25] document_1     pkon2-file   399299 B enc     384 ms dec     330 ms (median) valid true
+[13/25] document_1     jxl-e7-t1    426214 B enc     709 ms dec     426 ms (median) valid true
+[13/25] document_1     jxl-e9-t1    413808 B enc    3499 ms dec     391 ms (median) valid true
+[13/25] document_1     webp-m6-t1   485044 B enc    7067 ms dec     107 ms (median) valid true
+[13/25] document_1     png-rs       796743 B enc     903 ms dec      11 ms (median) valid true
+== 13/25 images done, elapsed 1038s, ETA 958s ==
+[14/25] clouds_n0      pkon2-file   445873 B enc     340 ms dec     403 ms (median) valid true
+[14/25] clouds_n0      jxl-e7-t1    570294 B enc     903 ms dec     373 ms (median) valid true
+[14/25] clouds_n0      jxl-e9-t1    557863 B enc    3873 ms dec     329 ms (median) valid true
+[14/25] clouds_n0      webp-m6-t1   534082 B enc    9594 ms dec     101 ms (median) valid true
+[14/25] clouds_n0      png-rs       915485 B enc     937 ms dec      11 ms (median) valid true
+== 14/25 images done, elapsed 1108s, ETA 871s ==
+[15/25] skyline_n0     pkon2-file   323207 B enc     367 ms dec     348 ms (median) valid true
+[15/25] skyline_n0     jxl-e7-t1    464276 B enc     854 ms dec     398 ms (median) valid true
+[15/25] skyline_n0     jxl-e9-t1    454777 B enc    5372 ms dec     377 ms (median) valid true
+[15/25] skyline_n0     webp-m6-t1   403066 B enc    7859 ms dec      94 ms (median) valid true
+[15/25] skyline_n0     png-rs       691009 B enc     953 ms dec      10 ms (median) valid true
+== 15/25 images done, elapsed 1180s, ETA 786s ==
+[16/25] sunset_n0      pkon2-file   892162 B enc     608 ms dec     663 ms (median) valid true
+[16/25] sunset_n0      jxl-e7-t1    913743 B enc    1204 ms dec     547 ms (median) valid true
+[16/25] sunset_n0      jxl-e9-t1    903717 B enc    4542 ms dec     448 ms (median) valid true
+[16/25] sunset_n0      webp-m6-t1  1038204 B enc    9347 ms dec     114 ms (median) valid true
+[16/25] sunset_n0      png-rs      1347491 B enc    1150 ms dec      34 ms (median) valid true
+== 16/25 images done, elapsed 1257s, ETA 707s ==
+[17/25] snow_n0        pkon2-file  1223563 B enc    1158 ms dec    1077 ms (median) valid true
+[17/25] snow_n0        jxl-e7-t1   1252009 B enc    1292 ms dec     512 ms (median) valid true
+[17/25] snow_n0        jxl-e9-t1   1248716 B enc    5576 ms dec     477 ms (median) valid true
+[17/25] snow_n0        webp-m6-t1  1340534 B enc   10406 ms dec     125 ms (median) valid true
+[17/25] snow_n0        png-rs      1776436 B enc     616 ms dec      15 ms (median) valid true
+== 17/25 images done, elapsed 1344s, ETA 633s ==
+[18/25] path_n0        pkon2-file  1703432 B enc     815 ms dec     845 ms (median) valid true
+[18/25] path_n0        jxl-e7-t1   1713272 B enc    1572 ms dec     599 ms (median) valid true
+[18/25] path_n0        jxl-e9-t1   1717184 B enc    7206 ms dec     513 ms (median) valid true
+[18/25] path_n0        webp-m6-t1  1811926 B enc    9604 ms dec     135 ms (median) valid true
+[18/25] path_n0        png-rs      2439490 B enc     135 ms dec      17 ms (median) valid true
+== 18/25 images done, elapsed 1431s, ETA 557s ==
+[19/25] building_n0    pkon2-file   684544 B enc     469 ms dec     497 ms (median) valid true
+[19/25] building_n0    jxl-e7-t1    717273 B enc    1068 ms dec     494 ms (median) valid true
+[19/25] building_n0    jxl-e9-t1    708820 B enc    4540 ms dec     432 ms (median) valid true
+[19/25] building_n0    webp-m6-t1   820972 B enc   11077 ms dec     112 ms (median) valid true
+[19/25] building_n0    png-rs      1145058 B enc    1115 ms dec      15 ms (median) valid true
+== 19/25 images done, elapsed 1514s, ETA 478s ==
+[20/25] church_n0      pkon2-file   714230 B enc     586 ms dec     929 ms (median) valid true
+[20/25] church_n0      jxl-e7-t1    729588 B enc    1096 ms dec     500 ms (median) valid true
+[20/25] church_n0      jxl-e9-t1    724747 B enc    4807 ms dec     427 ms (median) valid true
+[20/25] church_n0      webp-m6-t1   841722 B enc   12110 ms dec     100 ms (median) valid true
+[20/25] church_n0      png-rs      1420194 B enc     602 ms dec      14 ms (median) valid true
+== 20/25 images done, elapsed 1604s, ETA 401s ==
+[21/25] child_n0       pkon2-file   403061 B enc     331 ms dec     326 ms (median) valid true
+[21/25] child_n0       jxl-e7-t1    416191 B enc     901 ms dec     473 ms (median) valid true
+[21/25] child_n0       jxl-e9-t1    412043 B enc    3827 ms dec     518 ms (median) valid true
+[21/25] child_n0       webp-m6-t1   509778 B enc    9646 ms dec     119 ms (median) valid true
+[21/25] child_n0       png-rs       857943 B enc    1454 ms dec      15 ms (median) valid true
+== 21/25 images done, elapsed 1677s, ETA 319s ==
+[22/25] woman_n0       pkon2-file   333701 B enc     466 ms dec     406 ms (median) valid true
+[22/25] woman_n0       jxl-e7-t1    367893 B enc     961 ms dec     477 ms (median) valid true
+[22/25] woman_n0       jxl-e9-t1    361013 B enc    5311 ms dec     421 ms (median) valid true
+[22/25] woman_n0       webp-m6-t1   393378 B enc    6492 ms dec      95 ms (median) valid true
+[22/25] woman_n0       png-rs       597287 B enc     421 ms dec       9 ms (median) valid true
+== 22/25 images done, elapsed 1741s, ETA 237s ==
+[23/25] bird_n0        pkon2-file   330078 B enc     350 ms dec     367 ms (median) valid true
+[23/25] bird_n0        jxl-e7-t1    344952 B enc     866 ms dec     451 ms (median) valid true
+[23/25] bird_n0        jxl-e9-t1    334976 B enc    3885 ms dec     387 ms (median) valid true
+[23/25] bird_n0        webp-m6-t1   406096 B enc   11710 ms dec      95 ms (median) valid true
+[23/25] bird_n0        png-rs       752782 B enc     945 ms dec      27 ms (median) valid true
+== 23/25 images done, elapsed 1818s, ETA 158s ==
+[24/25] waterfall_n0   pkon2-file  1026434 B enc     612 ms dec     569 ms (median) valid true
+[24/25] waterfall_n0   jxl-e7-t1   1061597 B enc    1309 ms dec     588 ms (median) valid true
+[24/25] waterfall_n0   jxl-e9-t1   1055859 B enc    5607 ms dec     471 ms (median) valid true
+[24/25] waterfall_n0   webp-m6-t1  1175322 B enc   12717 ms dec     120 ms (median) valid true
+[24/25] waterfall_n0   png-rs      1518762 B enc     598 ms dec      14 ms (median) valid true
+== 24/25 images done, elapsed 1905s, ETA 79s ==
+[25/25] lake_n0        pkon2-file   829589 B enc     545 ms dec     600 ms (median) valid true
+[25/25] lake_n0        jxl-e7-t1    852564 B enc    1130 ms dec     464 ms (median) valid true
+[25/25] lake_n0        jxl-e9-t1    846434 B enc    4811 ms dec     403 ms (median) valid true
+[25/25] lake_n0        webp-m6-t1   972500 B enc   11679 ms dec     112 ms (median) valid true
+[25/25] lake_n0        png-rs      1491870 B enc     498 ms dec      16 ms (median) valid true
+== 25/25 images done, elapsed 1987s, ETA 0s ==

@@ -1,0 +1,34 @@
+manifest written to results\20261028-015857Z-bench25-diversity before encoding
+== preflight ==
+outdoor_0      full 4000x3000 rgb8 -> crop 1024x1024 rgb8 sha256 921c7ddca8dfcb7c notes []
+indoor_0       full 4592x3448 rgb8 -> crop 1024x1024 rgb8 sha256 176ebad7d613ffff notes []
+portrait_0     full 2034x2717 rgb8 -> crop 1024x1024 rgb8 sha256 97eb1d21e21f5913 notes []
+pet_0          full 3607x2234 rgb8 -> crop 1024x1024 rgb8 sha256 35f4e35d7da0d27c notes []
+pet2_1         full 4000x2992 rgb8 -> crop 1024x1024 rgb8 sha256 cb4d048407dbd0ca notes []
+food_0         full 1572x1078 rgb8 -> crop 1024x1024 rgb8 sha256 3136d909da5b22e6 notes []
+foliage_0      full 1831x1831 rgb8 -> crop 1024x1024 rgb8 sha256 18a3d92bb057e068 notes []
+night_0        full 2000x1329 rgb8 -> crop 1024x1024 rgb8 sha256 d2443550d92e5a56 notes []
+night_1        full 4949x3140 rgb8 -> crop 1024x1024 rgb8 sha256 d901bf35b4c91b9d notes []
+blurry_1       full 2160x1620 rgba8 -> crop 1024x1024 rgba8 sha256 d2910082ed975c0c notes []
+screen_0       full 2880x1628 rgba8 -> crop 1024x1024 rgba8 sha256 4cdccee62c01b9d2 notes []
+text_1         full 2573x1959 rgb8 -> crop 1024x1024 rgb8 sha256 d6a19c7810d09d07 notes []
+document_1     full 3060x4080 rgb8 -> crop 1024x1024 rgb8 sha256 26fe440a04ba98b2 notes []
+clouds_n0      full 4000x3000 rgb8 -> crop 1024x1024 rgb8 sha256 80a4e32035d43ffa notes []
+skyline_n0     full 3648x2736 rgb8 -> crop 1024x1024 rgb8 sha256 0f64ee5147754dd1 notes []
+sunset_n0      full 1980x1320 rgb8 -> crop 1024x1024 rgb8 sha256 752631e27e465052 notes []
+snow_n0        full 2048x1365 rgb8 -> crop 1024x1024 rgb8 sha256 fb955a8c12890ab1 notes []
+path_n0        full 2048x1366 rgb8 -> crop 1024x1024 rgb8 sha256 651dcf0f92f7a2fc notes []
+building_n0    full 2400x1957 rgb8 -> crop 1024x1024 rgb8 sha256 186296e24e1d3a1e notes []
+church_n0      full 3456x4608 rgb8 -> crop 1024x1024 rgb8 sha256 508425b34760166c notes []
+child_n0       full 3152x2337 rgb8 -> crop 1024x1024 rgb8 sha256 4fa8711c57cb97b7 notes []
+woman_n0       full 1366x2048 rgb8 -> crop 1024x1024 rgb8 sha256 bc76d90d052d7922 notes []
+bird_n0        full 3000x4000 rgb8 -> crop 1024x1024 rgb8 sha256 c4d6ab6c0918c8f0 notes []
+waterfall_n0   full 2048x1365 rgb8 -> crop 1024x1024 rgb8 sha256 37628d16f98c3cfc notes []
+lake_n0        full 4608x2566 rgb8 -> crop 1024x1024 rgb8 sha256 1d2f0036a53a8d6b notes []
+pkon2-file   tiny exact, truncation rejected; floor enc 0.4 ms dec 0.4 ms
+jxl-e7-t1    tiny exact, truncation rejected; floor enc 41.3 ms dec 42.8 ms
+jxl-e9-t1    tiny exact, truncation rejected; floor enc 44.4 ms dec 44.1 ms
+webp-m6-t1   tiny exact, truncation rejected; floor enc 57.9 ms dec 42.1 ms
+png-rs       tiny exact, truncation rejected; floor enc 0.2 ms dec 0.0 ms
+all valid+exact: true
+wrote results\20261028-015857Z-bench25-diversity

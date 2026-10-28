@@ -1,0 +1,4095 @@
+{
+  "all_valid": true,
+  "calibration_ms": [
+    [
+      "pkon2-file",
+      0.3967,
+      0.4181
+    ],
+    [
+      "jxl-e7-t1",
+      41.2795,
+      42.849199999999996
+    ],
+    [
+      "jxl-e9-t1",
+      44.409,
+      44.0771
+    ],
+    [
+      "webp-m6-t1",
+      57.9079,
+      42.1278
+    ],
+    [
+      "png-rs",
+      0.1636,
+      0.0141
+    ]
+  ],
+  "env": {
+    "crop": 1024,
+    "ffmpeg": "ffmpeg version 9.0.2-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+    "header_len": 24,
+    "logical_cpus": 8,
+    "pkon2_codec_current": 3,
+    "png_codec": "image 0.25.10 / png 0.18.1",
+    "png_config": "image::PngEncoder CompressionType::Best, FilterType::Adaptive, no metadata",
+    "reps_timed": 3,
+    "warmup_reps": 1
+  },
+  "images": [
+    {
+      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Ardvac&amp;action=edit&a",
+      "bytes": "4925750",
+      "camera": "NIKON COOLPIX P300",
+      "category": "outdoor",
+      "clipped_frac_g": 0.000438690185546875,
+      "crop_channels": 3,
+      "crop_format": "rgb8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 3145728,
+      "crop_sha256": "921c7ddca8dfcb7cf6f85575202a1320be45b8d1089405f962cfb34860a4919c",
+      "crop_width": 1024,
+      "decoded_full_format": "rgb8",
+      "decoded_full_height": 3000,
+      "decoded_full_width": 4000,
+      "decoder_notes": [],
+      "file": "outdoor_0.jpg",
+      "height": "3000",
+      "license": "CC0",
+      "mean_g": 117.74713325500488,
+      "med_mae_g": 4.041361491177025,
+      "med_zero_frac_g": 0.10924589762921047,
+      "name": "outdoor_0",
+      "selection_reason": "mountain landscape, high-frequency detail",
+      "set": "retained23",
+      "source_file_sha256": "4a3e10130e99a0b7c213b05a8143131c2fe4dbaacf4c4bab418f71a8993224bb",
+      "source_format": "image/jpeg",
+      "source_path": "data/outdoor_0.jpg",
+      "title": "File:Hiking up the mountan.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/1/19/Hiking_up_the_mountan.jpg",
+      "width": "4000"
+    },
+    {
+      "artist": "Oliur Rahman <a rel=\"nofollow\" class=\"external text\" href=\"https://unsplash.com/",
+      "bytes": "2441090",
+      "camera": "Panasonic DMC-G80",
+      "category": "indoor",
+      "clipped_frac_g": 0.0,
+      "crop_channels": 3,
+      "crop_format": "rgb8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 3145728,
+      "crop_sha256": "176ebad7d613ffff06a3d776e893c365a57de26ce08ccb65d7b01b94c907f018",
+      "crop_width": 1024,
+      "decoded_full_format": "rgb8",
+      "decoded_full_height": 3448,
+      "decoded_full_width": 4592,
+      "decoder_notes": [],
+      "file": "indoor_0.jpg",
+      "height": "3448",
+      "license": "CC0",
+      "mean_g": 163.79514408111572,
+      "med_mae_g": 2.145324209840339,
+      "med_zero_frac_g": 0.553621543215716,
+      "name": "indoor_0",
+      "selection_reason": "bright indoor scene, smooth surfaces",
+      "set": "retained23",
+      "source_file_sha256": "c0aaabdb959eb07dbc9ff445fd17f56edd213df70380ee9ff0b5ac512d07fb4a",
+      "source_format": "image/jpeg",
+      "source_path": "data/indoor_0.jpg",
+      "title": "File:Laptop in the living room (Unsplash).jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/7/75/Laptop_in_the_living_room_%28Unsplash%29.jpg",
+      "width": "4592"
+    },
+    {
+      "artist": "",
+      "bytes": "742583",
+      "camera": "Apple iPhone 15 Pro",
+      "category": "portrait",
+      "clipped_frac_g": 0.0035114288330078125,
+      "crop_channels": 3,
+      "crop_format": "rgb8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 3145728,
+      "crop_sha256": "97eb1d21e21f59133abc547348268529d96480722425f38ed27d1fb0d5044bc0",
+      "crop_width": 1024,
+      "decoded_full_format": "rgb8",
+      "decoded_full_height": 2717,
+      "decoded_full_width": 2034,
+      "decoder_notes": [],
+      "file": "portrait_0.jpg",
+      "height": "2717",
+      "license": "CC0",
+      "mean_g": 91.60859298706055,
+      "med_mae_g": 1.3048085624000865,
+      "med_zero_frac_g": 0.3348019978423914,
+      "name": "portrait_0",
+      "selection_reason": "people: portrait",
+      "set": "retained23",
+      "source_file_sha256": "c44e85f688ead6f083dc98c6345e7bc83057073018b18019c054ae3481b9fab5",
+      "source_format": "image/jpeg",
+      "source_path": "data/portrait_0.jpg",
+      "title": "File:Portrait of Prof Mikhail Lemeshko.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Portrait_of_Prof_Mikhail_Lemeshko.jpg",
+      "width": "2034"
+    },
+    {
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Wilfredor\" class=\"mw-redirect\" title=",
+      "bytes": "4012645",
+      "camera": "NIKON CORPORATION NIKON D300",
+      "category": "pet",
+      "clipped_frac_g": 0.0018949508666992188,
+      "crop_channels": 3,
+      "crop_format": "rgb8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 3145728,
+      "crop_sha256": "35f4e35d7da0d27c5e65265fd50f38c6d020047d3bdb192f25e2292bad7a90d7",
+      "crop_width": 1024,
+      "decoded_full_format": "rgb8",
+      "decoded_full_height": 2234,
+      "decoded_full_width": 3607,
+      "decoder_notes": [],
+      "file": "pet_0.jpg",
+      "height": "2234",
+      "license": "CC0",
+      "mean_g": 87.47720527648926,
+      "med_mae_g": 2.1454799628103953,
+      "med_zero_frac_g": 0.18343113282097295,
+      "name": "pet_0",
+      "selection_reason": "animal: fur detail",
+      "set": "retained23",
+      "source_file_sha256": "621b6208a0ae6c21890550957b933571fdb057458372c355c064d4485374ccec",
+      "source_format": "image/jpeg",
+      "source_path": "data/pet_0.jpg",
+      "title": "File:Dog in Chacachacare.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Dog_in_Chacachacare.jpg",
+      "width": "3607"
+    },
+    {
+      "artist": "Haoreima",
+      "bytes": "4170960",
+      "camera": "Xiaomi M2103K19I",
+      "category": "pet2",
+      "clipped_frac_g": 0.07793235778808594,
+      "crop_channels": 3,
+      "crop_format": "rgb8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 3145728,
+      "crop_sha256": "cb4d048407dbd0ca58756faf26fbe2310fb2f7e914c6832793fd9b5b0ffdf84d",
+      "crop_width": 1024,
+      "decoded_full_format": "rgb8",
+      "decoded_full_height": 2992,
+      "decoded_full_width": 4000,
+      "decoder_notes": [],
+      "file": "pet2_1.jpg",
+      "height": "2992",
+      "license": "CC0",
+      "mean_g": 212.42697715759277,
+      "med_mae_g": 1.7054806890205623,
+      "med_zero_frac_g": 0.37343064549572924,
+      "name": "pet2_1",
+      "selection_reason": "animal: heavily over-exposed regions",
+      "set": "retained23",
+      "source_file_sha256": "c216e83fa8702b1008960b7a20ab7a0bfbdbcbc2f3518245a69d76c0106cb98b",
+      "source_format": "image/jpeg",
+      "source_path": "data/pet2_1.jpg",
+      "title": "File:A mother cat of Meitei domestic cat breed (Meitei house cat variety) suckling her only little newborn baby kitten 06.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/A_mother_cat_of_Meitei_domestic_cat_breed_%28Meitei_house_cat_variety%29_suckling_her_only_little_newborn_baby_kitten_06.jpg",
+      "width": "4000"
+    },
+    {
+      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Tomwsulcer&amp;action=ed",
+      "bytes": "578850",
+      "camera": "SONY DSC-W530",
+      "category": "food",
+      "clipped_frac_g": 0.005595207214355469,
+      "crop_channels": 3,
+      "crop_format": "rgb8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 3145728,
+      "crop_sha256": "3136d909da5b22e6f1a00265d18cb7dd5695de7e8841832efa547dd3b6628d59",
+      "crop_width": 1024,
+      "decoded_full_format": "rgb8",
+      "decoded_full_height": 1078,
+      "decoded_full_width": 1572,
+      "decoder_notes": [],
+      "file": "food_0.jpg",
+      "height": "1078",
+      "license": "CC0",
+      "mean_g": 99.93658256530762,
+      "med_mae_g": 5.926518997562418,
+      "med_zero_frac_g": 0.11591460915082143,
+      "name": "food_0",
+      "selection_reason": "mixed detail, close range",
+      "set": "retained23",
+      "source_file_sha256": "80f2e644ee1c61e6671b411b03409b2fc42bd50e266349b04b232080831eb462",
+      "source_format": "image/jpeg",
+      "source_path": "data/food_0.jpg",
+      "title": "File:Party food dish 1.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Party_food_dish_1.jpg",
+      "width": "1572"
+    },
+    {
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Sisters.seamless\" title=\"User:Sisters",
+      "bytes": "1754973",
+      "camera": "SONY DSC-RX100",
+      "category": "foliage",
+      "clipped_frac_g": 0.03352928161621094,
+      "crop_channels": 3,
+      "crop_format": "rgb8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 3145728,
+      "crop_sha256": "18a3d92bb057e06893cc259f0f9517c30e27ca507f1c1b8d16c5597829cacb80",
+      "crop_width": 1024,
+      "decoded_full_format": "rgb8",
+      "decoded_full_height": 1831,
+      "decoded_full_width": 1831,
+      "decoder_notes": [],
+      "file": "foliage_0.jpg",
+      "height": "1831",
+      "license": "CC0",
+      "mean_g": 105.99853229522705,
+      "med_mae_g": 7.560682026011701,
+      "med_zero_frac_g": 0.09769151165423988,
+      "name": "foliage_0",
+      "selection_reason": "dense foliage, fine texture",
+      "set": "retained23",
+      "source_file_sha256": "a7517acf4245914273fa25f891c262c5ffb5408d53d3a67669cbcdf2a49b143b",
+      "source_format": "image/jpeg",
+      "source_path": "data/foliage_0.jpg",
+      "title": "File:Green healthy vegetation leaves foliage dense bush shrub seamless texture.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Green_healthy_vegetation_leaves_foliage_dense_bush_shrub_seamless_texture.jpg",
+      "width": "1831"
+    },
+    {
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Wilfredor\" class=\"mw-redirect\" title=",
+      "bytes": "3600362",
+      "camera": "NIKON CORPORATION NIKON D300",
+      "category": "night",
+      "clipped_frac_g": 0.02826404571533203,
+      "crop_channels": 3,
+      "crop_format": "rgb8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 3145728,
+      "crop_sha256": "d2443550d92e5a56030d29895aa22435a753b2c7de60ce40b52d432e2f90f1c1",
+      "crop_width": 1024,
+      "decoded_full_format": "rgb8",
+      "decoded_full_height": 1329,
+      "decoded_full_width": 2000,
+      "decoder_notes": [],
+      "file": "night_0.jpg",
+      "height": "1329",
+      "license": "CC0",
+      "mean_g": 44.470702171325684,
+      "med_mae_g": 10.06914476330804,
+      "med_zero_frac_g": 0.08967835578373844,
+      "name": "night_0",
+      "selection_reason": "low-light, sensor noise",
+      "set": "retained23",
+      "source_file_sha256": "7487639c7f71210dcbfe66881292b8c36cb8b0d7bef9945119aaad51fddb4c36",
+      "source_format": "image/jpeg",
+      "source_path": "data/night_0.jpg",
+      "title": "File:Victoria Harbour skyscrapers.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Victoria_Harbour_skyscrapers.jpg",
+      "width": "2000"
+    },
+    {
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:W.carter\" title=\"User:W.carter\">W.car",
+      "bytes": "6806850",
+      "camera": "Panasonic DMC-FZ1000",
+      "category": "night",
+      "clipped_frac_g": 1.9073486328125e-6,
+      "crop_channels": 3,
+      "crop_format": "rgb8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 3145728,
+      "crop_sha256": "d901bf35b4c91b9dc4f5491f68b486c55bf52b81f662f5ef7fb7307df3be36f9",
+      "crop_width": 1024,
+      "decoded_full_format": "rgb8",
+      "decoded_full_height": 3140,
+      "decoded_full_width": 4949,
+      "decoder_notes": [],
+      "file": "night_1.jpg",
+      "height": "3140",
+      "license": "CC0",
+      "mean_g": 71.1072244644165,
+      "med_mae_g": 2.1435411727720877,
+      "med_zero_frac_g": 0.1666862552303854,
+      "name": "night_1",
+      "selection_reason": "low-light, comparatively clean",
+      "set": "retained23",
+      "source_file_sha256": "5f68fb7d4ddb54f27fd71f70277e322856a11b7eb7aa03137eb3ca777ae0f03d",
+      "source_format": "image/jpeg",
+      "source_path": "data/night_1.jpg",
+      "title": "File:Waxing half moon over Brofjorden 1.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Waxing_half_moon_over_Brofjorden_1.jpg",
+      "width": "4949"
+    },
+    {
+      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Wangyunfan&amp;action=ed",
+      "bytes": "11940933",
+      "camera": "",
+      "category": "blurry",
+      "clipped_frac_g": 0.0013885498046875,
+      "crop_channels": 4,
+      "crop_format": "rgba8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 4194304,
+      "crop_sha256": "d2910082ed975c0cae60151d21429a7890496f0391ccdc5c7b171f216dadfa84",
+      "crop_width": 1024,
+      "decoded_full_format": "rgba8",
+      "decoded_full_height": 1620,
+      "decoded_full_width": 2160,
+      "decoder_notes": [],
+      "file": "blurry_1.png",
+      "height": "1620",
+      "license": "CC0",
+      "mean_g": 147.34132766723633,
+      "med_mae_g": 2.0344624945892567,
+      "med_zero_frac_g": 0.27746770514720565,
+      "name": "blurry_1",
+      "selection_reason": "PNG origin, RGBA, defocus blur",
+      "set": "retained23",
+      "source_file_sha256": "fe4d7e0c21d4c4469748b647b09f50a0ebd12083323e23332cd9580585873f8f",
+      "source_format": "image/png",
+      "source_path": "data/blurry_1.png",
+      "title": "File:Starfish Bay Hong Kong (Blurry).png",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Starfish_Bay_Hong_Kong_%28Blurry%29.png",
+      "width": "2160"
+    },
+    {
+      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Temaro&amp;action=edit&a",
+      "bytes": "1865853",
+      "camera": "",
+      "category": "screen",
+      "clipped_frac_g": 0.5694179534912109,
+      "crop_channels": 4,
+      "crop_format": "rgba8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 4194304,
+      "crop_sha256": "4cdccee62c01b9d2b50d2f8a6db5494f3a59c0f0f48d44a0fa171144a54d9478",
+      "crop_width": 1024,
+      "decoded_full_format": "rgba8",
+      "decoded_full_height": 1628,
+      "decoded_full_width": 2880,
+      "decoder_notes": [],
+      "file": "screen_0.png",
+      "height": "1628",
+      "license": "CC0",
+      "mean_g": 226.09945964813232,
+      "med_mae_g": 3.6296203927459247,
+      "med_zero_frac_g": 0.9251774198326086,
+      "name": "screen_0",
+      "selection_reason": "PNG origin, RGBA, UI screenshot (graphic content)",
+      "set": "retained23",
+      "source_file_sha256": "488e90b3147c17d7dcb7ed0f7187a50ecba8e54d33395ae39bce372ba42113e7",
+      "source_format": "image/png",
+      "source_path": "data/screen_0.png",
+      "title": "File:Screenshot Arc Browser.png",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Screenshot_Arc_Browser.png",
+      "width": "2880"
+    },
+    {
+      "artist": "<bdi><a href=\"https://www.wikidata.org/wiki/Q42790984\" class=\"extiw\" title=\"d:Q4",
+      "bytes": "4925093",
+      "camera": "Apple iPhone XS",
+      "category": "text",
+      "clipped_frac_g": 0.0057582855224609375,
+      "crop_channels": 3,
+      "crop_format": "rgb8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 3145728,
+      "crop_sha256": "d6a19c7810d09d07c96f296c762f31efd29a6bac63f602a9d724d606eb97aaab",
+      "crop_width": 1024,
+      "decoded_full_format": "rgb8",
+      "decoded_full_height": 1959,
+      "decoded_full_width": 2573,
+      "decoder_notes": [],
+      "file": "text_1.jpg",
+      "height": "1959",
+      "license": "CC0",
+      "mean_g": 79.474365234375,
+      "med_mae_g": 5.774832804442113,
+      "med_zero_frac_g": 0.09144705975658582,
+      "name": "text_1",
+      "selection_reason": "sharp edges: printed text",
+      "set": "retained23",
+      "source_file_sha256": "cf015ed5049137c228f1cabcbc21ec0c0540d539cbbb700bbb5c61844aadc488",
+      "source_format": "image/jpeg",
+      "source_path": "data/text_1.jpg",
+      "title": "File:Plaque de cocher, rue de Saint-Cyr à Lyon en février 2019.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/7/73/Plaque_de_cocher%2C_rue_de_Saint-Cyr_%C3%A0_Lyon_en_f%C3%A9vrier_2019.jpg",
+      "width": "2573"
+    },
+    {
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:EVOW_Sahgyune_Paiem_KAASEI_02238\" tit",
+      "bytes": "4196345",
+      "camera": "Xiaomi 2312CRAD3C",
+      "category": "document",
+      "clipped_frac_g": 0.05080127716064453,
+      "crop_channels": 3,
+      "crop_format": "rgb8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 3145728,
+      "crop_sha256": "26fe440a04ba98b2879347c404f531c982480a7b0b79b5ced9c9a02db1468b0f",
+      "crop_width": 1024,
+      "decoded_full_format": "rgb8",
+      "decoded_full_height": 4080,
+      "decoded_full_width": 3060,
+      "decoder_notes": [],
+      "file": "document_1.jpg",
+      "height": "4080",
+      "license": "CC0",
+      "mean_g": 165.15449237823486,
+      "med_mae_g": 2.164133053169095,
+      "med_zero_frac_g": 0.43527030784622306,
+      "name": "document_1",
+      "selection_reason": "document: flat paper, clipped highlights",
+      "set": "retained23",
+      "source_file_sha256": "b28065332e1520146a30214db9b25a5c59060dee7fc5989f82a46a3a9604cff7",
+      "source_format": "image/jpeg",
+      "source_path": "data/document_1.jpg",
+      "title": "File:HK SYP 西環 Sai Ying Pun 德輔道西 308 Des Voeux Road West 食神麗宮酒家 Chinese Banquet Seafood Restaurant bill receipt January 2026 N13P 02.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/HK_SYP_%E8%A5%BF%E7%92%B0_Sai_Ying_Pun_%E5%BE%B7%E8%BC%94%E9%81%93%E8%A5%BF_308_Des_Voeux_Road_West_%E9%A3%9F%E7%A5%9E%E9%BA%97%E5%AE%AE%E9%85%92%E5%AE%B6_Chinese_Banquet_Seafood_Restaurant_bill_receipt_January_2026_N13P_02.jpg",
+      "width": "3060"
+    },
+    {
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Gerda_Arendt\" title=\"User:Gerda Arend",
+      "bytes": "3544617",
+      "camera": "samsung SM-S901B",
+      "category": "clouds",
+      "clipped_frac_g": 0.0019388198852539062,
+      "crop_channels": 3,
+      "crop_format": "rgb8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 3145728,
+      "crop_sha256": "80a4e32035d43ffafbb994afa395367de2eadc4d535e6bc84ea62733ac3a08ab",
+      "crop_width": 1024,
+      "decoded_full_format": "rgb8",
+      "decoded_full_height": 3000,
+      "decoded_full_width": 4000,
+      "decoder_notes": [],
+      "file": "new50/clouds_n0.jpg",
+      "height": "3000",
+      "license": "CC0",
+      "mean_g": 142.4478588104248,
+      "med_mae_g": 2.253637500728599,
+      "med_zero_frac_g": 0.33201373301647635,
+      "name": "clouds_n0",
+      "selection_reason": "sky / clouds",
+      "set": "added",
+      "source_file_sha256": "6c5a3573dbee28f691e3d0a863291753ee692415ce2110e9c0beb3557a622636",
+      "source_format": "image/jpeg",
+      "source_path": "data/new50/clouds_n0.jpg",
+      "title": "File:Ehrenbach, incoming clouds reaching sun.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Ehrenbach%2C_incoming_clouds_reaching_sun.jpg",
+      "width": "4000"
+    },
+    {
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Reinhard_Dietrich\" title=\"User:Reinha",
+      "bytes": "976366",
+      "camera": "Canon Canon PowerShot SX120 IS",
+      "category": "skyline",
+      "clipped_frac_g": 0.00002765655517578125,
+      "crop_channels": 3,
+      "crop_format": "rgb8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 3145728,
+      "crop_sha256": "0f64ee5147754dd105e3f665996cc7615fa5c33c85940ff7842dec2e87b7f70c",
+      "crop_width": 1024,
+      "decoded_full_format": "rgb8",
+      "decoded_full_height": 2736,
+      "decoded_full_width": 3648,
+      "decoder_notes": [],
+      "file": "new50/skyline_n0.jpg",
+      "height": "2736",
+      "license": "CC0",
+      "mean_g": 187.26542377471924,
+      "med_mae_g": 0.9650071808807974,
+      "med_zero_frac_g": 0.4411191663107281,
+      "name": "skyline_n0",
+      "selection_reason": "sky + architecture, very smooth",
+      "set": "added",
+      "source_file_sha256": "292c9f7ac1510bcc0fbf8b42df16eed2ea8e9bc112acca40057468f9095b15ad",
+      "source_format": "image/jpeg",
+      "source_path": "data/new50/skyline_n0.jpg",
+      "title": "File:Skyline&Buckingham Fountain.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Skyline%26Buckingham_Fountain.jpg",
+      "width": "3648"
+    },
+    {
+      "artist": "<div class=\"fn value\"> <a rel=\"nofollow\" class=\"external text\" href=\"https://500",
+      "bytes": "592290",
+      "camera": "Canon Canon EOS 6D",
+      "category": "sunset",
+      "clipped_frac_g": 0.00045299530029296875,
+      "crop_channels": 3,
+      "crop_format": "rgb8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 3145728,
+      "crop_sha256": "752631e27e465052e524402ad72249b988f8e6fdf85818738e7f673aa2597e60",
+      "crop_width": 1024,
+      "decoded_full_format": "rgb8",
+      "decoded_full_height": 1320,
+      "decoded_full_width": 1980,
+      "decoder_notes": [],
+      "file": "new50/sunset_n0.jpg",
+      "height": "1320",
+      "license": "CC0",
+      "mean_g": 70.05317878723145,
+      "med_mae_g": 1.9092361511243359,
+      "med_zero_frac_g": 0.3235982949349707,
+      "name": "sunset_n0",
+      "selection_reason": "dusk sky, colour gradients",
+      "set": "added",
+      "source_file_sha256": "f7bac933acd4d59f90bdc0b231dc4089194846ab059f085ef3dd0569a07ba20d",
+      "source_format": "image/jpeg",
+      "source_path": "data/new50/sunset_n0.jpg",
+      "title": "File:Sunset (159174211).jpeg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/6/60/Sunset_%28159174211%29.jpeg",
+      "width": "1980"
+    },
+    {
+      "artist": "<div class=\"fn value\"> <a rel=\"nofollow\" class=\"external text\" href=\"https://500",
+      "bytes": "998536",
+      "camera": "Canon Canon EOS 600D",
+      "category": "snow",
+      "clipped_frac_g": 0.0020742416381835938,
+      "crop_channels": 3,
+      "crop_format": "rgb8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 3145728,
+      "crop_sha256": "fb955a8c12890ab111545e8a63ed168bddf857b5081021ad488579cb8c27cbe3",
+      "crop_width": 1024,
+      "decoded_full_format": "rgb8",
+      "decoded_full_height": 1365,
+      "decoded_full_width": 2048,
+      "decoder_notes": [],
+      "file": "new50/snow_n0.jpg",
+      "height": "1365",
+      "license": "CC0",
+      "mean_g": 150.28511905670166,
+      "med_mae_g": 5.560006459448329,
+      "med_zero_frac_g": 0.25638849950646375,
+      "name": "snow_n0",
+      "selection_reason": "snow, bright low-contrast texture",
+      "set": "added",
+      "source_file_sha256": "b26fbf52e320352e20ac0f76a85f0c9f6d19e259c92fa4f04ed1da08c349d41b",
+      "source_format": "image/jpeg",
+      "source_path": "data/new50/snow_n0.jpg",
+      "title": "File:Winter in Westoverledingen im Januar 2016.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Winter_in_Westoverledingen_im_Januar_2016.jpg",
+      "width": "2048"
+    },
+    {
+      "artist": "<div class=\"fn value\"> <a rel=\"nofollow\" class=\"external text\" href=\"https://500",
+      "bytes": "1673970",
+      "camera": "Canon Canon EOS 1000D",
+      "category": "path",
+      "clipped_frac_g": 0.00235748291015625,
+      "crop_channels": 3,
+      "crop_format": "rgb8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 3145728,
+      "crop_sha256": "651dcf0f92f7a2fc6eed995e255e9f8bee9d2b86179c7205eb6526b8792142d0",
+      "crop_width": 1024,
+      "decoded_full_format": "rgb8",
+      "decoded_full_height": 1366,
+      "decoded_full_width": 2048,
+      "decoder_notes": [],
+      "file": "new50/path_n0.jpg",
+      "height": "1366",
+      "license": "CC0",
+      "mean_g": 87.67455005645752,
+      "med_mae_g": 13.816368203843371,
+      "med_zero_frac_g": 0.03976478434902425,
+      "name": "path_n0",
+      "selection_reason": "extreme fine texture (gravel/ground)",
+      "set": "added",
+      "source_file_sha256": "c64d2a2261a2726ab0e69f69b80c2e082f2eaa1a0407e5d9097cf6175a4ab22b",
+      "source_format": "image/jpeg",
+      "source_path": "data/new50/path_n0.jpg",
+      "title": "File:The Green Path (184194351).jpeg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/The_Green_Path_%28184194351%29.jpeg",
+      "width": "2048"
+    },
+    {
+      "artist": "Szczebrzeszynski",
+      "bytes": "1121754",
+      "camera": "SONY DSC-H9",
+      "category": "building",
+      "clipped_frac_g": 0.0000476837158203125,
+      "crop_channels": 3,
+      "crop_format": "rgb8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 3145728,
+      "crop_sha256": "186296e24e1d3a1ee6e182c312fb2ffc3c39172bc5f38a735619ddf3e06c5695",
+      "crop_width": 1024,
+      "decoded_full_format": "rgb8",
+      "decoded_full_height": 1957,
+      "decoded_full_width": 2400,
+      "decoder_notes": [],
+      "file": "new50/building_n0.jpg",
+      "height": "1957",
+      "license": "CC0",
+      "mean_g": 149.1737403869629,
+      "med_mae_g": 1.4839818103463926,
+      "med_zero_frac_g": 0.40330463847633463,
+      "name": "building_n0",
+      "selection_reason": "architecture: facade",
+      "set": "added",
+      "source_file_sha256": "fc3f1ee15e7f9d3c1b07739e54ce3bfa48ef369f4aa74954273e384afa0bf88d",
+      "source_format": "image/jpeg",
+      "source_path": "data/new50/building_n0.jpg",
+      "title": "File:Krasiński building southern facade.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/1/19/Krasi%C5%84ski_building_southern_facade.jpg",
+      "width": "2400"
+    },
+    {
+      "artist": "<a href=\"https://en.wikipedia.org/wiki/User:My_another_account\" class=\"extiw\" ti",
+      "bytes": "4623530",
+      "camera": "Canon Canon PowerShot A3300 IS",
+      "category": "church",
+      "clipped_frac_g": 0.0006961822509765625,
+      "crop_channels": 3,
+      "crop_format": "rgb8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 3145728,
+      "crop_sha256": "508425b34760166ca175d70e635600da02148d1f1b733d27dc2fe68818258380",
+      "crop_width": 1024,
+      "decoded_full_format": "rgb8",
+      "decoded_full_height": 4608,
+      "decoded_full_width": 3456,
+      "decoder_notes": [],
+      "file": "new50/church_n0.jpg",
+      "height": "4608",
+      "license": "CC0",
+      "mean_g": 89.73444271087646,
+      "med_mae_g": 4.02941820054676,
+      "med_zero_frac_g": 0.11453385429357428,
+      "name": "church_n0",
+      "selection_reason": "architecture: detailed stonework",
+      "set": "added",
+      "source_file_sha256": "73c008503eafa28013f5188850a86984cefb81e34bf1e069f74aa91cbd80a1eb",
+      "source_format": "image/jpeg",
+      "source_path": "data/new50/church_n0.jpg",
+      "title": "File:Wellow church of St Julian interior.JPG",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Wellow_church_of_St_Julian_interior.JPG",
+      "width": "3456"
+    },
+    {
+      "artist": "Michel Achiel Renatus Declercq (1906-1963)",
+      "bytes": "908855",
+      "camera": "OLYMPUS IMAGING CORP. u810/S810",
+      "category": "child",
+      "clipped_frac_g": 0.0,
+      "crop_channels": 3,
+      "crop_format": "rgb8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 3145728,
+      "crop_sha256": "4fa8711c57cb97b75ee46fb887699f0e0e8ae8712a0e2a72c8f1b09cc6083955",
+      "crop_width": 1024,
+      "decoded_full_format": "rgb8",
+      "decoded_full_height": 2337,
+      "decoded_full_width": 3152,
+      "decoder_notes": [],
+      "file": "new50/child_n0.jpg",
+      "height": "2337",
+      "license": "CC0",
+      "mean_g": 106.17186546325684,
+      "med_mae_g": 0.6957427840031188,
+      "med_zero_frac_g": 0.4521948268992068,
+      "name": "child_n0",
+      "selection_reason": "people: smooth skin, shallow depth of field",
+      "set": "added",
+      "source_file_sha256": "89185ae02ffe335a46dbcebb80f5c6f4e371b1cd8851f941bfc00fcf925d706a",
+      "source_format": "image/jpeg",
+      "source_path": "data/new50/child_n0.jpg",
+      "title": "File:Michel Declercq Andre, Demedts Gabrielle Demedts, Kortrijk \"paasfoor\" around 1922.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Michel_Declercq_Andre%2C_Demedts_Gabrielle_Demedts%2C_Kortrijk_%22paasfoor%22_around_1922.jpg",
+      "width": "3152"
+    },
+    {
+      "artist": "<div class=\"fn value\"> <a rel=\"nofollow\" class=\"external text\" href=\"https://500",
+      "bytes": "359434",
+      "camera": "Canon Canon EOS 70D",
+      "category": "woman",
+      "clipped_frac_g": 0.020545005798339844,
+      "crop_channels": 3,
+      "crop_format": "rgb8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 3145728,
+      "crop_sha256": "bc76d90d052d7922402b461952b0c79ddc9fda42b79fbe6ec2a13c37adab22f7",
+      "crop_width": 1024,
+      "decoded_full_format": "rgb8",
+      "decoded_full_height": 2048,
+      "decoded_full_width": 1366,
+      "decoder_notes": [],
+      "file": "new50/woman_n0.jpg",
+      "height": "2048",
+      "license": "CC0",
+      "mean_g": 235.38028240203857,
+      "med_mae_g": 1.198381506866986,
+      "med_zero_frac_g": 0.7248275011968135,
+      "name": "woman_n0",
+      "selection_reason": "people: high-key portrait",
+      "set": "added",
+      "source_file_sha256": "78a8ec421f653e0c898669ef3849d53a5de78248dfdc11b684cc359957614a30",
+      "source_format": "image/jpeg",
+      "source_path": "data/new50/woman_n0.jpg",
+      "title": "File:Pink Bunny (215485449).jpeg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Pink_Bunny_%28215485449%29.jpeg",
+      "width": "1366"
+    },
+    {
+      "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Banana903&amp;action=edi",
+      "bytes": "2628610",
+      "camera": "motorola moto e(7)",
+      "category": "bird",
+      "clipped_frac_g": 0.039127349853515625,
+      "crop_channels": 3,
+      "crop_format": "rgb8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 3145728,
+      "crop_sha256": "c4d6ab6c0918c8f0ac7e107e318eb6fd66d1fda12efd5ae59a6d72b675c7571c",
+      "crop_width": 1024,
+      "decoded_full_format": "rgb8",
+      "decoded_full_height": 4000,
+      "decoded_full_width": 3000,
+      "decoder_notes": [],
+      "file": "new50/bird_n0.jpg",
+      "height": "4000",
+      "license": "CC0",
+      "mean_g": 131.6077127456665,
+      "med_mae_g": 1.0511643728936322,
+      "med_zero_frac_g": 0.44019324834763296,
+      "name": "bird_n0",
+      "selection_reason": "animal: bokeh / background blur",
+      "set": "added",
+      "source_file_sha256": "277f0757c124eac27b73a59f7cd0f2676e1cb6a5dacbdfd18438c61bde382ab7",
+      "source_format": "image/jpeg",
+      "source_path": "data/new50/bird_n0.jpg",
+      "title": "File:Nido de un Hornero común fotografiado en la provincia de Buenos Aires, Argentina.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Nido_de_un_Hornero_com%C3%BAn_fotografiado_en_la_provincia_de_Buenos_Aires%2C_Argentina.jpg",
+      "width": "3000"
+    },
+    {
+      "artist": "<div class=\"fn value\"> <a rel=\"nofollow\" class=\"external text\" href=\"https://500",
+      "bytes": "850456",
+      "camera": "Canon Canon EOS 7D",
+      "category": "waterfall",
+      "clipped_frac_g": 0.009993553161621094,
+      "crop_channels": 3,
+      "crop_format": "rgb8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 3145728,
+      "crop_sha256": "37628d16f98c3cfc1e297735e28d8cf4ea873a1660de8829cb4827ac8ab8516e",
+      "crop_width": 1024,
+      "decoded_full_format": "rgb8",
+      "decoded_full_height": 1365,
+      "decoded_full_width": 2048,
+      "decoder_notes": [],
+      "file": "new50/waterfall_n0.jpg",
+      "height": "1365",
+      "license": "CC0",
+      "mean_g": 93.65666484832764,
+      "med_mae_g": 3.8691942602641687,
+      "med_zero_frac_g": 0.29093508158875675,
+      "name": "waterfall_n0",
+      "selection_reason": "moving water, mixed detail",
+      "set": "added",
+      "source_file_sha256": "085b2fa73a15ef73dca094d26d398e123950f7d1c7ee8df1c9964977b73157e4",
+      "source_format": "image/jpeg",
+      "source_path": "data/new50/waterfall_n0.jpg",
+      "title": "File:Waterfall (210111427).jpeg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Waterfall_%28210111427%29.jpeg",
+      "width": "2048"
+    },
+    {
+      "artist": "<a href=\"https://en.wikipedia.org/wiki/User:Pear285\" class=\"extiw\" title=\"wikipe",
+      "bytes": "4413191",
+      "camera": "SAMSUNG DV300 / DV300F / DV305F",
+      "category": "lake",
+      "clipped_frac_g": 0.00012493133544921875,
+      "crop_channels": 3,
+      "crop_format": "rgb8",
+      "crop_height": 1024,
+      "crop_raw_bytes": 3145728,
+      "crop_sha256": "1d2f0036a53a8d6bd16476a8328c90a50348072334fd40882e92b93aac84f87e",
+      "crop_width": 1024,
+      "decoded_full_format": "rgb8",
+      "decoded_full_height": 2566,
+      "decoded_full_width": 4608,
+      "decoder_notes": [],
+      "file": "new50/lake_n0.jpg",
+      "height": "2566",
+      "license": "CC0",
+      "mean_g": 148.70789527893066,
+      "med_mae_g": 4.0907437825420985,
+      "med_zero_frac_g": 0.2507164158852741,
+      "name": "lake_n0",
+      "selection_reason": "water + reflections",
+      "set": "added",
+      "source_file_sha256": "98f27cbe6e6afc67d97d206676ca06c69fda6ae866f05c5aff0c9b831b4e79d1",
+      "source_format": "image/jpeg",
+      "source_path": "data/new50/lake_n0.jpg",
+      "title": "File:The University of Sydney Lake Northam 2013.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/2/23/The_University_of_Sydney_Lake_Northam_2013.jpg",
+      "width": "4608"
+    }
+  ],
+  "records": [
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        343.0489,
+        365.19390000000004,
+        353.605
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        330.5615,
+        337.7676,
+        344.7097
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "5288a4fe61572b2c93fd67ef8fdf0e60bb85b1a3573a1005e453a16c695eea46",
+      "image": "outdoor_0",
+      "magic_hex": "89504b320100030200040000",
+      "note": "",
+      "payload_bytes": 761072,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 3145728,
+      "total_bytes": 761096,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        552.1412,
+        465.7016,
+        466.2131
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        1333.6236999999999,
+        1156.0032,
+        1109.5258000000001
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "f9557782991feb6c60b1a62a67ba8e48a7534e675d5750864a8f345a880e06b4",
+      "image": "outdoor_0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 824676,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 824676,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        491.0614,
+        503.02970000000005,
+        482.8327
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        4146.6052,
+        4416.5289,
+        4124.1987
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "a2091808f1b32799a642c0ace4236218f2ad9b6805a8b7a0b69c1e15cbbc4306",
+      "image": "outdoor_0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 821091,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 821091,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        143.8006,
+        144.8603,
+        148.348
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        8684.9079,
+        8974.731099999999,
+        10661.470599999999
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "5f7fbe2b28b0dbd1b2da51fc76fef9e660a504121520a0b289cc5a7f03242abd",
+      "image": "outdoor_0",
+      "magic_hex": "52494646d4180f0057454250",
+      "note": "",
+      "payload_bytes": 989384,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 989404,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        9.617,
+        9.5387,
+        9.4491
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        450.9724,
+        433.6533,
+        425.9283
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "c6cdfb8a5cc909a163bada474a13534f4b528619215e802598c9c6c7e918e584",
+      "image": "outdoor_0",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 1417359,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1417416,
+      "valid": true
+    },
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        288.59610000000004,
+        279.514,
+        278.7373
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        293.4404,
+        278.2967,
+        281.457
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "b0378fcea30fa040907688084e73943700ff79138e7d8727371c25e89dea7e53",
+      "image": "indoor_0",
+      "magic_hex": "89504b320100030200040000",
+      "note": "",
+      "payload_bytes": 343569,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 3145728,
+      "total_bytes": 343593,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        410.7264,
+        387.3815,
+        383.34819999999996
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        805.991,
+        824.0387999999999,
+        757.562
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "28bd1f44e98a3665e9951c5233cb98d9e9b6e408cfae64ae038773b939459556",
+      "image": "indoor_0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 365779,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 365779,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        404.3451,
+        402.7832,
+        408.142
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        3258.3693,
+        3261.7905,
+        3284.3094
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "5e5975a5a7eb17f47636780b209ccfd831d5e5aff079050ee94b75597b2b0739",
+      "image": "indoor_0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 359179,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 359179,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        115.3056,
+        108.5221,
+        116.95270000000001
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        6783.8065,
+        6756.0331,
+        6748.2639
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "384ce480ec27a144eaa9987d44e22580bccbe63781d53e63a54d54b13ddd3e98",
+      "image": "indoor_0",
+      "magic_hex": "5249464694d5060057454250",
+      "note": "",
+      "payload_bytes": 447879,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 447900,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        14.1952,
+        10.463000000000001,
+        8.8224
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        586.4783,
+        653.0705999999999,
+        524.582
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "8c014197f0acd2558bc16e9b7376110709f7fd40d084df6987829475c684e6c6",
+      "image": "indoor_0",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 774958,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 775015,
+      "valid": true
+    },
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        301.6033,
+        300.3958,
+        306.84099999999995
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        299.4636,
+        298.3795,
+        298.1668
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "a9a685235028c4326658857c4030fc52568fae61caa9489d6f76e28c8cc2d834",
+      "image": "portrait_0",
+      "magic_hex": "89504b320100030200040000",
+      "note": "",
+      "payload_bytes": 393129,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 3145728,
+      "total_bytes": 393153,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        401.0531,
+        398.2045,
+        397.25899999999996
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        781.0392,
+        778.0119,
+        793.4638000000001
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "18a39fe8191e09ea1a9b76449dddb30b2e8883f2ecf1459c29979535dd3cc2a0",
+      "image": "portrait_0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 398485,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 398485,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        416.7942,
+        430.74760000000003,
+        423.8573
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        3213.9518,
+        3148.7039999999997,
+        3156.0386
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "ef1beced5abaedaae25b148e682d125ee07df1b2bd975e43907b52a818a14cc4",
+      "image": "portrait_0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 390589,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 390589,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        137.039,
+        166.7897,
+        109.12689999999999
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        12875.607199999999,
+        11975.9279,
+        10312.314199999999
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "2ce051439e6a273e7177456c59622101c97ab6412f9e462bcb8d5e6c155d9330",
+      "image": "portrait_0",
+      "magic_hex": "524946460060070057454250",
+      "note": "",
+      "payload_bytes": 483316,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 483336,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        8.9501,
+        8.935,
+        9.5136
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        692.6261000000001,
+        690.3596,
+        727.869
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "3fc0cec2315def1f17b36c8f9c145529f6a3541132a003324c4fb5bfe04b498f",
+      "image": "portrait_0",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 880214,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 880271,
+      "valid": true
+    },
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        391.384,
+        395.5034,
+        392.1838
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        392.4826,
+        392.5442,
+        389.3505
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "be1aba3ccdde135a85c67687a149c4b806e7f249417b9c15dd0207e332b31f73",
+      "image": "pet_0",
+      "magic_hex": "89504b320100030200040000",
+      "note": "",
+      "payload_bytes": 724445,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 3145728,
+      "total_bytes": 724469,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        420.165,
+        417.7938,
+        411.9879
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        1097.4256,
+        965.0644000000001,
+        950.4473
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "09ed3c5bac93604d0cff69914382fbfc9434ba6f89a501d938dabb8132d23b4a",
+      "image": "pet_0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 709641,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 709641,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        461.17,
+        453.26939999999996,
+        463.95120000000003
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        3378.6078,
+        3466.2359,
+        3399.9096
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "966249dd828094578888deadd560eaffea8018e8c55dea6156e1bbe2269a7997",
+      "image": "pet_0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 698480,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 698480,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        127.4873,
+        132.38320000000002,
+        132.927
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        8755.4956,
+        8530.1106,
+        9281.3982
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "0c3b8ae6c82adf553a7a2fd1e466dad07d9131e38c15e2f8ab47595a526aff98",
+      "image": "pet_0",
+      "magic_hex": "52494646c6e90d0057454250",
+      "note": "",
+      "payload_bytes": 911802,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 911822,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        10.3306,
+        10.7652,
+        10.3313
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        567.1728,
+        551.6094,
+        551.9749
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "f500087fbad7d4eeecc1971ce446a7dfe6d8e644fd2c57f706c0eb8e3df76bfd",
+      "image": "pet_0",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 1279351,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1279408,
+      "valid": true
+    },
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        319.9116,
+        330.1901,
+        328.7586
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        315.71320000000003,
+        321.2794,
+        316.79
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "496c0ef6291da18c769b2dbe188a390ec6e132c9489f6a9037cc4f1660f3954c",
+      "image": "pet2_1",
+      "magic_hex": "89504b320100030200040000",
+      "note": "",
+      "payload_bytes": 479604,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 3145728,
+      "total_bytes": 479628,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        431.2145,
+        415.196,
+        425.2709
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        864.4983000000001,
+        859.6238000000001,
+        853.6654
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "aad2559efd76acc510b657a1cefa581b382722881a727a777f04eefb89b856a5",
+      "image": "pet2_1",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 495526,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 495526,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        446.1395,
+        456.86139999999995,
+        585.4842
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        3451.3803,
+        3425.8873,
+        4927.808599999999
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "5e3cea0e179bf3d3bf41ea498c50543101ae773ed53d8ff134d94c103d5303b1",
+      "image": "pet2_1",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 488803,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 488803,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        121.5977,
+        117.6562,
+        136.9418
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        11870.765800000001,
+        10792.0157,
+        12528.042899999999
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "adb377b72c9371de51185ef02246b32015b6e5095080e7ea9a771455efc9e352",
+      "image": "pet2_1",
+      "magic_hex": "52494646f435090057454250",
+      "note": "",
+      "payload_bytes": 603624,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 603644,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        18.2253,
+        16.8986,
+        18.298
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        1236.5121000000001,
+        923.8428,
+        1123.3481000000002
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "aa916c09f4525eaa68a95861b7ab2bb22bd4efc5ac5ba371d0dbbcf367a27ae0",
+      "image": "pet2_1",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 983615,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 983672,
+      "valid": true
+    },
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        1126.1848,
+        1385.2311,
+        1829.5738
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        1240.6344,
+        1313.3507,
+        1536.4571
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "968bd7280bcbfd59fb2f368141bd9a5339925295766c924e27290fdbfc63eec5",
+      "image": "food_0",
+      "magic_hex": "89504b320100030200040000",
+      "note": "",
+      "payload_bytes": 1255132,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 3145728,
+      "total_bytes": 1255156,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        704.9592,
+        626.8471,
+        947.3996
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        2405.1866999999997,
+        1724.1676,
+        1699.0851999999998
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "63d5301a3470038c7a2f069527170ed5467b5e7fd3e8901e084c606a8f490206",
+      "image": "food_0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 1264540,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1264540,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        603.8896,
+        459.86379999999997,
+        872.4778
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        9777.5886,
+        7026.7295,
+        7845.01
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "6cdb853ee2a09867dce3f1214c26cf7ffc47b9e1750ca63e355f3f2e1fcea1e2",
+      "image": "food_0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 1255067,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1255067,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        1347.9745,
+        182.0009,
+        152.805
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        24954.2958,
+        12296.1078,
+        9130.9697
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "4ebb3b8e49f470100642d4c4344a5d49f7ff0d48c6d7d404322da5a1ee1001e0",
+      "image": "food_0",
+      "magic_hex": "524946464260150057454250",
+      "note": "",
+      "payload_bytes": 1400885,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1400906,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        15.816299999999998,
+        15.4068,
+        15.3863
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        213.3759,
+        210.7625,
+        201.0178
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "6a81e615e6660f4cff600603226e359c8ff7ba76b7becf7cc2fe75e6c9bc2d34",
+      "image": "food_0",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 1996033,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1996090,
+      "valid": true
+    },
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        557.6999999999999,
+        632.3722,
+        637.6446
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        552.6272,
+        552.2975,
+        614.6802
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "bcc2f4eb1dc85768933f0437a1d1eb9986abd32f3511750d9cc3672a435d9fa4",
+      "image": "foliage_0",
+      "magic_hex": "89504b320100030200040000",
+      "note": "",
+      "payload_bytes": 1178391,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 3145728,
+      "total_bytes": 1178415,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        539.4666,
+        552.4118,
+        556.1341
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        1445.3229000000001,
+        1497.3241,
+        1488.2132000000001
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "3667d8ce6950a9800c88d78c0f3113b9031757240c8a598eae5ba77998608da2",
+      "image": "foliage_0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 1184936,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1184936,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        593.3319,
+        587.8371,
+        600.3697999999999
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        5139.3576,
+        5162.491,
+        5238.4511
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "cab872a7d05a696c3f5973e219e4ae0e3061f51e3bfb5ec3dba45d97b3191445",
+      "image": "foliage_0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 1180499,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1180499,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        149.29590000000002,
+        139.7771,
+        125.29950000000001
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        8588.182700000001,
+        12850.167300000001,
+        17603.2897
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "230dd4255ebd24868846cd4c1e9391fcca39a35b5b61aeb97c26ed93520840e5",
+      "image": "foliage_0",
+      "magic_hex": "5249464610b6140057454250",
+      "note": "",
+      "payload_bytes": 1357316,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1357336,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        25.2946,
+        20.7806,
+        30.004800000000003
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        302.2017,
+        301.45860000000005,
+        308.41020000000003
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "795df2621522aa266d071d5ab0045a7c8d72d5bbf14901db66e15868f7a69d00",
+      "image": "foliage_0",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 2016273,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 2016330,
+      "valid": true
+    },
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        1310.7441,
+        1433.8284999999998,
+        1400.7622
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        1466.2091,
+        1354.1114,
+        1272.9711
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "b15ab057fe3eebe9d80d781a69bb3a240ce5f85274786a3450dc802fd0fdc63c",
+      "image": "night_0",
+      "magic_hex": "89504b320100030200040000",
+      "note": "",
+      "payload_bytes": 1911476,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 3145728,
+      "total_bytes": 1911500,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        802.2321999999999,
+        1519.4217,
+        671.7972
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        2189.0625,
+        2712.2657,
+        3452.6756
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "fccc1f214adedace1b99147427f118f01b6beaee14c3c44b58b24cea97b92ba5",
+      "image": "night_0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 1881297,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1881297,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        641.204,
+        915.6202,
+        610.2759
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        11704.194599999999,
+        12798.3476,
+        12537.6354
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "fe09b21b4c8ce1cc3ef15df7ed63df6623ebd25a674b4df76e5a78175f63bedf",
+      "image": "night_0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 1891057,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1891057,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        139.77800000000002,
+        128.9684,
+        138.1157
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        16862.271,
+        15973.175599999999,
+        15954.5041
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "05af417c0ed2e7889cf72601c5429ef049b0debef78602bb4a395f0f3f9f8ddf",
+      "image": "night_0",
+      "magic_hex": "52494646f8801d0057454250",
+      "note": "",
+      "payload_bytes": 1933547,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1933568,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        37.4197,
+        41.174,
+        27.603099999999998
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        276.5077,
+        232.2186,
+        229.2917
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "a4ba469f2d4af861fc2fe2452ede9d5020fa6282957f5d7f45caa088e8994d98",
+      "image": "night_0",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 2290106,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 2290163,
+      "valid": true
+    },
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        716.8867,
+        743.2048,
+        696.6508
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        772.6804000000001,
+        816.604,
+        730.6550000000001
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "32187f476b34cf263dc102e432e6c11b860cbf0ab164535cc2b36801d53e76ba",
+      "image": "night_1",
+      "magic_hex": "89504b320100030200040000",
+      "note": "",
+      "payload_bytes": 612679,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 3145728,
+      "total_bytes": 612703,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        438.5751,
+        449.0343,
+        449.12669999999997
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        1060.5525,
+        1034.7108,
+        1033.7283
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "345c2542591a95ee630ec9058298daacfab7c6e3824ee58a26e494b542f421e2",
+      "image": "night_1",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 712137,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 712137,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        357.21029999999996,
+        365.8323,
+        374.3211
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        4794.8731,
+        4750.6074,
+        4761.3225999999995
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "43ac879b2de4effe00f18f5cc2b7a8f5477fb8b67cd7f4a56f42249aebb6e3c8",
+      "image": "night_1",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 701535,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 701535,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        111.4715,
+        115.19369999999999,
+        156.6799
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        10183.8303,
+        10111.9436,
+        14086.169
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "479bd45315436414cfb499302fce4af4f70d1f5b99629d21ee270ff08a7545fd",
+      "image": "night_1",
+      "magic_hex": "52494646aec50a0057454250",
+      "note": "",
+      "payload_bytes": 705953,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 705974,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        10.8947,
+        13.0442,
+        13.182599999999999
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        1306.3401999999999,
+        987.4499,
+        998.0294
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "c9f46acb24d8f9889207aeb01e2459958e25a50965521aa363e155bb242d485c",
+      "image": "night_1",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 1046099,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1046156,
+      "valid": true
+    },
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        903.378,
+        858.8071,
+        708.3056
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        956.7085,
+        748.2655,
+        948.9423
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "c1a0140ac05392ee20ee50c52967a31b06e283ad702eb0676cd713751f9adf44",
+      "image": "blurry_1",
+      "magic_hex": "89504b320100030300040000",
+      "note": "",
+      "payload_bytes": 669879,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 4194304,
+      "total_bytes": 669903,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        631.2489999999999,
+        591.5901,
+        573.167
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        1597.0795,
+        1216.0701999999999,
+        1225.6716000000001
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "7316a8b5ac1cafffa2e887ad910bdb167306af1097cd2d8f15c27f117ff30f2b",
+      "image": "blurry_1",
+      "magic_hex": "ff0afa1f012b01080810001c",
+      "note": "",
+      "payload_bytes": 667721,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 4194304,
+      "total_bytes": 667721,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        456.97339999999997,
+        473.8154,
+        512.971
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        5557.0841,
+        6847.6244,
+        5846.598199999999
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "f1bad843322515f81fa5a7bad2c86c4a237cc842fed0203dfd6198b935bbe929",
+      "image": "blurry_1",
+      "magic_hex": "ff0afa1f012b01080810001c",
+      "note": "",
+      "payload_bytes": 655667,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 4194304,
+      "total_bytes": 655667,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        122.60029999999999,
+        121.81939999999999,
+        106.887
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        12771.126600000001,
+        11622.8131,
+        10869.434
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "f4b5abe2567bb0e3a88385f2cae3312b4ef7a8d393056d8cc255bb10e8c998c4",
+      "image": "blurry_1",
+      "magic_hex": "524946468ca40c0057454250",
+      "note": "",
+      "payload_bytes": 828544,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 4194304,
+      "total_bytes": 828564,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        12.9879,
+        22.0852,
+        13.221200000000001
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        1318.578,
+        1308.3686,
+        1340.9259
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "b3453922d59d15d9e4c3bf4b446363dec706f6c554da26fcacd8e61c7b84b811",
+      "image": "blurry_1",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 1280906,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 4194304,
+      "total_bytes": 1280963,
+      "valid": true
+    },
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        383.85269999999997,
+        347.92040000000003,
+        372.1895
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        338.9214,
+        320.6306,
+        367.66110000000003
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "dfa1f5aa9d36823545b507f4381d8035d6eb86f9c571f9193f38db3b7405d9ae",
+      "image": "screen_0",
+      "magic_hex": "89504b320100030300040000",
+      "note": "",
+      "payload_bytes": 136826,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 4194304,
+      "total_bytes": 136850,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        198.99710000000002,
+        181.3388,
+        175.6431
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        358.30440000000004,
+        362.5052,
+        386.5097
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "01d2312d7e33db5bf1b8f5fe989589c0009d13540a15ddb63bd169a34d3bcebb",
+      "image": "screen_0",
+      "magic_hex": "ff0afa1f012b01080810001c",
+      "note": "",
+      "payload_bytes": 121247,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 4194304,
+      "total_bytes": 121247,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        217.83259999999999,
+        226.47510000000003,
+        238.7645
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        1538.0639999999999,
+        1503.1821,
+        1546.7058
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "387e93eb54eb5293d374d70af29d78d122ea2881e42fb3a6291603113d8a9278",
+      "image": "screen_0",
+      "magic_hex": "ff0afa1f012b01080810001c",
+      "note": "",
+      "payload_bytes": 112699,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 4194304,
+      "total_bytes": 112699,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        80.8839,
+        76.1486,
+        67.3879
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        3931.7209000000003,
+        3483.4628,
+        3466.5966
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "3e26a5bb56e3f521cb1aa409b969bf869edc726f552873c69a6a9419061823ad",
+      "image": "screen_0",
+      "magic_hex": "524946463813010057454250",
+      "note": "",
+      "payload_bytes": 70444,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 4194304,
+      "total_bytes": 70464,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        6.5987,
+        6.5165,
+        8.2805
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        196.9152,
+        163.94320000000002,
+        151.401
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "2f8c91fd1b17eed9989917ad81b61fc4ce400c674e0b2c23e16958000571e515",
+      "image": "screen_0",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 229424,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 4194304,
+      "total_bytes": 229481,
+      "valid": true
+    },
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        546.4415,
+        619.3089,
+        786.8185
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        538.1938,
+        537.0834,
+        592.7115
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "d68f88666a5f8a3b751f4c690a258bd0d9df83219df26ea4380c38aedbf0254e",
+      "image": "text_1",
+      "magic_hex": "89504b320100030200040000",
+      "note": "",
+      "payload_bytes": 1029259,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 3145728,
+      "total_bytes": 1029283,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        497.40020000000004,
+        500.6678,
+        513.0239
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        1113.7627,
+        1213.4667000000002,
+        1231.1549
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "988a158b82867832ff46d010415029e763e2bfc06c6a994ea489bbb00562fdf7",
+      "image": "text_1",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 1008865,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1008865,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        438.253,
+        461.0768,
+        482.0187
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        4770.922500000001,
+        4890.0500999999995,
+        4998.8666
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "255cf4cfbadafe3a24ffb2e99fc090423c3fc157aeb2dd851088d0e0dd365e97",
+      "image": "text_1",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 998577,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 998577,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        107.48689999999999,
+        119.3651,
+        113.1051
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        8669.7574,
+        8349.746700000002,
+        8067.309399999999
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "e305cde3de66266ff4348c036474b9b386a02b2db820e6e5f6a6cefe9f7b86d5",
+      "image": "text_1",
+      "magic_hex": "5249464632eb120057454250",
+      "note": "",
+      "payload_bytes": 1239846,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1239866,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        17.5043,
+        16.476399999999998,
+        18.1838
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        342.9237,
+        389.4625,
+        328.78659999999996
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "39da357aad6372de3932a189054964dac4cceec66e8e6819f13670f030836628",
+      "image": "text_1",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 1716189,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1716246,
+      "valid": true
+    },
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        398.24,
+        330.3612,
+        323.2197
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        383.5658,
+        401.52959999999996,
+        356.16110000000003
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "c37207163cac7c86f8dd04bcd7f6792795e47037205a7a84692853a1517cd7fb",
+      "image": "document_1",
+      "magic_hex": "89504b320100030200040000",
+      "note": "",
+      "payload_bytes": 399275,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 3145728,
+      "total_bytes": 399299,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        343.28979999999996,
+        425.75629999999995,
+        449.0611
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        692.2672,
+        708.5188,
+        922.9971999999999
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "dafc0f19dc9e4b5b329189bc5221a4b3eb463916b2c239a2fb17041854e7c3ae",
+      "image": "document_1",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 426214,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 426214,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        391.2719,
+        354.2067,
+        392.4422
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        3498.6536,
+        3731.4802999999997,
+        3415.8255999999997
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "8a3415074b625268bc29d6ffe27040eba3e8401c854900728d577ae3370ecf1d",
+      "image": "document_1",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 413808,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 413808,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        87.36670000000001,
+        108.35340000000001,
+        107.0702
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        7368.3562,
+        6831.0143,
+        7066.948899999999
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "19b533628318ba202548ebc3980519449ab6bf6ad6b89dddf7119d48f5211841",
+      "image": "document_1",
+      "magic_hex": "52494646ac66070057454250",
+      "note": "",
+      "payload_bytes": 485024,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 485044,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        10.9905,
+        10.5878,
+        10.2331
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        903.4427000000001,
+        983.6253,
+        892.2879
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "3201358f044321f14a36d832542207c8950c1f9937fed8c092359a6cd781c371",
+      "image": "document_1",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 796686,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 796743,
+      "valid": true
+    },
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        446.6761,
+        344.8066,
+        402.6959
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        340.4412,
+        336.9069,
+        413.5185
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "88bebabe0dabaf93051c8575ad2ce0f604af5604dcfeb55deef6f5a2d0a6279f",
+      "image": "clouds_n0",
+      "magic_hex": "89504b320100030200040000",
+      "note": "",
+      "payload_bytes": 445849,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 3145728,
+      "total_bytes": 445873,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        361.9164,
+        377.4534,
+        373.3198
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        780.9861,
+        918.804,
+        902.6054999999999
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "e4680b270788d10fa249b8d0cc52e008f26b7bd861224fc0c96414220f89d6db",
+      "image": "clouds_n0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 570294,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 570294,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        325.9101,
+        395.57120000000003,
+        329.4769
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        4201.542100000001,
+        3633.0134,
+        3873.3642
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "26e63f11962d58feca4403ab0757508d4975c7a711ddc004c05cc36c8b47a8e4",
+      "image": "clouds_n0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 557863,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 557863,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        106.9401,
+        100.892,
+        96.5137
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        11435.392399999999,
+        9476.4067,
+        9594.374800000001
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "3d6414291fe35fcbc2d6c5b0f62affa2be75d5aa31d7683512fc58d13a14beea",
+      "image": "clouds_n0",
+      "magic_hex": "524946463a26080057454250",
+      "note": "",
+      "payload_bytes": 534062,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 534082,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        15.412500000000001,
+        10.5485,
+        11.1486
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        936.8391,
+        937.5609999999999,
+        878.6555000000001
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "5e01adfce769dddb38dabc8948ce184ac10dd39e86c55710c7153cdcbc133df3",
+      "image": "clouds_n0",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 915428,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 915485,
+      "valid": true
+    },
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        312.93989999999997,
+        350.5543,
+        348.08889999999997
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        366.7919,
+        367.5915,
+        315.9871
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "512098bbd9b0d463bf707422fc22cade93eab10037afda2ae20a79100aabeeba",
+      "image": "skyline_n0",
+      "magic_hex": "89504b320100030200040000",
+      "note": "",
+      "payload_bytes": 323183,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 3145728,
+      "total_bytes": 323207,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        361.04190000000006,
+        397.5861,
+        405.08529999999996
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        748.2562,
+        854.1892,
+        953.2842
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "ebc735b8210ce14ba596673d2ae9f50aa5e56a7a5294ac24e7b1690c0e64ddb3",
+      "image": "skyline_n0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 464276,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 464276,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        681.3951000000001,
+        376.8559,
+        350.13169999999997
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        8017.576,
+        5371.936,
+        4753.9686
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "041b389c1831588cc48c46f3b7a08a8fb24183706aec5837be9f00085347f81d",
+      "image": "skyline_n0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 454777,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 454777,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        94.3314,
+        94.4532,
+        102.56949999999999
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        7858.977000000001,
+        7676.155,
+        8110.075500000001
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "efd845133285cfbf8efcb033bcaec5f8eea3ceac928b4c3df65007afce54c233",
+      "image": "skyline_n0",
+      "magic_hex": "524946467226060057454250",
+      "note": "",
+      "payload_bytes": 403046,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 403066,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        12.1447,
+        9.4824,
+        9.6881
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        952.6826000000001,
+        944.5217,
+        964.5276
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "16c0b54354ff21650c30a563370489b5870e34db457f7a9e7d28fc7110f87739",
+      "image": "skyline_n0",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 690952,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 691009,
+      "valid": true
+    },
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        662.9755,
+        848.701,
+        558.6517
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        608.1687000000001,
+        934.0522,
+        602.9454
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "adeae7e49218ce751f5223a96521ebaee75a31531757ad9ea0bd393340ee9f60",
+      "image": "sunset_n0",
+      "magic_hex": "89504b320100030200040000",
+      "note": "",
+      "payload_bytes": 892138,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 3145728,
+      "total_bytes": 892162,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        547.1654,
+        557.0310000000001,
+        529.3941
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        1204.4937,
+        1345.3833,
+        1198.3073
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "72c530c2d1f541990d14742281faaa86e4fda954f0918ba3ead271d10610236f",
+      "image": "sunset_n0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 913743,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 913743,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        482.36069999999995,
+        447.72659999999996,
+        436.3636
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        4541.6187,
+        5136.647800000001,
+        4276.439899999999
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "ce24c1f9bc3d05fcbdcd4b8e4e15e7f64756a83bf6f103643cc702657229cee0",
+      "image": "sunset_n0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 903717,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 903717,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        113.7063,
+        108.6412,
+        139.079
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        8455.1006,
+        9346.8351,
+        12342.9552
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "9f53b295a7cdbcfebfe08d82d23c1a5aa68fbd2bfd01fd327b20209eb7a893ec",
+      "image": "sunset_n0",
+      "magic_hex": "5249464674d70f0057454250",
+      "note": "",
+      "payload_bytes": 1038183,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1038204,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        33.5542,
+        30.900299999999998,
+        34.4095
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        1007.7758000000001,
+        1150.1833,
+        1300.8011
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "13548fb557e6710fbdc29f390bd7ca70389ad30ae80ca06833038c3c497b6a14",
+      "image": "sunset_n0",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 1347434,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1347491,
+      "valid": true
+    },
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        1328.0332,
+        1077.3528,
+        898.6107
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        1157.8744000000002,
+        841.3146,
+        1371.1617
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "525c93440704aaabef9134ae900a76e99c29370012a0c42cd1578f5b94600f20",
+      "image": "snow_n0",
+      "magic_hex": "89504b320100030200040000",
+      "note": "",
+      "payload_bytes": 1223539,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 3145728,
+      "total_bytes": 1223563,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        506.8550000000001,
+        511.6187,
+        516.1962
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        1296.284,
+        1292.2087,
+        1277.7684
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "c261da0ea7a9445d5a522e52f14cc456973a6be4c9910d6025acce01fe30ce36",
+      "image": "snow_n0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 1252009,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1252009,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        529.6113,
+        476.8335,
+        450.7062
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        6257.4893999999995,
+        5575.5694,
+        5551.0092
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "7b56d996860cc85d8ef1dd9f769ec762b0a6f678d575da460ebae94bfa28da04",
+      "image": "snow_n0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 1248716,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1248716,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        122.41390000000001,
+        131.87650000000002,
+        125.1423
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        9760.6476,
+        10406.3429,
+        11043.3063
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "f5b99e28357edaf5820c079457b05dd04c33c8be3240197198466131173175ec",
+      "image": "snow_n0",
+      "magic_hex": "524946466e74140057454250",
+      "note": "",
+      "payload_bytes": 1340514,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1340534,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        14.899000000000001,
+        14.8233,
+        17.8294
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        616.1063,
+        596.8135,
+        632.668
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "94a10793cb210ec75913becc70036cb05ab80bfa1712df84e90b28bda38f012f",
+      "image": "snow_n0",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 1776379,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1776436,
+      "valid": true
+    },
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        980.5713999999999,
+        807.2621,
+        845.398
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        814.5289,
+        875.0767000000001,
+        783.5952000000001
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "aac5c81184bd145eeda2f4a6c22a28e573fc3a701137c58c580f57c8cfd8a99c",
+      "image": "path_n0",
+      "magic_hex": "89504b320100030200040000",
+      "note": "",
+      "payload_bytes": 1703408,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 3145728,
+      "total_bytes": 1703432,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        695.6094,
+        583.795,
+        598.5129999999999
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        1538.0619,
+        1723.4954999999998,
+        1571.9786
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "43fb3aeed8bf31302be9b189e567391d19f55a4f9e777e5dcff624dca08e4174",
+      "image": "path_n0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 1713272,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1713272,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        525.5391000000001,
+        513.0,
+        501.4242
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        6946.2255,
+        8406.9315,
+        7205.5593
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "e5cbee36d65bb536c7b28da314517cbb84bd06963ee830efc046df67ade1ea4f",
+      "image": "path_n0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 1717184,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1717184,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        131.0543,
+        156.82489999999999,
+        134.90779999999998
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        8428.1702,
+        10484.3627,
+        9603.7992
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "075b378720acce15005999a5bf4439027b33d80151e8c52212efe8115884f387",
+      "image": "path_n0",
+      "magic_hex": "52494646cea51b0057454250",
+      "note": "",
+      "payload_bytes": 1811906,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1811926,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        16.944399999999998,
+        16.2986,
+        31.2825
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        130.4321,
+        134.55900000000003,
+        147.1935
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "d8c73d459d3c0faebf098adba570874272ef090a04f0715b5f60c0197bece276",
+      "image": "path_n0",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 2439433,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 2439490,
+      "valid": true
+    },
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        496.594,
+        463.2431,
+        586.5981999999999
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        477.1987,
+        468.528,
+        414.505
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "9a8715d0ee12d9601ab375cb43404e24b7ce3e4dda6617fb5c78da643a2150ad",
+      "image": "building_n0",
+      "magic_hex": "89504b320100030200040000",
+      "note": "",
+      "payload_bytes": 684520,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 3145728,
+      "total_bytes": 684544,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        493.5564,
+        488.5183,
+        496.0414
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        934.1549,
+        1067.9015000000002,
+        1081.6768
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "b5ccd74b5aa9ddbf6304b106b04cbe021dbdb7ae3311ff36431b14e1c23fd2bd",
+      "image": "building_n0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 717273,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 717273,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        423.7083,
+        434.0851,
+        432.3588
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        4839.7036,
+        4539.8802,
+        4508.9687
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "3a942adf9c2bcf6355011067c575e3df808c84f4065fe66a1a124e61ca4f59c7",
+      "image": "building_n0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 708820,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 708820,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        111.5042,
+        102.2103,
+        143.1808
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        11059.5296,
+        11077.348,
+        13568.5217
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "454857588f979e9887bcbf49ca08a36d06823523ab01ac7012eef5371a998c82",
+      "image": "building_n0",
+      "magic_hex": "52494646e4860c0057454250",
+      "note": "",
+      "payload_bytes": 820952,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 820972,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        13.3609,
+        14.7195,
+        26.1965
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        1028.2137,
+        1114.9215,
+        1337.5783999999999
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "ccc5cfea9309df416db427874c8f5fb364ac91afe84a5bb4d4a25d3d8aba6f4e",
+      "image": "building_n0",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 1145001,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1145058,
+      "valid": true
+    },
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        579.4023000000001,
+        929.3772,
+        990.9934999999999
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        574.5695,
+        585.6905,
+        888.4364
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "f5bbc355b7bc7fb4e993e18f79228e1022a657b7cc8bc54193dfba940f8709e3",
+      "image": "church_n0",
+      "magic_hex": "89504b320100030200040000",
+      "note": "",
+      "payload_bytes": 714206,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 3145728,
+      "total_bytes": 714230,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        467.8647,
+        500.3078,
+        538.3731
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        1096.2874,
+        1128.1046,
+        1088.3886
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "2af5e3502d94040f539d4dff7e44b3fbe6fdcceb101cf861f18b882f472f00a3",
+      "image": "church_n0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 729588,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 729588,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        543.7558,
+        426.63030000000003,
+        420.9293
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        4807.3285,
+        4869.7182,
+        4655.8211
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "a9f9ce5bfc7d791356a6abe7bad4f0acebfe0fcaad070962d75f5e4a57616da4",
+      "image": "church_n0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 724747,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 724747,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        99.1186,
+        99.9273,
+        174.30519999999999
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        12083.686399999999,
+        12109.8542,
+        13893.503499999999
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "bc1a1b243ba7734ec6b5a62b3cc6a996a4172bb121e0b66bdc3746258e68bea9",
+      "image": "church_n0",
+      "magic_hex": "52494646f2d70c0057454250",
+      "note": "",
+      "payload_bytes": 841702,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 841722,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        15.1337,
+        13.587800000000001,
+        12.745899999999999
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        753.9074999999999,
+        601.947,
+        542.4281
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "5cb550742cc384bd8a565a1f7f03a26f8cd24b78389146694ce7e59eb278266b",
+      "image": "church_n0",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 1420137,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1420194,
+      "valid": true
+    },
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        308.7835,
+        336.7281,
+        326.1297
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        309.10310000000004,
+        335.4257,
+        330.5961
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "c2305bf0d3e19884aa8e218276902f3cdc4cc3bc20f798b9f85dbdcebd615c14",
+      "image": "child_n0",
+      "magic_hex": "89504b320100030200040000",
+      "note": "",
+      "payload_bytes": 403037,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 3145728,
+      "total_bytes": 403061,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        454.2198,
+        472.7747,
+        518.6471
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        872.3419,
+        900.7211000000001,
+        1044.2225
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "35d9dd3679d9d7f292015c4c90617ebbe2b40a1328a2529e3d1dd227c17b7188",
+      "image": "child_n0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 416191,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 416191,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        490.4208,
+        517.5634,
+        622.2475
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        3826.5699,
+        3723.8571,
+        4226.4003
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "107dd354ab6087376ab932827bc5a515fe6548bdd336907d7c2c098e5c134580",
+      "image": "child_n0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 412043,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 412043,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        113.47200000000001,
+        134.0937,
+        119.3469
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        11688.969500000001,
+        8610.517899999999,
+        9645.8053
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "3dd89eabac4229280986a639238750c68cb414a3a8e39d159386b9176a28d0e1",
+      "image": "child_n0",
+      "magic_hex": "524946464ac7070057454250",
+      "note": "",
+      "payload_bytes": 509757,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 509778,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        14.9561,
+        10.8863,
+        18.7259
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        1454.056,
+        1210.0661,
+        1535.2002
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "151f3c66cb5e5149d0384b6d89e30fbc632992961af5555729ba657a87a46a6c",
+      "image": "child_n0",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 857886,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 857943,
+      "valid": true
+    },
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        411.6047,
+        406.3373,
+        361.2063
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        473.4575,
+        466.0455,
+        315.5133
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "8e07189a7f0015999bb66c30661297fd4e5aeed479f62c2d0bc2c2248bfc773b",
+      "image": "woman_n0",
+      "magic_hex": "89504b320100030200040000",
+      "note": "",
+      "payload_bytes": 333677,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 3145728,
+      "total_bytes": 333701,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        803.7265,
+        463.85470000000004,
+        477.02889999999996
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        1735.3477000000003,
+        961.0339,
+        823.6646
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "364640a34ec0e11536071ee19973bd98d4b9ad608c2b2fdd70f8fc924e61e008",
+      "image": "woman_n0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 367893,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 367893,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        420.6016,
+        509.99899999999997,
+        412.76
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        4259.8494,
+        5311.1452,
+        5476.9843
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "2f5f2ad30ab93af9738b8f0fa9e13add8af079be3342c066d4768764eb9ff5c8",
+      "image": "woman_n0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 361013,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 361013,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        95.9397,
+        94.8645,
+        94.23429999999999
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        9229.1335,
+        6491.8253,
+        6492.1575
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "daae6d7db989e7c40703632037c88926c1c689549cb2e2afdab732ca42dfd4d6",
+      "image": "woman_n0",
+      "magic_hex": "524946469a00060057454250",
+      "note": "",
+      "payload_bytes": 393358,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 393378,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        9.1326,
+        9.255799999999999,
+        11.0619
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        420.92289999999997,
+        430.9491,
+        417.41319999999996
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "8ab0d8d9873b2beaa8de7024104cb89ee6b687e49b47dcbca42d8b57c2ba8612",
+      "image": "woman_n0",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 597230,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 597287,
+      "valid": true
+    },
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        367.09069999999997,
+        392.69120000000004,
+        350.71750000000003
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        380.39050000000003,
+        350.3517,
+        331.4719
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "3f744f76fdae72496ca04b626a17278630770842b73a5f5be818ca2003376bba",
+      "image": "bird_n0",
+      "magic_hex": "89504b320100030200040000",
+      "note": "",
+      "payload_bytes": 330054,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 3145728,
+      "total_bytes": 330078,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        408.29339999999996,
+        451.1523,
+        477.3941
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        722.2529,
+        865.6038,
+        872.4060000000001
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "8dd9d19725da3147e6d6216bbb638e660369028e2b3eafd133b4f34707a65654",
+      "image": "bird_n0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 344952,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 344952,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        478.0607,
+        387.2108,
+        382.472
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        4156.8455,
+        3846.0764,
+        3885.3379999999997
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "d104c2de8a965b9455951e306a733f349cda0d037d8ccbfe4408847e3d8b8f77",
+      "image": "bird_n0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 334976,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 334976,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        94.93740000000001,
+        94.5387,
+        94.7247
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        12015.4678,
+        10967.7085,
+        11710.240300000001
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "642a09d644b88e85a38ead78316dfd14e92a1d056d328a4d0473fee2e19baa5f",
+      "image": "bird_n0",
+      "magic_hex": "524946464832060057454250",
+      "note": "",
+      "payload_bytes": 406076,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 406096,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        29.46,
+        13.7185,
+        26.927699999999998
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        879.0667,
+        944.5924,
+        1248.0073
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "01a1f441413cc16835dfa613f3ffc5ca4934ca168181a7371f45f008dcf0693d",
+      "image": "bird_n0",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 752725,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 752782,
+      "valid": true
+    },
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        567.7601,
+        645.1054,
+        569.2501
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        612.0463000000001,
+        654.1065,
+        551.2759000000001
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "24513d7e702cba2b21280b6a03226f84a94a0c1bb667279298dffd968d4df2a5",
+      "image": "waterfall_n0",
+      "magic_hex": "89504b320100030200040000",
+      "note": "",
+      "payload_bytes": 1026410,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 3145728,
+      "total_bytes": 1026434,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        587.8907,
+        594.2361999999999,
+        541.6752
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        1233.324,
+        1333.3419,
+        1308.7285
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "14b24e8229050f0ea0baaba623077ac556374f5b100ba1a9bbc730fef8bef196",
+      "image": "waterfall_n0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 1061597,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1061597,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        468.67449999999997,
+        470.895,
+        473.291
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        5557.739,
+        6114.4307,
+        5607.375400000001
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "1f1f185637aa04ccac173514cada2457e28c3808caf969ddbfb5c464e3704511",
+      "image": "waterfall_n0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 1055859,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1055859,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        120.23910000000001,
+        132.2664,
+        118.3512
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        10384.3941,
+        12870.4208,
+        12717.187
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "d9cb40e051499a5e9e8dd8c88dbe635ead9c108ed60568de0a1bca5b222d1b53",
+      "image": "waterfall_n0",
+      "magic_hex": "5249464612ef110057454250",
+      "note": "",
+      "payload_bytes": 1175302,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1175322,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        14.969,
+        13.7651,
+        13.809999999999999
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        550.9013,
+        611.3135,
+        598.3217
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "141b4fe3219a9b3ef11860d3fcde9821de8017c4857442eea6da59011e9ab45b",
+      "image": "waterfall_n0",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 1518705,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1518762,
+      "valid": true
+    },
+    {
+      "codec": "pkon2-file",
+      "dec_ms_reps": [
+        543.0144,
+        600.1295,
+        600.2971
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        544.8642,
+        572.3772,
+        495.73080000000004
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "8ebaecb853d43414e9d985f68007d2be1c0233882bb3749e9f4bd31b95979b3b",
+      "image": "lake_n0",
+      "magic_hex": "89504b320100030200040000",
+      "note": "",
+      "payload_bytes": 829565,
+      "pixels": 1048576,
+      "pkon2_codec_id": 3,
+      "pkon2_metadata_ok": true,
+      "raw_bytes": 3145728,
+      "total_bytes": 829589,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e7-t1",
+      "dec_ms_reps": [
+        479.7737,
+        462.6941,
+        463.58349999999996
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        1145.6818,
+        1129.537,
+        1097.2112
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "4863a0d5ac60f1d5967e0a08694879c946b07eeb75cb34bbc1f2a3266dc31aee",
+      "image": "lake_n0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 852564,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 852564,
+      "valid": true
+    },
+    {
+      "codec": "jxl-e9-t1",
+      "dec_ms_reps": [
+        400.846,
+        404.8552,
+        402.9235
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        4811.1975,
+        4809.6977,
+        5200.7285
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "ae3deb993ca643b7a82ada306330adc70cf86f4ba8e1d71267ded22c0cac0c0b",
+      "image": "lake_n0",
+      "magic_hex": "ff0afa1f0191080201001c00",
+      "note": "",
+      "payload_bytes": 846434,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 846434,
+      "valid": true
+    },
+    {
+      "codec": "webp-m6-t1",
+      "dec_ms_reps": [
+        110.9255,
+        119.96610000000001,
+        112.086
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        10327.2213,
+        11679.378400000001,
+        13030.1677
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "ab6620559f7574f53e79ada7d84cbaa1cf014e4b19724ba192158d891f4d297f",
+      "image": "lake_n0",
+      "magic_hex": "52494646ccd60e0057454250",
+      "note": "",
+      "payload_bytes": 972479,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 972500,
+      "valid": true
+    },
+    {
+      "codec": "png-rs",
+      "dec_ms_reps": [
+        15.2827,
+        17.8902,
+        15.509500000000001
+      ],
+      "deterministic": true,
+      "enc_ms_reps": [
+        514.1252,
+        498.3259,
+        467.06199999999995
+      ],
+      "exact_all_reps": true,
+      "file_sha256": "b38df1a1c36fb3d1316bb2d0f768e1c30b1b4c2313a0862da6672597f49a305d",
+      "image": "lake_n0",
+      "magic_hex": "89504e470d0a1a0a0000000d",
+      "note": "",
+      "payload_bytes": 1491813,
+      "pixels": 1048576,
+      "pkon2_codec_id": null,
+      "pkon2_metadata_ok": null,
+      "raw_bytes": 3145728,
+      "total_bytes": 1491870,
+      "valid": true
+    }
+  ]
+}
