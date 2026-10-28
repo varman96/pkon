@@ -1,0 +1,28 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>PKON converter</title>
+<body style="font-family:sans-serif;max-width:40em;margin:2em auto">
+<h2>PKON converter (local)</h2>
+<p><b>Image → .pkon</b> (PNG or JPEG, 8-bit)</p>
+<input type="file" id="img" accept=".png,.jpg,.jpeg,image/png,image/jpeg">
+<button onclick="go('convert','img','.pkon')">Convert to PKON</button>
+<p><b>.pkon → PNG</b></p>
+<input type="file" id="pk" accept=".pkon,.pkon2">
+<button onclick="go('restore','pk','.png')">Restore to PNG</button>
+<p id="status"></p>
+<script>
+async function go(op, id, ext) {
+  const st = document.getElementById('status'), f = document.getElementById(id).files[0];
+  if (!f) { st.textContent = 'Choose a file first.'; return; }
+  st.textContent = 'Processing ' + f.name + ' (' + f.size + ' bytes)... large images can take a while.';
+  try {
+    const r = await fetch('/' + op, { method: 'POST', body: f });
+    if (!r.ok) { st.textContent = 'Error: ' + await r.text(); return; }
+    const b = await r.blob(), name = f.name.replace(/\.[^.]*$/, '') + ext;
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(b); a.download = name; a.textContent = 'Download ' + name;
+    st.textContent = 'Done: ' + r.headers.get('X-Info') + '. Input ' + f.size + ' bytes → output ' + b.size + ' bytes. ';
+    st.appendChild(a);
+  } catch (e) { st.textContent = 'Error: ' + e; }
+}
+</script>

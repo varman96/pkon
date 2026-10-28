@@ -144,7 +144,11 @@ impl Canonical {
     /// float/32-bit pixel types. Only PNG decoding is compiled in; add `image` features
     /// when external corpora need other formats.
     pub fn load(path: &Path) -> Result<Self, String> {
-        let file_bytes = std::fs::read(path).map_err(|e| e.to_string())?;
+        Self::load_bytes(std::fs::read(path).map_err(|e| e.to_string())?)
+    }
+
+    /// Like `load`, from the complete bytes of an image file (format guessed from content).
+    pub fn load_bytes(file_bytes: Vec<u8>) -> Result<Self, String> {
         let mut notes = vec![];
         // The decoder expands palette / <8-bit images; flag that, because it is a
         // representation change (exact for palette, scaled for low-bit gray).
