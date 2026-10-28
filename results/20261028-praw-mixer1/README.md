@@ -1,0 +1,2 @@
+Experiment: PRAW adaptive probability mixer (src/praw_mixer.rs, runner src/bin/exp_praw_mixer.rs).
+Run: exp_praw_mixer results/20261028-praw-bench1/dataset_manifest.json results/20261028-praw-bench1/praw_results.json results/20261028-praw-bench1/baseline_results.json results/20261028-praw-cloud1/results.json results/20261028-praw-mixer1/results.json pentax_q7_cat pentax_kx_lichen parrot_anafi_dusk

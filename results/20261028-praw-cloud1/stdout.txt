@@ -1,0 +1,3 @@
+pentax_q7_cat: payload 11468880 B hdr 26 B total 11468906 exact=true enc 5.2s dec 19.7s esc 277419 (2.2754%) ideal 11087551 B tree + 381325 B tail rejects=[("payload_truncated_1_byte_header_unchanged", true), ("payload_halved_header_fixed_up", true), ("bad_magic", true), ("bad_mode", true), ("bad_count", true), ("shorter_than_header", true), ("trailing_byte", true)]
+pentax_kx_lichen: payload 12175146 B hdr 26 B total 12175172 exact=true enc 5.2s dec 17.6s esc 70238 (0.5627%) ideal 12064111 B tree + 111031 B tail rejects=[]
+parrot_anafi_dusk: payload 27203831 B hdr 26 B total 27203857 exact=true enc 8.8s dec 29.8s esc 3534982 (16.4713%) ideal 22101331 B tree + 5102497 B tail rejects=[]

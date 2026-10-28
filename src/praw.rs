@@ -145,22 +145,55 @@ const NNE: Off = (1, -2);
 const E: Off = (1, 0);
 const S: Off = (0, 1);
 
-struct Pattern {
-    needs: &'static [Off],
-    eval: fn(&dyn Fn(Off) -> i32) -> i32,
-}
+/// Neighbour slots of a [`Window`]; the bit of slot `k` in `Window::mask` is `1 << k`.
+const SLOTS: [Off; 9] = [W, WW, N, NN, NW, NE, NNE, E, S];
+const M_W: u16 = 1;
+const M_WW: u16 = 1 << 1;
+const M_N: u16 = 1 << 2;
+const M_NN: u16 = 1 << 3;
+const M_NW: u16 = 1 << 4;
+const M_NE: u16 = 1 << 5;
+const M_NNE: u16 = 1 << 6;
+const M_E: u16 = 1 << 7;
+const M_S: u16 = 1 << 8;
+
+const NPAT: usize = 14;
+
+/// Required-neighbour masks of the candidate patterns, in fixed priority order (index = tie-break rank and fallback order).
+const NEEDS: [u16; NPAT] = [
+    M_W | M_N | M_NW,
+    M_W,
+    M_N,
+    M_W | M_N | M_NW,
+    M_W | M_N,
+    M_W | M_NE,
+    M_W | M_WW,
+    M_N | M_NN,
+    M_W | M_WW | M_N | M_NN | M_NW | M_NE | M_NNE,
+    M_W | M_E,
+    M_N | M_S,
+    M_W | M_N | M_E | M_S,
+    M_W | M_N | M_NE,
+    M_NE,
+];
 
 fn med3(a: i32, b: i32, c: i32) -> i32 {
     a.max(b).min(a.min(b).max(c))
 }
 
-/// Candidate patterns, in fixed priority order (index = tie-break rank and fallback order).
-const PATTERNS: &[Pattern] = &[
-    // 0: median edge detector (nonlinear)
-    Pattern {
-        needs: &[W, N, NW],
-        eval: |g| {
-            let (w, n, nw) = (g(W), g(N), g(NW));
+/// Reconstructed neighbours around one position, fetched once: `mask` marks available slots, `v` holds their values.
+#[derive(Clone, Copy)]
+struct Window {
+    mask: u16,
+    v: [i32; 9],
+}
+
+/// Unclamped prediction of pattern `p` from a window whose mask covers `NEEDS[p]`.
+#[inline(always)]
+fn eval(p: usize, v: &[i32; 9]) -> i32 {
+    let (w, ww, n, nn, nw, ne, nne, e, s) = (v[0], v[1], v[2], v[3], v[4], v[5], v[6], v[7], v[8]);
+    match p {
+        0 => {
             if nw >= w.max(n) {
                 w.min(n)
             } else if nw <= w.min(n) {
@@ -168,22 +201,15 @@ const PATTERNS: &[Pattern] = &[
             } else {
                 w + n - nw
             }
-        },
-    },
-    Pattern { needs: &[W], eval: |g| g(W) },
-    Pattern { needs: &[N], eval: |g| g(N) },
-    // 3: planar gradient
-    Pattern { needs: &[W, N, NW], eval: |g| g(W) + g(N) - g(NW) },
-    Pattern { needs: &[W, N], eval: |g| (g(W) + g(N) + 1) >> 1 },
-    Pattern { needs: &[W, NE], eval: |g| (g(W) + g(NE) + 1) >> 1 },
-    // 6, 7: linear extrapolation
-    Pattern { needs: &[W, WW], eval: |g| 2 * g(W) - g(WW) },
-    Pattern { needs: &[N, NN], eval: |g| 2 * g(N) - g(NN) },
-    // 8: gradient-weighted blend of W and N, weights from local gradients, fixed-point rounded division
-    Pattern {
-        needs: &[W, WW, N, NN, NW, NE, NNE],
-        eval: |g| {
-            let (w, ww, n, nn, nw, ne, nne) = (g(W), g(WW), g(N), g(NN), g(NW), g(NE), g(NNE));
+        }
+        1 => w,
+        2 => n,
+        3 => w + n - nw,
+        4 => (w + n + 1) >> 1,
+        5 => (w + ne + 1) >> 1,
+        6 => 2 * w - ww,
+        7 => 2 * n - nn,
+        8 => {
             let dh = ((w - ww).abs() + (n - nw).abs() + (n - ne).abs()) as i64;
             let dv = ((w - nw).abs() + (n - nn).abs() + (ne - nne).abs()) as i64;
             let s = dh + dv;
@@ -192,16 +218,14 @@ const PATTERNS: &[Pattern] = &[
             } else {
                 ((w as i64 * dv + n as i64 * dh + s / 2) / s) as i32
             }
-        },
-    },
-    // 9..11: interpolation from reconstructed samples on the far side (available in Morton order)
-    Pattern { needs: &[W, E], eval: |g| (g(W) + g(E) + 1) >> 1 },
-    Pattern { needs: &[N, S], eval: |g| (g(N) + g(S) + 1) >> 1 },
-    Pattern { needs: &[W, N, E, S], eval: |g| (g(W) + g(N) + g(E) + g(S) + 2) >> 2 },
-    // 12: median of three (nonlinear)
-    Pattern { needs: &[W, N, NE], eval: |g| med3(g(W), g(N), g(NE)) },
-    Pattern { needs: &[NE], eval: |g| g(NE) },
-];
+        }
+        9 => (w + e + 1) >> 1,
+        10 => (n + s + 1) >> 1,
+        11 => (w + n + e + s + 2) >> 2,
+        12 => med3(w, n, ne),
+        _ => ne,
+    }
+}
 
 /// Training positions (relative to the current sample) on which candidate patterns are replayed.
 const TRAIN: &[Off] = &[W, N, NW, NE, WW, NN, E, S, (-1, 1)];
@@ -229,8 +253,8 @@ struct State {
     maxv: i32,
     rec: Vec<u16>,
     known: Vec<bool>,
-    bias_sum: [[i32; CTX]; PATTERNS.len()],
-    bias_cnt: [[i32; CTX]; PATTERNS.len()],
+    bias_sum: [[i32; CTX]; NPAT],
+    bias_cnt: [[i32; CTX]; NPAT],
     shift: u32,
 }
 
@@ -242,10 +266,29 @@ impl State {
             maxv: (1i32 << bit_depth) - 1,
             rec: vec![0; n],
             known: vec![false; n],
-            bias_sum: [[0; CTX]; PATTERNS.len()],
-            bias_cnt: [[0; CTX]; PATTERNS.len()],
+            bias_sum: [[0; CTX]; NPAT],
+            bias_cnt: [[0; CTX]; NPAT],
             shift: (bit_depth as u32).saturating_sub(8),
         }
+    }
+
+    /// All nine neighbour slots of (x, y), each fetched once (None-equivalent: bit clear in `mask`).
+    #[inline]
+    fn window(&self, x: usize, y: usize) -> Window {
+        let mut win = Window { mask: 0, v: [0; 9] };
+        for (k, &(dx, dy)) in SLOTS.iter().enumerate() {
+            let nx = x as i64 + dx as i64;
+            let ny = y as i64 + dy as i64;
+            if nx < 0 || ny < 0 || nx >= self.w as i64 || ny >= self.h as i64 {
+                continue;
+            }
+            let i = ny as usize * self.w + nx as usize;
+            if self.known[i] {
+                win.mask |= 1 << k;
+                win.v[k] = self.rec[i] as i32;
+            }
+        }
+        win
     }
 
     /// Reconstructed value at (x+dx, y+dy), or None if outside the image or not yet reconstructed.
@@ -260,61 +303,58 @@ impl State {
         self.known[i].then(|| self.rec[i] as i32)
     }
 
-    /// Clamped prediction of pattern `p` at (x, y); None if any required neighbor is unavailable.
-    fn predict_at(&self, p: usize, x: usize, y: usize) -> Option<i32> {
-        let pat = &PATTERNS[p];
-        if pat.needs.iter().any(|&o| self.fetch(x, y, o).is_none()) {
-            return None;
-        }
-        let g = |o: Off| self.fetch(x, y, o).unwrap_or(0);
-        Some((pat.eval)(&g).clamp(0, self.maxv))
-    }
-
-    /// Residual-entropy proxy of pattern `p` replayed on the training set; None if no training sample is scorable.
-    fn score(&self, p: usize, x: usize, y: usize) -> Option<u64> {
-        let mut cost = 0u64;
-        let mut terms = 0u32;
-        for &(dx, dy) in TRAIN {
-            let Some(actual) = self.fetch(x, y, (dx, dy)) else { continue };
-            let (qx, qy) = ((x as i64 + dx as i64) as usize, (y as i64 + dy as i64) as usize);
-            let Some(pred) = self.predict_at(p, qx, qy) else { continue };
-            cost += log2_q4(zigzag(actual - pred) + 1);
-            terms += 1;
-        }
-        (terms > 0).then_some(cost)
+    /// Clamped prediction of pattern `p` from `win`; None if any required neighbor is unavailable.
+    #[inline(always)]
+    fn predict_win(&self, p: usize, win: &Window) -> Option<i32> {
+        (win.mask & NEEDS[p] == NEEDS[p]).then(|| eval(p, &win.v).clamp(0, self.maxv))
     }
 
     /// Local activity context from W, N, NW, NE (0 if any is unavailable).
-    fn context(&self, x: usize, y: usize) -> usize {
-        match (self.fetch(x, y, W), self.fetch(x, y, N), self.fetch(x, y, NW), self.fetch(x, y, NE)) {
-            (Some(w), Some(n), Some(nw), Some(ne)) => {
-                let a = ((w - nw).abs() + (n - nw).abs() + (n - ne).abs()) as u32 >> self.shift;
-                ((32 - a.leading_zeros()) as usize).min(CTX - 1)
-            }
-            _ => 0,
+    fn context(&self, win: &Window) -> usize {
+        const NEED: u16 = M_W | M_N | M_NW | M_NE;
+        if win.mask & NEED != NEED {
+            return 0;
         }
+        let (w, n, nw, ne) = (win.v[0], win.v[2], win.v[4], win.v[5]);
+        let a = ((w - nw).abs() + (n - nw).abs() + (n - ne).abs()) as u32 >> self.shift;
+        ((32 - a.leading_zeros()) as usize).min(CTX - 1)
     }
 
     fn predict(&self, x: usize, y: usize) -> Prediction {
+        let cw = self.window(x, y);
+        // Training samples: actual values and the windows around them, resolved once for all candidates.
+        let mut train: [(i32, Window); 9] = [(0, Window { mask: 0, v: [0; 9] }); 9];
+        let mut nt = 0;
+        for &(dx, dy) in TRAIN {
+            let Some(actual) = self.fetch(x, y, (dx, dy)) else { continue };
+            let (qx, qy) = ((x as i64 + dx as i64) as usize, (y as i64 + dy as i64) as usize);
+            train[nt] = (actual, self.window(qx, qy));
+            nt += 1;
+        }
         let mut best: Option<(u64, usize)> = None; // scorable winner
         let mut first_eligible: Option<usize> = None;
-        for p in 0..PATTERNS.len() {
-            if PATTERNS[p].needs.iter().any(|&o| self.fetch(x, y, o).is_none()) {
+        for p in 0..NPAT {
+            if cw.mask & NEEDS[p] != NEEDS[p] {
                 continue;
             }
             first_eligible.get_or_insert(p);
-            if let Some(c) = self.score(p, x, y) {
-                if best.map_or(true, |(bc, _)| c < bc) {
-                    best = Some((c, p));
-                }
+            let mut cost = 0u64;
+            let mut terms = 0u32;
+            for (actual, qw) in &train[..nt] {
+                let Some(pred) = self.predict_win(p, qw) else { continue };
+                cost += log2_q4(zigzag(actual - pred) + 1);
+                terms += 1;
+            }
+            if terms > 0 && best.map_or(true, |(bc, _)| cost < bc) {
+                best = Some((cost, p));
             }
         }
         let Some(p) = best.map(|b| b.1).or(first_eligible) else {
             let mid = 1 << (self.maxv.count_ones() - 1);
             return Prediction { value: mid, raw: mid, sel: None };
         };
-        let raw = self.predict_at(p, x, y).unwrap_or(0);
-        let ctx = self.context(x, y);
+        let raw = self.predict_win(p, &cw).unwrap_or(0);
+        let ctx = self.context(&cw);
         let (s, c) = (self.bias_sum[p][ctx], self.bias_cnt[p][ctx]);
         let corr = if c > 0 { (s + (c >> 1)).div_euclid(c) } else { 0 };
         Prediction { value: (raw + corr).clamp(0, self.maxv), raw, sel: Some((p, ctx)) }

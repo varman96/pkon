@@ -15,3 +15,5 @@ pub mod praw;
 pub mod profile;
 pub mod pkonfile;
 pub mod verify;
+pub mod praw_cloud;
+pub mod praw_mixer;

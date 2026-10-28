@@ -1,0 +1,91 @@
+[
+  {
+    "bit_depth": 12,
+    "escapes": 277419,
+    "exact": true,
+    "height": 3000,
+    "id": "pentax_q7_cat",
+    "ideal_tail_bytes": 381324.987586427,
+    "ideal_tree_bytes": 11087551.318155427,
+    "malformed_rejected": [
+      {
+        "case": "payload_truncated_1_byte_header_unchanged",
+        "rejected": true
+      },
+      {
+        "case": "payload_halved_header_fixed_up",
+        "rejected": true
+      },
+      {
+        "case": "bad_magic",
+        "rejected": true
+      },
+      {
+        "case": "bad_mode",
+        "rejected": true
+      },
+      {
+        "case": "bad_count",
+        "rejected": true
+      },
+      {
+        "case": "shorter_than_header",
+        "rejected": true
+      },
+      {
+        "case": "trailing_byte",
+        "rejected": true
+      }
+    ],
+    "n": 12192000,
+    "overhead_bytes": 26,
+    "payload_bytes": 11468880,
+    "time_s": {
+      "decode_incl_stage1_inverse": 19.689714,
+      "encode": 5.1583274,
+      "stage1_2": 15.8874361
+    },
+    "total_bytes": 11468906,
+    "width": 4064
+  },
+  {
+    "bit_depth": 12,
+    "escapes": 70238,
+    "exact": true,
+    "height": 2868,
+    "id": "pentax_kx_lichen",
+    "ideal_tail_bytes": 111030.93615659619,
+    "ideal_tree_bytes": 12064111.29079958,
+    "malformed_rejected": [],
+    "n": 12481536,
+    "overhead_bytes": 26,
+    "payload_bytes": 12175146,
+    "time_s": {
+      "decode_incl_stage1_inverse": 17.6244023,
+      "encode": 5.1707349,
+      "stage1_2": 16.1019641
+    },
+    "total_bytes": 12175172,
+    "width": 4352
+  },
+  {
+    "bit_depth": 14,
+    "escapes": 3534982,
+    "exact": true,
+    "height": 4016,
+    "id": "parrot_anafi_dusk",
+    "ideal_tail_bytes": 5102496.814848024,
+    "ideal_tree_bytes": 22101330.61122595,
+    "malformed_rejected": [],
+    "n": 21461504,
+    "overhead_bytes": 26,
+    "payload_bytes": 27203831,
+    "time_s": {
+      "decode_incl_stage1_inverse": 29.7702213,
+      "encode": 8.8257899,
+      "stage1_2": 27.7074387
+    },
+    "total_bytes": 27203857,
+    "width": 5344
+  }
+]
