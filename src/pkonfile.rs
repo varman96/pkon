@@ -148,7 +148,7 @@ pub fn parse_header_with_limit(bytes: &[u8], max_decoded_bytes: u64) -> Result<H
     if bytes[5] != 0 {
         return Err(PkonError::ReservedFlags(bytes[5]));
     }
-    if bytes[6] != CODEC_X4 && bytes[6] != CODEC_X4P && bytes[6] != CODEC_X4PJ {
+    if cfg_for(bytes[6]).is_none() {
         return Err(PkonError::UnsupportedCodec(bytes[6]));
     }
     let layout = format_layout(bytes[7]).ok_or(PkonError::UnsupportedPixelFormat(bytes[7]))?;
@@ -186,11 +186,15 @@ fn codec3_cfg() -> XCfg {
     XCfg { name: "X4PJ", inputs: vec![In::Ab, In::B, In::C, In::D, In::P, In::J], sign_ctx: true, bias: Bias::Off, ens: Ens::Off }
 }
 
-fn cfg_for(codec: u8) -> XCfg {
+/// The single codec dispatch point. Every assigned id is listed explicitly; there is no fallback arm, so an unknown
+/// id can never be decoded or encoded as another codec. A new codec = a new `CODEC_*` id, a frozen `codecN_cfg()`,
+/// and one arm here (plus the `parse_header` / `encode_with_codec` checks, which call this).
+fn cfg_for(codec: u8) -> Option<XCfg> {
     match codec {
-        CODEC_X4 => codec1_cfg(),
-        CODEC_X4PJ => codec3_cfg(),
-        _ => codec2_cfg(),
+        CODEC_X4 => Some(codec1_cfg()),
+        CODEC_X4P => Some(codec2_cfg()),
+        CODEC_X4PJ => Some(codec3_cfg()),
+        _ => None,
     }
 }
 
@@ -209,15 +213,21 @@ pub fn encode_payload(img: &Canonical) -> Vec<u8> {
     encode_payload_codec(img, CODEC_X4)
 }
 
-/// The bare range-coder stream of codec `codec` (1 or 2).
+/// The bare range-coder stream of codec `codec`. Panics on an unassigned id (a caller bug, never reachable from file
+/// input); use `try_encode_payload_codec` for a fallible form.
 pub fn encode_payload_codec(img: &Canonical, codec: u8) -> Vec<u8> {
-    let cfg = cfg_for(codec);
+    try_encode_payload_codec(img, codec).unwrap_or_else(|e| panic!("encode_payload_codec: {e}"))
+}
+
+/// Like `encode_payload_codec`, but an unassigned id is `Err(UnsupportedCodec)`.
+pub fn try_encode_payload_codec(img: &Canonical, codec: u8) -> Result<Vec<u8>, PkonError> {
+    let cfg = cfg_for(codec).ok_or(PkonError::UnsupportedCodec(codec))?;
     let mut work = to_planes(img);
     color_fwd(&mut work, Color::SubG);
     let mut coder = Coder::new(work.p.len(), &cfg);
     let mut enc = BinEnc::new();
     run_x(&mut work, &cfg, &mut coder, &mut enc);
-    enc.finish()
+    Ok(enc.finish())
 }
 
 /// Decode a bare codec-1 stream for an already-validated `spec` (8-bit). Caller has checked the size against its limit.
@@ -225,9 +235,9 @@ pub fn decode_payload(stream: &[u8], spec: &Spec) -> Result<Vec<u8>, PkonError> 
     decode_payload_codec(stream, spec, CODEC_X4)
 }
 
-/// Decode a bare stream of codec `codec` (1 or 2, already validated by `parse_header`).
+/// Decode a bare stream of codec `codec`; an unassigned id is `UnsupportedCodec`. Caller has checked `spec` against its limit.
 pub fn decode_payload_codec(stream: &[u8], spec: &Spec, codec: u8) -> Result<Vec<u8>, PkonError> {
-    let cfg = cfg_for(codec);
+    let cfg = cfg_for(codec).ok_or(PkonError::UnsupportedCodec(codec))?;
     let (w, h) = (spec.width as usize, spec.height as usize);
     let order = plane_channels(spec.layout);
     let mut pl = Planes { w, h, p: vec![vec![0; w * h]; order.len()] };
@@ -254,9 +264,9 @@ pub fn encode(img: &Canonical) -> Result<Vec<u8>, PkonError> {
     encode_with_codec(img, CODEC_CURRENT)
 }
 
-/// Encode a complete `.pkon2` file with a specific codec id (1 = X4, 2 = X4P).
+/// Encode a complete `.pkon2` file with a specific codec id (1 = X4, 2 = X4P, 3 = X4PJ).
 pub fn encode_with_codec(img: &Canonical, codec: u8) -> Result<Vec<u8>, PkonError> {
-    if codec != CODEC_X4 && codec != CODEC_X4P && codec != CODEC_X4PJ {
+    if cfg_for(codec).is_none() {
         return Err(PkonError::UnsupportedCodec(codec));
     }
     if img.spec.bit_depth != 8 {
@@ -265,7 +275,7 @@ pub fn encode_with_codec(img: &Canonical, codec: u8) -> Result<Vec<u8>, PkonErro
     if img.spec.width == 0 || img.spec.height == 0 || img.data.len() != img.spec.byte_len() {
         return Err(PkonError::UnsupportedImage("inconsistent image buffer".into()));
     }
-    let payload = encode_payload_codec(img, codec);
+    let payload = try_encode_payload_codec(img, codec)?;
     let payload_len = u32::try_from(payload.len()).map_err(|_| PkonError::UnsupportedImage("payload exceeds 4 GiB".into()))?;
     let mut out = Vec::with_capacity(HEADER_LEN + payload.len());
     out.extend_from_slice(&MAGIC);

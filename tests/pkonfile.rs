@@ -393,3 +393,13 @@ fn edge_sizes_and_extreme_content_round_trip_through_the_container_for_both_code
     }
     assert_eq!(n, 4 * 12 * 9 * 2);
 }
+
+#[test]
+fn unassigned_codec_ids_are_never_substituted_in_any_entry_point() {
+    let (i, f) = sample_file();
+    for c in [0u8, 4, 255] {
+        assert_eq!(encode_with_codec(&i, c), Err(PkonError::UnsupportedCodec(c)));
+        assert_eq!(try_encode_payload_codec(&i, c), Err(PkonError::UnsupportedCodec(c)));
+        assert_eq!(decode_payload_codec(&f[HEADER_LEN..], &i.spec, c), Err(PkonError::UnsupportedCodec(c)));
+    }
+}

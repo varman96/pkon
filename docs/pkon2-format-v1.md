@@ -127,6 +127,52 @@ input slice, never trusted for allocation. Peak decode memory is roughly 3-4x th
 
 ## 7. API (`nanoscope::pkonfile`)
 
-`encode(&Canonical) -> Result<Vec<u8>, PkonError>` (codec 2); `encode_with_codec(&Canonical, codec)` (1 or 2); `decode(&[u8]) -> Result<Canonical, PkonError>` (metadata is in
+`encode(&Canonical) -> Result<Vec<u8>, PkonError>` (codec 3, `CODEC_CURRENT`); `encode_with_codec(&Canonical, codec)` (1, 2 or 3; other ids -> `UnsupportedCodec`); `decode(&[u8]) -> Result<Canonical, PkonError>` (metadata is in
 `.spec`); `decode_with_limit`; `parse_header` / `parse_header_with_limit` -> `Header { spec, codec, payload_len, crc32 }`
-(header-only validation, no payload access); `encode_payload` / `decode_payload` (bare codec-1 stream); `encode_payload_codec` / `decode_payload_codec` (either codec); `crc32`.
+(header-only validation, no payload access); `encode_payload` / `decode_payload` (bare codec-1 stream); `encode_payload_codec` (panics on an unassigned id) / `try_encode_payload_codec` / `decode_payload_codec` (any assigned codec; unassigned id -> `UnsupportedCodec`); `crc32`.
+
+## 8. Version vs. codec, dispatch, and evolution rules (normative)
+
+**Container version** (byte 4) governs only the outer structure: header layout, field semantics, integrity rules, how
+reserved bits are interpreted. **Codec id** (byte 6) governs only how the payload bytes reconstruct pixels. They are
+independent: a new codec does not change `version`; `version` changes only when the header/integrity/extension rules
+change incompatibly.
+
+Reader algorithm: (1) check magic; (2) read `version`; if not 1 stop with `UnsupportedVersion` *without interpreting any
+other byte* (a v2 header may be laid out differently; a v1 reader must never reuse v1 offsets for it); (3) under v1,
+`flags != 0` -> `ReservedFlags`; (4) dispatch on `codec` through the single function `pkonfile::cfg_for`, which lists every
+assigned id explicitly and has no fallback arm: unknown -> `UnsupportedCodec`, never another codec.
+
+Assigned codec ids (permanent; an id is never reassigned or repurposed): 1 = X4, 2 = X4P, 3 = X4PJ/REL6 (current writer).
+`0` and `4..=255` are unassigned; they are rejected by v1 readers today. New codecs take the next unused id, with a frozen
+`codecN_cfg()` (never a call to a research default), one arm in `cfg_for`, a pinned-payload test, and a round-trip test over
+all four layouts. Ids are not reserved for private use.
+
+Future container versions: use a new `version` byte value (2..), keeping magic and byte 4 in place so that every reader can
+discover the version first. Old v1 files stay readable by new readers that retain the v1 parser; old readers reject v2
+files with `UnsupportedVersion`. Optional metadata/extensions are **not** possible in v1 (no length field, no
+skippable region, flags are all must-understand); they are reserved for a future container version.
+
+Integrity limits, stated plainly: there is no header checksum. The only checksum is the pixel CRC-32, which covers the
+reconstructed pixels, not the header bytes and not the payload bytes directly. Header corruption is caught by exact checks
+(magic, version, flags, codec, format), by size/length validation, and, for width/height/format/codec changes that remain
+structurally valid, by the stream-end check or the pixel CRC (not by a header CRC). `payload_len` is not covered by any
+checksum but must equal the actual remaining file length exactly. Adding a header or payload checksum would be a new
+container version.
+
+Validation order (v1): length >= 4 magic prefix -> header length (24) -> magic -> version -> flags -> codec -> pixel format ->
+dimensions non-zero -> checked `w*h*channels` (u64) vs. decode limit and `usize` -> `payload_len` bounds -> (in `decode`)
+file length vs. `24 + payload_len` (truncated / trailing) -> allocate and decode -> stream-end check -> pixel CRC.
+
+## 9. Compatibility matrix (verified by tests in `tests/pkonfile.rs`, `tests/pkonfile_codec3.rs`)
+
+| Container version | Codec id | Read | Write | Default writer | Pinned / golden coverage | Exact reconstruction tested |
+|---:|---:|:--:|:--:|:--:|---|---|
+| 1 | 1 (X4) | yes | yes (`encode_with_codec`) | no | 44 golden files in `tests/golden_codec1/` (decode + byte-exact re-encode); pinned payload | gray, gray+alpha, RGB, RGBA |
+| 1 | 2 (X4P) | yes | yes (`encode_with_codec`) | no | pinned payload; no golden files | all four layouts (round trip) |
+| 1 | 3 (X4PJ, REL6) | yes | yes (`encode`) | **yes** | payload equals independent research arm | all four layouts (round trip) |
+| 1 | 0, 4..=255 | rejected (`UnsupportedCodec`) | rejected | - | tested | - |
+| != 1 | any | rejected (`UnsupportedVersion`) | - | - | tested | - |
+
+Scope: compatibility is verified against the fixtures and pinned payloads in the repository only; no claim is made about
+files from other tools or history not represented by those fixtures. Codec 2 and 3 have no files archived from earlier releases.
