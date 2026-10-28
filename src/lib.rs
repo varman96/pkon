@@ -11,9 +11,11 @@ pub mod pkon2;
 pub mod pkon2x;
 pub mod pkonlearn;
 pub mod pkonrel;
-pub mod praw;
+pub mod lisa;
+/// Compatibility alias for the pre-rename module path `nanoscope::praw` (PRAW was the former name of LISA).
+pub use lisa as praw;
 pub mod profile;
 pub mod pkonfile;
 pub mod verify;
-pub mod praw_cloud;
-pub mod praw_mixer;
+pub mod lisa_cloud;
+pub mod lisa_mixer;

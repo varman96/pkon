@@ -3,7 +3,7 @@
 //! Nothing here is used by production LISA; it only consumes the public Stage 1/2 API and the PKON binary range coder.
 //!
 //! Model (context-free, one adaptive empirical distribution over all residuals, in Stage 2 traversal order):
-//!   z   = zigzag residual (reuses `praw::zigzag`)
+//!   z   = zigzag residual (reuses `lisa::zigzag`)
 //!   P_t(k) = (c_t(k) + a) / (N_t + a*K),  a = 1/2,  K = MODEL_K + 1 = 1025 symbols (z = 0..1023, plus ESC = 1024)
 //!   z >= MODEL_K is coded as ESC followed by the exact tail v = z - MODEL_K (Elias-gamma-like: adaptive unary bit length
 //!   of v+1, then the bits below the leading one at p = 1/2).
@@ -16,7 +16,7 @@
 //! Stream: 26-byte header (magic, version, mode, K, a_num, a_den, residual count, payload length) + range-coder payload.
 //! Image geometry/bit depth/CFA are NOT in the stream (same as the production LISA accounting).
 
-use crate::praw::*;
+use crate::lisa::*;
 use crate::pkon2x::{BinDec, BinEnc, Bit, BitIo};
 
 pub const MAGIC: [u8; 4] = *b"PCLD";
@@ -89,7 +89,7 @@ impl Cloud {
     }
 
     /// Escape tail for v >= 0. Returns the (de)coded v.
-    fn code_tail<I: BitIo>(&mut self, io: &mut I, v: u32, stats: Option<&mut CloudStats>) -> Result<u32, PrawError> {
+    fn code_tail<I: BitIo>(&mut self, io: &mut I, v: u32, stats: Option<&mut CloudStats>) -> Result<u32, LisaError> {
         let x = u64::from(v) + 1;
         let e_in = (64 - x.leading_zeros()) as usize;
         let mut cost = 0f64;
@@ -113,11 +113,11 @@ impl Cloud {
         if let Some(s) = stats {
             s.tail_bits += cost;
         }
-        u32::try_from(out - 1).map_err(|_| PrawError::CorruptStream("escape tail exceeds 32 bits"))
+        u32::try_from(out - 1).map_err(|_| LisaError::CorruptStream("escape tail exceeds 32 bits"))
     }
 
     /// Shared encode/decode of one zigzag residual.
-    fn code<I: BitIo>(&mut self, io: &mut I, z: u32, bd: u8, mut stats: Option<&mut CloudStats>) -> Result<u32, PrawError> {
+    fn code<I: BitIo>(&mut self, io: &mut I, z: u32, bd: u8, mut stats: Option<&mut CloudStats>) -> Result<u32, LisaError> {
         let sym = if (z as usize) < MODEL_K { z as usize } else { ESC };
         let got = self.code_sym(io, sym, stats.as_deref_mut());
         let z = if got < ESC {
@@ -127,10 +127,10 @@ impl Cloud {
                 s.escapes += 1;
             }
             let v = self.code_tail(io, z.wrapping_sub(MODEL_K as u32), stats.as_deref_mut())?;
-            (MODEL_K as u32).checked_add(v).ok_or(PrawError::CorruptStream("escaped residual overflows"))?
+            (MODEL_K as u32).checked_add(v).ok_or(LisaError::CorruptStream("escaped residual overflows"))?
         };
         if u64::from(z) > (2u64 << bd) - 2 {
-            return Err(PrawError::CorruptStream("residual outside the bit-depth range"));
+            return Err(LisaError::CorruptStream("residual outside the bit-depth range"));
         }
         Ok(z)
     }
@@ -144,7 +144,7 @@ fn streams(data: &OrganizedResiduals) -> Vec<&[u32]> {
 }
 
 /// Encodes the Stage 2 residuals (traversal order = Stage 2 data order: Morton, or Bayer planes 0..3 row-major).
-pub fn encode_cloud(stage2: &Stage2Output) -> Result<(Vec<u8>, usize, CloudStats), PrawError> {
+pub fn encode_cloud(stage2: &Stage2Output) -> Result<(Vec<u8>, usize, CloudStats), LisaError> {
     let bd = stage2.bit_depth();
     let mut cloud = Cloud::new();
     let mut enc = BinEnc::new();
@@ -170,28 +170,28 @@ pub fn encode_cloud(stage2: &Stage2Output) -> Result<(Vec<u8>, usize, CloudStats
 
 /// Decodes a cloud stream to Stage 1 residuals (Morton order). `metadata` and `bit_depth` are supplied externally,
 /// exactly as for production LISA.
-pub fn decode_cloud(stream: &[u8], metadata: &ImageMetadata, bit_depth: u8) -> Result<Stage1Output, PrawError> {
+pub fn decode_cloud(stream: &[u8], metadata: &ImageMetadata, bit_depth: u8) -> Result<Stage1Output, LisaError> {
     if stream.len() < HEADER_LEN {
-        return Err(PrawError::CorruptStream("cloud stream shorter than header"));
+        return Err(LisaError::CorruptStream("cloud stream shorter than header"));
     }
     if stream[..4] != MAGIC {
-        return Err(PrawError::CorruptStream("bad cloud magic"));
+        return Err(LisaError::CorruptStream("bad cloud magic"));
     }
     if stream[4] != VERSION || stream[5] != MODE_GLOBAL_EMPIRICAL {
-        return Err(PrawError::CorruptStream("unsupported cloud version or mode"));
+        return Err(LisaError::CorruptStream("unsupported cloud version or mode"));
     }
     if u16::from_le_bytes([stream[6], stream[7]]) as usize != MODEL_K || stream[8] != 1 || stream[9] != 2 {
-        return Err(PrawError::CorruptStream("unsupported cloud model parameters"));
+        return Err(LisaError::CorruptStream("unsupported cloud model parameters"));
     }
     let count = u64::from_le_bytes(stream[10..18].try_into().unwrap());
     let plen = u64::from_le_bytes(stream[18..26].try_into().unwrap());
     metadata.validate()?;
     let n = validate(metadata.width, metadata.height, bit_depth)?;
     if count != n as u64 {
-        return Err(PrawError::CorruptStream("residual count disagrees with geometry"));
+        return Err(LisaError::CorruptStream("residual count disagrees with geometry"));
     }
     if plen != (stream.len() - HEADER_LEN) as u64 {
-        return Err(PrawError::CorruptStream("payload length disagrees with stream length"));
+        return Err(LisaError::CorruptStream("payload length disagrees with stream length"));
     }
     let payload = &stream[HEADER_LEN..];
 
@@ -208,7 +208,7 @@ pub fn decode_cloud(stream: &[u8], metadata: &ImageMetadata, bit_depth: u8) -> R
         residuals[morton_idx as usize] = cloud.code(&mut dec, 0, bit_depth, None)?;
     }
     if dec.consumed() != payload.len() {
-        return Err(PrawError::CorruptStream("payload truncated or has trailing bytes"));
+        return Err(LisaError::CorruptStream("payload truncated or has trailing bytes"));
     }
     Ok(Stage1Output { residuals, metadata: metadata.clone(), bit_depth })
 }

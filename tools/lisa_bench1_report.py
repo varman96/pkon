@@ -1,5 +1,5 @@
-"""PRAW benchmark 1, step 4: merge manifest + PRAW + baseline results into per_image.csv, summary.json and tables.md.
-Run: python -I tools/praw_bench1_report.py <result_dir>"""
+"""LISA benchmark 1, step 4: merge manifest + LISA + baseline results into per_image.csv, summary.json and tables.md.
+Run: python -I tools/lisa_bench1_report.py <result_dir>"""
 import csv, json, os, sys
 
 d = sys.argv[1]
@@ -8,7 +8,7 @@ praw = {r["id"]: r for r in json.load(open(f"{d}/praw_results.json"))}
 base = json.load(open(f"{d}/baseline_results.json"))
 ids = [m["id"] for m in man]
 codecs = ["praw", "png", "jxl", "zstd"]
-label = {"praw": "PRAW", "png": "PNG", "jxl": "JPEG XL", "zstd": "Zstd-19"}
+label = {"praw": "LISA", "png": "PNG", "jxl": "JPEG XL", "zstd": "Zstd-19"}
 
 
 def size(i, c):
@@ -48,7 +48,7 @@ for c in codecs:
 P(f"\nTotal canonical bytes: {tot:,} across {len(rows)} images.\n")
 
 P("## Per-image (ratio = canonical bytes / encoded bytes; best per row in bold)\n")
-P("| id | camera | WxH | bits | DNG | PRAW | PNG | JXL | Zstd | PRAW vs JXL |")
+P("| id | camera | WxH | bits | DNG | LISA | PNG | JXL | Zstd | LISA vs JXL |")
 P("|---|---|---|--:|---|--:|--:|--:|--:|--:|")
 for r in rows:
     rr = {c: r[c + "_ratio"] for c in codecs}
@@ -57,20 +57,20 @@ for r in rows:
     d_jxl = 100 * (r["jxl_bytes"] / r["praw_bytes"] - 1)
     P(f"| {r['id']} | {r['camera']} | {r['w']}x{r['h']} | {r['bits']} | {r['dng_comp']} | {cell('praw')} | {cell('png')} | {cell('jxl')} | {cell('zstd')} | {d_jxl:+.1f}% |")
 
-P("\n('PRAW vs JXL' = how much smaller PRAW is than JXL: +x% means PRAW output is x% smaller.)\n")
-P("## Win/loss of each codec against PRAW (encoded bytes, per image)\n")
-P("| codec | smaller than PRAW | larger than PRAW |")
+P("\n('LISA vs JXL' = how much smaller LISA is than JXL: +x% means LISA output is x% smaller.)\n")
+P("## Win/loss of each codec against LISA (encoded bytes, per image)\n")
+P("| codec | smaller than LISA | larger than LISA |")
 P("|---|--:|--:|")
 for c in codecs[1:]:
     wins = sum(r[c + "_bytes"] < r["praw_bytes"] for r in rows)
     P(f"| {label[c]} | {wins} | {len(rows) - wins} |")
 P("")
-P("## PRAW best / worst by ratio\n")
+P("## LISA best / worst by ratio\n")
 rs = sorted(rows, key=lambda r: r["praw_ratio"])
 P("Worst: " + ", ".join(f"{r['id']} ({r['praw_ratio']:.3f})" for r in rs[:4]))
 P("\nBest: " + ", ".join(f"{r['id']} ({r['praw_ratio']:.3f})" for r in rs[::-1][:4]) + "\n")
 
-P("## PRAW diagnostics\n")
+P("## LISA diagnostics\n")
 P("| id | Stage 2 | bits/sample (payload) | S1 zero% | S1 mean zz | S1 H0 b/s | Low% | Mod% | High% | VHigh% | class-H0 b/s | enc s | dec s |")
 P("|---|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|")
 for m in man:

@@ -1,4 +1,4 @@
-use nanoscope::praw::*;
+use nanoscope::lisa::*;
 
 fn image(w: usize, h: usize, bits: u8) -> Vec<u16> {
     let maxv = (1u32 << bits) - 1;

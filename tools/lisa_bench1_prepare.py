@@ -1,12 +1,12 @@
-"""PRAW benchmark 1, step 1: extract canonical samples from the 25 selected DNGs and freeze the corpus.
+"""LISA benchmark 1, step 1: extract canonical samples from the 25 selected DNGs and freeze the corpus.
 
 Canonical representation: row-major, little-endian uint16, one sample per mosaic site, the full stored raster
 (no ActiveArea/DefaultCrop crop, no black-level/white-balance/linearization/demosaic).
-Run: python -I tools/praw_bench1_prepare.py <out_manifest.json>"""
+Run: python -I tools/lisa_bench1_prepare.py <out_manifest.json>"""
 import hashlib, json, os, sys
 import numpy as np
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__))))
-import praw_dng
+import lisa_dng
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 DNG = os.path.join(ROOT, "data", "praw1", "dng")
@@ -26,11 +26,11 @@ def bits_needed(v):
 
 
 def main():
-    sel = json.load(open(os.path.join(ROOT, "tools", "praw_bench1_selection.json")))
+    sel = json.load(open(os.path.join(ROOT, "tools", "lisa_bench1_selection.json")))
     out = []
     for s in sel:
         p = os.path.join(DNG, s["id"] + ".dng")
-        info, a = praw_dng.read_dng(p)
+        info, a = lisa_dng.read_dng(p)
         assert a.ndim == 2 and a.dtype in (np.uint8, np.uint16), (s["id"], a.shape, a.dtype)
         a16 = np.ascontiguousarray(a.astype("<u2"))
         h, w = a16.shape
@@ -42,7 +42,7 @@ def main():
         assert mx < (1 << bd), (s["id"], mx, bd)
         cpath = os.path.join(CANON, s["id"] + ".u16")
         a16.tofile(cpath)
-        # CFA metadata: DNG CFAPattern is relative to the ActiveArea origin; PRAW wants the pattern position of
+        # CFA metadata: DNG CFAPattern is relative to the ActiveArea origin; LISA wants the pattern position of
         # image sample (0,0).
         cfa = info["cfa_pattern"]
         dim = info["cfa_dim"]

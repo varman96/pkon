@@ -1,6 +1,6 @@
-"""PRAW benchmark 1, step 3: PNG / JPEG XL / Zstandard on the identical canonical sample bytes, each decoded and
+"""LISA benchmark 1, step 3: PNG / JPEG XL / Zstandard on the identical canonical sample bytes, each decoded and
 compared sample-for-sample. Single-threaded, one fixed configuration per codec.
-Run: python -I tools/praw_bench1_baselines.py <dataset_manifest.json> <out.json> [--only id]"""
+Run: python -I tools/lisa_bench1_baselines.py <dataset_manifest.json> <out.json> [--only id]"""
 import json, sys, time, os
 import numpy as np
 import imagecodecs as ic

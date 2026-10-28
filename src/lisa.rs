@@ -21,7 +21,7 @@ pub const MAX_DIM: usize = 1 << 20;
 const MAX_SAMPLES: u64 = 1 << 32;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum PrawError {
+pub enum LisaError {
     ZeroDimension,
     DimensionTooLarge,
     UnsupportedBitDepth(u8),
@@ -37,7 +37,7 @@ pub enum PrawError {
     CorruptStream(&'static str),
 }
 
-impl fmt::Display for PrawError {
+impl fmt::Display for LisaError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
             Self::ZeroDimension => write!(f, "width and height must be non-zero"),
@@ -65,24 +65,27 @@ impl fmt::Display for PrawError {
     }
 }
 
-impl std::error::Error for PrawError {}
+impl std::error::Error for LisaError {}
+
+/// Compatibility alias for the pre-rename error type name.
+pub type PrawError = LisaError;
 
 /// Validates dimensions and bit depth; returns the sample count.
-pub fn validate(width: usize, height: usize, bit_depth: u8) -> Result<usize, PrawError> {
+pub fn validate(width: usize, height: usize, bit_depth: u8) -> Result<usize, LisaError> {
     if width == 0 || height == 0 {
-        return Err(PrawError::ZeroDimension);
+        return Err(LisaError::ZeroDimension);
     }
     if width > MAX_DIM || height > MAX_DIM {
-        return Err(PrawError::DimensionTooLarge);
+        return Err(LisaError::DimensionTooLarge);
     }
     if !(1..=16).contains(&bit_depth) {
-        return Err(PrawError::UnsupportedBitDepth(bit_depth));
+        return Err(LisaError::UnsupportedBitDepth(bit_depth));
     }
-    let n = (width as u64).checked_mul(height as u64).ok_or(PrawError::DimensionTooLarge)?;
+    let n = (width as u64).checked_mul(height as u64).ok_or(LisaError::DimensionTooLarge)?;
     if n > MAX_SAMPLES {
-        return Err(PrawError::DimensionTooLarge);
+        return Err(LisaError::DimensionTooLarge);
     }
-    usize::try_from(n).map_err(|_| PrawError::DimensionTooLarge)
+    usize::try_from(n).map_err(|_| LisaError::DimensionTooLarge)
 }
 
 // ---------------------------------------------------------------- 1.1 Morton traversal
@@ -378,14 +381,14 @@ impl State {
 // ---------------------------------------------------------------- 1.7 Encode / decode
 
 /// Encodes a row-major `width` x `height` sample plane. Returns the zigzag-mapped residuals in Morton order.
-pub fn encode(samples: &[u16], width: usize, height: usize, bit_depth: u8) -> Result<Vec<u32>, PrawError> {
+pub fn encode(samples: &[u16], width: usize, height: usize, bit_depth: u8) -> Result<Vec<u32>, LisaError> {
     let n = validate(width, height, bit_depth)?;
     if samples.len() != n {
-        return Err(PrawError::LengthMismatch { expected: n, actual: samples.len() });
+        return Err(LisaError::LengthMismatch { expected: n, actual: samples.len() });
     }
     let maxv = (1u32 << bit_depth) - 1;
     if let Some((index, &v)) = samples.iter().enumerate().find(|(_, &v)| v as u32 > maxv) {
-        return Err(PrawError::SampleOutOfRange { index, value: v as u32 });
+        return Err(LisaError::SampleOutOfRange { index, value: v as u32 });
     }
     let mut st = State::new(width, height, bit_depth, n);
     let mut out = Vec::with_capacity(n);
@@ -400,10 +403,10 @@ pub fn encode(samples: &[u16], width: usize, height: usize, bit_depth: u8) -> Re
 }
 
 /// Inverse of [`encode`]: returns the row-major sample plane.
-pub fn decode(residuals: &[u32], width: usize, height: usize, bit_depth: u8) -> Result<Vec<u16>, PrawError> {
+pub fn decode(residuals: &[u32], width: usize, height: usize, bit_depth: u8) -> Result<Vec<u16>, LisaError> {
     let n = validate(width, height, bit_depth)?;
     if residuals.len() != n {
-        return Err(PrawError::LengthMismatch { expected: n, actual: residuals.len() });
+        return Err(LisaError::LengthMismatch { expected: n, actual: residuals.len() });
     }
     let mut st = State::new(width, height, bit_depth, n);
     let mut out = vec![0u16; n];
@@ -412,7 +415,7 @@ pub fn decode(residuals: &[u32], width: usize, height: usize, bit_depth: u8) -> 
         let pred = st.predict(x, y);
         let v = pred.value as i64 + unzigzag(residuals[k]) as i64;
         if v < 0 || v > st.maxv as i64 {
-            return Err(PrawError::CorruptResidual { index: k });
+            return Err(LisaError::CorruptResidual { index: k });
         }
         st.update(x, y, v as i32, &pred);
         out[y * width + x] = v as u16;
@@ -456,9 +459,9 @@ pub enum ColorFilter {
 }
 
 impl TryFrom<u8> for ColorFilter {
-    type Error = PrawError;
+    type Error = LisaError;
 
-    fn try_from(code: u8) -> Result<Self, PrawError> {
+    fn try_from(code: u8) -> Result<Self, LisaError> {
         Ok(match code {
             0 => Self::Red,
             1 => Self::Green,
@@ -467,7 +470,7 @@ impl TryFrom<u8> for ColorFilter {
             4 => Self::Magenta,
             5 => Self::Yellow,
             6 => Self::White,
-            c => return Err(PrawError::InvalidColorFilter(c)),
+            c => return Err(LisaError::InvalidColorFilter(c)),
         })
     }
 }
@@ -489,33 +492,33 @@ impl CfaPattern {
         self.entries[((y + self.origin_y) % self.height) * self.width + (x + self.origin_x) % self.width]
     }
 
-    fn validate(&self) -> Result<(), PrawError> {
-        let bad_dims = PrawError::InvalidCfaDimensions { width: self.width, height: self.height };
+    fn validate(&self) -> Result<(), LisaError> {
+        let bad_dims = LisaError::InvalidCfaDimensions { width: self.width, height: self.height };
         if self.width == 0 || self.height == 0 || self.width > MAX_DIM || self.height > MAX_DIM {
             return Err(bad_dims);
         }
         let expected = self.width.checked_mul(self.height).ok_or(bad_dims)?;
         if self.entries.len() != expected {
-            return Err(PrawError::CfaPatternLengthMismatch { expected, actual: self.entries.len() });
+            return Err(LisaError::CfaPatternLengthMismatch { expected, actual: self.entries.len() });
         }
         if self.origin_x >= self.width || self.origin_y >= self.height {
-            return Err(PrawError::CfaOriginOutOfRange { origin_x: self.origin_x, origin_y: self.origin_y });
+            return Err(LisaError::CfaOriginOutOfRange { origin_x: self.origin_x, origin_y: self.origin_y });
         }
         Ok(())
     }
 
-    fn validate_bayer(&self) -> Result<(), PrawError> {
+    fn validate_bayer(&self) -> Result<(), LisaError> {
         if (self.width, self.height) != (2, 2) {
-            return Err(PrawError::InvalidMetadata("Bayer CFA requires a 2x2 repeat"));
+            return Err(LisaError::InvalidMetadata("Bayer CFA requires a 2x2 repeat"));
         }
         let count = |c| self.entries.iter().filter(|&&e| e == c).count();
         if count(ColorFilter::Red) != 1 || count(ColorFilter::Blue) != 1 || count(ColorFilter::Green) != 2 {
-            return Err(PrawError::InvalidMetadata("Bayer CFA requires one red, one blue and two green entries"));
+            return Err(LisaError::InvalidMetadata("Bayer CFA requires one red, one blue and two green entries"));
         }
         let g = ColorFilter::Green;
         let diagonal = (self.entries[0] == g && self.entries[3] == g) || (self.entries[1] == g && self.entries[2] == g);
         if !diagonal {
-            return Err(PrawError::InvalidMetadata("Bayer CFA greens must lie on a diagonal"));
+            return Err(LisaError::InvalidMetadata("Bayer CFA greens must lie on a diagonal"));
         }
         Ok(())
     }
@@ -543,12 +546,12 @@ impl ImageMetadata {
     }
 
     /// Deterministic structural validation. Does not check bit depth or sample data.
-    pub fn validate(&self) -> Result<(), PrawError> {
+    pub fn validate(&self) -> Result<(), LisaError> {
         if self.width == 0 || self.height == 0 {
-            return Err(PrawError::ZeroDimension);
+            return Err(LisaError::ZeroDimension);
         }
         if self.width > MAX_DIM || self.height > MAX_DIM {
-            return Err(PrawError::DimensionTooLarge);
+            return Err(LisaError::DimensionTooLarge);
         }
         match (self.layout, &self.cfa) {
             (SampleLayout::BayerCfa, Some(p)) => {
@@ -557,11 +560,11 @@ impl ImageMetadata {
             }
             (SampleLayout::OtherCfa, Some(p)) => p.validate(),
             (SampleLayout::BayerCfa | SampleLayout::OtherCfa, None) => {
-                Err(PrawError::InvalidMetadata("CFA layout requires a CFA pattern"))
+                Err(LisaError::InvalidMetadata("CFA layout requires a CFA pattern"))
             }
             (SampleLayout::Unspecified | SampleLayout::Monochrome | SampleLayout::Linear, None) => Ok(()),
             (SampleLayout::Unspecified | SampleLayout::Monochrome | SampleLayout::Linear, Some(_)) => {
-                Err(PrawError::InvalidMetadata("CFA pattern supplied for a non-CFA layout"))
+                Err(LisaError::InvalidMetadata("CFA pattern supplied for a non-CFA layout"))
             }
         }
     }
@@ -596,10 +599,10 @@ pub fn encode_with_metadata(
     height: usize,
     bit_depth: u8,
     metadata: ImageMetadata,
-) -> Result<Stage1Output, PrawError> {
+) -> Result<Stage1Output, LisaError> {
     metadata.validate()?;
     if (metadata.width, metadata.height) != (width, height) {
-        return Err(PrawError::MetadataGeometryMismatch {
+        return Err(LisaError::MetadataGeometryMismatch {
             expected: (width, height),
             actual: (metadata.width, metadata.height),
         });
@@ -609,7 +612,7 @@ pub fn encode_with_metadata(
 }
 
 /// Metadata-aware [`decode`]: returns the row-major sample plane for `out.metadata` dimensions.
-pub fn decode_with_metadata(out: &Stage1Output) -> Result<Vec<u16>, PrawError> {
+pub fn decode_with_metadata(out: &Stage1Output) -> Result<Vec<u16>, LisaError> {
     out.metadata.validate()?;
     decode(&out.residuals, out.metadata.width, out.metadata.height, out.bit_depth)
 }
@@ -718,19 +721,19 @@ impl Stage2Output {
     }
 }
 
-fn plane_dims(width: usize, height: usize, ox: usize, oy: usize) -> Result<(usize, usize), PrawError> {
+fn plane_dims(width: usize, height: usize, ox: usize, oy: usize) -> Result<(usize, usize), LisaError> {
     let dim = |n: usize, o: usize| n.checked_add(1).and_then(|v| v.checked_sub(o)).map(|v| v / 2);
     match (dim(width, ox), dim(height, oy)) {
         (Some(w), Some(h)) => Ok((w, h)),
-        _ => Err(PrawError::DimensionTooLarge),
+        _ => Err(LisaError::DimensionTooLarge),
     }
 }
 
-fn bayer_planes(width: usize, height: usize, cfa: &CfaPattern) -> Result<[PlaneInfo; 4], PrawError> {
+fn bayer_planes(width: usize, height: usize, cfa: &CfaPattern) -> Result<[PlaneInfo; 4], LisaError> {
     let color = |i: usize| cfa.color_at(i & 1, i >> 1);
     let red_i = (0..4)
         .find(|&i| color(i) == ColorFilter::Red)
-        .ok_or(PrawError::InvalidMetadata("Bayer CFA has no red"))?;
+        .ok_or(LisaError::InvalidMetadata("Bayer CFA has no red"))?;
     let mut planes = [PlaneInfo {
         role: PlaneRole::Red,
         color: ColorFilter::Red,
@@ -747,7 +750,7 @@ fn bayer_planes(width: usize, height: usize, cfa: &CfaPattern) -> Result<[PlaneI
             ColorFilter::Blue => PlaneRole::Blue,
             ColorFilter::Green if oy == red_i >> 1 => PlaneRole::Green1,
             ColorFilter::Green => PlaneRole::Green2,
-            _ => return Err(PrawError::InvalidMetadata("Bayer CFA contains a non-RGB entry")),
+            _ => return Err(LisaError::InvalidMetadata("Bayer CFA contains a non-RGB entry")),
         };
         let (w, h) = plane_dims(width, height, ox, oy)?;
         *p = PlaneInfo { role, color: c, offset_x: ox, offset_y: oy, width: w, height: h };
@@ -756,25 +759,25 @@ fn bayer_planes(width: usize, height: usize, cfa: &CfaPattern) -> Result<[PlaneI
 }
 
 /// Index of the pixel (x, y) within its plane's vector, with checked arithmetic.
-fn plane_index(planes: &[PlaneInfo; 4], x: usize, y: usize) -> Result<(usize, usize), PrawError> {
+fn plane_index(planes: &[PlaneInfo; 4], x: usize, y: usize) -> Result<(usize, usize), LisaError> {
     let pi = (y & 1) * 2 + (x & 1);
     let i = (y >> 1)
         .checked_mul(planes[pi].width)
         .and_then(|v| v.checked_add(x >> 1))
-        .ok_or(PrawError::InvalidMetadata("impossible Bayer plane mapping"))?;
+        .ok_or(LisaError::InvalidMetadata("impossible Bayer plane mapping"))?;
     Ok((pi, i))
 }
 
 /// Stage 2 entry point: organizes Stage 1's residuals. Bayer mosaics are de-interleaved into four CFA-position planes;
 /// every other supported layout passes through unchanged. Consumes the Stage 1 result so the data cannot be detached
 /// from its metadata.
-pub fn organize_stage2(stage1: Stage1Output) -> Result<Stage2Output, PrawError> {
+pub fn organize_stage2(stage1: Stage1Output) -> Result<Stage2Output, LisaError> {
     let Stage1Output { residuals, metadata, bit_depth } = stage1;
     metadata.validate()?;
     let (width, height) = (metadata.width, metadata.height);
     let n = validate(width, height, bit_depth)?;
     if residuals.len() != n {
-        return Err(PrawError::LengthMismatch { expected: n, actual: residuals.len() });
+        return Err(LisaError::LengthMismatch { expected: n, actual: residuals.len() });
     }
 
     let (mode, data) = match (metadata.layout, &metadata.cfa) {
@@ -783,24 +786,24 @@ pub fn organize_stage2(stage1: Stage1Output) -> Result<Stage2Output, PrawError> 
             let mut total = 0usize;
             let mut out: [Vec<u32>; 4] = Default::default();
             for (v, p) in out.iter_mut().zip(&planes) {
-                let len = p.width.checked_mul(p.height).ok_or(PrawError::DimensionTooLarge)?;
-                total = total.checked_add(len).ok_or(PrawError::DimensionTooLarge)?;
+                let len = p.width.checked_mul(p.height).ok_or(LisaError::DimensionTooLarge)?;
+                total = total.checked_add(len).ok_or(LisaError::DimensionTooLarge)?;
                 *v = vec![0; len];
             }
             if total != n {
-                return Err(PrawError::InvalidMetadata("Bayer plane sizes do not cover the image"));
+                return Err(LisaError::InvalidMetadata("Bayer plane sizes do not cover the image"));
             }
             let mut k = 0usize;
-            morton_visit::<PrawError>(width, height, |x, y| {
+            morton_visit::<LisaError>(width, height, |x, y| {
                 let (pi, i) = plane_index(&planes, x, y)?;
-                *out[pi].get_mut(i).ok_or(PrawError::InvalidMetadata("impossible Bayer plane mapping"))? = residuals[k];
+                *out[pi].get_mut(i).ok_or(LisaError::InvalidMetadata("impossible Bayer plane mapping"))? = residuals[k];
                 k += 1;
                 Ok(())
             })?;
             (Stage2Mode::BayerPlanes { cfa: cfa.clone(), planes }, OrganizedResiduals::BayerPlanes(out))
         }
         (SampleLayout::BayerCfa, None) => {
-            return Err(PrawError::InvalidMetadata("CFA layout requires a CFA pattern"));
+            return Err(LisaError::InvalidMetadata("CFA layout requires a CFA pattern"));
         }
         (SampleLayout::Unspecified | SampleLayout::Monochrome | SampleLayout::Linear | SampleLayout::OtherCfa, _) => {
             (Stage2Mode::Identity, OrganizedResiduals::Morton(residuals))
@@ -816,43 +819,43 @@ pub fn organize_stage2(stage1: Stage1Output) -> Result<Stage2Output, PrawError> 
 
 /// Exact inverse of [`organize_stage2`]: restores the Stage 1 residual sequence (Morton order, values unchanged) and
 /// returns it with the inherited history that precedes the Stage 2 record. Requires Stage 2 to be the newest record.
-pub fn restore_stage1(out: &Stage2Output) -> Result<(Stage1Output, Vec<ReconstructionRecord>), PrawError> {
+pub fn restore_stage1(out: &Stage2Output) -> Result<(Stage1Output, Vec<ReconstructionRecord>), LisaError> {
     let Some((ReconstructionRecord::Stage2Organization(rec), inherited)) = out.history.split_last() else {
-        return Err(PrawError::InvalidMetadata("newest reconstruction record is not Stage 2"));
+        return Err(LisaError::InvalidMetadata("newest reconstruction record is not Stage 2"));
     };
     out.metadata.validate()?;
     let (width, height) = (out.metadata.width, out.metadata.height);
     if (rec.width, rec.height) != (width, height) {
-        return Err(PrawError::MetadataGeometryMismatch { expected: (width, height), actual: (rec.width, rec.height) });
+        return Err(LisaError::MetadataGeometryMismatch { expected: (width, height), actual: (rec.width, rec.height) });
     }
     let n = validate(width, height, out.bit_depth)?;
 
     let residuals = match (&rec.mode, &out.data) {
         (Stage2Mode::Identity, OrganizedResiduals::Morton(r)) => {
             if r.len() != n {
-                return Err(PrawError::LengthMismatch { expected: n, actual: r.len() });
+                return Err(LisaError::LengthMismatch { expected: n, actual: r.len() });
             }
             r.clone()
         }
         (Stage2Mode::BayerPlanes { cfa, planes }, OrganizedResiduals::BayerPlanes(data)) => {
             if out.metadata.cfa.as_ref() != Some(cfa) || bayer_planes(width, height, cfa)? != *planes {
-                return Err(PrawError::InvalidMetadata("Stage 2 record disagrees with metadata"));
+                return Err(LisaError::InvalidMetadata("Stage 2 record disagrees with metadata"));
             }
             for (v, p) in data.iter().zip(planes) {
-                let len = p.width.checked_mul(p.height).ok_or(PrawError::DimensionTooLarge)?;
+                let len = p.width.checked_mul(p.height).ok_or(LisaError::DimensionTooLarge)?;
                 if v.len() != len {
-                    return Err(PrawError::LengthMismatch { expected: len, actual: v.len() });
+                    return Err(LisaError::LengthMismatch { expected: len, actual: v.len() });
                 }
             }
             let mut r = Vec::with_capacity(n);
-            morton_visit::<PrawError>(width, height, |x, y| {
+            morton_visit::<LisaError>(width, height, |x, y| {
                 let (pi, i) = plane_index(planes, x, y)?;
-                r.push(*data[pi].get(i).ok_or(PrawError::InvalidMetadata("impossible Bayer plane mapping"))?);
+                r.push(*data[pi].get(i).ok_or(LisaError::InvalidMetadata("impossible Bayer plane mapping"))?);
                 Ok(())
             })?;
             r
         }
-        _ => return Err(PrawError::InvalidMetadata("organized data does not match the Stage 2 record")),
+        _ => return Err(LisaError::InvalidMetadata("organized data does not match the Stage 2 record")),
     };
     Ok((Stage1Output { residuals, metadata: out.metadata.clone(), bit_depth: out.bit_depth }, inherited.to_vec()))
 }
@@ -1000,27 +1003,27 @@ fn classify_plane(v: &[u32], w: usize) -> Vec<ActivityClass> {
 }
 
 /// Stage 3 entry point. Consumes the Stage 2 result, classifies every residual and appends a Stage 3 record.
-pub fn classify_stage3(stage2: Stage2Output) -> Result<Stage3Output, PrawError> {
+pub fn classify_stage3(stage2: Stage2Output) -> Result<Stage3Output, LisaError> {
     stage2.metadata.validate()?;
     let (width, height) = (stage2.metadata.width, stage2.metadata.height);
     let n = validate(width, height, stage2.bit_depth)?;
     let Some(ReconstructionRecord::Stage2Organization(rec)) = stage2.history.last() else {
-        return Err(PrawError::InvalidMetadata("newest reconstruction record is not Stage 2"));
+        return Err(LisaError::InvalidMetadata("newest reconstruction record is not Stage 2"));
     };
     if (rec.width, rec.height) != (width, height) {
-        return Err(PrawError::MetadataGeometryMismatch { expected: (width, height), actual: (rec.width, rec.height) });
+        return Err(LisaError::MetadataGeometryMismatch { expected: (width, height), actual: (rec.width, rec.height) });
     }
 
     let contexts = match (&rec.mode, &stage2.data) {
         (Stage2Mode::Identity, OrganizedResiduals::Morton(r)) => {
             if r.len() != n {
-                return Err(PrawError::LengthMismatch { expected: n, actual: r.len() });
+                return Err(LisaError::LengthMismatch { expected: n, actual: r.len() });
             }
             // Row-major scratch of residuals already visited; W, N and NW precede the current pixel in Morton order.
             let mut seen = vec![0u32; n];
             let mut out = Vec::with_capacity(n);
             let mut k = 0usize;
-            morton_visit::<PrawError>(width, height, |x, y| {
+            morton_visit::<LisaError>(width, height, |x, y| {
                 let left = (x > 0).then(|| seen[y * width + x - 1]);
                 let above = (y > 0).then(|| seen[(y - 1) * width + x]);
                 let above_left = (x > 0 && y > 0).then(|| seen[(y - 1) * width + x - 1]);
@@ -1034,15 +1037,15 @@ pub fn classify_stage3(stage2: Stage2Output) -> Result<Stage3Output, PrawError> 
         (Stage2Mode::BayerPlanes { planes, .. }, OrganizedResiduals::BayerPlanes(data)) => {
             let mut out: [Vec<ActivityClass>; 4] = Default::default();
             for ((o, v), p) in out.iter_mut().zip(data).zip(planes) {
-                let len = p.width.checked_mul(p.height).ok_or(PrawError::DimensionTooLarge)?;
+                let len = p.width.checked_mul(p.height).ok_or(LisaError::DimensionTooLarge)?;
                 if v.len() != len {
-                    return Err(PrawError::LengthMismatch { expected: len, actual: v.len() });
+                    return Err(LisaError::LengthMismatch { expected: len, actual: v.len() });
                 }
                 *o = classify_plane(v, p.width);
             }
             OrganizedContexts::BayerPlanes(out)
         }
-        _ => return Err(PrawError::InvalidMetadata("organized data does not match the Stage 2 record")),
+        _ => return Err(LisaError::InvalidMetadata("organized data does not match the Stage 2 record")),
     };
 
     let mut base = stage2;
@@ -1091,7 +1094,7 @@ impl S4Model {
     }
 
     /// Shared encode/decode of one zigzag residual; returns the (de)coded value.
-    fn code<I: BitIo>(&mut self, io: &mut I, v: u32) -> Result<u32, PrawError> {
+    fn code<I: BitIo>(&mut self, io: &mut I, v: u32) -> Result<u32, LisaError> {
         let x = u64::from(v) + 1;
         let e_in = (64 - x.leading_zeros()) as usize;
         let mut e = S4_E_MAX;
@@ -1107,7 +1110,7 @@ impl S4Model {
             let b = if j == e - 2 { Self::bit(io, &mut self.mant[e], want) } else { io.code(32768, want) };
             out = (out << 1) | u64::from(b);
         }
-        u32::try_from(out - 1).map_err(|_| PrawError::CorruptStream("residual exceeds 32 bits"))
+        u32::try_from(out - 1).map_err(|_| LisaError::CorruptStream("residual exceeds 32 bits"))
     }
 }
 
@@ -1138,15 +1141,15 @@ impl Stage4Output {
 }
 
 /// Stage 4 entry point: entropy-codes the Stage 3 residuals, selecting the model by each residual's Stage 3 class.
-pub fn encode_stage4(stage3: Stage3Output) -> Result<Stage4Output, PrawError> {
+pub fn encode_stage4(stage3: Stage3Output) -> Result<Stage4Output, LisaError> {
     let (width, height) = (stage3.base.metadata.width, stage3.base.metadata.height);
     validate(width, height, stage3.base.bit_depth)?;
     let mut count = 0u64;
     let mut models = [S4Model::NEW; ActivityClass::COUNT];
     let mut enc = BinEnc::new();
-    let mut code_all = |res: &[u32], ctx: &[ActivityClass]| -> Result<(), PrawError> {
+    let mut code_all = |res: &[u32], ctx: &[ActivityClass]| -> Result<(), LisaError> {
         if res.len() != ctx.len() {
-            return Err(PrawError::LengthMismatch { expected: res.len(), actual: ctx.len() });
+            return Err(LisaError::LengthMismatch { expected: res.len(), actual: ctx.len() });
         }
         count += res.len() as u64;
         for (&v, c) in res.iter().zip(ctx) {
@@ -1161,7 +1164,7 @@ pub fn encode_stage4(stage3: Stage3Output) -> Result<Stage4Output, PrawError> {
                 code_all(r, c)?;
             }
         }
-        _ => return Err(PrawError::InvalidMetadata("contexts do not match the organized data")),
+        _ => return Err(LisaError::InvalidMetadata("contexts do not match the organized data")),
     }
     let payload = enc.finish();
     let Stage2Output { metadata, bit_depth, mut history, .. } = stage3.base;
@@ -1175,15 +1178,15 @@ pub fn encode_stage4(stage3: Stage3Output) -> Result<Stage4Output, PrawError> {
 
 /// Exact inverse of [`encode_stage4`]: returns the Stage 3 representation (residuals, contexts, history without the
 /// Stage 4 record). Feed it to [`Stage3Output::into_stage2`] and [`restore_stage1`] to continue reversing.
-pub fn decode_stage4(out: &Stage4Output) -> Result<Stage3Output, PrawError> {
+pub fn decode_stage4(out: &Stage4Output) -> Result<Stage3Output, LisaError> {
     let Some((ReconstructionRecord::Stage4Entropy(rec), inherited)) = out.history.split_last() else {
-        return Err(PrawError::InvalidMetadata("newest reconstruction record is not Stage 4"));
+        return Err(LisaError::InvalidMetadata("newest reconstruction record is not Stage 4"));
     };
     if rec.coding_version != STAGE4_CODING_VERSION || usize::from(rec.model_count) != ActivityClass::COUNT {
-        return Err(PrawError::CorruptStream("unsupported Stage 4 coding mode or version"));
+        return Err(LisaError::CorruptStream("unsupported Stage 4 coding mode or version"));
     }
     if inherited.last() != Some(&ReconstructionRecord::Stage3Context(Stage3Record::current())) {
-        return Err(PrawError::InvalidMetadata("Stage 4 does not follow a supported Stage 3 record"));
+        return Err(LisaError::InvalidMetadata("Stage 4 does not follow a supported Stage 3 record"));
     }
     out.metadata.validate()?;
     let (width, height) = (out.metadata.width, out.metadata.height);
@@ -1191,13 +1194,13 @@ pub fn decode_stage4(out: &Stage4Output) -> Result<Stage3Output, PrawError> {
     let Some(ReconstructionRecord::Stage2Organization(s2)) =
         inherited.iter().rev().find(|r| matches!(r, ReconstructionRecord::Stage2Organization(_)))
     else {
-        return Err(PrawError::InvalidMetadata("missing Stage 2 record"));
+        return Err(LisaError::InvalidMetadata("missing Stage 2 record"));
     };
     if (s2.width, s2.height) != (width, height) {
-        return Err(PrawError::MetadataGeometryMismatch { expected: (width, height), actual: (s2.width, s2.height) });
+        return Err(LisaError::MetadataGeometryMismatch { expected: (width, height), actual: (s2.width, s2.height) });
     }
     if rec.residual_count != n as u64 {
-        return Err(PrawError::CorruptStream("residual count disagrees with geometry"));
+        return Err(LisaError::CorruptStream("residual count disagrees with geometry"));
     }
 
     let mut models = [S4Model::NEW; ActivityClass::COUNT];
@@ -1208,7 +1211,7 @@ pub fn decode_stage4(out: &Stage4Output) -> Result<Stage3Output, PrawError> {
         Stage2Mode::Identity => {
             let mut seen = vec![0u32; n];
             let (mut res, mut ctx) = (Vec::with_capacity(n), Vec::with_capacity(n));
-            morton_visit::<PrawError>(width, height, |x, y| {
+            morton_visit::<LisaError>(width, height, |x, y| {
                 let left = (x > 0).then(|| seen[y * width + x - 1]);
                 let above = (y > 0).then(|| seen[(y - 1) * width + x]);
                 let above_left = (x > 0 && y > 0).then(|| seen[(y - 1) * width + x - 1]);
@@ -1223,12 +1226,12 @@ pub fn decode_stage4(out: &Stage4Output) -> Result<Stage3Output, PrawError> {
         }
         Stage2Mode::BayerPlanes { cfa, planes } => {
             if out.metadata.cfa.as_ref() != Some(cfa) || bayer_planes(width, height, cfa)? != *planes {
-                return Err(PrawError::InvalidMetadata("Stage 2 record disagrees with metadata"));
+                return Err(LisaError::InvalidMetadata("Stage 2 record disagrees with metadata"));
             }
             let mut res: [Vec<u32>; 4] = Default::default();
             let mut ctx: [Vec<ActivityClass>; 4] = Default::default();
             for ((r, c), p) in res.iter_mut().zip(ctx.iter_mut()).zip(planes) {
-                let (w, len) = (p.width, p.width.checked_mul(p.height).ok_or(PrawError::DimensionTooLarge)?);
+                let (w, len) = (p.width, p.width.checked_mul(p.height).ok_or(LisaError::DimensionTooLarge)?);
                 r.reserve_exact(len);
                 c.reserve_exact(len);
                 for i in 0..len {
@@ -1245,7 +1248,7 @@ pub fn decode_stage4(out: &Stage4Output) -> Result<Stage3Output, PrawError> {
         }
     };
     if dec.consumed() != out.payload.len() {
-        return Err(PrawError::CorruptStream("payload truncated or has trailing bytes"));
+        return Err(LisaError::CorruptStream("payload truncated or has trailing bytes"));
     }
     let base = Stage2Output { data, metadata: out.metadata.clone(), bit_depth: out.bit_depth, history: inherited.to_vec() };
     Ok(Stage3Output { base, contexts })

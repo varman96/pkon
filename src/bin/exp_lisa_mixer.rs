@@ -1,8 +1,8 @@
-//! Experiment runner: LISA adaptive probability mixer (src/praw_mixer.rs) on a fixed list of images from the frozen manifest.
-//! Usage: exp_praw_mixer <dataset_manifest.json> <praw_results.json> <baseline_results.json> <cloud_results.json> <out.json> <id> [<id>...]
+//! Experiment runner: LISA adaptive probability mixer (src/lisa_mixer.rs) on a fixed list of images from the frozen manifest.
+//! Usage: exp_lisa_mixer <dataset_manifest.json> <lisa_results.json> <baseline_results.json> <cloud_results.json> <out.json> <id> [<id>...]
 //! Baseline byte counts are read from the frozen artifacts, never recomputed.
-use nanoscope::praw::*;
-use nanoscope::praw_mixer::*;
+use nanoscope::lisa::*;
+use nanoscope::lisa_mixer::*;
 use serde_json::{json, Value};
 use std::time::Instant;
 
@@ -31,11 +31,11 @@ fn pct(a: f64, b: f64) -> f64 {
 fn main() {
     let args: Vec<String> = std::env::args().collect();
     let manifest = load(&args[1]);
-    let praw_r = load(&args[2]);
+    let lisa_r = load(&args[2]);
     let base_r = load(&args[3]);
     let cloud_r = load(&args[4]);
     let mut out = Vec::new();
-    let (mut tot_mix, mut tot_praw, mut tot_cloud, mut tot_jxl) = (0u64, 0u64, 0u64, 0u64);
+    let (mut tot_mix, mut tot_lisa, mut tot_cloud, mut tot_jxl) = (0u64, 0u64, 0u64, 0u64);
     for (ii, id) in args[6..].iter().enumerate() {
         let m = manifest.as_array().unwrap().iter().find(|m| m["id"].as_str() == Some(id)).expect("id not in manifest");
         let (w, h) = (m["width"].as_u64().unwrap() as usize, m["height"].as_u64().unwrap() as usize);
@@ -90,35 +90,35 @@ fn main() {
 
         let payload = (stream.len() - hdr) as u64;
         let total = stream.len() as u64;
-        let praw_b = by_id(&praw_r, id)["payload_bytes"].as_u64().unwrap();
+        let lisa_b = by_id(&lisa_r, id)["payload_bytes"].as_u64().unwrap();
         let cloud = by_id(&cloud_r, id);
         let (cloud_p, cloud_t) = (cloud["payload_bytes"].as_u64().unwrap(), cloud["total_bytes"].as_u64().unwrap());
         let jxl = base_r["images"][id.as_str()]["jxl"]["bytes"].as_u64().unwrap();
         tot_mix += total;
-        tot_praw += praw_b;
+        tot_lisa += lisa_b;
         tot_cloud += cloud_t;
         tot_jxl += jxl;
         let n = st.n as f64;
         let bps = |b: u64| b as f64 * 8.0 / n;
         println!(
-            "{id}: payload {payload} B hdr {hdr} B total {total} exact={exact} | LISA {praw_b} ({:+.3}% payload-vs-payload) cloud {cloud_t} ({:+.3}% total-vs-total) JXL {jxl} ({:+.3}% total-vs-file) | bps mix {:.4} praw {:.4} | ideal {:.0} B | enc {t_enc:.1}s dec {t_dec_mix:.1}s w={:?} rejects={:?}",
-            pct(payload as f64, praw_b as f64),
+            "{id}: payload {payload} B hdr {hdr} B total {total} exact={exact} | LISA {lisa_b} ({:+.3}% payload-vs-payload) cloud {cloud_t} ({:+.3}% total-vs-total) JXL {jxl} ({:+.3}% total-vs-file) | bps mix {:.4} lisa {:.4} | ideal {:.0} B | enc {t_enc:.1}s dec {t_dec_mix:.1}s w={:?} rejects={:?}",
+            pct(payload as f64, lisa_b as f64),
             pct(total as f64, cloud_t as f64),
             pct(total as f64, jxl as f64),
             bps(payload),
-            bps(praw_b),
+            bps(lisa_b),
             st.mix_bits / 8.0,
             st.final_weights.map(|x| (x * 1e4).round() / 1e4),
             rejects
         );
         out.push(json!({"id": id, "width": w, "height": h, "bit_depth": bd, "n": st.n, "exact": exact,
             "mixer": {"payload_bytes": payload, "overhead_bytes": hdr, "total_bytes": total},
-            "baselines": {"praw_payload_bytes": praw_b, "cloud_payload_bytes": cloud_p, "cloud_total_bytes": cloud_t, "jxl_file_bytes": jxl},
-            "pct": {"mixer_payload_vs_praw_payload": pct(payload as f64, praw_b as f64),
+            "baselines": {"lisa_payload_bytes": lisa_b, "cloud_payload_bytes": cloud_p, "cloud_total_bytes": cloud_t, "jxl_file_bytes": jxl},
+            "pct": {"mixer_payload_vs_lisa_payload": pct(payload as f64, lisa_b as f64),
                     "mixer_total_vs_cloud_total": pct(total as f64, cloud_t as f64),
                     "mixer_payload_vs_cloud_payload": pct(payload as f64, cloud_p as f64),
                     "mixer_total_vs_jxl_file": pct(total as f64, jxl as f64)},
-            "bits_per_sample": {"mixer_payload": bps(payload), "praw_payload": bps(praw_b), "cloud_payload": bps(cloud_p)},
+            "bits_per_sample": {"mixer_payload": bps(payload), "lisa_payload": bps(lisa_b), "cloud_payload": bps(cloud_p)},
             "ideal": {"mixture_bytes": st.mix_bits / 8.0, "model_bytes": st.model_bits.map(|b| b / 8.0), "model_names": MODEL_NAMES,
                       "payload_minus_mixture_ideal_bytes": payload as f64 - st.mix_bits / 8.0,
                       "big_residuals_ge_1024": {"count": st.big_n, "fraction": st.big_n as f64 / n, "ideal_bytes": st.big_bits / 8.0, "share_of_mixture": st.big_bits / st.mix_bits}},
@@ -129,12 +129,12 @@ fn main() {
             "malformed_rejected": rejects.iter().map(|(k, v)| json!({"case": k, "rejected": v})).collect::<Vec<_>>()}));
     }
     println!(
-        "AGGREGATE (3 images): mixer total {tot_mix} | LISA payload {tot_praw} ({:+.3}%, mixer total vs LISA payload) | cloud total {tot_cloud} ({:+.3}%) | JXL files {tot_jxl} ({:+.3}%)",
-        pct(tot_mix as f64, tot_praw as f64),
+        "AGGREGATE (3 images): mixer total {tot_mix} | LISA payload {tot_lisa} ({:+.3}%, mixer total vs LISA payload) | cloud total {tot_cloud} ({:+.3}%) | JXL files {tot_jxl} ({:+.3}%)",
+        pct(tot_mix as f64, tot_lisa as f64),
         pct(tot_mix as f64, tot_cloud as f64),
         pct(tot_mix as f64, tot_jxl as f64)
     );
-    let agg = json!({"mixer_total": tot_mix, "praw_payload": tot_praw, "cloud_total": tot_cloud, "jxl_files": tot_jxl,
-        "pct_vs_praw": pct(tot_mix as f64, tot_praw as f64), "pct_vs_cloud": pct(tot_mix as f64, tot_cloud as f64), "pct_vs_jxl": pct(tot_mix as f64, tot_jxl as f64)});
+    let agg = json!({"mixer_total": tot_mix, "lisa_payload": tot_lisa, "cloud_total": tot_cloud, "jxl_files": tot_jxl,
+        "pct_vs_lisa": pct(tot_mix as f64, tot_lisa as f64), "pct_vs_cloud": pct(tot_mix as f64, tot_cloud as f64), "pct_vs_jxl": pct(tot_mix as f64, tot_jxl as f64)});
     std::fs::write(&args[5], serde_json::to_vec_pretty(&json!({"images": out, "aggregate": agg})).unwrap()).unwrap();
 }

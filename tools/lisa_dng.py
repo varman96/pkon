@@ -1,4 +1,4 @@
-"""DNG raw-mosaic reader for the PRAW benchmark (no demosaic / WB / crop / scaling).
+"""DNG raw-mosaic reader for the LISA benchmark (no demosaic / WB / crop / scaling).
 
 Returns the stored raster of the main raw IFD (CFA / LinearRaw / mono) as a uint16 array plus the metadata needed
 to interpret it. Run with `python -I`."""

@@ -1,7 +1,7 @@
 //! LISA Stage 1 A/B driver: repeated timed runs of the full pipeline on canonical samples, with residual-stream and
-//! payload hashes and an exact-decode gate. Uses only the public `praw` API, so it builds against any revision.
+//! payload hashes and an exact-decode gate. Uses only the public `lisa` API, so it builds against any revision.
 //! Usage: bench_lisa_stage1 <dataset_manifest.json> <out.json> <reps> <id>...
-use nanoscope::praw::*;
+use nanoscope::lisa::*;
 use serde_json::{json, Value};
 use sha2::{Digest, Sha256};
 use std::time::Instant;

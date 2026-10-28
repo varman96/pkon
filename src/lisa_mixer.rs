@@ -38,7 +38,7 @@
 //! range-coder payload. Geometry/bit depth/CFA are not in the stream (same accounting as the cloud and production LISA).
 
 use crate::pkon2x::{BinDec, BinEnc, BitIo};
-use crate::praw::*;
+use crate::lisa::*;
 
 pub const MAGIC: [u8; 4] = *b"PMIX";
 pub const VERSION: u8 = 1;
@@ -235,12 +235,12 @@ fn streams(data: &OrganizedResiduals, width: usize) -> Vec<(&[u32], usize)> {
     }
 }
 
-fn depth_of(bd: u8) -> Result<usize, PrawError> {
-    if (1..=16).contains(&bd) { Ok(bd as usize + 1) } else { Err(PrawError::UnsupportedBitDepth(bd)) }
+fn depth_of(bd: u8) -> Result<usize, LisaError> {
+    if (1..=16).contains(&bd) { Ok(bd as usize + 1) } else { Err(LisaError::UnsupportedBitDepth(bd)) }
 }
 
 /// Encodes the Stage 2 residuals. Returns (stream, header length, ideal-cost stats).
-pub fn encode_mixer(stage2: &Stage2Output) -> Result<(Vec<u8>, usize, MixStats), PrawError> {
+pub fn encode_mixer(stage2: &Stage2Output) -> Result<(Vec<u8>, usize, MixStats), LisaError> {
     let bd = stage2.bit_depth();
     let depth = depth_of(bd)?;
     let zmax = (2u64 << bd) - 2;
@@ -255,7 +255,7 @@ pub fn encode_mixer(stage2: &Stage2Output) -> Result<(Vec<u8>, usize, MixStats),
         for i in 0..s.len() {
             let z = s[i];
             if u64::from(z) > zmax {
-                return Err(PrawError::CorruptStream("residual outside the bit-depth range"));
+                return Err(LisaError::CorruptStream("residual outside the bit-depth range"));
             }
             let c = ctx_of(s, i, pw);
             mixer.code(&mut enc, z as usize, c, Some(&mut dg));
@@ -290,18 +290,18 @@ pub fn encode_mixer(stage2: &Stage2Output) -> Result<(Vec<u8>, usize, MixStats),
 }
 
 /// Decodes a mixer stream to Stage 1 residuals (Morton order). `metadata` and `bit_depth` are supplied externally.
-pub fn decode_mixer(stream: &[u8], metadata: &ImageMetadata, bit_depth: u8) -> Result<Stage1Output, PrawError> {
+pub fn decode_mixer(stream: &[u8], metadata: &ImageMetadata, bit_depth: u8) -> Result<Stage1Output, LisaError> {
     if stream.len() < HEADER_LEN {
-        return Err(PrawError::CorruptStream("mixer stream shorter than header"));
+        return Err(LisaError::CorruptStream("mixer stream shorter than header"));
     }
     if stream[..4] != MAGIC {
-        return Err(PrawError::CorruptStream("bad mixer magic"));
+        return Err(LisaError::CorruptStream("bad mixer magic"));
     }
     if stream[4] != VERSION || stream[5] != MODE_MIX4 {
-        return Err(PrawError::CorruptStream("unsupported mixer version or mode"));
+        return Err(LisaError::CorruptStream("unsupported mixer version or mode"));
     }
     if u16::from_le_bytes([stream[6], stream[7]]) != ETA_MILLI || u16::from_le_bytes([stream[8], stream[9]]) != RHO_DEN {
-        return Err(PrawError::CorruptStream("unsupported mixer parameters"));
+        return Err(LisaError::CorruptStream("unsupported mixer parameters"));
     }
     let count = u64::from_le_bytes(stream[10..18].try_into().unwrap());
     let plen = u64::from_le_bytes(stream[18..26].try_into().unwrap());
@@ -309,10 +309,10 @@ pub fn decode_mixer(stream: &[u8], metadata: &ImageMetadata, bit_depth: u8) -> R
     let n = validate(metadata.width, metadata.height, bit_depth)?;
     let depth = depth_of(bit_depth)?;
     if count != n as u64 {
-        return Err(PrawError::CorruptStream("residual count disagrees with geometry"));
+        return Err(LisaError::CorruptStream("residual count disagrees with geometry"));
     }
     if plen != (stream.len() - HEADER_LEN) as u64 {
-        return Err(PrawError::CorruptStream("payload length disagrees with stream length"));
+        return Err(LisaError::CorruptStream("payload length disagrees with stream length"));
     }
     let payload = &stream[HEADER_LEN..];
     let zmax = (2u64 << bit_depth) - 2;
@@ -330,14 +330,14 @@ pub fn decode_mixer(stream: &[u8], metadata: &ImageMetadata, bit_depth: u8) -> R
             let c = ctx_of(&cur, cur.len(), pw);
             let z = mixer.code(&mut dec, 0, c, None) as u32;
             if u64::from(z) > zmax {
-                return Err(PrawError::CorruptStream("residual outside the bit-depth range"));
+                return Err(LisaError::CorruptStream("residual outside the bit-depth range"));
             }
             cur.push(z);
             residuals[morton_idx as usize] = z;
         }
     }
     if dec.consumed() != payload.len() {
-        return Err(PrawError::CorruptStream("payload truncated or has trailing bytes"));
+        return Err(LisaError::CorruptStream("payload truncated or has trailing bytes"));
     }
     Ok(Stage1Output { residuals, metadata: metadata.clone(), bit_depth })
 }

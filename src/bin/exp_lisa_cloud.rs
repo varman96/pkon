@@ -1,7 +1,7 @@
-//! Experiment runner: LISA probability-cloud model (src/praw_cloud.rs) on a fixed list of images from the frozen manifest.
-//! Usage: exp_praw_cloud <dataset_manifest.json> <out.json> <id> [<id>...]
-use nanoscope::praw::*;
-use nanoscope::praw_cloud::*;
+//! Experiment runner: LISA probability-cloud model (src/lisa_cloud.rs) on a fixed list of images from the frozen manifest.
+//! Usage: exp_lisa_cloud <dataset_manifest.json> <out.json> <id> [<id>...]
+use nanoscope::lisa::*;
+use nanoscope::lisa_cloud::*;
 use serde_json::{json, Value};
 use std::time::Instant;
 
