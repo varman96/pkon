@@ -1,4 +1,4 @@
-//! PRAW Stage 1: structural decorrelation for RAW sample planes.
+//! LISA Stage 1: structural decorrelation for RAW sample planes.
 //!
 //! Samples are visited in Morton (Z-order) order. Each sample is predicted from already reconstructed samples
 //! (a neighbor is usable iff it is inside the image and already reconstructed), and the exact signed residual is

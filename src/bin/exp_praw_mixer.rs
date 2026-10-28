@@ -1,4 +1,4 @@
-//! Experiment runner: PRAW adaptive probability mixer (src/praw_mixer.rs) on a fixed list of images from the frozen manifest.
+//! Experiment runner: LISA adaptive probability mixer (src/praw_mixer.rs) on a fixed list of images from the frozen manifest.
 //! Usage: exp_praw_mixer <dataset_manifest.json> <praw_results.json> <baseline_results.json> <cloud_results.json> <out.json> <id> [<id>...]
 //! Baseline byte counts are read from the frozen artifacts, never recomputed.
 use nanoscope::praw::*;
@@ -101,7 +101,7 @@ fn main() {
         let n = st.n as f64;
         let bps = |b: u64| b as f64 * 8.0 / n;
         println!(
-            "{id}: payload {payload} B hdr {hdr} B total {total} exact={exact} | PRAW {praw_b} ({:+.3}% payload-vs-payload) cloud {cloud_t} ({:+.3}% total-vs-total) JXL {jxl} ({:+.3}% total-vs-file) | bps mix {:.4} praw {:.4} | ideal {:.0} B | enc {t_enc:.1}s dec {t_dec_mix:.1}s w={:?} rejects={:?}",
+            "{id}: payload {payload} B hdr {hdr} B total {total} exact={exact} | LISA {praw_b} ({:+.3}% payload-vs-payload) cloud {cloud_t} ({:+.3}% total-vs-total) JXL {jxl} ({:+.3}% total-vs-file) | bps mix {:.4} praw {:.4} | ideal {:.0} B | enc {t_enc:.1}s dec {t_dec_mix:.1}s w={:?} rejects={:?}",
             pct(payload as f64, praw_b as f64),
             pct(total as f64, cloud_t as f64),
             pct(total as f64, jxl as f64),
@@ -129,7 +129,7 @@ fn main() {
             "malformed_rejected": rejects.iter().map(|(k, v)| json!({"case": k, "rejected": v})).collect::<Vec<_>>()}));
     }
     println!(
-        "AGGREGATE (3 images): mixer total {tot_mix} | PRAW payload {tot_praw} ({:+.3}%, mixer total vs PRAW payload) | cloud total {tot_cloud} ({:+.3}%) | JXL files {tot_jxl} ({:+.3}%)",
+        "AGGREGATE (3 images): mixer total {tot_mix} | LISA payload {tot_praw} ({:+.3}%, mixer total vs LISA payload) | cloud total {tot_cloud} ({:+.3}%) | JXL files {tot_jxl} ({:+.3}%)",
         pct(tot_mix as f64, tot_praw as f64),
         pct(tot_mix as f64, tot_cloud as f64),
         pct(tot_mix as f64, tot_jxl as f64)

@@ -1,0 +1,107 @@
+[
+  {
+    "bit_depth": 8,
+    "height": 2638,
+    "id": "leica_m8_house",
+    "runs": [
+      {
+        "decode_s": 8.2030179,
+        "encode_s": 7.5007915,
+        "exact": true,
+        "payload_bytes": 6333715,
+        "payload_sha256": "8d34f2188fd663831ae12829d11246aa4006bcf288d261b5c05f02b51a881fd4",
+        "residual_sha256": "406eec14978beea9c63052f5b8a03a84827c447e8dd54cadad1fd7576730d752",
+        "stage1_s": 6.566756
+      },
+      {
+        "decode_s": 8.0138469,
+        "encode_s": 11.215326300000001,
+        "exact": true,
+        "payload_bytes": 6333715,
+        "payload_sha256": "8d34f2188fd663831ae12829d11246aa4006bcf288d261b5c05f02b51a881fd4",
+        "residual_sha256": "406eec14978beea9c63052f5b8a03a84827c447e8dd54cadad1fd7576730d752",
+        "stage1_s": 10.1030118
+      },
+      {
+        "decode_s": 7.9009525,
+        "encode_s": 5.9248658,
+        "exact": true,
+        "payload_bytes": 6333715,
+        "payload_sha256": "8d34f2188fd663831ae12829d11246aa4006bcf288d261b5c05f02b51a881fd4",
+        "residual_sha256": "406eec14978beea9c63052f5b8a03a84827c447e8dd54cadad1fd7576730d752",
+        "stage1_s": 5.3428484
+      }
+    ],
+    "width": 3920
+  },
+  {
+    "bit_depth": 10,
+    "height": 3120,
+    "id": "nexus6_courtyard",
+    "runs": [
+      {
+        "decode_s": 12.7925259,
+        "encode_s": 12.2599557,
+        "exact": true,
+        "payload_bytes": 10006901,
+        "payload_sha256": "c96a59e1b8de8207fa321c430982b87f6f0d7c7f319aa9a5589536e2b39c07d5",
+        "residual_sha256": "a3044ed7b22c68c31d4cbca393969b83c49398dc7ed33533da3f4fe7135783f0",
+        "stage1_s": 10.2208766
+      },
+      {
+        "decode_s": 7.9754049,
+        "encode_s": 11.2551602,
+        "exact": true,
+        "payload_bytes": 10006901,
+        "payload_sha256": "c96a59e1b8de8207fa321c430982b87f6f0d7c7f319aa9a5589536e2b39c07d5",
+        "residual_sha256": "a3044ed7b22c68c31d4cbca393969b83c49398dc7ed33533da3f4fe7135783f0",
+        "stage1_s": 9.9926417
+      },
+      {
+        "decode_s": 10.5418627,
+        "encode_s": 10.266315,
+        "exact": true,
+        "payload_bytes": 10006901,
+        "payload_sha256": "c96a59e1b8de8207fa321c430982b87f6f0d7c7f319aa9a5589536e2b39c07d5",
+        "residual_sha256": "a3044ed7b22c68c31d4cbca393969b83c49398dc7ed33533da3f4fe7135783f0",
+        "stage1_s": 8.799637
+      }
+    ],
+    "width": 4208
+  },
+  {
+    "bit_depth": 16,
+    "height": 3648,
+    "id": "hasselblad_tallinn",
+    "runs": [
+      {
+        "decode_s": 14.0319362,
+        "encode_s": 12.4839925,
+        "exact": true,
+        "payload_bytes": 30161380,
+        "payload_sha256": "345c1f8caa724153c79e6c72fbe5e95a931fd482d4da789483b5fa4ad48227df",
+        "residual_sha256": "854cf73ec7909b58b16f8ecea2fae36c6e04e4554cbcf98314ed5c80acd3c4a2",
+        "stage1_s": 9.9799656
+      },
+      {
+        "decode_s": 12.3967527,
+        "encode_s": 11.913719,
+        "exact": true,
+        "payload_bytes": 30161380,
+        "payload_sha256": "345c1f8caa724153c79e6c72fbe5e95a931fd482d4da789483b5fa4ad48227df",
+        "residual_sha256": "854cf73ec7909b58b16f8ecea2fae36c6e04e4554cbcf98314ed5c80acd3c4a2",
+        "stage1_s": 9.3108718
+      },
+      {
+        "decode_s": 10.7146536,
+        "encode_s": 12.549135799999998,
+        "exact": true,
+        "payload_bytes": 30161380,
+        "payload_sha256": "345c1f8caa724153c79e6c72fbe5e95a931fd482d4da789483b5fa4ad48227df",
+        "residual_sha256": "854cf73ec7909b58b16f8ecea2fae36c6e04e4554cbcf98314ed5c80acd3c4a2",
+        "stage1_s": 9.9700037
+      }
+    ],
+    "width": 5568
+  }
+]

@@ -1,4 +1,4 @@
-//! Experiment runner: PRAW probability-cloud model (src/praw_cloud.rs) on a fixed list of images from the frozen manifest.
+//! Experiment runner: LISA probability-cloud model (src/praw_cloud.rs) on a fixed list of images from the frozen manifest.
 //! Usage: exp_praw_cloud <dataset_manifest.json> <out.json> <id> [<id>...]
 use nanoscope::praw::*;
 use nanoscope::praw_cloud::*;

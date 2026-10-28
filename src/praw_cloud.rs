@@ -1,6 +1,6 @@
-//! EXPERIMENT (isolated): "probability cloud" residual model, an alternative to PRAW Stage 3 + Stage 4.
+//! EXPERIMENT (isolated): "probability cloud" residual model, an alternative to LISA Stage 3 + Stage 4.
 //!
-//! Nothing here is used by production PRAW; it only consumes the public Stage 1/2 API and the PKON binary range coder.
+//! Nothing here is used by production LISA; it only consumes the public Stage 1/2 API and the PKON binary range coder.
 //!
 //! Model (context-free, one adaptive empirical distribution over all residuals, in Stage 2 traversal order):
 //!   z   = zigzag residual (reuses `praw::zigzag`)
@@ -14,7 +14,7 @@
 //! it is coded, identically in encoder and decoder.
 //!
 //! Stream: 26-byte header (magic, version, mode, K, a_num, a_den, residual count, payload length) + range-coder payload.
-//! Image geometry/bit depth/CFA are NOT in the stream (same as the production PRAW accounting).
+//! Image geometry/bit depth/CFA are NOT in the stream (same as the production LISA accounting).
 
 use crate::praw::*;
 use crate::pkon2x::{BinDec, BinEnc, Bit, BitIo};
@@ -169,7 +169,7 @@ pub fn encode_cloud(stage2: &Stage2Output) -> Result<(Vec<u8>, usize, CloudStats
 }
 
 /// Decodes a cloud stream to Stage 1 residuals (Morton order). `metadata` and `bit_depth` are supplied externally,
-/// exactly as for production PRAW.
+/// exactly as for production LISA.
 pub fn decode_cloud(stream: &[u8], metadata: &ImageMetadata, bit_depth: u8) -> Result<Stage1Output, PrawError> {
     if stream.len() < HEADER_LEN {
         return Err(PrawError::CorruptStream("cloud stream shorter than header"));

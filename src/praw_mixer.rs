@@ -1,5 +1,5 @@
 //! EXPERIMENT (isolated): adaptive probability *mixture* of four specialised residual models, an alternative to
-//! PRAW Stage 3 + Stage 4. Nothing here is used by production PRAW; it consumes the public Stage 1/2 API and the PKON
+//! LISA Stage 3 + Stage 4. Nothing here is used by production LISA; it consumes the public Stage 1/2 API and the PKON
 //! binary range coder (16-bit probabilities).
 //!
 //! Residual alphabet: the zigzag residual z in 0..=2^(bd+1)-2, binarized MSB-first as a complete binary tree of depth
@@ -35,7 +35,7 @@
 //! implementations is NOT claimed.
 //!
 //! Stream: 26-byte header (magic, version, mode, eta in 1/1000, rho denominator, residual count, payload length) +
-//! range-coder payload. Geometry/bit depth/CFA are not in the stream (same accounting as the cloud and production PRAW).
+//! range-coder payload. Geometry/bit depth/CFA are not in the stream (same accounting as the cloud and production LISA).
 
 use crate::pkon2x::{BinDec, BinEnc, BitIo};
 use crate::praw::*;

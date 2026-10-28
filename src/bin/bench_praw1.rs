@@ -1,4 +1,4 @@
-//! PRAW benchmark 1 runner: complete four-stage pipeline on frozen canonical samples, with an exact-decode gate and
+//! LISA benchmark 1 runner: complete four-stage pipeline on frozen canonical samples, with an exact-decode gate and
 //! diagnostics. Uses only the public `praw` API; the algorithm is untouched.
 //! Usage: bench_praw1 <dataset_manifest.json> <out.json> [--only id]
 use nanoscope::praw::*;
