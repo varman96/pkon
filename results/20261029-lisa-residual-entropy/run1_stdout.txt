@@ -1,0 +1,30 @@
+bmpcc4k_person [train] | bayer: H0 7.0504 b/res, 7517904 B (6.6956 bpp) ok=true | mosaic: H0 9.3048 b/res, 9313387 B (8.2947 bpp) ok=true
+canon_sx40_snow [train] | bayer: H0 7.8521 b/res, 11954171 B (7.4839 bpp) ok=true | mosaic: H0 8.6834 b/res, 12984352 B (8.1288 bpp) ok=true
+hasselblad_tallinn [train] | bayer: H0 10.4588 b/res, 25974547 B (10.2302 bpp) ok=true | mosaic: H0 12.3670 b/res, 29652178 B (11.6786 bpp) ok=true
+leica_m8_house [train] | bayer: H0 4.6239 b/res, 5443149 B (4.2109 bpp) ok=true | mosaic: H0 5.2627 b/res, 6221324 B (4.8130 bpp) ok=true
+leica_q_canoe [train] | bayer: H0 9.7399 b/res, 27966309 B (9.1029 bpp) ok=true | mosaic: H0 10.5492 b/res, 30243521 B (9.8441 bpp) ok=true
+lg_h815_mountain [train] | bayer: H0 5.1226 b/res, 9588201 B (4.8327 bpp) ok=true | mosaic: H0 6.5925 b/res, 11701527 B (5.8979 bpp) ok=true
+parrot_anafi_dusk [train] | bayer: H0 8.9163 b/res, 23137314 B (8.6247 bpp) ok=true | mosaic: H0 10.1644 b/res, 25655767 B (9.5635 bpp) ok=true
+pentax_k1ii_station [train] | bayer: H0 8.1732 b/res, 36498470 B (7.9799 bpp) ok=true | mosaic: H0 10.8399 b/res, 44494134 B (9.7280 bpp) ok=true
+pentax_k70_bulb [train] | bayer: H0 6.7207 b/res, 20396871 B (6.6038 bpp) ok=true | mosaic: H0 8.1979 b/res, 23836850 B (7.7176 bpp) ok=true
+pixel6pro_valley [train] | bayer: H0 7.5903 b/res, 11299890 B (7.2125 bpp) ok=true | mosaic: H0 8.5608 b/res, 12573085 B (8.0251 bpp) ok=true
+ricoh_gr3_dunes [train] | bayer: H0 9.0442 b/res, 26829113 B (8.6409 bpp) ok=true | mosaic: H0 10.2343 b/res, 29877634 B (9.6227 bpp) ok=true
+samsung_gx20_berries [train] | bayer: H0 6.2182 b/res, 11666880 B (6.1189 bpp) ok=true | mosaic: H0 8.0263 b/res, 14195250 B (7.4450 bpp) ok=true
+x100s_xtrans_chart [train] | bayer: H0 10.2139 b/res, 19733648 B (9.7036 bpp) ok=true | mosaic: H0 10.2139 b/res, 19733648 B (9.7036 bpp) ok=true
+leica_cl_chateau [val] | bayer: H0 8.4457 b/res, 25248944 B (8.2184 bpp) ok=true | mosaic: H0 11.2977 b/res, 31007703 B (10.0929 bpp) ok=true
+nexus6_courtyard [val] | bayer: H0 5.0467 b/res, 8006667 B (4.8788 bpp) ok=true | mosaic: H0 6.6259 b/res, 9835629 B (5.9932 bpp) ok=true
+pentax_kx_lichen [val] | bayer: H0 7.4196 b/res, 11458087 B (7.3440 bpp) ok=true | mosaic: H0 7.7998 b/res, 12060697 B (7.7303 bpp) ok=true
+sigma_fp_bike14 [val] | bayer: H0 7.9325 b/res, 23748150 B (7.7511 bpp) ok=true | mosaic: H0 8.9919 b/res, 26563946 B (8.6702 bpp) ok=true
+dji_fc220_dusk [test] | bayer: H0 8.1744 b/res, 12030903 B (8.0206 bpp) ok=true | mosaic: H0 10.0028 b/res, 14125601 B (9.4171 bpp) ok=true
+leica_m10_brick [test] | bayer: H0 9.9480 b/res, 27738775 B (9.2896 bpp) ok=true | mosaic: H0 11.0753 b/res, 30922297 B (10.3557 bpp) ok=true
+leica_x2_lowlight [test] | bayer: H0 4.6331 b/res, 8727947 B (4.3163 bpp) ok=true | mosaic: H0 6.9421 b/res, 12100174 B (5.9840 bpp) ok=true
+nikon_d80_piano [test] | bayer: H0 5.9704 b/res, 7416588 B (5.8267 bpp) ok=true | mosaic: H0 6.9479 b/res, 8535478 B (6.7057 bpp) ok=true
+pentax_k30_frog [test] | bayer: H0 6.1441 b/res, 11836232 B (5.7851 bpp) ok=true | mosaic: H0 8.4178 b/res, 15269777 B (7.4632 bpp) ok=true
+pentax_q7_cat [test] | bayer: H0 6.4264 b/res, 9288949 B (6.0951 bpp) ok=true | mosaic: H0 7.5267 b/res, 10533683 B (6.9119 bpp) ok=true
+ricoh_gr_wood [test] | bayer: H0 5.6063 b/res, 10599799 B (5.2123 bpp) ok=true | mosaic: H0 7.3863 b/res, 13501046 B (6.6390 bpp) ok=true
+sigma_fp_bike8 [test] | bayer: H0 2.8754 b/res, 2903981 B (2.7764 bpp) ok=true | mosaic: H0 5.0969 b/res, 4420890 B (4.2267 bpp) ok=true
+ALL_OK=true
+
+real	29m48.300s
+user	0m0.046s
+sys	0m0.015s

@@ -1,0 +1,652 @@
+[
+  {
+    "bit_depth": 14,
+    "canon_sha_ok": true,
+    "dec_median_s": 64.6281145,
+    "dec_s": [
+      64.4383629,
+      64.6281145,
+      78.8167562
+    ],
+    "decoded_width_height": [
+      7392,
+      4950
+    ],
+    "deterministic": true,
+    "enc_median_s": 69.4975964,
+    "enc_s": [
+      69.4975964,
+      74.8448919,
+      69.4418278
+    ],
+    "id": "pentax_k1ii_station",
+    "layout": "BayerCfa",
+    "mismatches": 0,
+    "payload_bytes": 36498470,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 7392, height: 4950,"
+  },
+  {
+    "bit_depth": 12,
+    "canon_sha_ok": true,
+    "dec_median_s": 26.771067,
+    "dec_s": [
+      34.0923874,
+      26.771067,
+      14.0515748
+    ],
+    "decoded_width_height": [
+      4960,
+      3300
+    ],
+    "deterministic": true,
+    "enc_median_s": 33.6276349,
+    "enc_s": [
+      27.9569187,
+      39.5241821,
+      33.6276349
+    ],
+    "id": "pentax_k30_frog",
+    "layout": "BayerCfa",
+    "mismatches": 0,
+    "payload_bytes": 11836232,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 4960, height: 3300,"
+  },
+  {
+    "bit_depth": 12,
+    "canon_sha_ok": true,
+    "dec_median_s": 15.6769733,
+    "dec_s": [
+      16.5242804,
+      15.6769733,
+      15.2753366
+    ],
+    "decoded_width_height": [
+      4352,
+      2868
+    ],
+    "deterministic": true,
+    "enc_median_s": 21.0491974,
+    "enc_s": [
+      21.0491974,
+      22.3827487,
+      17.5125887
+    ],
+    "id": "pentax_kx_lichen",
+    "layout": "BayerCfa",
+    "mismatches": 0,
+    "payload_bytes": 11458087,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 4352, height: 2868,"
+  },
+  {
+    "bit_depth": 12,
+    "canon_sha_ok": true,
+    "dec_median_s": 10.3971676,
+    "dec_s": [
+      15.6624948,
+      10.3063132,
+      10.3971676
+    ],
+    "decoded_width_height": [
+      4064,
+      3000
+    ],
+    "deterministic": true,
+    "enc_median_s": 18.2929004,
+    "enc_s": [
+      18.2929004,
+      18.983878,
+      10.736387
+    ],
+    "id": "pentax_q7_cat",
+    "layout": "BayerCfa",
+    "mismatches": 0,
+    "payload_bytes": 9288949,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 4064, height: 3000,"
+  },
+  {
+    "bit_depth": 14,
+    "canon_sha_ok": true,
+    "dec_median_s": 19.8482804,
+    "dec_s": [
+      19.4011,
+      19.8482804,
+      19.9447948
+    ],
+    "decoded_width_height": [
+      6080,
+      4064
+    ],
+    "deterministic": true,
+    "enc_median_s": 19.7378089,
+    "enc_s": [
+      19.2762865,
+      19.7378089,
+      19.9044142
+    ],
+    "id": "pentax_k70_bulb",
+    "layout": "BayerCfa",
+    "mismatches": 0,
+    "payload_bytes": 20396871,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 6080, height: 4064,"
+  },
+  {
+    "bit_depth": 14,
+    "canon_sha_ok": true,
+    "dec_median_s": 17.8637413,
+    "dec_s": [
+      17.1726354,
+      19.4343034,
+      17.8637413
+    ],
+    "decoded_width_height": [
+      6120,
+      4016
+    ],
+    "deterministic": true,
+    "enc_median_s": 19.0320743,
+    "enc_s": [
+      19.5135179,
+      19.0320743,
+      17.2199227
+    ],
+    "id": "leica_cl_chateau",
+    "layout": "BayerCfa",
+    "mismatches": 0,
+    "payload_bytes": 25248944,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 6120, height: 4016,"
+  },
+  {
+    "bit_depth": 14,
+    "canon_sha_ok": true,
+    "dec_median_s": 15.6634657,
+    "dec_s": [
+      15.6767878,
+      15.5798043,
+      15.6634657
+    ],
+    "decoded_width_height": [
+      5984,
+      3992
+    ],
+    "deterministic": true,
+    "enc_median_s": 15.5364472,
+    "enc_s": [
+      15.5364472,
+      15.7936881,
+      15.4323162
+    ],
+    "id": "leica_m10_brick",
+    "layout": "BayerCfa",
+    "mismatches": 0,
+    "payload_bytes": 27738775,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 5984, height: 3992,"
+  },
+  {
+    "bit_depth": 14,
+    "canon_sha_ok": true,
+    "dec_median_s": 17.2616109,
+    "dec_s": [
+      17.241931,
+      17.2616109,
+      17.3700565
+    ],
+    "decoded_width_height": [
+      6120,
+      4016
+    ],
+    "deterministic": true,
+    "enc_median_s": 17.2761279,
+    "enc_s": [
+      17.2761279,
+      17.3602113,
+      16.9413353
+    ],
+    "id": "leica_q_canoe",
+    "layout": "BayerCfa",
+    "mismatches": 0,
+    "payload_bytes": 27966309,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 6120, height: 4016,"
+  },
+  {
+    "bit_depth": 12,
+    "canon_sha_ok": true,
+    "dec_median_s": 11.1784597,
+    "dec_s": [
+      11.7134666,
+      11.0931203,
+      11.1784597
+    ],
+    "decoded_width_height": [
+      4944,
+      3272
+    ],
+    "deterministic": true,
+    "enc_median_s": 11.4069962,
+    "enc_s": [
+      11.7894808,
+      11.4069962,
+      11.1069979
+    ],
+    "id": "leica_x2_lowlight",
+    "layout": "BayerCfa",
+    "mismatches": 0,
+    "payload_bytes": 8727947,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 4944, height: 3272,"
+  },
+  {
+    "bit_depth": 8,
+    "canon_sha_ok": true,
+    "dec_median_s": 7.399117,
+    "dec_s": [
+      7.361397,
+      7.399117,
+      7.4360542
+    ],
+    "decoded_width_height": [
+      3920,
+      2638
+    ],
+    "deterministic": true,
+    "enc_median_s": 7.3608732,
+    "enc_s": [
+      7.4431392,
+      7.3608732,
+      7.3058829
+    ],
+    "id": "leica_m8_house",
+    "layout": "BayerCfa",
+    "mismatches": 0,
+    "payload_bytes": 5443149,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 3920, height: 2638,"
+  },
+  {
+    "bit_depth": 14,
+    "canon_sha_ok": true,
+    "dec_median_s": 10.0436565,
+    "dec_s": [
+      10.2200293,
+      10.0436565,
+      10.0411229
+    ],
+    "decoded_width_height": [
+      4080,
+      3072
+    ],
+    "deterministic": true,
+    "enc_median_s": 9.8639622,
+    "enc_s": [
+      9.9535265,
+      9.8639622,
+      9.840579
+    ],
+    "id": "pixel6pro_valley",
+    "layout": "BayerCfa",
+    "mismatches": 0,
+    "payload_bytes": 11299890,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 4080, height: 3072,"
+  },
+  {
+    "bit_depth": 14,
+    "canon_sha_ok": true,
+    "dec_median_s": 8.2319119,
+    "dec_s": [
+      8.1722872,
+      8.5334793,
+      8.2319119
+    ],
+    "decoded_width_height": [
+      4000,
+      3000
+    ],
+    "deterministic": true,
+    "enc_median_s": 8.0421794,
+    "enc_s": [
+      8.0421794,
+      8.033625,
+      8.1195695
+    ],
+    "id": "dji_fc220_dusk",
+    "layout": "BayerCfa",
+    "mismatches": 0,
+    "payload_bytes": 12030903,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 4000, height: 3000,"
+  },
+  {
+    "bit_depth": 14,
+    "canon_sha_ok": true,
+    "dec_median_s": 14.8364632,
+    "dec_s": [
+      14.5497001,
+      15.5304838,
+      14.8364632
+    ],
+    "decoded_width_height": [
+      5344,
+      4016
+    ],
+    "deterministic": true,
+    "enc_median_s": 14.2081971,
+    "enc_s": [
+      15.6801099,
+      14.206448,
+      14.2081971
+    ],
+    "id": "parrot_anafi_dusk",
+    "layout": "BayerCfa",
+    "mismatches": 0,
+    "payload_bytes": 23137314,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 5344, height: 4016,"
+  },
+  {
+    "bit_depth": 16,
+    "canon_sha_ok": true,
+    "dec_median_s": 13.0087816,
+    "dec_s": [
+      12.9736485,
+      13.0087816,
+      13.2371879
+    ],
+    "decoded_width_height": [
+      5568,
+      3648
+    ],
+    "deterministic": true,
+    "enc_median_s": 12.897042,
+    "enc_s": [
+      12.897042,
+      12.7832462,
+      12.9444146
+    ],
+    "id": "hasselblad_tallinn",
+    "layout": "BayerCfa",
+    "mismatches": 0,
+    "payload_bytes": 25974547,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 5568, height: 3648,"
+  },
+  {
+    "bit_depth": 14,
+    "canon_sha_ok": true,
+    "dec_median_s": 17.6569679,
+    "dec_s": [
+      17.6569679,
+      17.6064543,
+      17.933383
+    ],
+    "decoded_width_height": [
+      6064,
+      4042
+    ],
+    "deterministic": true,
+    "enc_median_s": 17.5034041,
+    "enc_s": [
+      17.5034041,
+      17.2518752,
+      18.3798998
+    ],
+    "id": "sigma_fp_bike14",
+    "layout": "BayerCfa",
+    "mismatches": 0,
+    "payload_bytes": 23748150,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 6064, height: 4042,"
+  },
+  {
+    "bit_depth": 8,
+    "canon_sha_ok": true,
+    "dec_median_s": 4.5956611,
+    "dec_s": [
+      4.5956611,
+      4.6320547,
+      4.5324771
+    ],
+    "decoded_width_height": [
+      3856,
+      2170
+    ],
+    "deterministic": true,
+    "enc_median_s": 4.4724028,
+    "enc_s": [
+      4.4626377999999995,
+      4.510724,
+      4.4724028
+    ],
+    "id": "sigma_fp_bike8",
+    "layout": "BayerCfa",
+    "mismatches": 0,
+    "payload_bytes": 2903981,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 3856, height: 2170,"
+  },
+  {
+    "bit_depth": 10,
+    "canon_sha_ok": true,
+    "dec_median_s": 10.6303342,
+    "dec_s": [
+      10.3486074,
+      10.6303342,
+      10.9733172
+    ],
+    "decoded_width_height": [
+      4208,
+      3120
+    ],
+    "deterministic": true,
+    "enc_median_s": 10.2263782,
+    "enc_s": [
+      10.2788558,
+      10.18199,
+      10.2263782
+    ],
+    "id": "nexus6_courtyard",
+    "layout": "BayerCfa",
+    "mismatches": 0,
+    "payload_bytes": 8006667,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 4208, height: 3120,"
+  },
+  {
+    "bit_depth": 10,
+    "canon_sha_ok": true,
+    "dec_median_s": 12.1620692,
+    "dec_s": [
+      12.0479004,
+      12.1620692,
+      12.2363003
+    ],
+    "decoded_width_height": [
+      5312,
+      2988
+    ],
+    "deterministic": true,
+    "enc_median_s": 12.1028092,
+    "enc_s": [
+      12.1028092,
+      12.020941,
+      12.2479931
+    ],
+    "id": "lg_h815_mountain",
+    "layout": "BayerCfa",
+    "mismatches": 0,
+    "payload_bytes": 9588201,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 5312, height: 2988,"
+  },
+  {
+    "bit_depth": 12,
+    "canon_sha_ok": true,
+    "dec_median_s": 12.3352881,
+    "dec_s": [
+      12.2219109,
+      12.3352881,
+      12.931607
+    ],
+    "decoded_width_height": [
+      4960,
+      3280
+    ],
+    "deterministic": true,
+    "enc_median_s": 12.389945,
+    "enc_s": [
+      12.389945,
+      12.1985553,
+      12.8741676
+    ],
+    "id": "ricoh_gr_wood",
+    "layout": "BayerCfa",
+    "mismatches": 0,
+    "payload_bytes": 10599799,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 4960, height: 3280,"
+  },
+  {
+    "bit_depth": 14,
+    "canon_sha_ok": true,
+    "dec_median_s": 16.9089813,
+    "dec_s": [
+      16.9089813,
+      16.8534615,
+      17.0248841
+    ],
+    "decoded_width_height": [
+      6112,
+      4064
+    ],
+    "deterministic": true,
+    "enc_median_s": 16.6177327,
+    "enc_s": [
+      16.6390328,
+      16.5818521,
+      16.6177327
+    ],
+    "id": "ricoh_gr3_dunes",
+    "layout": "BayerCfa",
+    "mismatches": 0,
+    "payload_bytes": 26829113,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 6112, height: 4064,"
+  },
+  {
+    "bit_depth": 12,
+    "canon_sha_ok": true,
+    "dec_median_s": 12.9738312,
+    "dec_s": [
+      12.8537616,
+      12.9738312,
+      13.2217437
+    ],
+    "decoded_width_height": [
+      4864,
+      3136
+    ],
+    "deterministic": true,
+    "enc_median_s": 12.9117615,
+    "enc_s": [
+      13.4691033,
+      12.9117615,
+      12.8594103
+    ],
+    "id": "samsung_gx20_berries",
+    "layout": "BayerCfa",
+    "mismatches": 0,
+    "payload_bytes": 11666880,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 4864, height: 3136,"
+  },
+  {
+    "bit_depth": 12,
+    "canon_sha_ok": true,
+    "dec_median_s": 8.6693208,
+    "dec_s": [
+      8.6692626,
+      8.719265,
+      8.6693208
+    ],
+    "decoded_width_height": [
+      3900,
+      2611
+    ],
+    "deterministic": true,
+    "enc_median_s": 8.5451456,
+    "enc_s": [
+      8.5451456,
+      8.5119287,
+      8.9102367
+    ],
+    "id": "nikon_d80_piano",
+    "layout": "BayerCfa",
+    "mismatches": 0,
+    "payload_bytes": 7416588,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 3900, height: 2611,"
+  },
+  {
+    "bit_depth": 12,
+    "canon_sha_ok": true,
+    "dec_median_s": 7.3939319,
+    "dec_s": [
+      7.2568132,
+      8.0937283,
+      7.3939319
+    ],
+    "decoded_width_height": [
+      4128,
+      2176
+    ],
+    "deterministic": true,
+    "enc_median_s": 7.1834267,
+    "enc_s": [
+      7.166964,
+      7.1834267,
+      7.2608637
+    ],
+    "id": "bmpcc4k_person",
+    "layout": "BayerCfa",
+    "mismatches": 0,
+    "payload_bytes": 7517904,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 4128, height: 2176,"
+  },
+  {
+    "bit_depth": 14,
+    "canon_sha_ok": true,
+    "dec_median_s": 10.2936285,
+    "dec_s": [
+      10.202154,
+      10.2936285,
+      10.4791407
+    ],
+    "decoded_width_height": [
+      4936,
+      3296
+    ],
+    "deterministic": true,
+    "enc_median_s": 10.1092755,
+    "enc_s": [
+      10.4047004,
+      10.1092755,
+      9.8955521
+    ],
+    "id": "x100s_xtrans_chart",
+    "layout": "OtherCfa",
+    "mismatches": 0,
+    "payload_bytes": 19733648,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 4936, height: 3296,"
+  },
+  {
+    "bit_depth": 12,
+    "canon_sha_ok": true,
+    "dec_median_s": 9.539624,
+    "dec_s": [
+      9.48853,
+      9.539624,
+      10.0184639
+    ],
+    "decoded_width_height": [
+      4176,
+      3060
+    ],
+    "deterministic": true,
+    "enc_median_s": 9.5399381,
+    "enc_s": [
+      9.4394511,
+      9.7311447,
+      9.5399381
+    ],
+    "id": "canon_sx40_snow",
+    "layout": "BayerCfa",
+    "mismatches": 0,
+    "payload_bytes": 11954171,
+    "stage2_record": "Stage2Organization(Stage2Record { width: 4176, height: 3060,"
+  }
+]

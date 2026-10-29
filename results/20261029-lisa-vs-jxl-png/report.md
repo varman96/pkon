@@ -1,0 +1,63 @@
+# LISA vs JPEG XL vs PNG - lossless RAW sensor-raster benchmark (2026-10-29)
+
+**Input:** frozen canonical rasters `data/praw1/canon/*.u16` (original DNG sensor samples, row-major, u16 LE, no transform; sha256 checked against `source_manifest.json` = `results/20261028-praw-bench1/dataset_manifest.json`). 25 images; held-out 8 = `split.json` "test" (copied from `results/20261029-lisa-or128-tree/split.json`).
+**Uncompressed size:** width x height x 2 bytes for every codec (all samples stored as 16-bit, values unscaled; JXL/PNG headers record 16-bit gray).
+**Sizes:** JXL/PNG = full file bytes as written (headers included; no external side info). LISA = Stage 4 payload bytes only (`Stage4Output::payload()`); the production API has no self-contained serializer, so width/height/bit depth/CFA metadata/stage records (held in `Stage4Output` history) are EXCLUDED (not measured; a few tens of bytes of fields) and no container was invented. LISA decode uses the in-memory `Stage4Output` (payload + history).
+**LISA config:** production default: `lisa_bayer_plane::encode_stage2` (Bayer-plane for BayerCfa, mosaic fallback for OtherCfa) -> `classify_stage3` (default OR-128) -> `encode_stage4`; decode `decode_stage4` -> `restore_stage1_with_mode` -> `decode_stage1`. Single-threaded.
+**Timing:** release build; 1 warm-up + 3 measured reps, median per image; aggregate throughput = total pixels (or bytes) / sum of per-image medians. LISA: in-process, samples in memory -> Stage4Output (and reverse). JXL/PNG: wall time of one ffmpeg subprocess with raw bytes piped in and compressed bytes piped out (and reverse); process start-up ~0.08-0.13 s is included (calibration in tables). Boundaries are therefore not identical; libjxl is multi-threaded, LISA/PNG single-threaded.
+**Determinism:** compressed bytes identical across all measured reps for every image/codec. **Correctness:** every decoded sample compared with source; 0 mismatches, correct dimensions, for 25/25 images for all three codecs.
+**Caveats:** first LISA images (pentax_k1ii_station, pentax_k30_frog, pentax_kx_lichen) ran notably slower than later images of similar size and may reflect machine load; parrot_anafi_dusk PNG encode (16.18 s) is an outlier vs. other PNG times.
+
+ffmpeg: `ffmpeg version 9.0.2-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers`; JXL `-c:v libjxl -distance 0 -modular 1 -effort 7`; PNG `-c:v png -compression_level 9 -pred mixed` (gray16be). 1 warm-up + 3 measured reps, median.
+
+### All 25 (25 images, 434,664,020 px, 869,328,040 raw bytes)
+
+| codec | bytes | ratio | vs LISA | enc px/s | enc MiB/s | dec px/s | dec MiB/s | exact |
+|---|---|---|---|---|---|---|---|---|
+| LISA | 397,011,489 | 2.1897 | - | 1,088,207 | 2.08 | 1,156,118 | 2.21 | 25/25 |
+| JXL | 440,815,878 | 1.9721 | +11.03% | 4,687,826 | 8.94 | 6,529,569 | 12.45 | 25/25 |
+| PNG | 591,948,741 | 1.4686 | +49.10% | 8,037,643 | 15.33 | 24,666,102 | 47.05 | 25/25 |
+
+PNG vs JXL: +34.28%
+
+### Held-out 8 (test) (8 images, 115,444,116 px, 230,888,232 raw bytes)
+
+| codec | bytes | ratio | vs LISA | enc px/s | enc MiB/s | dec px/s | dec MiB/s | exact |
+|---|---|---|---|---|---|---|---|---|
+| LISA | 90,543,174 | 2.5500 | - | 1,027,873 | 1.96 | 1,179,899 | 2.25 | 8/8 |
+| JXL | 105,007,221 | 2.1988 | +15.97% | 5,216,268 | 9.95 | 7,050,662 | 13.45 | 8/8 |
+| PNG | 147,040,755 | 1.5702 | +62.40% | 10,932,562 | 20.85 | 25,358,109 | 48.37 | 8/8 |
+
+PNG vs JXL: +40.03%
+
+## Per image
+
+| id | split | WxH | bits | raw B | LISA B | JXL B | PNG B | LISA enc/dec s | JXL enc/dec s | PNG enc/dec s | exact L/J/P |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| pentax_k1ii_station | train | 7392x4950 | 14 | 73,180,800 | 36,498,470 | 45,265,781 | 58,137,365 | 69.50/64.63 | 9.04/6.66 | 2.97/1.67 | 1/1/1 |
+| pentax_k30_frog | test | 4960x3300 | 12 | 32,736,000 | 11,836,232 | 15,314,113 | 21,771,846 | 33.63/26.77 | 2.87/1.94 | 1.29/0.61 | 1/1/1 |
+| pentax_kx_lichen | val | 4352x2868 | 12 | 24,963,072 | 11,458,087 | 12,647,502 | 17,308,749 | 21.05/15.68 | 2.66/1.59 | 1.08/0.44 | 1/1/1 |
+| pentax_q7_cat | test | 4064x3000 | 12 | 24,384,000 | 9,288,949 | 10,362,059 | 15,022,681 | 18.29/10.40 | 2.63/1.52 | 0.93/0.39 | 1/1/1 |
+| pentax_k70_bulb | train | 6080x4064 | 14 | 49,418,240 | 20,396,871 | 20,929,168 | 27,556,822 | 19.74/19.85 | 5.69/3.04 | 1.98/0.72 | 1/1/1 |
+| leica_cl_chateau | val | 6120x4016 | 14 | 49,155,840 | 25,248,944 | 30,916,888 | 38,951,499 | 19.03/17.86 | 2.72/2.33 | 1.85/0.85 | 1/1/1 |
+| leica_m10_brick | test | 5984x3992 | 14 | 47,776,256 | 27,738,775 | 32,213,387 | 39,357,330 | 15.54/15.66 | 3.52/2.72 | 1.80/0.83 | 1/1/1 |
+| leica_q_canoe | train | 6120x4016 | 14 | 49,155,840 | 27,966,309 | 30,549,438 | 39,309,557 | 17.28/17.26 | 7.98/8.92 | 2.45/1.04 | 1/1/1 |
+| leica_x2_lowlight | test | 4944x3272 | 12 | 32,353,536 | 8,727,947 | 11,475,951 | 17,500,455 | 11.41/11.18 | 3.44/3.69 | 1.26/0.61 | 1/1/1 |
+| leica_m8_house | train | 3920x2638 | 8 | 20,681,920 | 5,443,149 | 5,929,269 | 8,310,162 | 7.36/7.40 | 2.06/1.35 | 0.95/0.32 | 1/1/1 |
+| pixel6pro_valley | train | 4080x3072 | 14 | 25,067,520 | 11,299,890 | 12,953,419 | 17,950,528 | 9.86/10.04 | 2.86/1.90 | 1.34/0.58 | 1/1/1 |
+| dji_fc220_dusk | test | 4000x3000 | 14 | 24,000,000 | 12,030,903 | 10,755,364 | 15,408,535 | 8.04/8.23 | 2.26/1.53 | 1.55/0.47 | 1/1/1 |
+| parrot_anafi_dusk | train | 5344x4016 | 14 | 42,923,008 | 23,137,314 | 13,794,937 | 20,417,705 | 14.21/14.84 | 4.06/2.82 | 16.18/0.80 | 1/1/1 |
+| hasselblad_tallinn | train | 5568x3648 | 16 | 40,624,128 | 25,974,547 | 30,468,772 | 34,262,056 | 12.90/13.01 | 2.84/3.08 | 2.06/0.83 | 1/1/1 |
+| sigma_fp_bike14 | val | 6064x4042 | 14 | 49,021,376 | 23,748,150 | 27,155,130 | 37,326,651 | 17.50/17.66 | 5.42/3.28 | 2.06/1.17 | 1/1/1 |
+| sigma_fp_bike8 | test | 3856x2170 | 8 | 16,735,040 | 2,903,981 | 3,823,241 | 5,861,178 | 4.47/4.60 | 1.62/1.26 | 1.08/0.29 | 1/1/1 |
+| nexus6_courtyard | val | 4208x3120 | 10 | 26,257,920 | 8,006,667 | 9,268,727 | 13,599,679 | 10.23/10.63 | 2.71/1.75 | 1.09/0.54 | 1/1/1 |
+| lg_h815_mountain | train | 5312x2988 | 10 | 31,744,512 | 9,588,201 | 11,177,119 | 16,855,075 | 12.10/12.16 | 3.94/2.07 | 1.43/0.60 | 1/1/1 |
+| ricoh_gr_wood | test | 4960x3280 | 12 | 32,537,600 | 10,599,799 | 12,697,939 | 20,026,993 | 12.39/12.34 | 3.23/2.25 | 1.77/0.94 | 1/1/1 |
+| ricoh_gr3_dunes | train | 6112x4064 | 14 | 49,678,336 | 26,829,113 | 30,366,908 | 39,420,951 | 16.62/16.91 | 5.14/3.47 | 2.31/1.15 | 1/1/1 |
+| samsung_gx20_berries | train | 4864x3136 | 12 | 30,507,008 | 11,666,880 | 14,100,832 | 20,831,178 | 12.91/12.97 | 3.74/2.24 | 1.39/0.62 | 1/1/1 |
+| nikon_d80_piano | test | 3900x2611 | 12 | 20,365,800 | 7,416,588 | 8,365,167 | 12,091,737 | 8.55/8.67 | 2.57/1.45 | 0.88/0.42 | 1/1/1 |
+| bmpcc4k_person | train | 4128x2176 | 12 | 17,965,056 | 7,517,904 | 9,161,556 | 12,411,640 | 7.18/7.39 | 1.47/1.11 | 0.83/0.43 | 1/1/1 |
+| x100s_xtrans_chart | train | 4936x3296 | 14 | 32,538,112 | 19,733,648 | 18,265,510 | 24,256,037 | 10.11/10.29 | 5.14/2.78 | 1.49/0.73 | 1/1/1 |
+| canon_sx40_snow | train | 4176x3060 | 12 | 25,557,120 | 11,954,171 | 12,857,701 | 18,002,332 | 9.54/9.54 | 3.13/1.81 | 2.04/0.61 | 1/1/1 |
+
+ffmpeg process start-up (16x16 image, median of 5): {"jxl": {"enc_median_s": 0.08495019999099895, "dec_median_s": 0.12569580000126734}, "png": {"enc_median_s": 0.09831809997558594, "dec_median_s": 0.11651200003689155}}

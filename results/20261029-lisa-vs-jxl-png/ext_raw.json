@@ -1,0 +1,1365 @@
+{
+ "ffmpeg": "ffmpeg version 9.0.2-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+ "overhead": {
+  "jxl": {
+   "enc_median_s": 0.08495019999099895,
+   "dec_median_s": 0.12569580000126734
+  },
+  "png": {
+   "enc_median_s": 0.09831809997558594,
+   "dec_median_s": 0.11651200003689155
+  }
+ },
+ "per_image": {
+  "pentax_k1ii_station": {
+   "jxl": {
+    "bytes": 45265781,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 7392,
+     "height": 4950,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 36590400,
+    "canon_sha_ok": true,
+    "enc_s": [
+     7.757885999977589,
+     9.041990800003987,
+     9.62449789996026
+    ],
+    "dec_s": [
+     7.735170800006017,
+     6.657196799991652,
+     5.800494199967943
+    ],
+    "enc_median_s": 9.041990800003987,
+    "dec_median_s": 6.657196799991652
+   },
+   "png": {
+    "bytes": 58137365,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 7392,
+     "height": 4950,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 36590400,
+    "canon_sha_ok": true,
+    "enc_s": [
+     3.511079099960625,
+     2.9211292999680154,
+     2.972418099991046
+    ],
+    "dec_s": [
+     1.4589409999898635,
+     1.665080200007651,
+     1.872113100020215
+    ],
+    "enc_median_s": 2.972418099991046,
+    "dec_median_s": 1.665080200007651
+   }
+  },
+  "pentax_k30_frog": {
+   "jxl": {
+    "bytes": 15314113,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 4960,
+     "height": 3300,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 16368000,
+    "canon_sha_ok": true,
+    "enc_s": [
+     3.1206834000186063,
+     2.823313299973961,
+     2.873615399992559
+    ],
+    "dec_s": [
+     1.9424527999944985,
+     1.8626052999752574,
+     2.0013826999929734
+    ],
+    "enc_median_s": 2.873615399992559,
+    "dec_median_s": 1.9424527999944985
+   },
+   "png": {
+    "bytes": 21771846,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 4960,
+     "height": 3300,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 16368000,
+    "canon_sha_ok": true,
+    "enc_s": [
+     1.2949404999963008,
+     1.2875223999726586,
+     1.2706760000437498
+    ],
+    "dec_s": [
+     0.6099685999797657,
+     0.6092418999760412,
+     0.600765599985607
+    ],
+    "enc_median_s": 1.2875223999726586,
+    "dec_median_s": 0.6092418999760412
+   }
+  },
+  "pentax_kx_lichen": {
+   "jxl": {
+    "bytes": 12647502,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 4352,
+     "height": 2868,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 12481536,
+    "canon_sha_ok": true,
+    "enc_s": [
+     2.6553960999590345,
+     2.640050699992571,
+     2.67933820001781
+    ],
+    "dec_s": [
+     2.141667400021106,
+     1.5509026999934576,
+     1.5888421999989077
+    ],
+    "enc_median_s": 2.6553960999590345,
+    "dec_median_s": 1.5888421999989077
+   },
+   "png": {
+    "bytes": 17308749,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 4352,
+     "height": 2868,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 12481536,
+    "canon_sha_ok": true,
+    "enc_s": [
+     1.0800148999551311,
+     1.0814010999747552,
+     1.0795255999546498
+    ],
+    "dec_s": [
+     0.444799899996724,
+     0.44373619998805225,
+     0.4566479000495747
+    ],
+    "enc_median_s": 1.0800148999551311,
+    "dec_median_s": 0.444799899996724
+   }
+  },
+  "pentax_q7_cat": {
+   "jxl": {
+    "bytes": 10362059,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 4064,
+     "height": 3000,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 12192000,
+    "canon_sha_ok": true,
+    "enc_s": [
+     2.482523200043943,
+     2.629204500000924,
+     2.943997299997136
+    ],
+    "dec_s": [
+     1.797017400036566,
+     1.5182448000414297,
+     1.5242339000105858
+    ],
+    "enc_median_s": 2.629204500000924,
+    "dec_median_s": 1.5242339000105858
+   },
+   "png": {
+    "bytes": 15022681,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 4064,
+     "height": 3000,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 12192000,
+    "canon_sha_ok": true,
+    "enc_s": [
+     0.9270178999868222,
+     0.9267878999817185,
+     0.9466158000286669
+    ],
+    "dec_s": [
+     0.392760599963367,
+     0.38753880001604557,
+     0.39679239998804405
+    ],
+    "enc_median_s": 0.9270178999868222,
+    "dec_median_s": 0.392760599963367
+   }
+  },
+  "pentax_k70_bulb": {
+   "jxl": {
+    "bytes": 20929168,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 6080,
+     "height": 4064,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 24709120,
+    "canon_sha_ok": true,
+    "enc_s": [
+     6.0260220999480225,
+     5.692090200027451,
+     4.839957099989988
+    ],
+    "dec_s": [
+     3.0357582999859005,
+     3.3730644999886863,
+     2.9041309999884106
+    ],
+    "enc_median_s": 5.692090200027451,
+    "dec_median_s": 3.0357582999859005
+   },
+   "png": {
+    "bytes": 27556822,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 6080,
+     "height": 4064,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 24709120,
+    "canon_sha_ok": true,
+    "enc_s": [
+     1.977960999996867,
+     1.9765279999701306,
+     2.15213300002506
+    ],
+    "dec_s": [
+     0.7200897000147961,
+     0.7171158000128344,
+     0.7178741999669
+    ],
+    "enc_median_s": 1.977960999996867,
+    "dec_median_s": 0.7178741999669
+   }
+  },
+  "leica_cl_chateau": {
+   "jxl": {
+    "bytes": 30916888,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 6120,
+     "height": 4016,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 24577920,
+    "canon_sha_ok": true,
+    "enc_s": [
+     2.6643848000094295,
+     2.7699792999774218,
+     2.716139000025578
+    ],
+    "dec_s": [
+     2.3218515000189655,
+     2.3368097000056878,
+     2.3250417000381276
+    ],
+    "enc_median_s": 2.716139000025578,
+    "dec_median_s": 2.3250417000381276
+   },
+   "png": {
+    "bytes": 38951499,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 6120,
+     "height": 4016,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 24577920,
+    "canon_sha_ok": true,
+    "enc_s": [
+     1.8522136000101455,
+     1.8762228999985382,
+     1.765359000011813
+    ],
+    "dec_s": [
+     0.8452300999779254,
+     0.8388981000171043,
+     0.8829575999989174
+    ],
+    "enc_median_s": 1.8522136000101455,
+    "dec_median_s": 0.8452300999779254
+   }
+  },
+  "leica_m10_brick": {
+   "jxl": {
+    "bytes": 32213387,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 5984,
+     "height": 3992,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 23888128,
+    "canon_sha_ok": true,
+    "enc_s": [
+     3.5670425000134856,
+     3.5235950000351295,
+     3.483363199979067
+    ],
+    "dec_s": [
+     2.6497412000317127,
+     2.719047600054182,
+     3.0105276000103913
+    ],
+    "enc_median_s": 3.5235950000351295,
+    "dec_median_s": 2.719047600054182
+   },
+   "png": {
+    "bytes": 39357330,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 5984,
+     "height": 3992,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 23888128,
+    "canon_sha_ok": true,
+    "enc_s": [
+     1.804169200011529,
+     1.9254937999648973,
+     1.7954247000161558
+    ],
+    "dec_s": [
+     0.8505067999940366,
+     0.8271592000382952,
+     0.8171596999745816
+    ],
+    "enc_median_s": 1.804169200011529,
+    "dec_median_s": 0.8271592000382952
+   }
+  },
+  "leica_q_canoe": {
+   "jxl": {
+    "bytes": 30549438,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 6120,
+     "height": 4016,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 24577920,
+    "canon_sha_ok": true,
+    "enc_s": [
+     8.820069800014608,
+     7.983303200046066,
+     7.6580075999954715
+    ],
+    "dec_s": [
+     4.715611200022977,
+     8.922044400009327,
+     13.112313699966762
+    ],
+    "enc_median_s": 7.983303200046066,
+    "dec_median_s": 8.922044400009327
+   },
+   "png": {
+    "bytes": 39309557,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 6120,
+     "height": 4016,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 24577920,
+    "canon_sha_ok": true,
+    "enc_s": [
+     2.747375799983274,
+     2.4255493999808095,
+     2.451547799981199
+    ],
+    "dec_s": [
+     1.1865936999674886,
+     0.9893830000073649,
+     1.0378103000111878
+    ],
+    "enc_median_s": 2.451547799981199,
+    "dec_median_s": 1.0378103000111878
+   }
+  },
+  "leica_x2_lowlight": {
+   "jxl": {
+    "bytes": 11475951,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 4944,
+     "height": 3272,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 16176768,
+    "canon_sha_ok": true,
+    "enc_s": [
+     3.0932274000369944,
+     3.4370072000310756,
+     5.18343980005011
+    ],
+    "dec_s": [
+     7.595050300005823,
+     3.6938124000444077,
+     3.422176899970509
+    ],
+    "enc_median_s": 3.4370072000310756,
+    "dec_median_s": 3.6938124000444077
+   },
+   "png": {
+    "bytes": 17500455,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 4944,
+     "height": 3272,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 16176768,
+    "canon_sha_ok": true,
+    "enc_s": [
+     1.2847099999780767,
+     1.2553811000543647,
+     1.2542875000508502
+    ],
+    "dec_s": [
+     0.5702025000355206,
+     0.6053627000073902,
+     0.6375695999595337
+    ],
+    "enc_median_s": 1.2553811000543647,
+    "dec_median_s": 0.6053627000073902
+   }
+  },
+  "leica_m8_house": {
+   "jxl": {
+    "bytes": 5929269,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 3920,
+     "height": 2638,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 10340960,
+    "canon_sha_ok": true,
+    "enc_s": [
+     2.060023199999705,
+     2.100862800027244,
+     1.997635000036098
+    ],
+    "dec_s": [
+     1.4434280999703333,
+     1.335066600004211,
+     1.3458012999617495
+    ],
+    "enc_median_s": 2.060023199999705,
+    "dec_median_s": 1.3458012999617495
+   },
+   "png": {
+    "bytes": 8310162,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 3920,
+     "height": 2638,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 10340960,
+    "canon_sha_ok": true,
+    "enc_s": [
+     0.9529534999746829,
+     0.9576584000024013,
+     0.9451289999997243
+    ],
+    "dec_s": [
+     0.31590599997434765,
+     0.31418059999123216,
+     0.3279361000168137
+    ],
+    "enc_median_s": 0.9529534999746829,
+    "dec_median_s": 0.31590599997434765
+   }
+  },
+  "pixel6pro_valley": {
+   "jxl": {
+    "bytes": 12953419,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 4080,
+     "height": 3072,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 12533760,
+    "canon_sha_ok": true,
+    "enc_s": [
+     2.8584042000002228,
+     2.802148799994029,
+     2.996742599993013
+    ],
+    "dec_s": [
+     1.832812600012403,
+     1.8970224999939092,
+     2.0187800000421703
+    ],
+    "enc_median_s": 2.8584042000002228,
+    "dec_median_s": 1.8970224999939092
+   },
+   "png": {
+    "bytes": 17950528,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 4080,
+     "height": 3072,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 12533760,
+    "canon_sha_ok": true,
+    "enc_s": [
+     1.341919400030747,
+     1.2940925000002608,
+     1.4063179000513628
+    ],
+    "dec_s": [
+     0.6149516000295989,
+     0.5785912999999709,
+     0.5493194999871776
+    ],
+    "enc_median_s": 1.341919400030747,
+    "dec_median_s": 0.5785912999999709
+   }
+  },
+  "dji_fc220_dusk": {
+   "jxl": {
+    "bytes": 10755364,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 4000,
+     "height": 3000,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 12000000,
+    "canon_sha_ok": true,
+    "enc_s": [
+     2.3747820000280626,
+     2.256426499981899,
+     2.1773594000260346
+    ],
+    "dec_s": [
+     1.5289336999994703,
+     1.4676885000080802,
+     1.5618940999847837
+    ],
+    "enc_median_s": 2.256426499981899,
+    "dec_median_s": 1.5289336999994703
+   },
+   "png": {
+    "bytes": 15408535,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 4000,
+     "height": 3000,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 12000000,
+    "canon_sha_ok": true,
+    "enc_s": [
+     1.4812066000304185,
+     1.6196259999996983,
+     1.550669200019911
+    ],
+    "dec_s": [
+     0.4692751000402495,
+     0.471516799996607,
+     0.5014942999696359
+    ],
+    "enc_median_s": 1.550669200019911,
+    "dec_median_s": 0.471516799996607
+   }
+  },
+  "parrot_anafi_dusk": {
+   "jxl": {
+    "bytes": 13794937,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 5344,
+     "height": 4016,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 21461504,
+    "canon_sha_ok": true,
+    "enc_s": [
+     4.0566770999575965,
+     4.241863599978387,
+     4.011757000000216
+    ],
+    "dec_s": [
+     3.199248399992939,
+     2.7784998000133783,
+     2.822729400009848
+    ],
+    "enc_median_s": 4.0566770999575965,
+    "dec_median_s": 2.822729400009848
+   },
+   "png": {
+    "bytes": 20417705,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 5344,
+     "height": 4016,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 21461504,
+    "canon_sha_ok": true,
+    "enc_s": [
+     15.604239800013602,
+     16.182812999992166,
+     17.229036700038705
+    ],
+    "dec_s": [
+     0.7569195000105537,
+     0.8359135999926366,
+     0.7970193999935873
+    ],
+    "enc_median_s": 16.182812999992166,
+    "dec_median_s": 0.7970193999935873
+   }
+  },
+  "hasselblad_tallinn": {
+   "jxl": {
+    "bytes": 30468772,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 5568,
+     "height": 3648,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 20312064,
+    "canon_sha_ok": true,
+    "enc_s": [
+     2.843921199964825,
+     2.8975707000354305,
+     2.693737699999474
+    ],
+    "dec_s": [
+     3.7529543000273407,
+     3.0785274000372738,
+     2.5980757999932393
+    ],
+    "enc_median_s": 2.843921199964825,
+    "dec_median_s": 3.0785274000372738
+   },
+   "png": {
+    "bytes": 34262056,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 5568,
+     "height": 3648,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 20312064,
+    "canon_sha_ok": true,
+    "enc_s": [
+     1.9516792999929748,
+     2.0620135000208393,
+     2.085547399998177
+    ],
+    "dec_s": [
+     0.8283646000199951,
+     0.8856725000077859,
+     0.8214581999927759
+    ],
+    "enc_median_s": 2.0620135000208393,
+    "dec_median_s": 0.8283646000199951
+   }
+  },
+  "sigma_fp_bike14": {
+   "jxl": {
+    "bytes": 27155130,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 6064,
+     "height": 4042,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 24510688,
+    "canon_sha_ok": true,
+    "enc_s": [
+     5.231557299965061,
+     5.6551867999951355,
+     5.420828900008928
+    ],
+    "dec_s": [
+     3.280475999985356,
+     3.2548460999969393,
+     3.3846479000058025
+    ],
+    "enc_median_s": 5.420828900008928,
+    "dec_median_s": 3.280475999985356
+   },
+   "png": {
+    "bytes": 37326651,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 6064,
+     "height": 4042,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 24510688,
+    "canon_sha_ok": true,
+    "enc_s": [
+     2.060260099999141,
+     2.0660465999972075,
+     2.0354906999855302
+    ],
+    "dec_s": [
+     1.2320762000163086,
+     1.1656327999662608,
+     1.1660209000110626
+    ],
+    "enc_median_s": 2.060260099999141,
+    "dec_median_s": 1.1660209000110626
+   }
+  },
+  "sigma_fp_bike8": {
+   "jxl": {
+    "bytes": 3823241,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 3856,
+     "height": 2170,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 8367520,
+    "canon_sha_ok": true,
+    "enc_s": [
+     1.617952200002037,
+     1.562241899955552,
+     1.63680719997501
+    ],
+    "dec_s": [
+     1.281146900029853,
+     1.188640399952419,
+     1.2595511000254191
+    ],
+    "enc_median_s": 1.617952200002037,
+    "dec_median_s": 1.2595511000254191
+   },
+   "png": {
+    "bytes": 5861178,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 3856,
+     "height": 2170,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 8367520,
+    "canon_sha_ok": true,
+    "enc_s": [
+     1.2104240999906324,
+     1.0796488000196405,
+     1.0407252000295557
+    ],
+    "dec_s": [
+     0.30326910002622753,
+     0.2885789999854751,
+     0.2779312999919057
+    ],
+    "enc_median_s": 1.0796488000196405,
+    "dec_median_s": 0.2885789999854751
+   }
+  },
+  "nexus6_courtyard": {
+   "jxl": {
+    "bytes": 9268727,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 4208,
+     "height": 3120,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 13128960,
+    "canon_sha_ok": true,
+    "enc_s": [
+     2.8759030000073835,
+     2.7081475000013597,
+     2.5909944999730214
+    ],
+    "dec_s": [
+     1.7544066000264138,
+     1.7807139999931678,
+     1.7144881999702193
+    ],
+    "enc_median_s": 2.7081475000013597,
+    "dec_median_s": 1.7544066000264138
+   },
+   "png": {
+    "bytes": 13599679,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 4208,
+     "height": 3120,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 13128960,
+    "canon_sha_ok": true,
+    "enc_s": [
+     1.1082515000016429,
+     1.0899809999973513,
+     1.0947769000194967
+    ],
+    "dec_s": [
+     0.49390679999487475,
+     0.5438157999888062,
+     0.56264389998978
+    ],
+    "enc_median_s": 1.0947769000194967,
+    "dec_median_s": 0.5438157999888062
+   }
+  },
+  "lg_h815_mountain": {
+   "jxl": {
+    "bytes": 11177119,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 5312,
+     "height": 2988,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 15872256,
+    "canon_sha_ok": true,
+    "enc_s": [
+     4.089282200031448,
+     3.8731790000456385,
+     3.93694600003073
+    ],
+    "dec_s": [
+     2.0703847000258975,
+     2.3753316000220366,
+     2.064469199976884
+    ],
+    "enc_median_s": 3.93694600003073,
+    "dec_median_s": 2.0703847000258975
+   },
+   "png": {
+    "bytes": 16855075,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 5312,
+     "height": 2988,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 15872256,
+    "canon_sha_ok": true,
+    "enc_s": [
+     1.9117900999845006,
+     1.4310006000450812,
+     1.373374699964188
+    ],
+    "dec_s": [
+     0.616077899991069,
+     0.5939533000346273,
+     0.598026999970898
+    ],
+    "enc_median_s": 1.4310006000450812,
+    "dec_median_s": 0.598026999970898
+   }
+  },
+  "ricoh_gr_wood": {
+   "jxl": {
+    "bytes": 12697939,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 4960,
+     "height": 3280,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 16268800,
+    "canon_sha_ok": true,
+    "enc_s": [
+     3.287217100034468,
+     3.1522918000118807,
+     3.2264614999876358
+    ],
+    "dec_s": [
+     2.2613586999941617,
+     2.2498194000218064,
+     2.2544170999899507
+    ],
+    "enc_median_s": 3.2264614999876358,
+    "dec_median_s": 2.2544170999899507
+   },
+   "png": {
+    "bytes": 20026993,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 4960,
+     "height": 3280,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 16268800,
+    "canon_sha_ok": true,
+    "enc_s": [
+     1.5234665000461973,
+     1.774728899996262,
+     2.25004870002158
+    ],
+    "dec_s": [
+     0.9507110999547876,
+     0.9370704999892041,
+     0.9313638999592513
+    ],
+    "enc_median_s": 1.774728899996262,
+    "dec_median_s": 0.9370704999892041
+   }
+  },
+  "ricoh_gr3_dunes": {
+   "jxl": {
+    "bytes": 30366908,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 6112,
+     "height": 4064,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 24839168,
+    "canon_sha_ok": true,
+    "enc_s": [
+     5.1022429000004195,
+     5.26556279999204,
+     5.1360418000258505
+    ],
+    "dec_s": [
+     3.3997097000246868,
+     3.4726040000095963,
+     3.7935405000462197
+    ],
+    "enc_median_s": 5.1360418000258505,
+    "dec_median_s": 3.4726040000095963
+   },
+   "png": {
+    "bytes": 39420951,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 6112,
+     "height": 4064,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 24839168,
+    "canon_sha_ok": true,
+    "enc_s": [
+     2.3107281000120565,
+     2.2131185999605805,
+     2.3159914999851026
+    ],
+    "dec_s": [
+     1.146476099966094,
+     1.2380554999690503,
+     1.1023493999964558
+    ],
+    "enc_median_s": 2.3107281000120565,
+    "dec_median_s": 1.146476099966094
+   }
+  },
+  "samsung_gx20_berries": {
+   "jxl": {
+    "bytes": 14100832,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 4864,
+     "height": 3136,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 15253504,
+    "canon_sha_ok": true,
+    "enc_s": [
+     3.383219699957408,
+     3.7433550999849103,
+     3.8315450999652967
+    ],
+    "dec_s": [
+     2.2547410000115633,
+     2.236707900010515,
+     2.1555613999953493
+    ],
+    "enc_median_s": 3.7433550999849103,
+    "dec_median_s": 2.236707900010515
+   },
+   "png": {
+    "bytes": 20831178,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 4864,
+     "height": 3136,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 15253504,
+    "canon_sha_ok": true,
+    "enc_s": [
+     1.7975026000058278,
+     1.3854411999927834,
+     1.3887367999996059
+    ],
+    "dec_s": [
+     0.5900562999886461,
+     0.6228644999791868,
+     0.6503036000067368
+    ],
+    "enc_median_s": 1.3887367999996059,
+    "dec_median_s": 0.6228644999791868
+   }
+  },
+  "nikon_d80_piano": {
+   "jxl": {
+    "bytes": 8365167,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 3900,
+     "height": 2611,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 10182900,
+    "canon_sha_ok": true,
+    "enc_s": [
+     2.5672927999985404,
+     2.4493748999666423,
+     2.598301399964839
+    ],
+    "dec_s": [
+     1.4121638999786228,
+     1.4510648000286892,
+     1.4763676000293344
+    ],
+    "enc_median_s": 2.5672927999985404,
+    "dec_median_s": 1.4510648000286892
+   },
+   "png": {
+    "bytes": 12091737,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 3900,
+     "height": 2611,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 10182900,
+    "canon_sha_ok": true,
+    "enc_s": [
+     0.8805207000114024,
+     0.8512237999821082,
+     0.8834411000134423
+    ],
+    "dec_s": [
+     0.4208616000250913,
+     0.4160871999920346,
+     0.43925900000613183
+    ],
+    "enc_median_s": 0.8805207000114024,
+    "dec_median_s": 0.4208616000250913
+   }
+  },
+  "bmpcc4k_person": {
+   "jxl": {
+    "bytes": 9161556,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 4128,
+     "height": 2176,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 8982528,
+    "canon_sha_ok": true,
+    "enc_s": [
+     1.5624774000025354,
+     1.4664990999735892,
+     1.455347899987828
+    ],
+    "dec_s": [
+     1.2024400999653153,
+     1.1138684999896213,
+     1.0886054000002332
+    ],
+    "enc_median_s": 1.4664990999735892,
+    "dec_median_s": 1.1138684999896213
+   },
+   "png": {
+    "bytes": 12411640,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 4128,
+     "height": 2176,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 8982528,
+    "canon_sha_ok": true,
+    "enc_s": [
+     1.0043961000046693,
+     0.8071045000106096,
+     0.8343846999923699
+    ],
+    "dec_s": [
+     0.43451690004440024,
+     0.4285138999694027,
+     0.39237760001560673
+    ],
+    "enc_median_s": 0.8343846999923699,
+    "dec_median_s": 0.4285138999694027
+   }
+  },
+  "x100s_xtrans_chart": {
+   "jxl": {
+    "bytes": 18265510,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 4936,
+     "height": 3296,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 16269056,
+    "canon_sha_ok": true,
+    "enc_s": [
+     5.1429523000260815,
+     5.173781100020278,
+     5.105408700008411
+    ],
+    "dec_s": [
+     2.523162700003013,
+     2.7814845999819227,
+     2.8067632999736816
+    ],
+    "enc_median_s": 5.1429523000260815,
+    "dec_median_s": 2.7814845999819227
+   },
+   "png": {
+    "bytes": 24256037,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 4936,
+     "height": 3296,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 16269056,
+    "canon_sha_ok": true,
+    "enc_s": [
+     1.4604139999719337,
+     1.486272000009194,
+     1.5662743999855593
+    ],
+    "dec_s": [
+     0.7159564000321552,
+     0.7260249999817461,
+     0.7517345999949612
+    ],
+    "enc_median_s": 1.486272000009194,
+    "dec_median_s": 0.7260249999817461
+   }
+  },
+  "canon_sx40_snow": {
+   "jxl": {
+    "bytes": 12857701,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "jpegxl",
+     "width": 4176,
+     "height": 3060,
+     "pix_fmt": "gray16le"
+    },
+    "dims_ok": true,
+    "decoded_samples": 12778560,
+    "canon_sha_ok": true,
+    "enc_s": [
+     3.288957299955655,
+     3.07682009995915,
+     3.127614500001073
+    ],
+    "dec_s": [
+     1.8121526000322774,
+     1.8500864999950863,
+     1.7884168000309728
+    ],
+    "enc_median_s": 3.127614500001073,
+    "dec_median_s": 1.8121526000322774
+   },
+   "png": {
+    "bytes": 18002332,
+    "deterministic": true,
+    "mismatches": 0,
+    "probe": {
+     "codec_name": "png",
+     "width": 4176,
+     "height": 3060,
+     "pix_fmt": "gray16be"
+    },
+    "dims_ok": true,
+    "decoded_samples": 12778560,
+    "canon_sha_ok": true,
+    "enc_s": [
+     2.0388732999563217,
+     2.200514599971939,
+     1.709775900002569
+    ],
+    "dec_s": [
+     0.6069459000136703,
+     0.5753519999561831,
+     0.6361406999640167
+    ],
+    "enc_median_s": 2.0388732999563217,
+    "dec_median_s": 0.6069459000136703
+   }
+  }
+ }
+}
