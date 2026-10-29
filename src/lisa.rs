@@ -871,10 +871,59 @@ pub fn restore_stage1(out: &Stage2Output) -> Result<(Stage1Output, Vec<Reconstru
 //   score = (sum + n/2) / n, with n = number of eligible neighbors (1..=3). No eligible neighbor => Low.
 // Classes (fixed thresholds, upper bounds exclusive): Low < 3 <= Moderate < 12 <= High < 48 <= VeryHigh.
 
-/// Version of the fixed Stage 3 rule set (neighborhood, score and thresholds). Bump if any of them ever changes.
-pub const STAGE3_RULE_VERSION: u8 = 1;
-/// First score of Moderate, High and VeryHigh respectively.
+/// Version of the production Stage 3 rule set: 2 = OR-128 (128 contexts, `lisa_or128`). Bump if the rule ever changes.
+pub const STAGE3_RULE_VERSION: u8 = 2;
+/// Legacy Stage 3 rule set (version 1): the four-class activity rule below. Still decodable, no longer produced by
+/// default; select it with [`classify_stage3_with`].
+pub const STAGE3_LEGACY_RULE_VERSION: u8 = 1;
+/// First score of Moderate, High and VeryHigh respectively (legacy rule).
 pub const STAGE3_THRESHOLDS: [u32; 3] = [3, 12, 48];
+
+/// Stage 3 context rule. Identified in the stream by [`Stage3Record::rule_version`].
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+pub enum Stage3Rule {
+    /// Version 1: four activity classes from the rounded mean of the causal neighbors.
+    Legacy4,
+    /// Version 2 (production): OR-128, 128 contexts from the frozen table in `lisa_or128`.
+    #[default]
+    Or128,
+}
+
+impl Stage3Rule {
+    pub fn version(self) -> u8 {
+        match self {
+            Stage3Rule::Legacy4 => STAGE3_LEGACY_RULE_VERSION,
+            Stage3Rule::Or128 => STAGE3_RULE_VERSION,
+        }
+    }
+    /// Number of contexts (and Stage 4 models) the rule produces.
+    pub fn context_count(self) -> usize {
+        match self {
+            Stage3Rule::Legacy4 => ActivityClass::COUNT,
+            Stage3Rule::Or128 => crate::lisa_or128::OR128_K,
+        }
+    }
+    /// Context id of one residual from its causal neighbors; always `< context_count()`.
+    #[inline]
+    pub fn context(self, left: Option<u32>, above: Option<u32>, above_left: Option<u32>) -> u8 {
+        match self {
+            Stage3Rule::Legacy4 => classify_activity(left, above, above_left) as u8,
+            Stage3Rule::Or128 => crate::lisa_or128::context(left, above, above_left),
+        }
+    }
+    fn thresholds(self) -> [u32; 3] {
+        match self {
+            Stage3Rule::Legacy4 => STAGE3_THRESHOLDS,
+            Stage3Rule::Or128 => [0; 3],
+        }
+    }
+    /// The rule a record describes, or `None` for an unknown version or a record that disagrees with its own rule.
+    fn from_record(r: &Stage3Record) -> Option<Self> {
+        [Stage3Rule::Legacy4, Stage3Rule::Or128].into_iter().find(|k| {
+            k.version() == r.rule_version && k.context_count() == usize::from(r.class_count) && k.thresholds() == r.thresholds
+        })
+    }
+}
 
 /// Local-activity class. Discriminants are stable and usable directly as a context index (0..=3).
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
@@ -896,6 +945,7 @@ impl ActivityClass {
 }
 
 /// Stage 3 reconstruction record. Describes the classification rule; it does not transform residual values.
+/// `thresholds` is meaningful for the legacy rule only (all zero for OR-128).
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Stage3Record {
     pub rule_version: u8,
@@ -904,12 +954,8 @@ pub struct Stage3Record {
 }
 
 impl Stage3Record {
-    fn current() -> Self {
-        Stage3Record {
-            rule_version: STAGE3_RULE_VERSION,
-            class_count: ActivityClass::COUNT as u8,
-            thresholds: STAGE3_THRESHOLDS,
-        }
+    fn for_rule(rule: Stage3Rule) -> Self {
+        Stage3Record { rule_version: rule.version(), class_count: rule.context_count() as u8, thresholds: rule.thresholds() }
     }
 }
 
@@ -938,14 +984,15 @@ pub fn classify_activity(left: Option<u32>, above: Option<u32>, above_left: Opti
     }
 }
 
-/// One class per residual, laid out exactly like the residuals in [`OrganizedResiduals`].
+/// One context id (`0..Stage3Rule::context_count()`) per residual, laid out exactly like the residuals in
+/// [`OrganizedResiduals`].
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum OrganizedContexts {
     /// Parallel to [`OrganizedResiduals::Morton`]. Neighbors are the spatial W, N, NW pixels, which always precede the
     /// current pixel in Morton order.
-    Morton(Vec<ActivityClass>),
+    Morton(Vec<u8>),
     /// Parallel to [`OrganizedResiduals::BayerPlanes`]. Neighbors are W, N, NW inside the same row-major plane.
-    BayerPlanes([Vec<ActivityClass>; 4]),
+    BayerPlanes([Vec<u8>; 4]),
 }
 
 /// Stage 3 output: the Stage 2 result (residuals, metadata and history, with the Stage 3 record appended) plus the
@@ -963,6 +1010,13 @@ impl Stage3Output {
     }
     pub fn contexts(&self) -> &OrganizedContexts {
         &self.contexts
+    }
+    /// The Stage 3 rule recorded in the newest history record.
+    pub fn rule(&self) -> Option<Stage3Rule> {
+        match self.base.history.last() {
+            Some(ReconstructionRecord::Stage3Context(r)) => Stage3Rule::from_record(r),
+            _ => None,
+        }
     }
     pub fn metadata(&self) -> &ImageMetadata {
         &self.base.metadata
@@ -988,7 +1042,7 @@ impl Stage3Output {
     }
 }
 
-fn classify_plane(v: &[u32], w: usize) -> Vec<ActivityClass> {
+fn classify_plane(rule: Stage3Rule, v: &[u32], w: usize) -> Vec<u8> {
     let mut out = Vec::with_capacity(v.len());
     if w == 0 {
         return out;
@@ -998,13 +1052,19 @@ fn classify_plane(v: &[u32], w: usize) -> Vec<ActivityClass> {
         let left = (x > 0).then(|| v[i - 1]);
         let above = (y > 0).then(|| v[i - w]);
         let above_left = (x > 0 && y > 0).then(|| v[i - w - 1]);
-        out.push(classify_activity(left, above, above_left));
+        out.push(rule.context(left, above, above_left));
     }
     out
 }
 
-/// Stage 3 entry point. Consumes the Stage 2 result, classifies every residual and appends a Stage 3 record.
+/// Stage 3 entry point (production rule, OR-128). Consumes the Stage 2 result, assigns a context to every residual and
+/// appends a Stage 3 record.
 pub fn classify_stage3(stage2: Stage2Output) -> Result<Stage3Output, LisaError> {
+    classify_stage3_with(stage2, Stage3Rule::default())
+}
+
+/// [`classify_stage3`] with an explicit rule (the legacy four-class rule exists for old streams and control runs).
+pub fn classify_stage3_with(stage2: Stage2Output, rule: Stage3Rule) -> Result<Stage3Output, LisaError> {
     stage2.metadata.validate()?;
     let (width, height) = (stage2.metadata.width, stage2.metadata.height);
     let n = validate(width, height, stage2.bit_depth)?;
@@ -1028,7 +1088,7 @@ pub fn classify_stage3(stage2: Stage2Output) -> Result<Stage3Output, LisaError> 
                 let left = (x > 0).then(|| seen[y * width + x - 1]);
                 let above = (y > 0).then(|| seen[(y - 1) * width + x]);
                 let above_left = (x > 0 && y > 0).then(|| seen[(y - 1) * width + x - 1]);
-                out.push(classify_activity(left, above, above_left));
+                out.push(rule.context(left, above, above_left));
                 seen[y * width + x] = r[k];
                 k += 1;
                 Ok(())
@@ -1036,13 +1096,13 @@ pub fn classify_stage3(stage2: Stage2Output) -> Result<Stage3Output, LisaError> 
             OrganizedContexts::Morton(out)
         }
         (Stage2Mode::BayerPlanes { planes, .. }, OrganizedResiduals::BayerPlanes(data)) => {
-            let mut out: [Vec<ActivityClass>; 4] = Default::default();
+            let mut out: [Vec<u8>; 4] = Default::default();
             for ((o, v), p) in out.iter_mut().zip(data).zip(planes) {
                 let len = p.width.checked_mul(p.height).ok_or(LisaError::DimensionTooLarge)?;
                 if v.len() != len {
                     return Err(LisaError::LengthMismatch { expected: len, actual: v.len() });
                 }
-                *o = classify_plane(v, p.width);
+                *o = classify_plane(rule, v, p.width);
             }
             OrganizedContexts::BayerPlanes(out)
         }
@@ -1050,14 +1110,14 @@ pub fn classify_stage3(stage2: Stage2Output) -> Result<Stage3Output, LisaError> 
     };
 
     let mut base = stage2;
-    base.history.push(ReconstructionRecord::Stage3Context(Stage3Record::current()));
+    base.history.push(ReconstructionRecord::Stage3Context(Stage3Record::for_rule(rule)));
     Ok(Stage3Output { base, contexts })
 }
 
 // ---------------------------------------------------------------- Stage 4: PKON context-adaptive entropy coding
 //
-// Each residual is coded with the PKON binary range coder and one of four independent adaptive models chosen by its
-// Stage 3 class. A residual's zigzag value v is binarized as x = v + 1 (1..=2^32): the bit length e of x in unary
+// Each residual is coded with the PKON binary range coder and one of the independent adaptive models chosen by its
+// Stage 3 context (4 for the legacy rule, 128 for OR-128). A residual's zigzag value v is binarized as x = v + 1 (1..=2^32): the bit length e of x in unary
 // (adaptive, one probability per position), then the e-1 bits below the leading one, MSB first; the first of those is
 // adaptive per e and the rest are coded with fixed p = 1/2. Models start fresh (p = 1/2, count 0), are never shared or
 // reset between planes, and only the selected model adapts. The decoder recomputes each class from already decoded
@@ -1171,16 +1231,19 @@ pub fn encode_stage4_with(stage3: Stage3Output, estimator: Stage4Estimator) -> R
 fn encode_s4<E: Est>(stage3: Stage3Output, coding_version: u8) -> Result<Stage4Output, LisaError> {
     let (width, height) = (stage3.base.metadata.width, stage3.base.metadata.height);
     validate(width, height, stage3.base.bit_depth)?;
+    let rule = stage3
+        .rule()
+        .ok_or(LisaError::InvalidMetadata("newest reconstruction record is not a supported Stage 3 record"))?;
     let mut count = 0u64;
-    let mut models = [S4Model::<E>::new(); ActivityClass::COUNT];
+    let mut models = vec![S4Model::<E>::new(); rule.context_count()];
     let mut enc = BinEnc::new();
-    let mut code_all = |res: &[u32], ctx: &[ActivityClass]| -> Result<(), LisaError> {
+    let mut code_all = |res: &[u32], ctx: &[u8]| -> Result<(), LisaError> {
         if res.len() != ctx.len() {
             return Err(LisaError::LengthMismatch { expected: res.len(), actual: ctx.len() });
         }
         count += res.len() as u64;
-        for (&v, c) in res.iter().zip(ctx) {
-            models[c.index()].code(&mut enc, v)?;
+        for (&v, &c) in res.iter().zip(ctx) {
+            models.get_mut(usize::from(c)).ok_or(LisaError::InvalidMetadata("context id out of range"))?.code(&mut enc, v)?;
         }
         Ok(())
     };
@@ -1197,7 +1260,7 @@ fn encode_s4<E: Est>(stage3: Stage3Output, coding_version: u8) -> Result<Stage4O
     let Stage2Output { metadata, bit_depth, mut history, .. } = stage3.base;
     history.push(ReconstructionRecord::Stage4Entropy(Stage4Record {
         coding_version,
-        model_count: ActivityClass::COUNT as u8,
+        model_count: rule.context_count() as u8,
         residual_count: count,
     }));
     Ok(Stage4Output { payload, metadata, bit_depth, history })
@@ -1220,11 +1283,15 @@ fn decode_s4<E: Est>(out: &Stage4Output) -> Result<Stage3Output, LisaError> {
     let Some((ReconstructionRecord::Stage4Entropy(rec), inherited)) = out.history.split_last() else {
         return Err(LisaError::InvalidMetadata("newest reconstruction record is not Stage 4"));
     };
-    if usize::from(rec.model_count) != ActivityClass::COUNT {
-        return Err(LisaError::CorruptStream("unsupported Stage 4 coding mode or version"));
-    }
-    if inherited.last() != Some(&ReconstructionRecord::Stage3Context(Stage3Record::current())) {
+    // The Stage 3 record, not the Stage 4 one, selects the context rule; the model count must agree with it.
+    let Some(rule) = (match inherited.last() {
+        Some(ReconstructionRecord::Stage3Context(r)) => Stage3Rule::from_record(r),
+        _ => None,
+    }) else {
         return Err(LisaError::InvalidMetadata("Stage 4 does not follow a supported Stage 3 record"));
+    };
+    if usize::from(rec.model_count) != rule.context_count() {
+        return Err(LisaError::CorruptStream("unsupported Stage 4 coding mode or version"));
     }
     out.metadata.validate()?;
     let (width, height) = (out.metadata.width, out.metadata.height);
@@ -1241,9 +1308,10 @@ fn decode_s4<E: Est>(out: &Stage4Output) -> Result<Stage3Output, LisaError> {
         return Err(LisaError::CorruptStream("residual count disagrees with geometry"));
     }
 
-    let mut models = [S4Model::<E>::new(); ActivityClass::COUNT];
+    let mut models = vec![S4Model::<E>::new(); rule.context_count()];
     let mut dec = BinDec::new(&out.payload);
-    let mut next = |c: ActivityClass| models[c.index()].code(&mut dec, 0);
+    // `c` always comes from `Stage3Rule::context`, which is below `context_count()`.
+    let mut next = |c: u8| models[usize::from(c)].code(&mut dec, 0);
 
     let (data, contexts) = match &s2.mode {
         Stage2Mode::Identity => {
@@ -1253,7 +1321,7 @@ fn decode_s4<E: Est>(out: &Stage4Output) -> Result<Stage3Output, LisaError> {
                 let left = (x > 0).then(|| seen[y * width + x - 1]);
                 let above = (y > 0).then(|| seen[(y - 1) * width + x]);
                 let above_left = (x > 0 && y > 0).then(|| seen[(y - 1) * width + x - 1]);
-                let c = classify_activity(left, above, above_left);
+                let c = rule.context(left, above, above_left);
                 let v = next(c)?;
                 seen[y * width + x] = v;
                 res.push(v);
@@ -1267,7 +1335,7 @@ fn decode_s4<E: Est>(out: &Stage4Output) -> Result<Stage3Output, LisaError> {
                 return Err(LisaError::InvalidMetadata("Stage 2 record disagrees with metadata"));
             }
             let mut res: [Vec<u32>; 4] = Default::default();
-            let mut ctx: [Vec<ActivityClass>; 4] = Default::default();
+            let mut ctx: [Vec<u8>; 4] = Default::default();
             for ((r, c), p) in res.iter_mut().zip(ctx.iter_mut()).zip(planes) {
                 let (w, len) = (p.width, p.width.checked_mul(p.height).ok_or(LisaError::DimensionTooLarge)?);
                 r.reserve_exact(len);
@@ -1277,7 +1345,7 @@ fn decode_s4<E: Est>(out: &Stage4Output) -> Result<Stage3Output, LisaError> {
                     let left = (x > 0).then(|| r[i - 1]);
                     let above = (y > 0).then(|| r[i - w]);
                     let above_left = (x > 0 && y > 0).then(|| r[i - w - 1]);
-                    let cl = classify_activity(left, above, above_left);
+                    let cl = rule.context(left, above, above_left);
                     r.push(next(cl)?);
                     c.push(cl);
                 }
@@ -1290,4 +1358,79 @@ fn decode_s4<E: Est>(out: &Stage4Output) -> Result<Stage3Output, LisaError> {
     }
     let base = Stage2Output { data, metadata: out.metadata.clone(), bit_depth: out.bit_depth, history: inherited.to_vec() };
     Ok(Stage3Output { base, contexts })
+}
+
+#[cfg(test)]
+mod or128_stream_tests {
+    //! Malformed / mismatched stream handling for the versioned Stage 3 rule and the Stage 4 model count.
+    use super::*;
+
+    fn s4_of(rule: Stage3Rule) -> Stage4Output {
+        let samples: Vec<u16> = (0..40 * 30).map(|i: u32| ((i * 37 + (i / 7) * 11) % 1024) as u16).collect();
+        let meta = ImageMetadata::without_cfa(40, 30, SampleLayout::Monochrome);
+        let s1 = encode_with_metadata(&samples, 40, 30, 10, meta).unwrap();
+        encode_stage4(classify_stage3_with(organize_stage2(s1).unwrap(), rule).unwrap()).unwrap()
+    }
+
+    fn tamper(mut o: Stage4Output, f: impl FnOnce(&mut Stage3Record, &mut Stage4Record)) -> Stage4Output {
+        let n = o.history.len();
+        let (a, b) = o.history.split_at_mut(n - 1);
+        let (ReconstructionRecord::Stage3Context(r3), ReconstructionRecord::Stage4Entropy(r4)) = (&mut a[n - 2], &mut b[0]) else {
+            panic!("unexpected history")
+        };
+        f(r3, r4);
+        o
+    }
+
+    #[test]
+    fn valid_streams_decode() {
+        for rule in [Stage3Rule::Legacy4, Stage3Rule::Or128] {
+            assert!(decode_stage4(&s4_of(rule)).is_ok());
+        }
+    }
+
+    #[test]
+    fn rule_cannot_be_reinterpreted() {
+        for (from, to) in [(Stage3Rule::Legacy4, Stage3Rule::Or128), (Stage3Rule::Or128, Stage3Rule::Legacy4)] {
+            // Relabelling only the version is inconsistent with the record's own counts: rejected.
+            assert!(decode_stage4(&tamper(s4_of(from), |r3, _| r3.rule_version = to.version())).is_err());
+            // A fully consistent relabel is a different valid stream; it must not reproduce the original residuals.
+            let full = tamper(s4_of(from), |r3, r4| {
+                *r3 = Stage3Record::for_rule(to);
+                r4.model_count = to.context_count() as u8;
+            });
+            let orig = decode_stage4(&s4_of(from)).unwrap();
+            if let Ok(d) = decode_stage4(&full) {
+                assert_ne!(d.data(), orig.data());
+            }
+        }
+    }
+
+    #[test]
+    fn invalid_versions_and_counts_fail_safely() {
+        let ok = s4_of(Stage3Rule::Or128);
+        for bad in [0u8, 3, 255] {
+            assert!(decode_stage4(&tamper(ok.clone(), |r3, _| r3.rule_version = bad)).is_err(), "rule {bad}");
+        }
+        for bad in [0u8, 4, 127, 129, 255] {
+            assert!(decode_stage4(&tamper(ok.clone(), |_, r4| r4.model_count = bad)).is_err(), "model_count {bad}");
+            assert!(decode_stage4(&tamper(ok.clone(), |r3, _| r3.class_count = bad)).is_err(), "class_count {bad}");
+        }
+        assert!(decode_stage4(&tamper(ok.clone(), |r3, _| r3.thresholds = [3, 12, 48])).is_err());
+        assert!(decode_stage4(&tamper(ok, |_, r4| r4.coding_version = 9)).is_err());
+        let legacy = s4_of(Stage3Rule::Legacy4);
+        assert!(decode_stage4(&tamper(legacy.clone(), |r3, _| r3.thresholds = [3, 12, 49])).is_err());
+        assert!(decode_stage4(&tamper(legacy, |_, r4| r4.model_count = 128)).is_err());
+    }
+
+    #[test]
+    fn truncated_or_extended_payload_is_rejected() {
+        let ok = s4_of(Stage3Rule::Or128);
+        let mut short = ok.clone();
+        short.payload.truncate(short.payload.len() / 2);
+        assert!(decode_stage4(&short).is_err());
+        let mut long = ok;
+        long.payload.push(0);
+        assert!(decode_stage4(&long).is_err());
+    }
 }

@@ -126,9 +126,9 @@ impl<E: Est + Copy> Model<E> {
 fn replay<E: Est + Copy>(s3: &Stage3Output) -> f64 {
     let mut models = [Model::<E>::new(); ActivityClass::COUNT];
     let mut cost = 0.0;
-    let mut run = |res: &[u32], ctx: &[ActivityClass]| {
+    let mut run = |res: &[u32], ctx: &[u8]| {
         for (&v, c) in res.iter().zip(ctx) {
-            models[c.index()].code(&mut cost, v);
+            models[usize::from(*c)].code(&mut cost, v);
         }
     };
     match (s3.data(), s3.contexts()) {
@@ -147,9 +147,9 @@ fn replay<E: Est + Copy>(s3: &Stage3Output) -> f64 {
 fn encode_actual<E: Est + Copy>(s3: &Stage3Output) -> Vec<u8> {
     let mut models = [Model::<E>::new(); ActivityClass::COUNT];
     let mut enc = BinEnc::new();
-    let mut run = |res: &[u32], ctx: &[ActivityClass]| {
+    let mut run = |res: &[u32], ctx: &[u8]| {
         for (&v, c) in res.iter().zip(ctx) {
-            models[c.index()].code_io(&mut enc, v);
+            models[usize::from(*c)].code_io(&mut enc, v);
         }
     };
     match (s3.data(), s3.contexts()) {
@@ -259,7 +259,7 @@ pub fn diagnose(s3: &Stage3Output, total_residuals: usize) -> Diag {
     let mut mb = [Model::<Bit>::new(); 4];
     let mut mc = [Model::<Rp>::new(); 4];
     let mut done = 0usize;
-    let mut planes: Vec<(usize, &[u32], &[ActivityClass])> = Vec::new();
+    let mut planes: Vec<(usize, &[u32], &[u8])> = Vec::new();
     match (s3.data(), s3.contexts()) {
         (OrganizedResiduals::BayerPlanes(r), OrganizedContexts::BayerPlanes(c)) => {
             for (i, (r, c)) in r.iter().zip(c).enumerate() {
@@ -271,7 +271,7 @@ pub fn diagnose(s3: &Stage3Output, total_residuals: usize) -> Diag {
     }
     for (pl, res, ctx) in planes {
         for (&v, c) in res.iter().zip(ctx) {
-            let ci = c.index();
+            let ci = usize::from(*c);
             let seg = (done * SEGS / total_residuals).min(SEGS - 1);
             done += 1;
             let x = u64::from(v) + 1;

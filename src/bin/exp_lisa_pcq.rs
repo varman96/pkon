@@ -2,6 +2,8 @@
 //!   exp_lisa_pcq split   <manifest.json>
 //!   exp_lisa_pcq stats   <manifest.json> <statsdir>                      (all images; writes <id>.stats)
 //!   exp_lisa_pcq train   <manifest.json> <statsdir> <outdir>             (train/val stats only; writes maps + analysis)
+//!   exp_lisa_pcq sstats <manifest.json> <dir>                             (TRAIN+VAL images only; score histograms)
+//!   exp_lisa_pcq strain <manifest.json> <dir> <outdir> <K>               (trains the K-context scalar quantizer on TRAIN)
 //!   exp_lisa_pcq eval    <manifest.json> <out.json> <map[,map...]> <id>...  (map = file path of a KEYS-byte table)
 use nanoscope::lisa::*;
 use nanoscope::lisa_pcq::*;
@@ -38,7 +40,7 @@ fn load(manifest: &Value, id: &str) -> (Vec<u16>, Stage3Output, u8) {
     let bytes = std::fs::read(m["canon_path"].as_str().unwrap()).unwrap();
     let samples: Vec<u16> = bytes.chunks_exact(2).map(|c| u16::from_le_bytes([c[0], c[1]])).collect();
     let s1 = encode_with_metadata(&samples, w, h, bd, meta_of(m, w, h)).unwrap();
-    (samples, classify_stage3(organize_stage2(s1).unwrap()).unwrap(), bd)
+    (samples, classify_stage3_with(organize_stage2(s1).unwrap(), Stage3Rule::Legacy4).unwrap(), bd)
 }
 
 /// Deterministic split by sorted id: every 3rd (index%3==2) is TEST; of the rest, every 4th (index%4==3) is VAL.
@@ -97,6 +99,40 @@ fn main() {
                 std::fs::write(format!("{}/{id}.stats", args[3]), b).unwrap();
                 println!("{id}: stats done in {:.1}s", t.elapsed().as_secs_f64());
             }
+        }
+        "sstats" => {
+            std::fs::create_dir_all(&args[3]).unwrap();
+            let (tr, va, _) = split(&manifest);
+            for id in tr.iter().chain(&va) {
+                let (_, s3, _) = load(&manifest, id);
+                let b: Vec<u8> = collect_score(&s3).iter().flat_map(|v| v.to_le_bytes()).collect();
+                std::fs::write(format!("{}/{id}.sstats", args[3]), b).unwrap();
+                println!("{id}: score stats done");
+            }
+        }
+        "strain" => {
+            let (tr, va, _) = split(&manifest);
+            let k: usize = args[5].parse().unwrap();
+            let rd = |ids: &[String]| {
+                let mut p = vec![0u32; SBINS * E_BINS];
+                for id in ids {
+                    let b = std::fs::read(format!("{}/{id}.sstats", args[3])).unwrap();
+                    for (d, c) in p.iter_mut().zip(b.chunks_exact(4)) { *d += u32::from_le_bytes(c.try_into().unwrap()) }
+                }
+                p
+            };
+            let (t, v) = (rd(&tr), rd(&va));
+            let t0 = Instant::now();
+            let table = partition_dp(&t, k);
+            println!("dp K={k}: {:.1}s", t0.elapsed().as_secs_f64());
+            std::fs::create_dir_all(&args[4]).unwrap();
+            std::fs::write(format!("{}/scalar_K{k}.bin", args[4]), &table).unwrap();
+            let f = |b: usize| table[b] as usize;
+            let (ta, va_) = (aggregate_rows(&t, k, f), aggregate_rows(&v, k, f));
+            println!("scalar K={k}: train {:.4} bps, held-out(val) {:.4} bps", xent(&ta, &ta), xent(&ta, &va_));
+            let mut thr = vec![];
+            for b in 1..SBINS { if table[b] != table[b - 1] { thr.push(b) } }
+            println!("thresholds (score >= t starts next context): {thr:?}");
         }
         "train" => train(&manifest, &args[3], &args[4]),
         "eval" => eval(&manifest, &args[3], &args[4], &args[5..]),
@@ -204,15 +240,35 @@ fn train(manifest: &Value, dir: &str, out: &str) {
     std::fs::write(format!("{out}/analysis.json"), serde_json::to_vec_pretty(&Value::Object(rep)).unwrap()).unwrap();
 }
 
+fn aggregate_rows(h: &[u32], nctx: usize, f: impl Fn(usize) -> usize) -> Vec<u32> {
+    let mut out = vec![0u32; nctx * E_BINS];
+    for b in 0..h.len() / E_BINS {
+        for e in 0..E_BINS { out[f(b) * E_BINS + e] += h[b * E_BINS + e] }
+    }
+    out
+}
+
+type Ctx = Box<dyn Fn(Option<u32>, Option<u32>, Option<u32>) -> usize>;
+
 fn eval(manifest: &Value, out: &str, maps: &str, ids: &[String]) {
     // "frozen" selects the table compiled into the crate (lisa_pcq_table.rs).
-    let tables: Vec<(String, Vec<u8>)> = maps
+    // "scalar:<file>" is a SBINS-byte score-bin table (trained scalar quantizer of the neighbor average).
+    let tables: Vec<(String, usize, Ctx)> = maps
         .split(',')
-        .map(|p| (p.to_string(), if p == "frozen" { nanoscope::lisa_pcq_table::PCQ_TABLE.to_vec() } else { std::fs::read(p).unwrap() }))
+        .map(|p| {
+            if let Some(f) = p.strip_prefix("scalar:") {
+                let t = std::fs::read(f).unwrap();
+                assert_eq!(t.len(), SBINS, "{p}: wrong table size");
+                let k = *t.iter().max().unwrap() as usize + 1;
+                (p.to_string(), k, Box::new(move |l, a, al| t[score_bin(l, a, al)] as usize) as Ctx)
+            } else {
+                let t = if p == "frozen" { nanoscope::lisa_pcq_table::PCQ_TABLE.to_vec() } else { std::fs::read(p).unwrap() };
+                assert_eq!(t.len(), KEYS, "{p}: wrong table size");
+                let k = *t.iter().max().unwrap() as usize + 1;
+                (p.to_string(), k, Box::new(move |l, a, al| t[key(l, a, al)] as usize) as Ctx)
+            }
+        })
         .collect();
-    for (p, t) in &tables {
-        assert_eq!(t.len(), KEYS, "{p}: wrong table size");
-    }
     let (mut tot_base, mut tot_n) = (0usize, 0usize);
     let mut tot_map = vec![0usize; tables.len()];
     let mut rows = Vec::new();
@@ -234,9 +290,8 @@ fn eval(manifest: &Value, out: &str, maps: &str, ids: &[String]) {
         tot_base += base_bytes;
         tot_n += n;
         let mut per_map = Vec::new();
-        for (mi, (path, table)) in tables.iter().enumerate() {
-            let k = *table.iter().max().unwrap() as usize + 1;
-            let ctx = |l, a, al| table[key(l, a, al)] as usize;
+        for (mi, (path, k, ctx)) in tables.iter().enumerate() {
+            let (k, ctx) = (*k, ctx);
             let ((bytes, enc_ids), enc_t) = timed(3, || pcq_encode(&s3, k, ctx));
             let ((res, dec_ids, end), dec_t) = timed(3, || pcq_decode(&bytes, &s3, k, ctx));
             let lossless = res == *s3.data() && end;
@@ -262,7 +317,7 @@ fn eval(manifest: &Value, out: &str, maps: &str, ids: &[String]) {
             "base_enc_s": prod_enc_t, "base_dec_s": prod_dec_t, "maps": per_map}));
     }
     let mut agg = Vec::new();
-    for (mi, (path, _)) in tables.iter().enumerate() {
+    for (mi, (path, _, _)) in tables.iter().enumerate() {
         let pct = 100.0 * (tot_map[mi] as f64 - tot_base as f64) / tot_base as f64;
         println!("aggregate [{path}]: base {tot_base} B pcq {} B change {pct:+.4}% ({:.5} -> {:.5} bps)", tot_map[mi], tot_base as f64 * 8.0 / tot_n as f64, tot_map[mi] as f64 * 8.0 / tot_n as f64);
         agg.push(json!({"map": path, "bytes": tot_map[mi], "pct_change": pct}));

@@ -26,13 +26,12 @@ fn roundtrip(samples: &[u16], meta: ImageMetadata, bits: u8) {
     let s1 = encode_with_metadata(samples, w, h, bits, meta).unwrap();
     let s2 = organize_stage2(s1).unwrap();
     let s3 = classify_stage3(s2).unwrap();
-    let classes: Vec<ActivityClass> = match s3.contexts() {
+    let classes: Vec<u8> = match s3.contexts() {
         OrganizedContexts::Morton(c) => c.clone(),
         OrganizedContexts::BayerPlanes(p) => p.iter().flatten().copied().collect(),
     };
-    for k in 0..ActivityClass::COUNT {
-        assert!(classes.iter().any(|c| c.index() == k), "class {k} never occurs");
-    }
+    assert!(classes.iter().all(|&c| usize::from(c) < Stage3Rule::default().context_count()));
+    assert!(classes.iter().collect::<std::collections::HashSet<_>>().len() > 1, "contexts never vary");
 
     let s4 = encode_stage4(s3.clone()).unwrap();
     assert!(matches!(s4.history().last(), Some(ReconstructionRecord::Stage4Entropy(_))));

@@ -21,4 +21,6 @@ pub mod lisa_cloud;
 pub mod lisa_mixer;
 pub mod lisa_rp;
 pub mod lisa_pcq;
+pub mod lisa_or128;
+pub mod lisa_or128_table;
 pub mod lisa_pcq_table;

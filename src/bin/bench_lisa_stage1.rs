@@ -36,7 +36,7 @@ fn main() {
             let t_s1 = t.elapsed().as_secs_f64();
             let res_hash = hex(s1.residuals.iter().flat_map(|r| r.to_le_bytes()).collect::<Vec<u8>>());
             let t = Instant::now();
-            let s3 = classify_stage3(organize_stage2(s1).unwrap()).unwrap();
+            let s3 = classify_stage3_with(organize_stage2(s1).unwrap(), Stage3Rule::Legacy4).unwrap();
             let s4 = encode_stage4(s3).unwrap();
             let t_rest = t.elapsed().as_secs_f64();
             let t = Instant::now();

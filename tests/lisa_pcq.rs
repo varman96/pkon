@@ -24,7 +24,7 @@ fn image(w: usize, h: usize, bits: u8) -> Vec<u16> {
 
 fn s3_of(samples: &[u16], meta: ImageMetadata, bits: u8) -> Stage3Output {
     let (w, h) = (meta.width, meta.height);
-    classify_stage3(organize_stage2(encode_with_metadata(samples, w, h, bits, meta).unwrap()).unwrap()).unwrap()
+    classify_stage3_with(organize_stage2(encode_with_metadata(samples, w, h, bits, meta).unwrap()).unwrap(), Stage3Rule::Legacy4).unwrap()
 }
 
 fn check(samples: &[u16], meta: ImageMetadata, bits: u8) {

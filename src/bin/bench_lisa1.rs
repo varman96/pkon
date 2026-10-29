@@ -71,7 +71,7 @@ fn main() {
         let s2 = organize_stage2(s1).expect("stage2");
         let t_s2 = t.elapsed().as_secs_f64();
         let t = Instant::now();
-        let s3 = classify_stage3(s2).expect("stage3");
+        let s3 = classify_stage3_with(s2, Stage3Rule::Legacy4).expect("stage3");
         let t_s3 = t.elapsed().as_secs_f64();
 
         // Diagnostics on Stage 2/3 data (read-only).
@@ -86,9 +86,9 @@ fn main() {
         let mut plane_stats = Vec::new();
         {
             let cap = 1usize << (bd as usize + 1);
-            let mut tally = |res: &[u32], ctx: &[ActivityClass]| {
+            let mut tally = |res: &[u32], ctx: &[u8]| {
                 for (&v, c) in res.iter().zip(ctx) {
-                    let k = c.index();
+                    let k = usize::from(*c);
                     class_hist[k][(v as usize).min(cap)] += 1;
                     class_n[k] += 1;
                     class_sum[k] += v as u64;

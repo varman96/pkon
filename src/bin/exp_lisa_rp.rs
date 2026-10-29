@@ -29,7 +29,7 @@ fn main() {
         let meta = meta_of(m, w, h);
         let s1 = encode_with_metadata(&samples, w, h, bd, meta).unwrap();
         let s2 = organize_stage2(s1).unwrap();
-        let s3 = classify_stage3(s2).unwrap();
+        let s3 = classify_stage3_with(s2, Stage3Rule::Legacy4).unwrap();
         let (base, cand, n) = compare(&s3, samples.len());
         let (bb, cb) = (base / n as f64, cand / n as f64);
         let pct = 100.0 * (cb - bb) / bb;

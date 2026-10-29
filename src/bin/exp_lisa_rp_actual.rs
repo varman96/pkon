@@ -42,7 +42,7 @@ fn main() {
         let samples: Vec<u16> = bytes.chunks_exact(2).map(|c| u16::from_le_bytes([c[0], c[1]])).collect();
         let n = samples.len();
         let s1 = encode_with_metadata(&samples, w, h, bd, meta_of(m, w, h)).unwrap();
-        let s3 = classify_stage3(organize_stage2(s1).unwrap()).unwrap();
+        let s3 = classify_stage3_with(organize_stage2(s1).unwrap(), Stage3Rule::Legacy4).unwrap();
 
         // Production: real encode_stage4 / decode_stage4, then the full inverse back to samples.
         let (s4, prod_enc_t) = timed(3, || encode_stage4(s3.clone()).unwrap());

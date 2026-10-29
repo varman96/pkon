@@ -1,0 +1,313 @@
+{
+  "agg": [
+    {
+      "bytes": 110745200,
+      "map": "scalar:results/20261029-lisa-scalar1/train/scalar_K22.bin",
+      "pct_change": -1.679218609330545
+    },
+    {
+      "bytes": 109408946,
+      "map": "frozen",
+      "pct_change": -2.865559303251434
+    }
+  ],
+  "agg_base_bytes": 112636615,
+  "images": [
+    {
+      "base_bps": 9.584015333333333,
+      "base_bytes": 14376023,
+      "base_dec_s": 2.6301995,
+      "base_enc_s": 1.6321746,
+      "bit_depth": 14,
+      "control_identical_to_production": true,
+      "id": "dji_fc220_dusk",
+      "maps": [
+        {
+          "bps": 9.491688666666667,
+          "bytes": 14237533,
+          "ctx_ids_equal": true,
+          "dec_s": 1.3711195,
+          "deterministic": true,
+          "enc_s": 1.4467126000000001,
+          "k": 22,
+          "lossless": true,
+          "map": "scalar:results/20261029-lisa-scalar1/train/scalar_K22.bin",
+          "pct_change": -0.9633401393417359
+        },
+        {
+          "bps": 9.417067333333334,
+          "bytes": 14125601,
+          "ctx_ids_equal": true,
+          "dec_s": 1.697344,
+          "deterministic": true,
+          "enc_s": 2.5377282,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -1.7419421212667787
+        }
+      ],
+      "n": 12000000,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 10.609622319505322,
+      "base_bytes": 31680502,
+      "base_dec_s": 3.718554,
+      "base_enc_s": 3.4389424,
+      "bit_depth": 14,
+      "control_identical_to_production": true,
+      "id": "leica_m10_brick",
+      "maps": [
+        {
+          "bps": 10.433885149979103,
+          "bytes": 31155748,
+          "ctx_ids_equal": true,
+          "dec_s": 5.3595581,
+          "deterministic": true,
+          "enc_s": 5.0486002,
+          "k": 22,
+          "lossless": true,
+          "map": "scalar:results/20261029-lisa-scalar1/train/scalar_K22.bin",
+          "pct_change": -1.6563942073897693
+        },
+        {
+          "bps": 10.355703720274773,
+          "bytes": 30922297,
+          "ctx_ids_equal": true,
+          "dec_s": 5.2437461,
+          "deterministic": true,
+          "enc_s": 6.2207855,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -2.3932859397240613
+        }
+      ],
+      "n": 23888128,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 6.226507544646743,
+      "base_bytes": 12590596,
+      "base_dec_s": 1.918903,
+      "base_enc_s": 1.6714683,
+      "bit_depth": 12,
+      "control_identical_to_production": true,
+      "id": "leica_x2_lowlight",
+      "maps": [
+        {
+          "bps": 6.085054814410394,
+          "bytes": 12304565,
+          "ctx_ids_equal": true,
+          "dec_s": 1.108031,
+          "deterministic": true,
+          "enc_s": 1.0337337,
+          "k": 22,
+          "lossless": true,
+          "map": "scalar:results/20261029-lisa-scalar1/train/scalar_K22.bin",
+          "pct_change": -2.2717828449105983
+        },
+        {
+          "bps": 5.983976032789739,
+          "bytes": 12100174,
+          "ctx_ids_equal": true,
+          "dec_s": 2.5388152,
+          "deterministic": true,
+          "enc_s": 2.3645674,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -3.8951452337919505
+        }
+      ],
+      "n": 16176768,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 6.762087028253248,
+      "base_bytes": 8607207,
+      "base_dec_s": 1.0834695,
+      "base_enc_s": 0.8891375,
+      "bit_depth": 12,
+      "control_identical_to_production": true,
+      "id": "nikon_d80_piano",
+      "maps": [
+        {
+          "bps": 6.735855601056674,
+          "bytes": 8573818,
+          "ctx_ids_equal": true,
+          "dec_s": 1.4291063,
+          "deterministic": true,
+          "enc_s": 1.4583124,
+          "k": 22,
+          "lossless": true,
+          "map": "scalar:results/20261029-lisa-scalar1/train/scalar_K22.bin",
+          "pct_change": -0.38791910081865116
+        },
+        {
+          "bps": 6.705734515707706,
+          "bytes": 8535478,
+          "ctx_ids_equal": true,
+          "dec_s": 1.3707142,
+          "deterministic": true,
+          "enc_s": 1.7441152,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -0.8333597646716292
+        }
+      ],
+      "n": 10182900,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 7.845609481915933,
+      "base_bytes": 16052117,
+      "base_dec_s": 2.1248117,
+      "base_enc_s": 2.1849639,
+      "bit_depth": 12,
+      "control_identical_to_production": true,
+      "id": "pentax_k30_frog",
+      "maps": [
+        {
+          "bps": 7.647045454545455,
+          "bytes": 15645855,
+          "ctx_ids_equal": true,
+          "dec_s": 3.057871,
+          "deterministic": true,
+          "enc_s": 2.3656294,
+          "k": 22,
+          "lossless": true,
+          "map": "scalar:results/20261029-lisa-scalar1/train/scalar_K22.bin",
+          "pct_change": -2.530893588677431
+        },
+        {
+          "bps": 7.463234115347019,
+          "bytes": 15269777,
+          "ctx_ids_equal": true,
+          "dec_s": 2.812143,
+          "deterministic": true,
+          "enc_s": 2.4106584,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -4.873749674264149
+        }
+      ],
+      "n": 16368000,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 7.055379921259843,
+      "base_bytes": 10752399,
+      "base_dec_s": 1.2772350000000001,
+      "base_enc_s": 1.0146217,
+      "bit_depth": 12,
+      "control_identical_to_production": true,
+      "id": "pentax_q7_cat",
+      "maps": [
+        {
+          "bps": 6.94341469816273,
+          "bytes": 10581764,
+          "ctx_ids_equal": true,
+          "dec_s": 1.8790795999999999,
+          "deterministic": true,
+          "enc_s": 1.8986075,
+          "k": 22,
+          "lossless": true,
+          "map": "scalar:results/20261029-lisa-scalar1/train/scalar_K22.bin",
+          "pct_change": -1.5869481777973455
+        },
+        {
+          "bps": 6.911865485564304,
+          "bytes": 10533683,
+          "ctx_ids_equal": true,
+          "dec_s": 1.7189925000000001,
+          "deterministic": true,
+          "enc_s": 1.6982815,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -2.0341135034144475
+        }
+      ],
+      "n": 12192000,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 6.88352281667978,
+      "base_bytes": 13998332,
+      "base_dec_s": 1.6124524999999998,
+      "base_enc_s": 1.5497537000000001,
+      "bit_depth": 12,
+      "control_identical_to_production": true,
+      "id": "ricoh_gr_wood",
+      "maps": [
+        {
+          "bps": 6.769167977970103,
+          "bytes": 13765780,
+          "ctx_ids_equal": true,
+          "dec_s": 2.1809043,
+          "deterministic": true,
+          "enc_s": 2.3748374,
+          "k": 22,
+          "lossless": true,
+          "map": "scalar:results/20261029-lisa-scalar1/train/scalar_K22.bin",
+          "pct_change": -1.6612836443656287
+        },
+        {
+          "bps": 6.638988001573564,
+          "bytes": 13501046,
+          "ctx_ids_equal": true,
+          "dec_s": 2.1848942,
+          "deterministic": true,
+          "enc_s": 2.3071491,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -3.55246610810488
+        }
+      ],
+      "n": 16268800,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 4.378299902480066,
+      "base_bytes": 4579439,
+      "base_dec_s": 0.6383443,
+      "base_enc_s": 0.4334583,
+      "bit_depth": 8,
+      "control_identical_to_production": true,
+      "id": "sigma_fp_bike8",
+      "maps": [
+        {
+          "bps": 4.283359466126164,
+          "bytes": 4480137,
+          "ctx_ids_equal": true,
+          "dec_s": 0.7986457,
+          "deterministic": true,
+          "enc_s": 1.1393469,
+          "k": 22,
+          "lossless": true,
+          "map": "scalar:results/20261029-lisa-scalar1/train/scalar_K22.bin",
+          "pct_change": -2.1684315480564322
+        },
+        {
+          "bps": 4.226714725510067,
+          "bytes": 4420890,
+          "ctx_ids_equal": true,
+          "dec_s": 1.1935961,
+          "deterministic": true,
+          "enc_s": 1.2353504,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -3.462192639753472
+        }
+      ],
+      "n": 8367520,
+      "prod_lossless": true
+    }
+  ]
+}

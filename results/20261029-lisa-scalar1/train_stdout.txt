@@ -1,0 +1,3 @@
+dp K=22: 0.2s
+scalar K=22: train 2.8411 bps, held-out(val) 2.7536 bps
+thresholds (score >= t starts next context): [1, 3, 6, 10, 15, 21, 29, 39, 54, 72, 94, 118, 150, 193, 239, 306, 387, 477, 614, 782, 1023]

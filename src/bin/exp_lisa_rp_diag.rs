@@ -25,7 +25,7 @@ fn main() {
         let bd = m["bit_depth"].as_u64().unwrap() as u8;
         let bytes = std::fs::read(m["canon_path"].as_str().unwrap()).unwrap();
         let samples: Vec<u16> = bytes.chunks_exact(2).map(|c| u16::from_le_bytes([c[0], c[1]])).collect();
-        let s3 = classify_stage3(organize_stage2(encode_with_metadata(&samples, w, h, bd, meta_of(m, w, h)).unwrap()).unwrap()).unwrap();
+        let s3 = classify_stage3_with(organize_stage2(encode_with_metadata(&samples, w, h, bd, meta_of(m, w, h)).unwrap()).unwrap(), Stage3Rule::Legacy4).unwrap();
         let d = diagnose(&s3, samples.len());
         let n = samples.len() as f64;
         let tb: f64 = d.class.iter().map(|a| a[0]).sum::<f64>() + d.fixed_bits;

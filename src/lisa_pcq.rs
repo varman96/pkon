@@ -387,3 +387,76 @@ pub const FROZEN_K: usize = crate::lisa_pcq_table::PCQ_K;
 pub fn frozen_ctx(left: Option<u32>, above: Option<u32>, above_left: Option<u32>) -> usize {
     crate::lisa_pcq_table::PCQ_TABLE[key(left, above, above_left)] as usize
 }
+
+// ---------------------------------------------------------------- scalar control: trained quantizer of the average
+
+/// Resolution of the scalar feature: the production score (rounded mean of the available neighbors) is clamped to
+/// `0..SBINS`.
+pub const SBINS: usize = 1024;
+
+/// The production Stage 3 score (see `classify_activity`), clamped to `0..SBINS`.
+#[inline]
+pub fn score_bin(left: Option<u32>, above: Option<u32>, above_left: Option<u32>) -> usize {
+    let (mut sum, mut n) = (0u64, 0u64);
+    for v in [left, above, above_left].into_iter().flatten() {
+        sum += u64::from(v);
+        n += 1;
+    }
+    if n == 0 { 0 } else { (((sum + n / 2) / n) as usize).min(SBINS - 1) }
+}
+
+/// Target histograms by `score_bin` (`SBINS * E_BINS`, row-major).
+pub fn collect_score(s3: &Stage3Output) -> Vec<u32> {
+    let src = s3.data();
+    let mut h = vec![0u32; SBINS * E_BINS];
+    walk(s3, |pl, i, nb| {
+        let v = src_at(src, pl, i);
+        h[score_bin(nb[0], nb[1], nb[2]) * E_BINS + e_bin(v)] += 1;
+        v
+    });
+    h
+}
+
+/// Optimal ordered partition of the score bins into `k` contiguous intervals minimizing total ideal code length of the
+/// target histogram (exact dynamic programming). Returns the `SBINS`-entry bin -> context table; ids ascend with score.
+pub fn partition_dp(h: &[u32], k: usize) -> Vec<u8> {
+    let n = SBINS;
+    let mut pre = vec![[0f64; E_BINS]; n + 1];
+    for i in 0..n {
+        for e in 0..E_BINS {
+            pre[i + 1][e] = pre[i][e] + f64::from(h[i * E_BINS + e]);
+        }
+    }
+    let seg = |a: usize, b: usize| -> f64 {
+        let mut c = [0f64; E_BINS];
+        for e in 0..E_BINS {
+            c[e] = pre[b][e] - pre[a][e];
+        }
+        code_len(&c, c.iter().sum())
+    };
+    let cost: Vec<Vec<f64>> = (0..n).map(|a| (0..=n).map(|b| if b > a { seg(a, b) } else { 0.0 }).collect()).collect();
+    let mut best = vec![vec![f64::MAX; n + 1]; k + 1];
+    let mut cut = vec![vec![0usize; n + 1]; k + 1];
+    best[0][0] = 0.0;
+    for j in 1..=k {
+        for b in j..=n {
+            for a in j - 1..b {
+                let v = best[j - 1][a] + cost[a][b];
+                if v < best[j][b] {
+                    best[j][b] = v;
+                    cut[j][b] = a;
+                }
+            }
+        }
+    }
+    let mut table = vec![0u8; n];
+    let mut b = n;
+    for j in (1..=k).rev() {
+        let a = cut[j][b];
+        for t in &mut table[a..b] {
+            *t = (j - 1) as u8;
+        }
+        b = a;
+    }
+    table
+}
