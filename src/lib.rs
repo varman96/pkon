@@ -19,3 +19,6 @@ pub mod pkonfile;
 pub mod verify;
 pub mod lisa_cloud;
 pub mod lisa_mixer;
+pub mod lisa_rp;
+pub mod lisa_rp2;
+pub mod lisa_rp3;

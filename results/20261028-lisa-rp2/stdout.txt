@@ -1,0 +1,230 @@
+== pentax_q7_cat: n=12192000 decisions/sample 6.42 fixed-bit share 3.474 bps; integrity OK (n=78297138, ones=59105214, hash=19147c9ec707628f)
+TOTAL ideal bits: prod 86019167 fixed 85472464 dyn 95836721
+BPS: prod 7.05538 fixed 7.01054 dyn 7.86062
+PCT: fixed vs prod -0.636% | dyn vs prod +11.413% | dyn vs fixed +12.126%
+RATE (dynamic decisions 78296945 of 78297138; fixed 1/32 warm-up decisions 193): mean 0.02726 min 0.00392 max 0.23807
+  quantiles (from 100-bin histogram): p01 0.0052 p10 0.0052 p25 0.0052 p50 0.0052 p75 0.0248 p90 0.0937 p99 0.1897
+  reporting bins on u=(alpha-amin)/(amax-amin): near-min u<0.1 | mid | near-max u>0.9: 77.24% / 22.76% / 0.01%
+plane 0: dec   18623910 prod/dec 0.5717 fixed/dec 0.5663 dyn/dec 0.7003 | d_bps fixed-prod -0.00830 dyn-prod +0.19645 dyn-fixed +0.20474
+plane 1: dec   20644839 prod/dec 0.5595 fixed/dec 0.5445 dyn/dec 0.6743 | d_bps fixed-prod -0.02528 dyn-prod +0.19449 dyn-fixed +0.21977
+plane 2: dec   18545029 prod/dec 0.5731 fixed/dec 0.5713 dyn/dec 0.7019 | d_bps fixed-prod -0.00263 dyn-prod +0.19589 dyn-fixed +0.19852
+plane 3: dec   20483360 prod/dec 0.5294 fixed/dec 0.5242 dyn/dec 0.6594 | d_bps fixed-prod -0.00863 dyn-prod +0.21842 dyn-fixed +0.22706
+class 0: dec     318810 prod/dec 0.6737 fixed/dec 0.6828 dyn/dec 0.8033 | d_bps fixed-prod +0.00024 dyn-prod +0.00339 dyn-fixed +0.00315 | dyn-rate mean 0.0332 near-min 70.5% near-max 0.0%
+class 1: dec   10590957 prod/dec 0.6635 fixed/dec 0.6689 dyn/dec 0.7932 | d_bps fixed-prod +0.00469 dyn-prod +0.11269 dyn-fixed +0.10800 | dyn-rate mean 0.0322 near-min 71.6% near-max 0.0%
+class 2: dec   32167688 prod/dec 0.6279 fixed/dec 0.6192 dyn/dec 0.7467 | d_bps fixed-prod -0.02305 dyn-prod +0.31343 dyn-fixed +0.33648 | dyn-rate mean 0.0302 near-min 74.1% near-max 0.0%
+class 3: dec   35219683 prod/dec 0.4607 fixed/dec 0.4515 dyn/dec 0.5908 | d_bps fixed-prod -0.02673 dyn-prod +0.37573 dyn-fixed +0.40246 | dyn-rate mean 0.0231 near-min 81.8% near-max 0.0%
+seg  0: dec    4572049 prod/dec 0.5943 fixed/dec 0.5899 dyn/dec 0.7183 | d_bps fixed-prod -0.00165 dyn-prod +0.04651 dyn-fixed +0.04816
+seg  1: dec    4241467 prod/dec 0.6247 fixed/dec 0.6204 dyn/dec 0.7468 | d_bps fixed-prod -0.00148 dyn-prod +0.04246 dyn-fixed +0.04394
+seg  2: dec    4610804 prod/dec 0.5708 fixed/dec 0.5634 dyn/dec 0.6997 | d_bps fixed-prod -0.00280 dyn-prod +0.04876 dyn-fixed +0.05156
+seg  3: dec    5199590 prod/dec 0.5095 fixed/dec 0.5039 dyn/dec 0.6471 | d_bps fixed-prod -0.00237 dyn-prod +0.05871 dyn-fixed +0.06108
+seg  4: dec    5207600 prod/dec 0.5544 fixed/dec 0.5401 dyn/dec 0.6711 | d_bps fixed-prod -0.00608 dyn-prod +0.04984 dyn-fixed +0.05592
+seg  5: dec    4740740 prod/dec 0.6027 fixed/dec 0.5894 dyn/dec 0.7168 | d_bps fixed-prod -0.00518 dyn-prod +0.04436 dyn-fixed +0.04954
+seg  6: dec    5051202 prod/dec 0.5731 fixed/dec 0.5556 dyn/dec 0.6859 | d_bps fixed-prod -0.00728 dyn-prod +0.04669 dyn-fixed +0.05397
+seg  7: dec    5645297 prod/dec 0.5156 fixed/dec 0.5010 dyn/dec 0.6313 | d_bps fixed-prod -0.00674 dyn-prod +0.05360 dyn-fixed +0.06034
+seg  8: dec    4564426 prod/dec 0.5873 fixed/dec 0.5852 dyn/dec 0.7156 | d_bps fixed-prod -0.00078 dyn-prod +0.04802 dyn-fixed +0.04880
+seg  9: dec    4285623 prod/dec 0.6182 fixed/dec 0.6166 dyn/dec 0.7439 | d_bps fixed-prod -0.00055 dyn-prod +0.04418 dyn-fixed +0.04473
+seg 10: dec    4592315 prod/dec 0.5781 fixed/dec 0.5751 dyn/dec 0.7063 | d_bps fixed-prod -0.00113 dyn-prod +0.04829 dyn-fixed +0.04943
+seg 11: dec    5102665 prod/dec 0.5179 fixed/dec 0.5175 dyn/dec 0.6503 | d_bps fixed-prod -0.00016 dyn-prod +0.05540 dyn-fixed +0.05556
+seg 12: dec    5114989 prod/dec 0.5217 fixed/dec 0.5199 dyn/dec 0.6563 | d_bps fixed-prod -0.00078 dyn-prod +0.05645 dyn-fixed +0.05723
+seg 13: dec    4675030 prod/dec 0.5714 fixed/dec 0.5688 dyn/dec 0.7002 | d_bps fixed-prod -0.00100 dyn-prod +0.04939 dyn-fixed +0.05039
+seg 14: dec    5022085 prod/dec 0.5462 fixed/dec 0.5375 dyn/dec 0.6730 | d_bps fixed-prod -0.00357 dyn-prod +0.05226 dyn-fixed +0.05583
+seg 15: dec    5671256 prod/dec 0.4868 fixed/dec 0.4797 dyn/dec 0.6164 | d_bps fixed-prod -0.00329 dyn-prod +0.06032 dyn-fixed +0.06361
+unary: dec   66419981 prod/dec 0.4873 fixed/dec 0.4779 dyn/dec 0.6298 | d_bps fixed-prod -0.05132 dyn-prod +0.77597 dyn-fixed +0.82729
+mant : dec   11877157 prod/dec 0.9514 fixed/dec 0.9580 dyn/dec 0.9814 | d_bps fixed-prod +0.00648 dyn-prod +0.02927 dyn-fixed +0.02279
+by production probability of the observed outcome (bins <0.1,<0.3,<0.7,<0.9,<0.99,>=0.99):
+obs-p-bin 0: dec    1393887 prod/dec 4.2822 fixed/dec 4.5098 dyn/dec 1.9977 | d_bps fixed-prod +0.02602 dyn-prod -0.26118 dyn-fixed -0.28720
+obs-p-bin 1: dec    4140834 prod/dec 2.3288 fixed/dec 2.2968 dyn/dec 1.2529 | d_bps fixed-prod -0.01085 dyn-prod -0.36539 dyn-fixed -0.35454
+obs-p-bin 2: dec   21365342 prod/dec 0.9695 fixed/dec 0.9507 dyn/dec 0.9728 | d_bps fixed-prod -0.03294 dyn-prod +0.00566 dyn-fixed +0.03860
+obs-p-bin 3: dec   17836479 prod/dec 0.2990 fixed/dec 0.2881 dyn/dec 0.7283 | d_bps fixed-prod -0.01593 dyn-prod +0.62813 dyn-fixed +0.64406
+obs-p-bin 4: dec   28978142 prod/dec 0.0679 fixed/dec 0.0639 dyn/dec 0.3870 | d_bps fixed-prod -0.00935 dyn-prod +0.75861 dyn-fixed +0.76796
+obs-p-bin 5: dec    4582454 prod/dec 0.0093 fixed/dec 0.0045 dyn/dec 0.1142 | d_bps fixed-prod -0.00180 dyn-prod +0.03942 dyn-fixed +0.04122
+by |second difference| (edges 0,.01,.1,.5,1,2,5,10,inf), dynamic decisions only:
+|a|-bin [0, 0.01): mean alpha 0.0041 dec   44346623 prod/dec 0.2165 fixed/dec 0.1762 dyn/dec 0.4653 | d_bps fixed-prod -0.14672 dyn-prod +0.90463 dyn-fixed +1.05135
+|a|-bin [0.01, 0.1): mean alpha 0.0163 dec   15259887 prod/dec 0.7193 fixed/dec 0.7007 dyn/dec 0.8420 | d_bps fixed-prod -0.02337 dyn-prod +0.15357 dyn-fixed +0.17694
+|a|-bin [0.1, 0.5): mean alpha 0.0477 dec   10295291 prod/dec 1.0780 fixed/dec 1.1070 dyn/dec 1.0248 | d_bps fixed-prod +0.02446 dyn-prod -0.04492 dyn-fixed -0.06938
+|a|-bin [0.5, 1): mean alpha 0.1059 dec    2695542 prod/dec 1.2369 fixed/dec 1.3262 dyn/dec 1.0415 | d_bps fixed-prod +0.01974 dyn-prod -0.04319 dyn-fixed -0.06293
+|a|-bin [1, 2): mean alpha 0.1489 dec    3631633 prod/dec 1.7267 fixed/dec 1.8900 dyn/dec 1.2597 | d_bps fixed-prod +0.04864 dyn-prod -0.13911 dyn-fixed -0.18775
+|a|-bin [2, 5): mean alpha 0.1849 dec    2011065 prod/dec 1.1703 fixed/dec 1.3630 dyn/dec 1.0071 | d_bps fixed-prod +0.03179 dyn-prod -0.02691 dyn-fixed -0.05870
+|a|-bin [5, 10): mean alpha 0.2147 dec      53968 prod/dec 0.5797 fixed/dec 0.7190 dyn/dec 0.8273 | d_bps fixed-prod +0.00062 dyn-prod +0.00110 dyn-fixed +0.00048
+|a|-bin [10, inf): mean alpha 0.2310 dec       2936 prod/dec 0.0454 fixed/dec 0.0741 dyn/dec 0.3862 | d_bps fixed-prod +0.00001 dyn-prod +0.00008 dyn-fixed +0.00008
+warm-up (fixed-rate) decisions: dec        193 prod/dec 1.0102 fixed/dec 0.9926 dyn/dec 0.9926 | d_bps fixed-prod -0.00000 dyn-prod -0.00000 dyn-fixed +0.00000
+dynamic-rate decisions: dec   78296945 prod/dec 0.5577 fixed/dec 0.5507 dyn/dec 0.6831 | d_bps fixed-prod -0.04484 dyn-prod +0.80525 dyn-fixed +0.85009
+  cls 2 unary slot  1: n   5735136 | d_bps dyn-fixed +0.09185 dyn-prod +0.09666 fixed-prod +0.00481
+  cls 2 unary slot  2: n   5554303 | d_bps dyn-fixed +0.09118 dyn-prod +0.09441 fixed-prod +0.00323
+  cls 2 unary slot  3: n   5201970 | d_bps dyn-fixed +0.07931 dyn-prod +0.07898 fixed-prod -0.00032
+  cls 3 unary slot  4: n   4064652 | d_bps dyn-fixed +0.06836 dyn-prod +0.06838 fixed-prod +0.00002
+  cls 3 unary slot  3: n   4177891 | d_bps dyn-fixed +0.06347 dyn-prod +0.06535 fixed-prod +0.00189
+  cls 3 unary slot  5: n   3841743 | d_bps dyn-fixed +0.06326 dyn-prod +0.05943 fixed-prod -0.00382
+  cls 3 unary slot  2: n   4234544 | d_bps dyn-fixed +0.05458 dyn-prod +0.05672 fixed-prod +0.00214
+  cls 3 unary slot  1: n   4263612 | d_bps dyn-fixed +0.04340 dyn-prod +0.04496 fixed-prod +0.00156
+  cls 3 unary slot  6: n   3429349 | d_bps dyn-fixed +0.04223 dyn-prod +0.03352 fixed-prod -0.00871
+  cls 2 unary slot  4: n   4515530 | d_bps dyn-fixed +0.03562 dyn-prod +0.02843 fixed-prod -0.00720
+  cls 1 unary slot  1: n   2127707 | d_bps dyn-fixed +0.03479 dyn-prod +0.03673 fixed-prod +0.00194
+  cls 1 unary slot  2: n   2026242 | d_bps dyn-fixed +0.03238 dyn-prod +0.03387 fixed-prod +0.00149
+unary slot  1: n   12192000 d_bps dyn-fixed +0.17110 dyn-prod +0.17947 fixed-prod +0.00837
+unary slot  2: n   11877157 d_bps dyn-fixed +0.17911 dyn-prod +0.18602 fixed-prod +0.00691
+unary slot  3: n   11266811 d_bps dyn-fixed +0.16601 dyn-prod +0.16834 fixed-prod +0.00234
+unary slot  4: n   10081935 d_bps dyn-fixed +0.10647 dyn-prod +0.09881 fixed-prod -0.00765
+unary slot  5: n    7990283 d_bps dyn-fixed +0.07857 dyn-prod +0.05964 fixed-prod -0.01894
+unary slot  6: n    5314823 d_bps dyn-fixed +0.05897 dyn-prod +0.04081 fixed-prod -0.01816
+unary slot  7: n    3313199 d_bps dyn-fixed +0.03313 dyn-prod +0.02098 fixed-prod -0.01215
+unary slot  8: n    2133442 d_bps dyn-fixed +0.01315 dyn-prod +0.00757 fixed-prod -0.00558
+unary slot  9: n    1289302 d_bps dyn-fixed +0.00910 dyn-prod +0.00516 fixed-prod -0.00394
+unary slot 10: n     595709 d_bps dyn-fixed +0.00622 dyn-prod +0.00430 fixed-prod -0.00192
+unary slot 11: n     277812 d_bps dyn-fixed +0.00408 dyn-prod +0.00354 fixed-prod -0.00054
+unary slot 12: n      73575 d_bps dyn-fixed +0.00137 dyn-prod +0.00130 fixed-prod -0.00006
+unary slot 13: n      13933 d_bps dyn-fixed +0.00002 dyn-prod +0.00002 fixed-prod +0.00001
+== pentax_kx_lichen: n=12481536 decisions/sample 7.16 fixed-bit share 4.182 bps; integrity OK (n=89390715, ones=69636777, hash=ad4dd092775f4640)
+TOTAL ideal bits: prod 97216699 fixed 98023888 dyn 110044434
+BPS: prod 7.78884 fixed 7.85351 dyn 8.81658
+PCT: fixed vs prod +0.830% | dyn vs prod +13.195% | dyn vs fixed +12.263%
+RATE (dynamic decisions 89390515 of 89390715; fixed 1/32 warm-up decisions 200): mean 0.02601 min 0.00392 max 0.23806
+  quantiles (from 100-bin histogram): p01 0.0052 p10 0.0052 p25 0.0052 p50 0.0052 p75 0.0224 p90 0.0864 p99 0.1922
+  reporting bins on u=(alpha-amin)/(amax-amin): near-min u<0.1 | mid | near-max u>0.9: 78.63% / 21.36% / 0.00%
+plane 0: dec   22269244 prod/dec 0.5077 fixed/dec 0.5165 dyn/dec 0.6529 | d_bps fixed-prod +0.01560 dyn-prod +0.25903 dyn-fixed +0.24344
+plane 1: dec   23017793 prod/dec 0.5050 fixed/dec 0.5134 dyn/dec 0.6443 | d_bps fixed-prod +0.01550 dyn-prod +0.25693 dyn-fixed +0.24143
+plane 2: dec   21488910 prod/dec 0.5146 fixed/dec 0.5243 dyn/dec 0.6594 | d_bps fixed-prod +0.01672 dyn-prod +0.24931 dyn-fixed +0.23259
+plane 3: dec   22614768 prod/dec 0.4876 fixed/dec 0.4969 dyn/dec 0.6325 | d_bps fixed-prod +0.01685 dyn-prod +0.26246 dyn-fixed +0.24561
+class 0: dec      20186 prod/dec 0.6851 fixed/dec 0.6850 dyn/dec 0.8068 | d_bps fixed-prod -0.00000 dyn-prod +0.00020 dyn-fixed +0.00020 | dyn-rate mean 0.0320 near-min 71.1% near-max 0.0%
+class 1: dec     764295 prod/dec 0.5473 fixed/dec 0.5578 dyn/dec 0.7016 | d_bps fixed-prod +0.00064 dyn-prod +0.00945 dyn-fixed +0.00881 | dyn-rate mean 0.0285 near-min 76.3% near-max 0.0%
+class 2: dec   24409812 prod/dec 0.5128 fixed/dec 0.5231 dyn/dec 0.6587 | d_bps fixed-prod +0.02021 dyn-prod +0.28538 dyn-fixed +0.26517 | dyn-rate mean 0.0270 near-min 77.9% near-max 0.0%
+class 3: dec   64196422 prod/dec 0.4995 fixed/dec 0.5080 dyn/dec 0.6420 | d_bps fixed-prod +0.04382 dyn-prod +0.73271 dyn-fixed +0.68889 | dyn-rate mean 0.0256 near-min 79.0% near-max 0.0%
+seg  0: dec    5476624 prod/dec 0.5128 fixed/dec 0.5216 dyn/dec 0.6578 | d_bps fixed-prod +0.00387 dyn-prod +0.06363 dyn-fixed +0.05976
+seg  1: dec    5580346 prod/dec 0.5069 fixed/dec 0.5157 dyn/dec 0.6520 | d_bps fixed-prod +0.00391 dyn-prod +0.06486 dyn-fixed +0.06094
+seg  2: dec    5657387 prod/dec 0.5021 fixed/dec 0.5104 dyn/dec 0.6472 | d_bps fixed-prod +0.00377 dyn-prod +0.06573 dyn-fixed +0.06197
+seg  3: dec    5554887 prod/dec 0.5093 fixed/dec 0.5184 dyn/dec 0.6549 | d_bps fixed-prod +0.00404 dyn-prod +0.06481 dyn-fixed +0.06077
+seg  4: dec    5670645 prod/dec 0.5118 fixed/dec 0.5202 dyn/dec 0.6510 | d_bps fixed-prod +0.00383 dyn-prod +0.06322 dyn-fixed +0.05939
+seg  5: dec    5767066 prod/dec 0.5039 fixed/dec 0.5122 dyn/dec 0.6438 | d_bps fixed-prod +0.00386 dyn-prod +0.06463 dyn-fixed +0.06077
+seg  6: dec    5830439 prod/dec 0.4992 fixed/dec 0.5076 dyn/dec 0.6381 | d_bps fixed-prod +0.00391 dyn-prod +0.06487 dyn-fixed +0.06097
+seg  7: dec    5749643 prod/dec 0.5051 fixed/dec 0.5136 dyn/dec 0.6445 | d_bps fixed-prod +0.00391 dyn-prod +0.06421 dyn-fixed +0.06030
+seg  8: dec    5316386 prod/dec 0.5188 fixed/dec 0.5286 dyn/dec 0.6635 | d_bps fixed-prod +0.00416 dyn-prod +0.06162 dyn-fixed +0.05746
+seg  9: dec    5386070 prod/dec 0.5132 fixed/dec 0.5228 dyn/dec 0.6579 | d_bps fixed-prod +0.00416 dyn-prod +0.06245 dyn-fixed +0.05830
+seg 10: dec    5416232 prod/dec 0.5114 fixed/dec 0.5211 dyn/dec 0.6564 | d_bps fixed-prod +0.00422 dyn-prod +0.06293 dyn-fixed +0.05871
+seg 11: dec    5370222 prod/dec 0.5150 fixed/dec 0.5247 dyn/dec 0.6598 | d_bps fixed-prod +0.00418 dyn-prod +0.06231 dyn-fixed +0.05812
+seg 12: dec    5605918 prod/dec 0.4913 fixed/dec 0.5007 dyn/dec 0.6366 | d_bps fixed-prod +0.00422 dyn-prod +0.06528 dyn-fixed +0.06106
+seg 13: dec    5666628 prod/dec 0.4865 fixed/dec 0.4958 dyn/dec 0.6315 | d_bps fixed-prod +0.00423 dyn-prod +0.06581 dyn-fixed +0.06158
+seg 14: dec    5691437 prod/dec 0.4847 fixed/dec 0.4940 dyn/dec 0.6293 | d_bps fixed-prod +0.00420 dyn-prod +0.06591 dyn-fixed +0.06170
+seg 15: dec    5650785 prod/dec 0.4881 fixed/dec 0.4973 dyn/dec 0.6327 | d_bps fixed-prod +0.00420 dyn-prod +0.06547 dyn-fixed +0.06127
+unary: dec   77036447 prod/dec 0.4322 fixed/dec 0.4411 dyn/dec 0.5933 | d_bps fixed-prod +0.05498 dyn-prod +0.99428 dyn-fixed +0.93930
+mant : dec   12354268 prod/dec 0.9487 fixed/dec 0.9585 dyn/dec 0.9825 | d_bps fixed-prod +0.00969 dyn-prod +0.03346 dyn-fixed +0.02377
+by production probability of the observed outcome (bins <0.1,<0.3,<0.7,<0.9,<0.99,>=0.99):
+obs-p-bin 0: dec    1581223 prod/dec 4.4842 fixed/dec 4.8680 dyn/dec 2.1245 | d_bps fixed-prod +0.04863 dyn-prod -0.29893 dyn-fixed -0.34756
+obs-p-bin 1: dec    3702036 prod/dec 2.3441 fixed/dec 2.3883 dyn/dec 1.2907 | d_bps fixed-prod +0.01311 dyn-prod -0.31244 dyn-fixed -0.32555
+obs-p-bin 2: dec   22975170 prod/dec 0.9651 fixed/dec 0.9719 dyn/dec 0.9908 | d_bps fixed-prod +0.01256 dyn-prod +0.04725 dyn-fixed +0.03469
+obs-p-bin 3: dec   16042220 prod/dec 0.2962 fixed/dec 0.2943 dyn/dec 0.7425 | d_bps fixed-prod -0.00242 dyn-prod +0.57363 dyn-fixed +0.57605
+obs-p-bin 4: dec   40375643 prod/dec 0.0562 fixed/dec 0.0547 dyn/dec 0.3560 | d_bps fixed-prod -0.00494 dyn-prod +0.96964 dyn-fixed +0.97458
+obs-p-bin 5: dec    4714423 prod/dec 0.0108 fixed/dec 0.0048 dyn/dec 0.1395 | d_bps fixed-prod -0.00227 dyn-prod +0.04859 dyn-fixed +0.05086
+by |second difference| (edges 0,.01,.1,.5,1,2,5,10,inf), dynamic decisions only:
+|a|-bin [0, 0.01): mean alpha 0.0041 dec   52460054 prod/dec 0.1611 fixed/dec 0.1445 dyn/dec 0.4228 | d_bps fixed-prod -0.07010 dyn-prod +1.09962 dyn-fixed +1.16972
+|a|-bin [0.01, 0.1): mean alpha 0.0164 dec   16851962 prod/dec 0.6845 fixed/dec 0.6868 dyn/dec 0.8399 | d_bps fixed-prod +0.00315 dyn-prod +0.20991 dyn-fixed +0.20675
+|a|-bin [0.1, 0.5): mean alpha 0.0471 dec   11200951 prod/dec 1.0635 fixed/dec 1.1036 dyn/dec 1.0262 | d_bps fixed-prod +0.03597 dyn-prod -0.03352 dyn-fixed -0.06948
+|a|-bin [0.5, 1): mean alpha 0.1058 dec    2629209 prod/dec 1.2381 fixed/dec 1.3140 dyn/dec 1.0412 | d_bps fixed-prod +0.01598 dyn-prod -0.04148 dyn-fixed -0.05746
+|a|-bin [1, 2): mean alpha 0.1495 dec    3742723 prod/dec 1.7414 fixed/dec 1.8552 dyn/dec 1.2420 | d_bps fixed-prod +0.03412 dyn-prod -0.14974 dyn-fixed -0.18386
+|a|-bin [2, 5): mean alpha 0.1856 dec    2411784 prod/dec 1.3792 fixed/dec 1.6131 dyn/dec 1.0694 | d_bps fixed-prod +0.04519 dyn-prod -0.05986 dyn-fixed -0.10505
+|a|-bin [5, 10): mean alpha 0.2141 dec      92775 prod/dec 0.1786 fixed/dec 0.2274 dyn/dec 0.5528 | d_bps fixed-prod +0.00036 dyn-prod +0.00278 dyn-fixed +0.00242
+|a|-bin [10, inf): mean alpha 0.2298 dec       1057 prod/dec 0.0517 fixed/dec 0.0751 dyn/dec 0.3842 | d_bps fixed-prod +0.00000 dyn-prod +0.00003 dyn-fixed +0.00003
+warm-up (fixed-rate) decisions: dec        200 prod/dec 1.0378 fixed/dec 0.9936 dyn/dec 0.9936 | d_bps fixed-prod -0.00000 dyn-prod -0.00000 dyn-fixed +0.00000
+dynamic-rate decisions: dec   89390515 prod/dec 0.5036 fixed/dec 0.5126 dyn/dec 0.6471 | d_bps fixed-prod +0.06467 dyn-prod +1.02774 dyn-fixed +0.96307
+  cls 3 unary slot  3: n   8585987 | d_bps dyn-fixed +0.13632 dyn-prod +0.14484 fixed-prod +0.00852
+  cls 3 unary slot  4: n   8274200 | d_bps dyn-fixed +0.13135 dyn-prod +0.13853 fixed-prod +0.00718
+  cls 3 unary slot  2: n   8742909 | d_bps dyn-fixed +0.12791 dyn-prod +0.13627 fixed-prod +0.00836
+  cls 3 unary slot  5: n   7654220 | d_bps dyn-fixed +0.11116 dyn-prod +0.11679 fixed-prod +0.00563
+  cls 3 unary slot  1: n   8825527 | d_bps dyn-fixed +0.10810 dyn-prod +0.11409 fixed-prod +0.00599
+  cls 2 unary slot  3: n   3415717 | d_bps dyn-fixed +0.05426 dyn-prod +0.05754 fixed-prod +0.00329
+  cls 2 unary slot  2: n   3495523 | d_bps dyn-fixed +0.05311 dyn-prod +0.05662 fixed-prod +0.00351
+  cls 2 unary slot  4: n   3257109 | d_bps dyn-fixed +0.05008 dyn-prod +0.05283 fixed-prod +0.00275
+  cls 2 unary slot  1: n   3536715 | d_bps dyn-fixed +0.04666 dyn-prod +0.04949 fixed-prod +0.00283
+  cls 2 unary slot  5: n   2942642 | d_bps dyn-fixed +0.03587 dyn-prod +0.03810 fixed-prod +0.00223
+  cls 3 unary slot  6: n   6456122 | d_bps dyn-fixed +0.03228 dyn-prod +0.03586 fixed-prod +0.00358
+  cls 3 mant  slot  8: n   1308829 | d_bps dyn-fixed +0.01397 dyn-prod +0.01491 fixed-prod +0.00094
+unary slot  1: n   12481536 d_bps dyn-fixed +0.15682 dyn-prod +0.16573 fixed-prod +0.00891
+unary slot  2: n   12354268 d_bps dyn-fixed +0.18286 dyn-prod +0.19485 fixed-prod +0.01198
+unary slot  3: n   12114009 d_bps dyn-fixed +0.19237 dyn-prod +0.20428 fixed-prod +0.01191
+unary slot  4: n   11636490 d_bps dyn-fixed +0.18305 dyn-prod +0.19307 fixed-prod +0.01002
+unary slot  5: n   10688941 d_bps dyn-fixed +0.14799 dyn-prod +0.15593 fixed-prod +0.00794
+unary slot  6: n    8875592 d_bps dyn-fixed +0.03560 dyn-prod +0.04079 fixed-prod +0.00519
+unary slot  7: n    5803142 d_bps dyn-fixed +0.01766 dyn-prod +0.01937 fixed-prod +0.00171
+unary slot  8: n    2157439 d_bps dyn-fixed +0.01834 dyn-prod +0.01599 fixed-prod -0.00234
+unary slot  9: n     499706 d_bps dyn-fixed +0.00082 dyn-prod +0.00071 fixed-prod -0.00012
+unary slot 10: n     280907 d_bps dyn-fixed +0.00325 dyn-prod +0.00293 fixed-prod -0.00032
+unary slot 11: n      70278 d_bps dyn-fixed +0.00053 dyn-prod +0.00058 fixed-prod +0.00005
+unary slot 12: n      50407 d_bps dyn-fixed -0.00002 dyn-prod +0.00002 fixed-prod +0.00004
+unary slot 13: n      23732 d_bps dyn-fixed +0.00002 dyn-prod +0.00002 fixed-prod +0.00001
+== parrot_anafi_dusk: n=21461504 decisions/sample 8.99 fixed-bit share 6.004 bps; integrity OK (n=192900904, ones=159023532, hash=572da1c73c8e66ee)
+TOTAL ideal bits: prod 206733319 fixed 205595706 dyn 230191631
+BPS: prod 9.63275 fixed 9.57974 dyn 10.72579
+PCT: fixed vs prod -0.550% | dyn vs prod +11.347% | dyn vs fixed +11.963%
+RATE (dynamic decisions 192900686 of 192900904; fixed 1/32 warm-up decisions 218): mean 0.02211 min 0.00392 max 0.23807
+  quantiles (from 100-bin histogram): p01 0.0052 p10 0.0052 p25 0.0052 p50 0.0052 p75 0.0175 p90 0.0667 p99 0.1897
+  reporting bins on u=(alpha-amin)/(amax-amin): near-min u<0.1 | mid | near-max u>0.9: 83.17% / 16.81% / 0.02%
+plane 0: dec   46490247 prod/dec 0.4218 fixed/dec 0.4171 dyn/dec 0.5485 | d_bps fixed-prod -0.01032 dyn-prod +0.27443 dyn-fixed +0.28475
+plane 1: dec   51255432 prod/dec 0.3861 fixed/dec 0.3777 dyn/dec 0.4939 | d_bps fixed-prod -0.01996 dyn-prod +0.25749 dyn-fixed +0.27745
+plane 2: dec   45105401 prod/dec 0.4288 fixed/dec 0.4281 dyn/dec 0.5600 | d_bps fixed-prod -0.00131 dyn-prod +0.27574 dyn-fixed +0.27705
+plane 3: dec   50049824 prod/dec 0.3826 fixed/dec 0.3734 dyn/dec 0.5049 | d_bps fixed-prod -0.02142 dyn-prod +0.28538 dyn-fixed +0.30680
+class 0: dec      93542 prod/dec 0.3371 fixed/dec 0.2992 dyn/dec 0.5589 | d_bps fixed-prod -0.00017 dyn-prod +0.00097 dyn-fixed +0.00113 | dyn-rate mean 0.0144 near-min 90.4% near-max 0.0%
+class 1: dec     288256 prod/dec 0.5342 fixed/dec 0.5259 dyn/dec 0.6619 | d_bps fixed-prod -0.00011 dyn-prod +0.00171 dyn-fixed +0.00183 | dyn-rate mean 0.0262 near-min 78.4% near-max 0.0%
+class 2: dec   11619657 prod/dec 0.4853 fixed/dec 0.4931 dyn/dec 0.6323 | d_bps fixed-prod +0.00424 dyn-prod +0.07960 dyn-fixed +0.07536 | dyn-rate mean 0.0254 near-min 79.3% near-max 0.0%
+class 3: dec  180899449 prod/dec 0.3983 fixed/dec 0.3916 dyn/dec 0.5183 | d_bps fixed-prod -0.05697 dyn-prod +1.01076 dyn-fixed +1.06773 | dyn-rate mean 0.0219 near-min 83.4% near-max 0.0%
+seg  0: dec   13626614 prod/dec 0.3724 fixed/dec 0.3600 dyn/dec 0.4857 | d_bps fixed-prod -0.00786 dyn-prod +0.07199 dyn-fixed +0.07985
+seg  1: dec   12780271 prod/dec 0.3912 fixed/dec 0.3840 dyn/dec 0.5125 | d_bps fixed-prod -0.00431 dyn-prod +0.07223 dyn-fixed +0.07654
+seg  2: dec   10132692 prod/dec 0.4712 fixed/dec 0.4730 dyn/dec 0.6095 | d_bps fixed-prod +0.00084 dyn-prod +0.06531 dyn-fixed +0.06447
+seg  3: dec    9950670 prod/dec 0.4786 fixed/dec 0.4808 dyn/dec 0.6186 | d_bps fixed-prod +0.00101 dyn-prod +0.06491 dyn-fixed +0.06389
+seg  4: dec   15432002 prod/dec 0.3065 fixed/dec 0.2920 dyn/dec 0.3905 | d_bps fixed-prod -0.01039 dyn-prod +0.06047 dyn-fixed +0.07085
+seg  5: dec   14157743 prod/dec 0.3557 fixed/dec 0.3448 dyn/dec 0.4605 | d_bps fixed-prod -0.00723 dyn-prod +0.06912 dyn-fixed +0.07635
+seg  6: dec   10981883 prod/dec 0.4574 fixed/dec 0.4558 dyn/dec 0.5839 | d_bps fixed-prod -0.00078 dyn-prod +0.06474 dyn-fixed +0.06552
+seg  7: dec   10683804 prod/dec 0.4680 fixed/dec 0.4649 dyn/dec 0.5949 | d_bps fixed-prod -0.00156 dyn-prod +0.06317 dyn-fixed +0.06473
+seg  8: dec   12740507 prod/dec 0.3810 fixed/dec 0.3766 dyn/dec 0.5010 | d_bps fixed-prod -0.00262 dyn-prod +0.07126 dyn-fixed +0.07388
+seg  9: dec   12301453 prod/dec 0.3963 fixed/dec 0.3937 dyn/dec 0.5245 | d_bps fixed-prod -0.00149 dyn-prod +0.07351 dyn-fixed +0.07501
+seg 10: dec   10115338 prod/dec 0.4762 fixed/dec 0.4790 dyn/dec 0.6158 | d_bps fixed-prod +0.00129 dyn-prod +0.06577 dyn-fixed +0.06447
+seg 11: dec    9948103 prod/dec 0.4818 fixed/dec 0.4851 dyn/dec 0.6225 | d_bps fixed-prod +0.00151 dyn-prod +0.06520 dyn-fixed +0.06369
+seg 12: dec   14883880 prod/dec 0.3110 fixed/dec 0.2988 dyn/dec 0.4241 | d_bps fixed-prod -0.00845 dyn-prod +0.07843 dyn-fixed +0.08688
+seg 13: dec   13940625 prod/dec 0.3409 fixed/dec 0.3288 dyn/dec 0.4592 | d_bps fixed-prod -0.00787 dyn-prod +0.07686 dyn-fixed +0.08473
+seg 14: dec   10738803 prod/dec 0.4537 fixed/dec 0.4489 dyn/dec 0.5850 | d_bps fixed-prod -0.00241 dyn-prod +0.06572 dyn-fixed +0.06813
+seg 15: dec   10486516 prod/dec 0.4667 fixed/dec 0.4611 dyn/dec 0.5984 | d_bps fixed-prod -0.00269 dyn-prod +0.06436 dyn-fixed +0.06706
+unary: dec  171605177 prod/dec 0.3364 fixed/dec 0.3307 dyn/dec 0.4705 | d_bps fixed-prod -0.04574 dyn-prod +1.07200 dyn-fixed +1.11774
+mant : dec   21295727 prod/dec 0.9465 fixed/dec 0.9391 dyn/dec 0.9677 | d_bps fixed-prod -0.00727 dyn-prod +0.02104 dyn-fixed +0.02830
+by production probability of the observed outcome (bins <0.1,<0.3,<0.7,<0.9,<0.99,>=0.99):
+obs-p-bin 0: dec    2834865 prod/dec 4.6035 fixed/dec 4.9496 dyn/dec 2.1782 | d_bps fixed-prod +0.04572 dyn-prod -0.32036 dyn-fixed -0.36608
+obs-p-bin 1: dec    6702124 prod/dec 2.3505 fixed/dec 2.3283 dyn/dec 1.2928 | d_bps fixed-prod -0.00694 dyn-prod -0.33032 dyn-fixed -0.32339
+obs-p-bin 2: dec   37274827 prod/dec 0.9691 fixed/dec 0.9364 dyn/dec 0.9706 | d_bps fixed-prod -0.05686 dyn-prod +0.00258 dyn-fixed +0.05943
+obs-p-bin 3: dec   29436875 prod/dec 0.2939 fixed/dec 0.2798 dyn/dec 0.7079 | d_bps fixed-prod -0.01925 dyn-prod +0.56784 dyn-fixed +0.58708
+obs-p-bin 4: dec   72340357 prod/dec 0.0545 fixed/dec 0.0524 dyn/dec 0.3509 | d_bps fixed-prod -0.00707 dyn-prod +0.99924 dyn-fixed +1.00631
+obs-p-bin 5: dec   44311856 prod/dec 0.0082 fixed/dec 0.0041 dyn/dec 0.0925 | d_bps fixed-prod -0.00862 dyn-prod +0.17407 dyn-fixed +0.18269
+by |second difference| (edges 0,.01,.1,.5,1,2,5,10,inf), dynamic decisions only:
+|a|-bin [0, 0.01): mean alpha 0.0041 dec  131752650 prod/dec 0.1241 fixed/dec 0.0969 dyn/dec 0.3217 | d_bps fixed-prod -0.16680 dyn-prod +1.21344 dyn-fixed +1.38024
+|a|-bin [0.01, 0.1): mean alpha 0.0165 dec   27195989 prod/dec 0.6865 fixed/dec 0.6614 dyn/dec 0.8194 | d_bps fixed-prod -0.03177 dyn-prod +0.16850 dyn-fixed +0.20028
+|a|-bin [0.1, 0.5): mean alpha 0.0475 dec   17386408 prod/dec 1.0700 fixed/dec 1.0998 dyn/dec 1.0233 | d_bps fixed-prod +0.02414 dyn-prod -0.03783 dyn-fixed -0.06197
+|a|-bin [0.5, 1): mean alpha 0.1062 dec    4705279 prod/dec 1.2024 fixed/dec 1.2873 dyn/dec 1.0311 | d_bps fixed-prod +0.01863 dyn-prod -0.03755 dyn-fixed -0.05619
+|a|-bin [1, 2): mean alpha 0.1493 dec    6990908 prod/dec 1.6991 fixed/dec 1.8506 dyn/dec 1.2486 | d_bps fixed-prod +0.04933 dyn-prod -0.14675 dyn-fixed -0.19608
+|a|-bin [2, 5): mean alpha 0.1854 dec    4559713 prod/dec 1.4172 fixed/dec 1.6548 dyn/dec 1.0883 | d_bps fixed-prod +0.05048 dyn-prod -0.06989 dyn-fixed -0.12037
+|a|-bin [5, 10): mean alpha 0.2158 dec     281457 prod/dec 0.9337 fixed/dec 1.1576 dyn/dec 1.1408 | d_bps fixed-prod +0.00294 dyn-prod +0.00272 dyn-fixed -0.00022
+|a|-bin [10, inf): mean alpha 0.2326 dec      28282 prod/dec 0.2904 fixed/dec 0.3304 dyn/dec 0.5967 | d_bps fixed-prod +0.00005 dyn-prod +0.00040 dyn-fixed +0.00035
+warm-up (fixed-rate) decisions: dec        218 prod/dec 0.9718 fixed/dec 0.9913 dyn/dec 0.9913 | d_bps fixed-prod +0.00000 dyn-prod +0.00000 dyn-fixed +0.00000
+dynamic-rate decisions: dec  192900686 prod/dec 0.4038 fixed/dec 0.3979 dyn/dec 0.5254 | d_bps fixed-prod -0.05301 dyn-prod +1.09304 dyn-fixed +1.14605
+  cls 3 unary slot  5: n  18653678 | d_bps dyn-fixed +0.15828 dyn-prod +0.16325 fixed-prod +0.00497
+  cls 3 unary slot  4: n  19230691 | d_bps dyn-fixed +0.15279 dyn-prod +0.15974 fixed-prod +0.00695
+  cls 3 unary slot  3: n  19519322 | d_bps dyn-fixed +0.13520 dyn-prod +0.14158 fixed-prod +0.00638
+  cls 3 unary slot  6: n  17509873 | d_bps dyn-fixed +0.13146 dyn-prod +0.13201 fixed-prod +0.00055
+  cls 3 unary slot  2: n  19664377 | d_bps dyn-fixed +0.10886 dyn-prod +0.11323 fixed-prod +0.00437
+  cls 3 unary slot  7: n  15398877 | d_bps dyn-fixed +0.09375 dyn-prod +0.08493 fixed-prod -0.00882
+  cls 3 unary slot  1: n  19744804 | d_bps dyn-fixed +0.08056 dyn-prod +0.08164 fixed-prod +0.00108
+  cls 3 unary slot  8: n  12079661 | d_bps dyn-fixed +0.07216 dyn-prod +0.05931 fixed-prod -0.01286
+  cls 3 unary slot  9: n   8482905 | d_bps dyn-fixed +0.04710 dyn-prod +0.03569 fixed-prod -0.01141
+  cls 3 unary slot 10: n   5534131 | d_bps dyn-fixed +0.03048 dyn-prod +0.01648 fixed-prod -0.01399
+  cls 3 unary slot 11: n   3533543 | d_bps dyn-fixed +0.01841 dyn-prod -0.00026 fixed-prod -0.01867
+  cls 2 unary slot  3: n   1559311 | d_bps dyn-fixed +0.01460 dyn-prod +0.01545 fixed-prod +0.00085
+unary slot  1: n   21461504 d_bps dyn-fixed +0.09300 dyn-prod +0.09451 fixed-prod +0.00152
+unary slot  2: n   21295727 d_bps dyn-fixed +0.12280 dyn-prod +0.12798 fixed-prod +0.00518
+unary slot  3: n   21119970 d_bps dyn-fixed +0.15016 dyn-prod +0.15738 fixed-prod +0.00721
+unary slot  4: n   20772807 d_bps dyn-fixed +0.16719 dyn-prod +0.17484 fixed-prod +0.00765
+unary slot  5: n   20081247 d_bps dyn-fixed +0.17018 dyn-prod +0.17561 fixed-prod +0.00543
+unary slot  6: n   18714757 d_bps dyn-fixed +0.13526 dyn-prod +0.13600 fixed-prod +0.00074
+unary slot  7: n   16220129 d_bps dyn-fixed +0.09542 dyn-prod +0.08660 fixed-prod -0.00882
+unary slot  8: n   12417664 d_bps dyn-fixed +0.07484 dyn-prod +0.06198 fixed-prod -0.01286
+unary slot  9: n    8550071 d_bps dyn-fixed +0.04766 dyn-prod +0.03619 fixed-prod -0.01147
+unary slot 10: n    5547337 d_bps dyn-fixed +0.03057 dyn-prod +0.01653 fixed-prod -0.01405
+unary slot 11: n    3538141 d_bps dyn-fixed +0.01843 dyn-prod -0.00026 fixed-prod -0.01869
+unary slot 12: n    1509335 d_bps dyn-fixed +0.00936 dyn-prod +0.00269 fixed-prod -0.00667
+unary slot 13: n     330485 d_bps dyn-fixed +0.00248 dyn-prod +0.00158 fixed-prod -0.00091
+unary slot 14: n      44874 d_bps dyn-fixed +0.00038 dyn-prod +0.00038 fixed-prod -0.00000
+unary slot 15: n       1129 d_bps dyn-fixed +0.00001 dyn-prod +0.00001 fixed-prod +0.00000

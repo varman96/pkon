@@ -1,0 +1,23 @@
+[
+  {
+    "baseline_bps": 7.0553779076878165,
+    "candidate_bps": 7.010536729913035,
+    "id": "pentax_q7_cat",
+    "n": 12192000,
+    "pct_change": -0.6355602543404623
+  },
+  {
+    "baseline_bps": 7.788840973354604,
+    "candidate_bps": 7.853511655634126,
+    "id": "pentax_kx_lichen",
+    "n": 12481536,
+    "pct_change": 0.8302991741744211
+  },
+  {
+    "baseline_bps": 9.632750760354025,
+    "candidate_bps": 9.579743639359783,
+    "id": "parrot_anafi_dusk",
+    "n": 21461504,
+    "pct_change": -0.5502802087686652
+  }
+]

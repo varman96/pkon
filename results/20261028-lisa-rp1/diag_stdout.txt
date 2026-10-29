@@ -1,0 +1,132 @@
+== pentax_kx_lichen: n=12481536 adaptive decisions/sample 7.16; total base 7.78884 cand 7.85351 delta +0.06467 bps; fixed-bit share 4.182 bps
+plane 0: dec   22269244 base/dec 0.5077 cand/dec 0.5165 delta_bps +0.01560
+plane 1: dec   23017793 base/dec 0.5050 cand/dec 0.5134 delta_bps +0.01550
+plane 2: dec   21488910 base/dec 0.5146 cand/dec 0.5243 delta_bps +0.01672
+plane 3: dec   22614768 base/dec 0.4876 cand/dec 0.4969 delta_bps +0.01685
+class 0: dec      20186 base/dec 0.6851 cand/dec 0.6850 delta_bps -0.00000
+class 1: dec     764295 base/dec 0.5473 cand/dec 0.5578 delta_bps +0.00064
+class 2: dec   24409812 base/dec 0.5128 cand/dec 0.5231 delta_bps +0.02021
+class 3: dec   64196422 base/dec 0.4995 cand/dec 0.5080 delta_bps +0.04382
+seg  0: dec    5476624 base/dec 0.5128 cand/dec 0.5216 delta_bps +0.00387
+seg  1: dec    5580346 base/dec 0.5069 cand/dec 0.5157 delta_bps +0.00391
+seg  2: dec    5657387 base/dec 0.5021 cand/dec 0.5104 delta_bps +0.00377
+seg  3: dec    5554887 base/dec 0.5093 cand/dec 0.5184 delta_bps +0.00404
+seg  4: dec    5670645 base/dec 0.5118 cand/dec 0.5202 delta_bps +0.00383
+seg  5: dec    5767066 base/dec 0.5039 cand/dec 0.5122 delta_bps +0.00386
+seg  6: dec    5830439 base/dec 0.4992 cand/dec 0.5076 delta_bps +0.00391
+seg  7: dec    5749643 base/dec 0.5051 cand/dec 0.5136 delta_bps +0.00391
+seg  8: dec    5316386 base/dec 0.5188 cand/dec 0.5286 delta_bps +0.00416
+seg  9: dec    5386070 base/dec 0.5132 cand/dec 0.5228 delta_bps +0.00416
+seg 10: dec    5416232 base/dec 0.5114 cand/dec 0.5211 delta_bps +0.00422
+seg 11: dec    5370222 base/dec 0.5150 cand/dec 0.5247 delta_bps +0.00418
+seg 12: dec    5605918 base/dec 0.4913 cand/dec 0.5007 delta_bps +0.00422
+seg 13: dec    5666628 base/dec 0.4865 cand/dec 0.4958 delta_bps +0.00423
+seg 14: dec    5691437 base/dec 0.4847 cand/dec 0.4940 delta_bps +0.00420
+seg 15: dec    5650785 base/dec 0.4881 cand/dec 0.4973 delta_bps +0.00420
+obs-p-bin 0: dec    1581223 base/dec 4.4842 cand/dec 4.8680 delta_bps +0.04863
+obs-p-bin 1: dec    3702036 base/dec 2.3441 cand/dec 2.3883 delta_bps +0.01311
+obs-p-bin 2: dec   22975170 base/dec 0.9651 cand/dec 0.9719 delta_bps +0.01256
+obs-p-bin 3: dec   16042220 base/dec 0.2962 cand/dec 0.2943 delta_bps -0.00242
+obs-p-bin 4: dec   40375643 base/dec 0.0562 cand/dec 0.0547 delta_bps -0.00494
+obs-p-bin 5: dec    4714423 base/dec 0.0108 cand/dec 0.0048 delta_bps -0.00227
+oracle static adaptive cost 3.62804 bps vs base 3.60661 cand 3.67128
+  cls 3 unary slot  3: n   8585987 p1 0.964 | base-static +0.00061 cand-static +0.00913 cand-base +0.00852 bps
+  cls 3 unary slot  2: n   8742909 p1 0.982 | base-static +0.00077 cand-static +0.00913 cand-base +0.00836 bps
+  cls 3 unary slot  4: n   8274200 p1 0.925 | base-static +0.00017 cand-static +0.00735 cand-base +0.00718 bps
+  cls 3 unary slot  1: n   8825527 p1 0.991 | base-static +0.00079 cand-static +0.00678 cand-base +0.00599 bps
+  cls 3 unary slot  5: n   7654220 p1 0.843 | base-static -0.00080 cand-static +0.00483 cand-base +0.00563 bps
+  cls 3 unary slot  6: n   6456122 p1 0.677 | base-static -0.00222 cand-static +0.00136 cand-base +0.00358 bps
+  cls 2 unary slot  2: n   3495523 p1 0.977 | base-static +0.00030 cand-static +0.00381 cand-base +0.00351 bps
+  cls 2 unary slot  3: n   3415717 p1 0.954 | base-static +0.00019 cand-static +0.00348 cand-base +0.00329 bps
+  cls 2 unary slot  1: n   3536715 p1 0.988 | base-static +0.00034 cand-static +0.00317 cand-base +0.00283 bps
+  cls 2 unary slot  4: n   3257109 p1 0.903 | base-static -0.00004 cand-static +0.00271 cand-base +0.00275 bps
+  cls 3 unary slot  8: n   1735348 p1 0.246 | base-static -0.00501 cand-static -0.00765 cand-base -0.00264 bps
+  cls 2 unary slot  5: n   2942642 p1 0.798 | base-static -0.00056 cand-static +0.00167 cand-base +0.00223 bps
+== pentax_q7_cat: n=12192000 adaptive decisions/sample 6.42; total base 7.05538 cand 7.01054 delta -0.04484 bps; fixed-bit share 3.474 bps
+plane 0: dec   18623910 base/dec 0.5717 cand/dec 0.5663 delta_bps -0.00830
+plane 1: dec   20644839 base/dec 0.5595 cand/dec 0.5445 delta_bps -0.02528
+plane 2: dec   18545029 base/dec 0.5731 cand/dec 0.5713 delta_bps -0.00263
+plane 3: dec   20483360 base/dec 0.5294 cand/dec 0.5242 delta_bps -0.00863
+class 0: dec     318810 base/dec 0.6737 cand/dec 0.6828 delta_bps +0.00024
+class 1: dec   10590957 base/dec 0.6635 cand/dec 0.6689 delta_bps +0.00469
+class 2: dec   32167688 base/dec 0.6279 cand/dec 0.6192 delta_bps -0.02305
+class 3: dec   35219683 base/dec 0.4607 cand/dec 0.4515 delta_bps -0.02673
+seg  0: dec    4572049 base/dec 0.5943 cand/dec 0.5899 delta_bps -0.00165
+seg  1: dec    4241467 base/dec 0.6247 cand/dec 0.6204 delta_bps -0.00148
+seg  2: dec    4610804 base/dec 0.5708 cand/dec 0.5634 delta_bps -0.00280
+seg  3: dec    5199590 base/dec 0.5095 cand/dec 0.5039 delta_bps -0.00237
+seg  4: dec    5207600 base/dec 0.5544 cand/dec 0.5401 delta_bps -0.00608
+seg  5: dec    4740740 base/dec 0.6027 cand/dec 0.5894 delta_bps -0.00518
+seg  6: dec    5051202 base/dec 0.5731 cand/dec 0.5556 delta_bps -0.00728
+seg  7: dec    5645297 base/dec 0.5156 cand/dec 0.5010 delta_bps -0.00674
+seg  8: dec    4564426 base/dec 0.5873 cand/dec 0.5852 delta_bps -0.00078
+seg  9: dec    4285623 base/dec 0.6182 cand/dec 0.6166 delta_bps -0.00055
+seg 10: dec    4592315 base/dec 0.5781 cand/dec 0.5751 delta_bps -0.00113
+seg 11: dec    5102665 base/dec 0.5179 cand/dec 0.5175 delta_bps -0.00016
+seg 12: dec    5114989 base/dec 0.5217 cand/dec 0.5199 delta_bps -0.00078
+seg 13: dec    4675030 base/dec 0.5714 cand/dec 0.5688 delta_bps -0.00100
+seg 14: dec    5022085 base/dec 0.5462 cand/dec 0.5375 delta_bps -0.00357
+seg 15: dec    5671256 base/dec 0.4868 cand/dec 0.4797 delta_bps -0.00329
+obs-p-bin 0: dec    1393887 base/dec 4.2822 cand/dec 4.5098 delta_bps +0.02602
+obs-p-bin 1: dec    4140834 base/dec 2.3288 cand/dec 2.2968 delta_bps -0.01085
+obs-p-bin 2: dec   21365342 base/dec 0.9695 cand/dec 0.9507 delta_bps -0.03294
+obs-p-bin 3: dec   17836479 base/dec 0.2990 cand/dec 0.2881 delta_bps -0.01593
+obs-p-bin 4: dec   28978142 base/dec 0.0679 cand/dec 0.0639 delta_bps -0.00935
+obs-p-bin 5: dec    4582454 base/dec 0.0093 cand/dec 0.0045 delta_bps -0.00180
+oracle static adaptive cost 3.70813 bps vs base 3.58172 cand 3.53688
+  cls 2 unary slot  5: n   3282764 p1 0.500 | base-static -0.00496 cand-static -0.01945 cand-base -0.01449 bps
+  cls 3 unary slot  7: n   2772685 p1 0.721 | base-static -0.01807 cand-static -0.02777 cand-base -0.00971 bps
+  cls 2 unary slot  6: n   1643001 p1 0.308 | base-static -0.00404 cand-static -0.01357 cand-base -0.00953 bps
+  cls 3 unary slot  6: n   3429349 p1 0.809 | base-static -0.01476 cand-static -0.02348 cand-base -0.00871 bps
+  cls 2 unary slot  4: n   4515530 p1 0.727 | base-static -0.00339 cand-static -0.01058 cand-base -0.00720 bps
+  cls 3 unary slot  8: n   1998373 p1 0.626 | base-static -0.01524 cand-static -0.02059 cand-base -0.00535 bps
+  cls 2 unary slot  1: n   5735136 p1 0.968 | base-static +0.00017 cand-static +0.00498 cand-base +0.00481 bps
+  cls 3 unary slot  9: n   1250604 p1 0.471 | base-static -0.01637 cand-static -0.02027 cand-base -0.00390 bps
+  cls 3 unary slot  5: n   3841743 p1 0.893 | base-static -0.00869 cand-static -0.01251 cand-base -0.00382 bps
+  cls 2 unary slot  2: n   5554303 p1 0.937 | base-static -0.00024 cand-static +0.00299 cand-base +0.00323 bps
+  cls 2 unary slot  7: n    506435 p1 0.254 | base-static -0.00225 cand-static -0.00471 cand-base -0.00246 bps
+  cls 3 unary slot  2: n   4234544 p1 0.987 | base-static -0.00065 cand-static +0.00148 cand-base +0.00214 bps
+== parrot_anafi_dusk: n=21461504 adaptive decisions/sample 8.99; total base 9.63275 cand 9.57974 delta -0.05301 bps; fixed-bit share 6.004 bps
+plane 0: dec   46490247 base/dec 0.4218 cand/dec 0.4171 delta_bps -0.01032
+plane 1: dec   51255432 base/dec 0.3861 cand/dec 0.3777 delta_bps -0.01996
+plane 2: dec   45105401 base/dec 0.4288 cand/dec 0.4281 delta_bps -0.00131
+plane 3: dec   50049824 base/dec 0.3826 cand/dec 0.3734 delta_bps -0.02142
+class 0: dec      93542 base/dec 0.3371 cand/dec 0.2992 delta_bps -0.00017
+class 1: dec     288256 base/dec 0.5342 cand/dec 0.5259 delta_bps -0.00011
+class 2: dec   11619657 base/dec 0.4853 cand/dec 0.4931 delta_bps +0.00424
+class 3: dec  180899449 base/dec 0.3983 cand/dec 0.3916 delta_bps -0.05697
+seg  0: dec   13626614 base/dec 0.3724 cand/dec 0.3600 delta_bps -0.00786
+seg  1: dec   12780271 base/dec 0.3912 cand/dec 0.3840 delta_bps -0.00431
+seg  2: dec   10132692 base/dec 0.4712 cand/dec 0.4730 delta_bps +0.00084
+seg  3: dec    9950670 base/dec 0.4786 cand/dec 0.4808 delta_bps +0.00101
+seg  4: dec   15432002 base/dec 0.3065 cand/dec 0.2920 delta_bps -0.01039
+seg  5: dec   14157743 base/dec 0.3557 cand/dec 0.3448 delta_bps -0.00723
+seg  6: dec   10981883 base/dec 0.4574 cand/dec 0.4558 delta_bps -0.00078
+seg  7: dec   10683804 base/dec 0.4680 cand/dec 0.4649 delta_bps -0.00156
+seg  8: dec   12740507 base/dec 0.3810 cand/dec 0.3766 delta_bps -0.00262
+seg  9: dec   12301453 base/dec 0.3963 cand/dec 0.3937 delta_bps -0.00149
+seg 10: dec   10115338 base/dec 0.4762 cand/dec 0.4790 delta_bps +0.00129
+seg 11: dec    9948103 base/dec 0.4818 cand/dec 0.4851 delta_bps +0.00151
+seg 12: dec   14883880 base/dec 0.3110 cand/dec 0.2988 delta_bps -0.00845
+seg 13: dec   13940625 base/dec 0.3409 cand/dec 0.3288 delta_bps -0.00787
+seg 14: dec   10738803 base/dec 0.4537 cand/dec 0.4489 delta_bps -0.00241
+seg 15: dec   10486516 base/dec 0.4667 cand/dec 0.4611 delta_bps -0.00269
+obs-p-bin 0: dec    2834865 base/dec 4.6035 cand/dec 4.9496 delta_bps +0.04572
+obs-p-bin 1: dec    6702124 base/dec 2.3505 cand/dec 2.3283 delta_bps -0.00694
+obs-p-bin 2: dec   37274827 base/dec 0.9691 cand/dec 0.9364 delta_bps -0.05686
+obs-p-bin 3: dec   29436875 base/dec 0.2939 cand/dec 0.2798 delta_bps -0.01925
+obs-p-bin 4: dec   72340357 base/dec 0.0545 cand/dec 0.0524 delta_bps -0.00707
+obs-p-bin 5: dec   44311856 base/dec 0.0082 cand/dec 0.0041 delta_bps -0.00862
+oracle static adaptive cost 4.12499 bps vs base 3.62907 cand 3.57607
+  cls 3 unary slot 11: n   3533543 p1 0.427 | base-static -0.02470 cand-static -0.04337 cand-base -0.01867 bps
+  cls 3 unary slot 10: n   5534131 p1 0.639 | base-static -0.04335 cand-static -0.05735 cand-base -0.01399 bps
+  cls 3 unary slot  8: n  12079661 p1 0.702 | base-static -0.11223 cand-static -0.12509 cand-base -0.01286 bps
+  cls 3 unary slot  9: n   8482905 p1 0.652 | base-static -0.07375 cand-static -0.08516 cand-base -0.01141 bps
+  cls 3 unary slot  7: n  15398877 p1 0.784 | base-static -0.10267 cand-static -0.11149 cand-base -0.00882 bps
+  cls 3 unary slot  4: n  19230691 p1 0.970 | base-static -0.01152 cand-static -0.00458 cand-base +0.00695 bps
+  cls 3 unary slot 12: n   1507268 p1 0.219 | base-static -0.01189 cand-static -0.01855 cand-base -0.00666 bps
+  cls 3 unary slot  3: n  19519322 p1 0.985 | base-static -0.00481 cand-static +0.00157 cand-base +0.00638 bps
+  cls 3 mant  slot 11: n   2026275 p1 0.455 | base-static -0.00459 cand-static -0.01038 cand-base -0.00579 bps
+  cls 3 mant  slot 12: n   1177213 p1 0.278 | base-static -0.00623 cand-static -0.01180 cand-base -0.00557 bps
+  cls 3 unary slot  5: n  18653678 p1 0.939 | base-static -0.02531 cand-static -0.02034 cand-base +0.00497 bps
+  cls 3 unary slot  2: n  19664377 p1 0.993 | base-static -0.00148 cand-static +0.00289 cand-base +0.00437 bps
