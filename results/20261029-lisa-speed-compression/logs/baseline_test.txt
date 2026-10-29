@@ -1,0 +1,1 @@
+pentax_k30_frog: 4960x3300 payload 11836232 B enc 25.939s [S1 24.463 S2 0.125 S3 0.328 S4 1.028] dec 27.627s mism=0 det=true sha_ok=true psha=7df0605ba643

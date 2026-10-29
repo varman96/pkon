@@ -1,39 +1,169 @@
 <!doctype html>
 <meta charset="utf-8">
 <title>PKON converter</title>
-<body style="font-family:sans-serif;max-width:40em;margin:2em auto">
+<style>
+table{border-collapse:collapse;margin:.4em 0}
+td,th{border:1px solid #ccc;padding:3px 8px;text-align:left;vertical-align:top}
+.hash{font:12px monospace;word-break:break-all}
+.ok{color:#0a6b1f;font-weight:bold}.bad{color:#b00020;font-weight:bold}.na{color:#666}
+#banner{padding:6px 10px;margin:.5em 0;border:1px solid}
+#banner.ok{border-color:#0a6b1f;background:#eaf6ec}#banner.bad{border-color:#b00020;background:#fbeaec}
+button.copy{font-size:11px;margin-left:6px}
+#prog{width:100%;display:none}
+</style>
+<body style="font-family:sans-serif;max-width:48em;margin:2em auto">
 <h2>PKON converter (local)</h2>
-<p><b>Image → .pkon</b> (PNG or JPEG, 8-bit)</p>
-<input type="file" id="img" accept=".png,.jpg,.jpeg,image/png,image/jpeg">
+<p><b>Image → .pkon</b> (PNG or JPEG, 8-bit &rarr; PKON2-X4; DNG RAW &rarr; LISA)</p>
+<input type="file" id="img" accept=".png,.jpg,.jpeg,.dng,image/png,image/jpeg,image/x-adobe-dng" onchange="codecHint()">
 <button onclick="go('convert','img','.pkon')">Convert to PKON</button>
-<p><b>.pkon → PNG</b></p>
+<div id="hint" class="na"></div>
+<p><b>.pkon → image / RAW</b> (standard images restore to PNG; LISA RAW restores to its exact samples)</p>
 <input type="file" id="pk" accept=".pkon,.pkon2">
-<button onclick="go('restore','pk','.png')">Restore to PNG</button>
+<button onclick="go('restore','pk',null)">Decode PKON</button>
 <hr>
 <h3>PKON Viewer</h3>
-<p>View a <b>.pkon</b> file directly in a new tab (the file is not converted or changed).</p>
+<p>View a <b>.pkon</b> standard-image file directly in a new tab (the file is not converted or changed).</p>
 <input type="file" id="vw" accept=".pkon,.pkon2">
 <button onclick="view()">View in New Tab</button>
 <p id="status"></p>
+<progress id="prog"></progress>
+<div id="result"></div>
 <script>
+const $ = id => document.getElementById(id);
+const origByFile = new Map();   // complete-file SHA-256 -> original pixel SHA-256, for files compressed in this page session
+const isDng = f => /\.dng$/i.test(f.name);
+
+function codecHint() {
+  const f = $('img').files[0];
+  $('hint').textContent = !f ? '' : isDng(f)
+    ? 'RAW input: the stored sensor samples are compressed losslessly with LISA (no demosaic, white balance or black-level change).'
+    : 'Standard image: decoded to pixels and compressed with PKON2-X4 (original file bytes, EXIF and ICC are not kept).';
+}
+
+function esc(t) { return String(t).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function copy(btn, text) {
+  const done = () => { const o = btn.textContent; btn.textContent = 'Copied'; setTimeout(() => btn.textContent = o, 1200); };
+  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, () => fallback());
+  else fallback();
+  function fallback() {
+    const t = document.createElement('textarea'); t.value = text; document.body.appendChild(t); t.select();
+    try { document.execCommand('copy'); done(); } catch (e) { btn.textContent = 'Copy failed'; }
+    t.remove();
+  }
+}
+async function sha256Hex(buf) {
+  if (!(window.crypto && crypto.subtle)) return null;
+  return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', buf)), b => b.toString(16).padStart(2, '0')).join('');
+}
+const row = (k, v) => '<tr><th>' + k + '</th><td>' + v + '</td></tr>';
+const hashCell = h => '<span class="hash">' + h + '</span><button class="copy" data-copy="' + h + '">Copy</button>';
+const stat = (ok, yes, no) => '<span class="' + (ok ? 'ok' : 'bad') + '">' + (ok ? yes : no) + '</span>';
+const bytes = n => n.toLocaleString() + ' bytes';
+
+// Renders sizes/codec and the File Integrity table; the verdict is derived here from the finished measurements only.
+function render(r, ctx) {
+  const g = r.integrity, bad = [];
+  let origSha = g.original_pixel_sha256 || (g.file_sha256 && origByFile.get(g.file_sha256)) || null;
+  const origNote = g.original_pixel_sha256 ? '' : origSha ? ' <span class="na">(recorded when this file was compressed in this page)</span>' : '';
+  const recon = g.reconstructed_pixel_sha256;
+  let cmp;
+  if (origSha && recon) { const m = origSha === recon; if (!m) bad.push('pixel SHA-256 mismatch'); cmp = stat(m, 'MATCH', 'MISMATCH'); }
+  else cmp = '<span class="na">not available' + (recon ? ' &mdash; the original pixel hash is not stored in a .pkon file' : '') + '</span>';
+  const crcOk = g.crc_stored === g.crc_recomputed;
+  if (!crcOk) bad.push('pixel CRC-32 mismatch');
+  if (ctx.browserSha && ctx.browserSha !== g.file_sha256) bad.push('complete-file SHA-256 differs from the bytes in the browser');
+  let h = '';
+  if (bad.length) h += '<div id="banner" class="bad">INTEGRITY FAILURE: ' + esc(bad.join('; ')) + '</div>';
+  else h += '<div id="banner" class="ok">Verified: ' + (origSha && recon ? 'lossless round trip, pixel SHA-256 and CRC-32 match.' : 'pixel CRC-32 matches the reconstructed pixels.') + '</div>';
+  h += '<table>' + row('Codec', esc(r.codec) + (r.kind === 'raw' ? ' (RAW)' : ' (standard image)') + ', codec id ' + r.codec_id + ', container v' + r.container_version)
+    + row('Dimensions', r.width + ' &times; ' + r.height + ', ' + r.bit_depth + '-bit' + (r.layout ? ', ' + esc(r.layout) : ''));
+  if (r.cfa) h += row('Sample layout', esc(r.cfa.layout) + (r.cfa.pattern ? ', CFA ' + esc(r.cfa.pattern) + ' (' + r.cfa.rows + '&times;' + r.cfa.cols + '), origin (' + r.cfa.origin_x + ',' + r.cfa.origin_y + ')' : ''));
+  if (r.camera) h += row('Camera', esc(r.camera));
+  h += row('.pkon size', bytes(r.pkon_bytes))
+    + row('Uncompressed samples', bytes(r.uncompressed_bytes) + ' (' + (r.kind === 'raw' ? (r.bit_depth > 8 ? '2 bytes/sample' : '1 byte/sample') : 'decoded 8-bit pixels') + ')')
+    + row('Compression ratio', r.ratio.toFixed(3) + ' : 1' + (r.input_bytes ? ' <span class="na">(DNG file ' + bytes(r.input_bytes) + ' = ' + (r.input_bytes / r.pkon_bytes).toFixed(3) + ' : 1)</span>' : '')) + '</table>';
+  h += '<h4>File Integrity</h4><table><tr><th>Measurement</th><th>Result</th></tr>'
+    + row('Original pixel SHA-256', (origSha ? hashCell(origSha) : '<span class="na">not available</span>') + origNote)
+    + row('Reconstructed pixel SHA-256', recon ? hashCell(recon) : '<span class="na">not computed (decode rejected the file)</span>')
+    + row('Pixel hash comparison', cmp)
+    + row('Complete .pkon SHA-256', hashCell(g.file_sha256) + (ctx.browserSha ? ' <span class="na">(re-checked in browser: ' + (ctx.browserSha === g.file_sha256 ? 'same' : 'DIFFERENT') + ')</span>' : ''))
+    + row('Stored pixel CRC-32', g.crc_stored) + row('Recomputed pixel CRC-32', g.crc_recomputed)
+    + row('CRC verification', stat(crcOk, 'MATCH', 'MISMATCH')) + '</table>'
+    + (g.pixel_byte_representation ? '<div class="na">Pixel hash is over: ' + esc(g.pixel_byte_representation) + '.</div>' : '');
+  $('result').innerHTML = h;
+  $('result').querySelectorAll('button.copy').forEach(b => b.onclick = () => copy(b, b.dataset.copy));
+  return bad.length === 0;
+}
+
+function link(blob, name, label) {
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; a.textContent = label || 'Download ' + name;
+  a.style.marginRight = '1em'; return a;
+}
+
+// Display-only preview of decoded RAW samples: block-averaged gray with a gamma curve. It is NOT demosaiced and the
+// exported samples are never derived from it.
+function rawPreview(buf, r) {
+  const w = r.width, h = r.height, wide = r.bit_depth > 8, max = (1 << r.bit_depth) - 1;
+  if (buf.byteLength !== w * h * (wide ? 2 : 1)) return null;
+  const src = wide ? new Uint16Array(buf) : new Uint8Array(buf);   // exported u16 is little-endian; all supported browsers are LE
+  const step = Math.max(2, Math.ceil(w / 1024)), ow = Math.floor(w / step), oh = Math.floor(h / step);
+  if (!ow || !oh) return null;
+  const cv = document.createElement('canvas'); cv.width = ow; cv.height = oh;
+  const img = new ImageData(ow, oh), d = img.data;
+  for (let y = 0; y < oh; y++) for (let x = 0; x < ow; x++) {
+    let s = 0;
+    for (let j = 0; j < step; j++) { const o = (y * step + j) * w + x * step; for (let i = 0; i < step; i++) s += src[o + i]; }
+    const v = Math.round(255 * Math.pow(Math.min(1, s / (step * step * max)), 1 / 2.2)), p = (y * ow + x) * 4;
+    d[p] = d[p + 1] = d[p + 2] = v; d[p + 3] = 255;
+  }
+  cv.getContext('2d').putImageData(img, 0, 0); cv.style.maxWidth = '100%';
+  return cv;
+}
+
 async function go(op, id, ext) {
-  const st = document.getElementById('status'), f = document.getElementById(id).files[0];
+  const st = $('status'), f = $(id).files[0], pr = $('prog');
+  $('result').innerHTML = '';
   if (!f) { st.textContent = 'Choose a file first.'; return; }
-  st.textContent = 'Processing ' + f.name + ' (' + f.size + ' bytes)... large images can take a while.';
+  const raw = op === 'convert' && isDng(f);
+  const stage = (op === 'convert' ? (raw ? 'Reading DNG, compressing with LISA and verifying the round trip' : 'Compressing with PKON2-X4 and verifying the round trip') : 'Decoding and verifying') + ' ' + f.name + ' (' + f.size.toLocaleString() + ' bytes)';
+  const t0 = Date.now(), tick = setInterval(() => st.textContent = stage + '... ' + Math.round((Date.now() - t0) / 1000) + ' s (large images can take a while)', 500);
+  st.textContent = stage + '...'; pr.style.display = 'block'; pr.removeAttribute('value');
+  const done = () => { clearInterval(tick); pr.style.display = 'none'; };
   try {
     const r = await fetch('/' + op, { method: 'POST', body: f });
-    if (!r.ok) { st.textContent = 'Error: ' + await r.text(); return; }
-    const b = await r.blob(), name = f.name.replace(/\.[^.]*$/, '') + ext;
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(b); a.download = name; a.textContent = 'Download ' + name;
-    st.textContent = 'Done: ' + r.headers.get('X-Info') + '. Input ' + f.size + ' bytes → output ' + b.size + ' bytes. ';
-    st.appendChild(a);
-  } catch (e) { st.textContent = 'Error: ' + e; }
+    if (!r.ok) {
+      done();
+      if (r.status === 422) {   // integrity failure: show the measurements
+        const j = await r.json(); st.textContent = 'Error: ' + j.error;
+        if (j.report.integrity) { const rep = Object.assign({ codec: '?', codec_id: '?', container_version: '?', width: '?', height: '?', bit_depth: '?', pkon_bytes: f.size, uncompressed_bytes: 0, ratio: 0 }, j.report);
+          render(rep, { browserSha: await sha256Hex(await f.arrayBuffer()) }); }
+        return;
+      }
+      st.textContent = 'Error: ' + await r.text(); return;
+    }
+    const b = await r.blob(), report = JSON.parse(r.headers.get('X-Report')), base = f.name.replace(/\.[^.]*$/, '');
+    done();
+    const g = report.integrity;
+    if (op === 'convert') origByFile.set(g.file_sha256, g.original_pixel_sha256);
+    const browserSha = await sha256Hex(await (op === 'convert' ? b : f).arrayBuffer());   // the exact bytes offered / uploaded
+    const ok = render(report, { browserSha });
+    st.textContent = (ok ? 'Done: ' : 'Done, but integrity checks FAILED: ') + r.headers.get('X-Info') + ' [' + report.codec + ']. Input ' + f.size.toLocaleString() + ' bytes → output ' + b.size.toLocaleString() + ' bytes. ';
+    if (op === 'convert') st.appendChild(link(b, base + '.pkon'));
+    else if (report.kind === 'standard') st.appendChild(link(b, base + '.png'));
+    else {
+      st.appendChild(link(b, base + report.export_ext, 'Download lossless samples (' + base + report.export_ext + ')'));
+      const meta = { source: f.name, pkon_sha256: g.file_sha256, width: report.width, height: report.height, bit_depth: report.bit_depth,
+        sample_format: report.bit_depth > 8 ? 'uint16 little-endian, row-major' : 'uint8, row-major', cfa: report.cfa, pixel_sha256: g.reconstructed_pixel_sha256, pixel_crc32: g.crc_recomputed };
+      st.appendChild(link(new Blob([JSON.stringify(meta, null, 2)], { type: 'application/json' }), base + '.json', 'Download metadata (' + base + '.json)'));
+      const cv = rawPreview(await b.arrayBuffer(), report);
+      if (cv) { const d = document.createElement('div'); d.innerHTML = '<h4>RAW preview</h4><div class="na">Display-only approximation (block-averaged, not demosaiced). The exported samples are the exact decoded data.</div>'; d.appendChild(cv); $('result').appendChild(d); }
+    }
+  } catch (e) { done(); st.textContent = 'Error: ' + e; }
 }
 // The tab is opened synchronously from the click; it asks us ('ready') for the data, which is posted
 // to it same-origin, so nothing large goes through the URL.
 function view() {
-  const st = document.getElementById('status'), f = document.getElementById('vw').files[0];
+  const st = $('status'), f = $('vw').files[0];
   if (!f) { st.textContent = 'Choose a file first.'; return; }
   const w = window.open('/viewer', '_blank');
   if (!w) { st.textContent = 'The browser blocked the new tab. Allow pop-ups for this page and try again.'; return; }

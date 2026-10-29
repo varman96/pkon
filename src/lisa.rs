@@ -1241,6 +1241,45 @@ impl Stage4Output {
     pub fn history(&self) -> &[ReconstructionRecord] {
         &self.history
     }
+
+    /// Container deserialization support (`pkon`): rebuilds a Stage 4 result from a stored payload plus the few
+    /// parameters a file carries. The history is derived exactly as the encoder records it (Stage 2 mode follows
+    /// `metadata.layout`: `BayerCfa` -> `BayerPlanes`, everything else `Identity`), so `decode_stage4` validates it
+    /// like any in-memory stream. No coding or prediction logic lives here.
+    pub fn from_parts(
+        payload: Vec<u8>,
+        metadata: ImageMetadata,
+        bit_depth: u8,
+        planar_stage1: bool,
+        rule: Stage3Rule,
+        coding_version: u8,
+    ) -> Result<Self, LisaError> {
+        metadata.validate()?;
+        let (width, height) = (metadata.width, metadata.height);
+        let n = validate(width, height, bit_depth)?;
+        let mode = match (metadata.layout, &metadata.cfa) {
+            (SampleLayout::BayerCfa, Some(cfa)) => {
+                Stage2Mode::BayerPlanes { cfa: cfa.clone(), planes: bayer_planes(width, height, cfa)? }
+            }
+            _ => Stage2Mode::Identity,
+        };
+        let stage1 = if planar_stage1 {
+            ReconstructionRecord::Stage1BayerPlanar { bit_depth }
+        } else {
+            ReconstructionRecord::Stage1Decorrelation { bit_depth }
+        };
+        let history = vec![
+            stage1,
+            ReconstructionRecord::Stage2Organization(Stage2Record { width, height, mode }),
+            ReconstructionRecord::Stage3Context(Stage3Record::for_rule(rule)),
+            ReconstructionRecord::Stage4Entropy(Stage4Record {
+                coding_version,
+                model_count: rule.context_count() as u8,
+                residual_count: n as u64,
+            }),
+        ];
+        Ok(Stage4Output { payload, metadata, bit_depth, history })
+    }
 }
 
 /// Stage 4 entry point: entropy-codes the Stage 3 residuals, selecting the model by each residual's Stage 3 class.

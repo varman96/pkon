@@ -35,3 +35,7 @@ Milestone 5 (activity x error-energy context, 96 ctx/plane): `cargo run --releas
 Milestone 6 (binarized count-adaptive coder + logistic context mixing, `src/pkon2x.rs`): `cargo run --release --bin probe_m6` -> `results/<stamp>-pkon2-m6/`; `--only N` for a quick unsaved subset.
 
 Milestone 8 (adaptive weighted predictor ensemble, `Ens` in `src/pkon2x.rs`): `cargo run --release --bin probe_m8` -> `results/<stamp>-pkon2-m8/`; `--only N` for a quick unsaved subset.
+
+## `.pkon` container (version 2): LISA RAW and PKON2-X4 in one format
+
+`src/pkon.rs`, spec `docs/pkon-format-v2.md`. Codec ids 1-3 are the PKON2-X4 standard-image codecs (payloads identical to `.pkon2` v1); id 4 is LISA RAW. `pkon::decode` returns `Decoded::Standard` or `Decoded::Raw` and still reads legacy `.pkon2` (v1) files. Focused gate: `cargo test --release --test pkon_container`.

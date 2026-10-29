@@ -1,5 +1,7 @@
 # PKON2 file format, version 1 (`.pkon2`)
 
+> Legacy container version. New files use the shared `.pkon` container, version 2: `docs/pkon-format-v2.md`. This document stays normative for v1 files, which `pkon::decode` still reads.
+
 Normative for the implementation in `src/pkonfile.rs`. Key words MUST / MUST NOT are used as in RFC 2119.
 All multi-byte integers are **little-endian, unsigned**. A file is exactly: `header (24 bytes) || payload (payload_len bytes)`.
 
