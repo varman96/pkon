@@ -1,0 +1,4 @@
+pentax_q7_cat: n=12192000 prod 10752399 B (7.05538 bps) rp1 10684060 B (7.01054 bps) change -0.6356% | ideal change -0.6356% | lossless prod=true rp1=true control_identical=true | enc s prod 0.851 rp1 3.199 dec s prod 1.270 rp1 2.639
+pentax_kx_lichen: n=12481536 prod 12152091 B (7.78884 bps) rp1 12252990 B (7.85351 bps) change +0.8303% | ideal change +0.8303% | lossless prod=true rp1=true control_identical=true | enc s prod 0.953 rp1 3.021 dec s prod 1.243 rp1 3.240
+parrot_anafi_dusk: n=21461504 prod 25841668 B (9.63275 bps) rp1 25699462 B (9.57974 bps) change -0.5503% | ideal change -0.5503% | lossless prod=true rp1=true control_identical=true | enc s prod 2.661 rp1 6.284 dec s prod 3.376 rp1 7.755
+aggregate: prod 48746158 B rp1 48636512 B change -0.2249% (8.45278 -> 8.43377 bps)

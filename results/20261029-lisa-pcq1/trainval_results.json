@@ -1,0 +1,437 @@
+{
+  "agg": [
+    {
+      "bytes": 349950632,
+      "map": "frozen",
+      "pct_change": -2.0932593998470606
+    }
+  ],
+  "agg_base_bytes": 357432624,
+  "images": [
+    {
+      "base_bps": 8.565801520462836,
+      "base_bytes": 9617819,
+      "base_dec_s": 1.9095121000000002,
+      "base_enc_s": 0.650379,
+      "bit_depth": 12,
+      "control_identical_to_production": true,
+      "id": "bmpcc4k_person",
+      "maps": [
+        {
+          "bps": 8.294668939523484,
+          "bytes": 9313387,
+          "ctx_ids_equal": true,
+          "dec_s": 1.1473551,
+          "deterministic": true,
+          "enc_s": 1.3877639,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -3.1652914241783923
+        }
+      ],
+      "n": 8982528,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 8.261602559286805,
+      "base_bytes": 13196423,
+      "base_dec_s": 1.6661625,
+      "base_enc_s": 1.4192446,
+      "bit_depth": 12,
+      "control_identical_to_production": true,
+      "id": "canon_sx40_snow",
+      "maps": [
+        {
+          "bps": 8.128835799964941,
+          "bytes": 12984352,
+          "ctx_ids_equal": true,
+          "dec_s": 1.7228464,
+          "deterministic": true,
+          "enc_s": 1.7792993,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -1.6070339667044622
+        }
+      ],
+      "n": 12778560,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 11.879198490118975,
+      "base_bytes": 30161380,
+      "base_dec_s": 3.6142072,
+      "base_enc_s": 1.6842511999999998,
+      "bit_depth": 16,
+      "control_identical_to_production": true,
+      "id": "hasselblad_tallinn",
+      "maps": [
+        {
+          "bps": 11.678646936126235,
+          "bytes": 29652178,
+          "ctx_ids_equal": true,
+          "dec_s": 2.9507824,
+          "deterministic": true,
+          "enc_s": 3.2543847,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -1.68825829587373
+        }
+      ],
+      "n": 20312064,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 4.899904844424502,
+      "base_bytes": 6333715,
+      "base_dec_s": 0.8277479,
+      "base_enc_s": 0.7129988,
+      "bit_depth": 8,
+      "control_identical_to_production": true,
+      "id": "leica_m8_house",
+      "maps": [
+        {
+          "bps": 4.812956630719005,
+          "bytes": 6221324,
+          "ctx_ids_equal": true,
+          "dec_s": 0.8600221,
+          "deterministic": true,
+          "enc_s": 0.8709881,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -1.7744878006035951
+        }
+      ],
+      "n": 10340960,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 10.19495775069656,
+      "base_bytes": 31321357,
+      "base_dec_s": 4.3278553,
+      "base_enc_s": 3.8390544,
+      "bit_depth": 14,
+      "control_identical_to_production": true,
+      "id": "leica_q_canoe",
+      "maps": [
+        {
+          "bps": 9.844127086425539,
+          "bytes": 30243521,
+          "ctx_ids_equal": true,
+          "dec_s": 3.1994431,
+          "deterministic": true,
+          "enc_s": 3.2261088,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -3.441217441504849
+        }
+      ],
+      "n": 24577920,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 6.026229919678715,
+      "base_bytes": 11956233,
+      "base_dec_s": 1.4709086,
+      "base_enc_s": 1.1432405,
+      "bit_depth": 10,
+      "control_identical_to_production": true,
+      "id": "lg_h815_mountain",
+      "maps": [
+        {
+          "bps": 5.897851949968549,
+          "bytes": 11701527,
+          "ctx_ids_equal": true,
+          "dec_s": 1.6277263,
+          "deterministic": true,
+          "enc_s": 2.83053,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -2.130319808923095
+        }
+      ],
+      "n": 15872256,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 9.632751926426032,
+      "base_bytes": 25841668,
+      "base_dec_s": 2.410438,
+      "base_enc_s": 2.5114891999999998,
+      "bit_depth": 14,
+      "control_identical_to_production": true,
+      "id": "parrot_anafi_dusk",
+      "maps": [
+        {
+          "bps": 9.56345538504664,
+          "bytes": 25655767,
+          "ctx_ids_equal": true,
+          "dec_s": 4.5130569000000005,
+          "deterministic": true,
+          "enc_s": 3.7217469,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -0.7193846774906326
+        }
+      ],
+      "n": 21461504,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 10.067496829769556,
+      "base_bytes": 46046717,
+      "base_dec_s": 3.7357164000000003,
+      "base_enc_s": 3.3296375,
+      "bit_depth": 14,
+      "control_identical_to_production": true,
+      "id": "pentax_k1ii_station",
+      "maps": [
+        {
+          "bps": 9.72804538895448,
+          "bytes": 44494134,
+          "ctx_ids_equal": true,
+          "dec_s": 3.5511504,
+          "deterministic": true,
+          "enc_s": 4.6027617,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -3.3717561232432707
+        }
+      ],
+      "n": 36590400,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 7.832810557397431,
+      "base_bytes": 24192732,
+      "base_dec_s": 2.137929,
+      "base_enc_s": 1.6977799999999998,
+      "bit_depth": 14,
+      "control_identical_to_production": true,
+      "id": "pentax_k70_bulb",
+      "maps": [
+        {
+          "bps": 7.717587676129299,
+          "bytes": 23836850,
+          "ctx_ids_equal": true,
+          "dec_s": 2.2884296,
+          "deterministic": true,
+          "enc_s": 2.4186382,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -1.4710285717214575
+        }
+      ],
+      "n": 24709120,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 8.162935304330066,
+      "base_bytes": 12789034,
+      "base_dec_s": 1.1423356,
+      "base_enc_s": 0.8740775,
+      "bit_depth": 14,
+      "control_identical_to_production": true,
+      "id": "pixel6pro_valley",
+      "maps": [
+        {
+          "bps": 8.025100209354575,
+          "bytes": 12573085,
+          "ctx_ids_equal": true,
+          "dec_s": 0.9358541,
+          "deterministic": true,
+          "enc_s": 1.2340371,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -1.6885481733804133
+        }
+      ],
+      "n": 12533760,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 9.847876064125819,
+      "base_bytes": 30576631,
+      "base_dec_s": 2.2274433,
+      "base_enc_s": 2.1723322,
+      "bit_depth": 14,
+      "control_identical_to_production": true,
+      "id": "ricoh_gr3_dunes",
+      "maps": [
+        {
+          "bps": 9.622748716865235,
+          "bytes": 29877634,
+          "ctx_ids_equal": true,
+          "dec_s": 2.3230746,
+          "deterministic": true,
+          "enc_s": 2.526234,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -2.2860497613357076
+        }
+      ],
+      "n": 24839168,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 7.630803256746778,
+      "base_bytes": 14549561,
+      "base_dec_s": 1.0842659000000001,
+      "base_enc_s": 0.919405,
+      "bit_depth": 12,
+      "control_identical_to_production": true,
+      "id": "samsung_gx20_berries",
+      "maps": [
+        {
+          "bps": 7.444977888359291,
+          "bytes": 14195250,
+          "ctx_ids_equal": true,
+          "dec_s": 1.1649072,
+          "deterministic": true,
+          "enc_s": 1.2568335,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -2.43520062220434
+        }
+      ],
+      "n": 15253504,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 9.702951664804646,
+      "base_bytes": 19732233,
+      "base_dec_s": 1.6120155999999999,
+      "base_enc_s": 1.2470233,
+      "bit_depth": 14,
+      "control_identical_to_production": true,
+      "id": "x100s_xtrans_chart",
+      "maps": [
+        {
+          "bps": 9.703647464241318,
+          "bytes": 19733648,
+          "ctx_ids_equal": true,
+          "dec_s": 1.6682025,
+          "deterministic": true,
+          "enc_s": 1.8193397999999998,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": 0.007171007964481262
+        }
+      ],
+      "n": 16269056,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 10.37234070254928,
+      "base_bytes": 31866320,
+      "base_dec_s": 2.3513362,
+      "base_enc_s": 2.0376369,
+      "bit_depth": 14,
+      "control_identical_to_production": true,
+      "id": "leica_cl_chateau",
+      "maps": [
+        {
+          "bps": 10.09286481524881,
+          "bytes": 31007703,
+          "ctx_ids_equal": true,
+          "dec_s": 2.4562783,
+          "deterministic": true,
+          "enc_s": 2.720751,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -2.694434123551135
+        }
+      ],
+      "n": 24577920,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 6.097604684605635,
+      "base_bytes": 10006901,
+      "base_dec_s": 0.7738949,
+      "base_enc_s": 0.6079849,
+      "bit_depth": 10,
+      "control_identical_to_production": true,
+      "id": "nexus6_courtyard",
+      "maps": [
+        {
+          "bps": 5.993241810470898,
+          "bytes": 9835629,
+          "ctx_ids_equal": true,
+          "dec_s": 0.85212,
+          "deterministic": true,
+          "enc_s": 0.9168773,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -1.7115388670278642
+        }
+      ],
+      "n": 13128960,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 7.788843296209698,
+      "base_bytes": 12152091,
+      "base_dec_s": 0.9161831,
+      "base_enc_s": 0.7615924,
+      "bit_depth": 12,
+      "control_identical_to_production": true,
+      "id": "pentax_kx_lichen",
+      "maps": [
+        {
+          "bps": 7.730264608458446,
+          "bytes": 12060697,
+          "ctx_ids_equal": true,
+          "dec_s": 0.9736511,
+          "deterministic": true,
+          "enc_s": 1.0482529,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -0.7520845589454522
+        }
+      ],
+      "n": 12481536,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 8.842447506981443,
+      "base_bytes": 27091809,
+      "base_dec_s": 1.968658,
+      "base_enc_s": 1.6555361,
+      "bit_depth": 14,
+      "control_identical_to_production": true,
+      "id": "sigma_fp_bike14",
+      "maps": [
+        {
+          "bps": 8.67015923828821,
+          "bytes": 26563946,
+          "ctx_ids_equal": true,
+          "dec_s": 2.0969898,
+          "deterministic": true,
+          "enc_s": 2.2937889,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -1.9484228609466425
+        }
+      ],
+      "n": 24510688,
+      "prod_lossless": true
+    }
+  ]
+}

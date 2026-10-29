@@ -1,0 +1,414 @@
+{
+  "agg": [
+    {
+      "bytes": 109408946,
+      "map": "frozen",
+      "pct_change": -2.865559303251434
+    },
+    {
+      "bytes": 110365900,
+      "map": "results/20261029-lisa-pcq1/train/ctl_maxlevel22.bin",
+      "pct_change": -2.015965234750707
+    },
+    {
+      "bytes": 109676757,
+      "map": "results/20261029-lisa-pcq1/train/map_K64.bin",
+      "pct_change": -2.6277938128733718
+    }
+  ],
+  "agg_base_bytes": 112636615,
+  "images": [
+    {
+      "base_bps": 9.584015333333333,
+      "base_bytes": 14376023,
+      "base_dec_s": 1.0279102,
+      "base_enc_s": 0.9079906,
+      "bit_depth": 14,
+      "control_identical_to_production": true,
+      "id": "dji_fc220_dusk",
+      "maps": [
+        {
+          "bps": 9.417067333333334,
+          "bytes": 14125601,
+          "ctx_ids_equal": true,
+          "dec_s": 1.6733795,
+          "deterministic": true,
+          "enc_s": 1.6810339,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -1.7419421212667787
+        },
+        {
+          "bps": 9.465933333333334,
+          "bytes": 14198900,
+          "ctx_ids_equal": true,
+          "dec_s": 2.9662412,
+          "deterministic": true,
+          "enc_s": 2.5747819,
+          "k": 22,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/ctl_maxlevel22.bin",
+          "pct_change": -1.2320723193055547
+        },
+        {
+          "bps": 9.41741,
+          "bytes": 14126115,
+          "ctx_ids_equal": true,
+          "dec_s": 2.2476864,
+          "deterministic": true,
+          "enc_s": 2.0286918,
+          "k": 64,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K64.bin",
+          "pct_change": -1.7383667235368223
+        }
+      ],
+      "n": 12000000,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 10.609622319505322,
+      "base_bytes": 31680502,
+      "base_dec_s": 2.8338497,
+      "base_enc_s": 2.8459054,
+      "bit_depth": 14,
+      "control_identical_to_production": true,
+      "id": "leica_m10_brick",
+      "maps": [
+        {
+          "bps": 10.355703720274773,
+          "bytes": 30922297,
+          "ctx_ids_equal": true,
+          "dec_s": 2.0052926,
+          "deterministic": true,
+          "enc_s": 3.1816014,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -2.3932859397240613
+        },
+        {
+          "bps": 10.421657151200797,
+          "bytes": 31119235,
+          "ctx_ids_equal": true,
+          "dec_s": 2.3839122,
+          "deterministic": true,
+          "enc_s": 2.6391508,
+          "k": 22,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/ctl_maxlevel22.bin",
+          "pct_change": -1.7716480629000133
+        },
+        {
+          "bps": 10.363383518373645,
+          "bytes": 30945229,
+          "ctx_ids_equal": true,
+          "dec_s": 2.3650551,
+          "deterministic": true,
+          "enc_s": 2.6149787,
+          "k": 64,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K64.bin",
+          "pct_change": -2.3209007231009156
+        }
+      ],
+      "n": 23888128,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 6.226507544646743,
+      "base_bytes": 12590596,
+      "base_dec_s": 0.9654779,
+      "base_enc_s": 0.7560078,
+      "bit_depth": 12,
+      "control_identical_to_production": true,
+      "id": "leica_x2_lowlight",
+      "maps": [
+        {
+          "bps": 5.983976032789739,
+          "bytes": 12100174,
+          "ctx_ids_equal": true,
+          "dec_s": 1.8100193999999998,
+          "deterministic": true,
+          "enc_s": 2.1597777,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -3.8951452337919505
+        },
+        {
+          "bps": 6.033284275326197,
+          "bytes": 12199880,
+          "ctx_ids_equal": true,
+          "dec_s": 2.5619529,
+          "deterministic": true,
+          "enc_s": 2.4118957,
+          "k": 22,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/ctl_maxlevel22.bin",
+          "pct_change": -3.1032367331935675
+        },
+        {
+          "bps": 6.0146679485049175,
+          "bytes": 12162236,
+          "ctx_ids_equal": true,
+          "dec_s": 1.3914278,
+          "deterministic": true,
+          "enc_s": 1.7409352,
+          "k": 64,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K64.bin",
+          "pct_change": -3.4022217852117564
+        }
+      ],
+      "n": 16176768,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 6.762087028253248,
+      "base_bytes": 8607207,
+      "base_dec_s": 1.0761254,
+      "base_enc_s": 0.9363566,
+      "bit_depth": 12,
+      "control_identical_to_production": true,
+      "id": "nikon_d80_piano",
+      "maps": [
+        {
+          "bps": 6.705734515707706,
+          "bytes": 8535478,
+          "ctx_ids_equal": true,
+          "dec_s": 1.1393224,
+          "deterministic": true,
+          "enc_s": 1.1889266,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -0.8333597646716292
+        },
+        {
+          "bps": 6.740632236396311,
+          "bytes": 8579898,
+          "ctx_ids_equal": true,
+          "dec_s": 0.643465,
+          "deterministic": true,
+          "enc_s": 0.6619111,
+          "k": 22,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/ctl_maxlevel22.bin",
+          "pct_change": -0.31728062308714083
+        },
+        {
+          "bps": 6.7176203242691175,
+          "bytes": 8550607,
+          "ctx_ids_equal": true,
+          "dec_s": 1.2618989,
+          "deterministic": true,
+          "enc_s": 1.1453841,
+          "k": 64,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K64.bin",
+          "pct_change": -0.6575884604610996
+        }
+      ],
+      "n": 10182900,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 7.845609481915933,
+      "base_bytes": 16052117,
+      "base_dec_s": 1.6986588,
+      "base_enc_s": 2.1439656,
+      "bit_depth": 12,
+      "control_identical_to_production": true,
+      "id": "pentax_k30_frog",
+      "maps": [
+        {
+          "bps": 7.463234115347019,
+          "bytes": 15269777,
+          "ctx_ids_equal": true,
+          "dec_s": 2.5345083,
+          "deterministic": true,
+          "enc_s": 2.3566302,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -4.873749674264149
+        },
+        {
+          "bps": 7.596745845552297,
+          "bytes": 15542942,
+          "ctx_ids_equal": true,
+          "dec_s": 1.9631364,
+          "deterministic": true,
+          "enc_s": 1.9815149,
+          "k": 22,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/ctl_maxlevel22.bin",
+          "pct_change": -3.1720115172347674
+        },
+        {
+          "bps": 7.495955522971652,
+          "bytes": 15336725,
+          "ctx_ids_equal": true,
+          "dec_s": 1.7139567,
+          "deterministic": true,
+          "enc_s": 1.8618201,
+          "k": 64,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K64.bin",
+          "pct_change": -4.456683190136229
+        }
+      ],
+      "n": 16368000,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 7.055379921259843,
+      "base_bytes": 10752399,
+      "base_dec_s": 1.1587263,
+      "base_enc_s": 0.8995851,
+      "bit_depth": 12,
+      "control_identical_to_production": true,
+      "id": "pentax_q7_cat",
+      "maps": [
+        {
+          "bps": 6.911865485564304,
+          "bytes": 10533683,
+          "ctx_ids_equal": true,
+          "dec_s": 1.3111674,
+          "deterministic": true,
+          "enc_s": 1.3197098,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -2.0341135034144475
+        },
+        {
+          "bps": 6.936772309711286,
+          "bytes": 10571641,
+          "ctx_ids_equal": true,
+          "dec_s": 0.9033399,
+          "deterministic": true,
+          "enc_s": 0.9817798,
+          "k": 22,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/ctl_maxlevel22.bin",
+          "pct_change": -1.681094609677338
+        },
+        {
+          "bps": 6.9133418635170605,
+          "bytes": 10535933,
+          "ctx_ids_equal": true,
+          "dec_s": 0.8963739,
+          "deterministic": true,
+          "enc_s": 0.9595947,
+          "k": 64,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K64.bin",
+          "pct_change": -2.0131879406632884
+        }
+      ],
+      "n": 12192000,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 6.88352281667978,
+      "base_bytes": 13998332,
+      "base_dec_s": 1.0544439,
+      "base_enc_s": 0.843221,
+      "bit_depth": 12,
+      "control_identical_to_production": true,
+      "id": "ricoh_gr_wood",
+      "maps": [
+        {
+          "bps": 6.638988001573564,
+          "bytes": 13501046,
+          "ctx_ids_equal": true,
+          "dec_s": 1.1562528,
+          "deterministic": true,
+          "enc_s": 1.2096959,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -3.55246610810488
+        },
+        {
+          "bps": 6.726616837136113,
+          "bytes": 13679248,
+          "ctx_ids_equal": true,
+          "dec_s": 1.1425368,
+          "deterministic": true,
+          "enc_s": 1.2181934,
+          "k": 22,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/ctl_maxlevel22.bin",
+          "pct_change": -2.279443007924087
+        },
+        {
+          "bps": 6.66977871754524,
+          "bytes": 13563662,
+          "ctx_ids_equal": true,
+          "dec_s": 1.1411843,
+          "deterministic": true,
+          "enc_s": 1.2220715,
+          "k": 64,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K64.bin",
+          "pct_change": -3.1051556714042787
+        }
+      ],
+      "n": 16268800,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 4.378299902480066,
+      "base_bytes": 4579439,
+      "base_dec_s": 0.389772,
+      "base_enc_s": 0.2926503,
+      "bit_depth": 8,
+      "control_identical_to_production": true,
+      "id": "sigma_fp_bike8",
+      "maps": [
+        {
+          "bps": 4.226714725510067,
+          "bytes": 4420890,
+          "ctx_ids_equal": true,
+          "dec_s": 0.4371363,
+          "deterministic": true,
+          "enc_s": 0.4612499,
+          "k": 128,
+          "lossless": true,
+          "map": "frozen",
+          "pct_change": -3.462192639753472
+        },
+        {
+          "bps": 4.277641164885175,
+          "bytes": 4474156,
+          "ctx_ids_equal": true,
+          "dec_s": 0.4460846,
+          "deterministic": true,
+          "enc_s": 0.4758574,
+          "k": 22,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/ctl_maxlevel22.bin",
+          "pct_change": -2.2990370654571444
+        },
+        {
+          "bps": 4.260521636040308,
+          "bytes": 4456250,
+          "ctx_ids_equal": true,
+          "dec_s": 0.4439469,
+          "deterministic": true,
+          "enc_s": 0.4636899,
+          "k": 64,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K64.bin",
+          "pct_change": -2.6900456584310874
+        }
+      ],
+      "n": 8367520,
+      "prod_lossless": true
+    }
+  ]
+}

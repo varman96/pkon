@@ -1,0 +1,32 @@
+train samples 244520800, val samples 74699104
+BASELINE 4-class (production)      contexts      4  train 3.1842  held-out 3.2543
+average, half-octave levels        contexts     22  train 2.8303  held-out 2.7261
+max level only                     contexts     22  train 2.8528  held-out 2.7683
+min level only                     contexts     22  train 2.9820  held-out 2.8737
+W only                             contexts     22  train 3.0245  held-out 2.9293
+W,N                                contexts    484  train 2.7744  held-out 2.6566
+mean of levels (rounded)           contexts     22  train 2.8603  held-out 2.7719
+(max,min)                          contexts    253  train 2.7598  held-out 2.6469
+(mean of levels, range)            contexts    330  train 2.7726  held-out 2.6552
+sorted triple (order-free)         contexts   2024  train 2.7446  held-out 2.6279
+(max level, argmax position)       contexts     64  train 2.8352  held-out 2.7457
+ordered triple W,N,NW (full key)   contexts  10648  train 2.7244  held-out 2.6145
+keys observed 10648/10648; keys holding 99% of train mass 7842; keys with <1000 samples 1708 hold 0.3599% of mass
+example (0,0,12): key 7 train n 12347 mean bit-length 2.905
+example (4,4,4): key 2028 train n 61603 mean bit-length 3.343
+agglomerate: 71.9s
+PCQ K=256  train 2.7286  held-out 2.6181  (baseline held-out 3.2543, delta -0.6363 bps)
+PCQ K=192  train 2.7301  held-out 2.6195  (baseline held-out 3.2543, delta -0.6349 bps)
+PCQ K=128  train 2.7330  held-out 2.6223  (baseline held-out 3.2543, delta -0.6320 bps)
+PCQ K=96   train 2.7358  held-out 2.6257  (baseline held-out 3.2543, delta -0.6286 bps)
+PCQ K=64   train 2.7409  held-out 2.6328  (baseline held-out 3.2543, delta -0.6215 bps)
+PCQ K=48   train 2.7459  held-out 2.6377  (baseline held-out 3.2543, delta -0.6167 bps)
+PCQ K=32   train 2.7559  held-out 2.6482  (baseline held-out 3.2543, delta -0.6062 bps)
+PCQ K=24   train 2.7662  held-out 2.6677  (baseline held-out 3.2543, delta -0.5866 bps)
+PCQ K=16   train 2.7881  held-out 2.6908  (baseline held-out 3.2543, delta -0.5635 bps)
+PCQ K=12   train 2.8077  held-out 2.7107  (baseline held-out 3.2543, delta -0.5436 bps)
+PCQ K=8    train 2.8521  held-out 2.7648  (baseline held-out 3.2543, delta -0.4896 bps)
+PCQ K=6    train 2.8879  held-out 2.7857  (baseline held-out 3.2543, delta -0.4686 bps)
+PCQ K=4    train 2.9546  held-out 2.9009  (baseline held-out 3.2543, delta -0.3534 bps)
+PCQ K=3    train 3.0250  held-out 2.9770  (baseline held-out 3.2543, delta -0.2773 bps)
+PCQ K=2    train 3.1695  held-out 3.1745  (baseline held-out 3.2543, delta -0.0798 bps)

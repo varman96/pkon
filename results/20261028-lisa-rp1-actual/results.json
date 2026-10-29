@@ -1,0 +1,76 @@
+{
+  "agg_pct_change": -0.22493259879065752,
+  "agg_prod_bytes": 48746158,
+  "agg_rp1_bytes": 48636512,
+  "images": [
+    {
+      "control_identical": true,
+      "dec_s": {
+        "prod": 1.2696554,
+        "rp1": 2.6386829
+      },
+      "enc_s": {
+        "prod": 0.851039,
+        "rp1": 3.199004
+      },
+      "id": "pentax_q7_cat",
+      "ideal_pct_change": -0.635560254340462,
+      "ideal_prod_bps": 7.0553779076878165,
+      "ideal_rp1_bps": 7.010536729913035,
+      "n": 12192000,
+      "pct_change": -0.6355697923784265,
+      "prod_bps": 7.055379921259843,
+      "prod_bytes": 10752399,
+      "prod_lossless": true,
+      "rp1_bps": 7.0105380577427825,
+      "rp1_bytes": 10684060,
+      "rp1_lossless": true
+    },
+    {
+      "control_identical": true,
+      "dec_s": {
+        "prod": 1.2433891,
+        "rp1": 3.2400955
+      },
+      "enc_s": {
+        "prod": 0.95319,
+        "rp1": 3.0206517
+      },
+      "id": "pentax_kx_lichen",
+      "ideal_pct_change": 0.8302991741744247,
+      "ideal_prod_bps": 7.788840973354604,
+      "ideal_rp1_bps": 7.853511655634126,
+      "n": 12481536,
+      "pct_change": 0.8303015505726545,
+      "prod_bps": 7.788843296209698,
+      "prod_bytes": 12152091,
+      "prod_lossless": true,
+      "rp1_bps": 7.853514182869801,
+      "rp1_bytes": 12252990,
+      "rp1_lossless": true
+    },
+    {
+      "control_identical": true,
+      "dec_s": {
+        "prod": 3.3763444,
+        "rp1": 7.754668
+      },
+      "enc_s": {
+        "prod": 2.660825,
+        "rp1": 6.2835429
+      },
+      "id": "parrot_anafi_dusk",
+      "ideal_pct_change": -0.5502802087686587,
+      "ideal_prod_bps": 9.632750760354025,
+      "ideal_rp1_bps": 9.579743639359783,
+      "n": 21461504,
+      "pct_change": -0.5502972950507684,
+      "prod_bps": 9.632751926426032,
+      "prod_bytes": 25841668,
+      "prod_lossless": true,
+      "rp1_bps": 9.57974315313596,
+      "rp1_bytes": 25699462,
+      "rp1_lossless": true
+    }
+  ]
+}

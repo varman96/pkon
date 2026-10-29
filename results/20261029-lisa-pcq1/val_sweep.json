@@ -1,0 +1,430 @@
+{
+  "agg": [
+    {
+      "bytes": 79938225,
+      "map": "results/20261029-lisa-pcq1/train/ctl_maxlevel22.bin",
+      "pct_change": -1.4533257411835412
+    },
+    {
+      "bytes": 80193942,
+      "map": "results/20261029-lisa-pcq1/train/ctl_meanlevel22.bin",
+      "pct_change": -1.1380815648030704
+    },
+    {
+      "bytes": 79890703,
+      "map": "results/20261029-lisa-pcq1/train/map_K16.bin",
+      "pct_change": -1.5119101675218478
+    },
+    {
+      "bytes": 79626786,
+      "map": "results/20261029-lisa-pcq1/train/map_K32.bin",
+      "pct_change": -1.8372631839337592
+    },
+    {
+      "bytes": 79528891,
+      "map": "results/20261029-lisa-pcq1/train/map_K64.bin",
+      "pct_change": -1.9579467076993524
+    },
+    {
+      "bytes": 79467975,
+      "map": "results/20261029-lisa-pcq1/train/map_K128.bin",
+      "pct_change": -2.0330430612792583
+    },
+    {
+      "bytes": 79462357,
+      "map": "results/20261029-lisa-pcq1/train/map_K256.bin",
+      "pct_change": -2.0399688494861645
+    }
+  ],
+  "agg_base_bytes": 81117121,
+  "images": [
+    {
+      "base_bps": 10.37234070254928,
+      "base_bytes": 31866320,
+      "base_dec_s": 3.434236,
+      "base_enc_s": 2.6474735000000003,
+      "bit_depth": 14,
+      "control_identical_to_production": true,
+      "id": "leica_cl_chateau",
+      "maps": [
+        {
+          "bps": 10.198203265369893,
+          "bytes": 31331328,
+          "ctx_ids_equal": true,
+          "dec_s": 3.3185072,
+          "deterministic": true,
+          "enc_s": 3.5579831,
+          "k": 22,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/ctl_maxlevel22.bin",
+          "pct_change": -1.6788634520710266
+        },
+        {
+          "bps": 10.20885738093378,
+          "bytes": 31364060,
+          "ctx_ids_equal": true,
+          "dec_s": 3.2002825,
+          "deterministic": true,
+          "enc_s": 3.1680727,
+          "k": 22,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/ctl_meanlevel22.bin",
+          "pct_change": -1.5761468534804144
+        },
+        {
+          "bps": 10.173756282061298,
+          "bytes": 31256221,
+          "ctx_ids_equal": true,
+          "dec_s": 3.317127,
+          "deterministic": true,
+          "enc_s": 3.2910978,
+          "k": 16,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K16.bin",
+          "pct_change": -1.91455743870017
+        },
+        {
+          "bps": 10.109535713355728,
+          "bytes": 31058920,
+          "ctx_ids_equal": true,
+          "dec_s": 3.136972,
+          "deterministic": true,
+          "enc_s": 3.3838011,
+          "k": 32,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K32.bin",
+          "pct_change": -2.533709571735927
+        },
+        {
+          "bps": 10.100793557794963,
+          "bytes": 31032062,
+          "ctx_ids_equal": true,
+          "dec_s": 2.0929412,
+          "deterministic": true,
+          "enc_s": 3.5820089,
+          "k": 64,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K64.bin",
+          "pct_change": -2.6179929154041006
+        },
+        {
+          "bps": 10.09286481524881,
+          "bytes": 31007703,
+          "ctx_ids_equal": true,
+          "dec_s": 2.5428545,
+          "deterministic": true,
+          "enc_s": 2.7764737,
+          "k": 128,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K128.bin",
+          "pct_change": -2.694434123551135
+        },
+        {
+          "bps": 10.092397729344063,
+          "bytes": 31006268,
+          "ctx_ids_equal": true,
+          "dec_s": 2.4890854,
+          "deterministic": true,
+          "enc_s": 2.7220073,
+          "k": 256,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K256.bin",
+          "pct_change": -2.6989373106150945
+        }
+      ],
+      "n": 24577920,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 6.097604684605635,
+      "base_bytes": 10006901,
+      "base_dec_s": 0.7843793,
+      "base_enc_s": 0.6205495,
+      "bit_depth": 10,
+      "control_identical_to_production": true,
+      "id": "nexus6_courtyard",
+      "maps": [
+        {
+          "bps": 6.025575216925027,
+          "bytes": 9888692,
+          "ctx_ids_equal": true,
+          "dec_s": 0.8766544,
+          "deterministic": true,
+          "enc_s": 0.9286261,
+          "k": 22,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/ctl_maxlevel22.bin",
+          "pct_change": -1.1812748022589612
+        },
+        {
+          "bps": 6.092366188944136,
+          "bytes": 9998304,
+          "ctx_ids_equal": true,
+          "dec_s": 0.8542443,
+          "deterministic": true,
+          "enc_s": 0.910387,
+          "k": 22,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/ctl_meanlevel22.bin",
+          "pct_change": -0.085910713016947
+        },
+        {
+          "bps": 6.051372842936531,
+          "bytes": 9931029,
+          "ctx_ids_equal": true,
+          "dec_s": 0.8540325,
+          "deterministic": true,
+          "enc_s": 0.9105108,
+          "k": 16,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K16.bin",
+          "pct_change": -0.7581967684101202
+        },
+        {
+          "bps": 6.0394023593643364,
+          "bytes": 9911384,
+          "ctx_ids_equal": true,
+          "dec_s": 0.8535034,
+          "deterministic": true,
+          "enc_s": 0.9122586,
+          "k": 32,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K32.bin",
+          "pct_change": -0.9545112917575581
+        },
+        {
+          "bps": 6.010316734912743,
+          "bytes": 9863651,
+          "ctx_ids_equal": true,
+          "dec_s": 0.8589394,
+          "deterministic": true,
+          "enc_s": 0.9090831,
+          "k": 64,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K64.bin",
+          "pct_change": -1.4315121134904802
+        },
+        {
+          "bps": 5.993241810470898,
+          "bytes": 9835629,
+          "ctx_ids_equal": true,
+          "dec_s": 0.8566387,
+          "deterministic": true,
+          "enc_s": 0.9119215,
+          "k": 128,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K128.bin",
+          "pct_change": -1.7115388670278642
+        },
+        {
+          "bps": 5.989601004192259,
+          "bytes": 9829654,
+          "ctx_ids_equal": true,
+          "dec_s": 0.8583315,
+          "deterministic": true,
+          "enc_s": 0.9159762,
+          "k": 256,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K256.bin",
+          "pct_change": -1.7712476619884618
+        }
+      ],
+      "n": 13128960,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 7.788843296209698,
+      "base_bytes": 12152091,
+      "base_dec_s": 0.924354,
+      "base_enc_s": 0.7514956,
+      "bit_depth": 12,
+      "control_identical_to_production": true,
+      "id": "pentax_kx_lichen",
+      "maps": [
+        {
+          "bps": 7.735914554106161,
+          "bytes": 12069512,
+          "ctx_ids_equal": true,
+          "dec_s": 0.9856746,
+          "deterministic": true,
+          "enc_s": 1.0624875,
+          "k": 22,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/ctl_maxlevel22.bin",
+          "pct_change": -0.6795456024810874
+        },
+        {
+          "bps": 7.746945888711133,
+          "bytes": 12086723,
+          "ctx_ids_equal": true,
+          "dec_s": 0.9840899,
+          "deterministic": true,
+          "enc_s": 1.0490035,
+          "k": 22,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/ctl_meanlevel22.bin",
+          "pct_change": -0.5379156558323995
+        },
+        {
+          "bps": 7.734217327098203,
+          "bytes": 12066864,
+          "ctx_ids_equal": true,
+          "dec_s": 0.9838456,
+          "deterministic": true,
+          "enc_s": 1.0512416,
+          "k": 16,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K16.bin",
+          "pct_change": -0.7013360910480344
+        },
+        {
+          "bps": 7.7315567571170725,
+          "bytes": 12062713,
+          "ctx_ids_equal": true,
+          "dec_s": 0.9711816,
+          "deterministic": true,
+          "enc_s": 1.0676479,
+          "k": 32,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K32.bin",
+          "pct_change": -0.7354948214262056
+        },
+        {
+          "bps": 7.730194745262121,
+          "bytes": 12060588,
+          "ctx_ids_equal": true,
+          "dec_s": 0.9944172,
+          "deterministic": true,
+          "enc_s": 1.2839852,
+          "k": 64,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K64.bin",
+          "pct_change": -0.7529815239204513
+        },
+        {
+          "bps": 7.730264608458446,
+          "bytes": 12060697,
+          "ctx_ids_equal": true,
+          "dec_s": 0.9830497,
+          "deterministic": true,
+          "enc_s": 1.0519822,
+          "k": 128,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K128.bin",
+          "pct_change": -0.7520845589454522
+        },
+        {
+          "bps": 7.731045922553122,
+          "bytes": 12061916,
+          "ctx_ids_equal": true,
+          "dec_s": 0.9873023,
+          "deterministic": true,
+          "enc_s": 1.0544852,
+          "k": 256,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K256.bin",
+          "pct_change": -0.7420533634911062
+        }
+      ],
+      "n": 12481536,
+      "prod_lossless": true
+    },
+    {
+      "base_bps": 8.842447506981443,
+      "base_bytes": 27091809,
+      "base_dec_s": 2.0088052,
+      "base_enc_s": 1.680288,
+      "bit_depth": 14,
+      "control_identical_to_production": true,
+      "id": "sigma_fp_bike14",
+      "maps": [
+        {
+          "bps": 8.697819661365687,
+          "bytes": 26648693,
+          "ctx_ids_equal": true,
+          "dec_s": 2.0991187,
+          "deterministic": true,
+          "enc_s": 2.2881663,
+          "k": 22,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/ctl_maxlevel22.bin",
+          "pct_change": -1.635608755399095
+        },
+        {
+          "bps": 8.729205806054892,
+          "bytes": 26744855,
+          "ctx_ids_equal": true,
+          "dec_s": 2.1147439,
+          "deterministic": true,
+          "enc_s": 2.2894598999999998,
+          "k": 22,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/ctl_meanlevel22.bin",
+          "pct_change": -1.280660143440403
+        },
+        {
+          "bps": 8.693869058265522,
+          "bytes": 26636589,
+          "ctx_ids_equal": true,
+          "dec_s": 2.1018697,
+          "deterministic": true,
+          "enc_s": 2.2837238,
+          "k": 16,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K16.bin",
+          "pct_change": -1.680286465920382
+        },
+        {
+          "bps": 8.679893114383407,
+          "bytes": 26593769,
+          "ctx_ids_equal": true,
+          "dec_s": 2.1071839,
+          "deterministic": true,
+          "enc_s": 2.2984483,
+          "k": 32,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K32.bin",
+          "pct_change": -1.8383416183097998
+        },
+        {
+          "bps": 8.672980538122797,
+          "bytes": 26572590,
+          "ctx_ids_equal": true,
+          "dec_s": 5.0845723,
+          "deterministic": true,
+          "enc_s": 3.5101296,
+          "k": 64,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K64.bin",
+          "pct_change": -1.9165165382643883
+        },
+        {
+          "bps": 8.67015923828821,
+          "bytes": 26563946,
+          "ctx_ids_equal": true,
+          "dec_s": 4.8728444,
+          "deterministic": true,
+          "enc_s": 5.0608744,
+          "k": 128,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K128.bin",
+          "pct_change": -1.9484228609466425
+        },
+        {
+          "bps": 8.670346258742308,
+          "bytes": 26564519,
+          "ctx_ids_equal": true,
+          "dec_s": 3.9396968,
+          "deterministic": true,
+          "enc_s": 4.5791883,
+          "k": 256,
+          "lossless": true,
+          "map": "results/20261029-lisa-pcq1/train/map_K256.bin",
+          "pct_change": -1.9463078305328374
+        }
+      ],
+      "n": 24510688,
+      "prod_lossless": true
+    }
+  ]
+}

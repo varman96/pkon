@@ -1,0 +1,262 @@
+{
+  "example": [
+    {
+      "dist": [
+        0.27593747469020813,
+        0.16149671985097594,
+        0.21163035555195595,
+        0.1889527820523204,
+        0.09994330606625092,
+        0.0380659269458168,
+        0.012229691423017736,
+        0.0076941767230906295,
+        0.001133878674981777,
+        0.002267757349963554,
+        0.00032396533570907914,
+        0.00032396533570907914,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "key": 7,
+      "mean_e": 2.905240139305094,
+      "n": 12347.0,
+      "pattern": "(0,0,12)"
+    },
+    {
+      "dist": [
+        0.09799847410028732,
+        0.19296138175088876,
+        0.32037400775936237,
+        0.2137233576286869,
+        0.08725224420888593,
+        0.04244923136860218,
+        0.020469782315796308,
+        0.01917114426245475,
+        0.003003100498352353,
+        0.0016070645910101781,
+        0.00029219356200185055,
+        0.00030842653766862,
+        0.00022726165933477266,
+        0.0001298638053341558,
+        0.00003246595133353895,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "key": 2028,
+      "mean_e": 3.3428242131065047,
+      "n": 61603.0,
+      "pattern": "(4,4,4)"
+    }
+  ],
+  "families": [
+    {
+      "contexts_observed": 4,
+      "heldout_bps": 3.254334812535017,
+      "name": "baseline_4class",
+      "train_bps": 3.184233231083981
+    },
+    {
+      "contexts_observed": 22,
+      "heldout_bps": 2.7260650331354372,
+      "name": "average_levels",
+      "train_bps": 2.830269789922497
+    },
+    {
+      "contexts_observed": 22,
+      "heldout_bps": 2.768292181064997,
+      "name": "max level only",
+      "train_bps": 2.8527823643236716
+    },
+    {
+      "contexts_observed": 22,
+      "heldout_bps": 2.8737404385080656,
+      "name": "min level only",
+      "train_bps": 2.981984603025791
+    },
+    {
+      "contexts_observed": 22,
+      "heldout_bps": 2.9293216241750324,
+      "name": "W only",
+      "train_bps": 3.0245364969595436
+    },
+    {
+      "contexts_observed": 484,
+      "heldout_bps": 2.65658933552517,
+      "name": "W,N",
+      "train_bps": 2.7743785414476245
+    },
+    {
+      "contexts_observed": 22,
+      "heldout_bps": 2.7718749448200333,
+      "name": "mean of levels (rounded)",
+      "train_bps": 2.860299369075155
+    },
+    {
+      "contexts_observed": 253,
+      "heldout_bps": 2.646861735041717,
+      "name": "(max,min)",
+      "train_bps": 2.7597956368332097
+    },
+    {
+      "contexts_observed": 330,
+      "heldout_bps": 2.6552171192804424,
+      "name": "(mean of levels, range)",
+      "train_bps": 2.7726188413143937
+    },
+    {
+      "contexts_observed": 2024,
+      "heldout_bps": 2.6279251036435136,
+      "name": "sorted triple (order-free)",
+      "train_bps": 2.7445701556777604
+    },
+    {
+      "contexts_observed": 64,
+      "heldout_bps": 2.7456820176544325,
+      "name": "(max level, argmax position)",
+      "train_bps": 2.8352206323659424
+    },
+    {
+      "contexts_observed": 10648,
+      "heldout_bps": 2.6145313291434205,
+      "name": "ordered triple W,N,NW (full key)",
+      "train_bps": 2.7243744681574658
+    }
+  ],
+  "population": {
+    "keys_for_99pct_mass": 7842,
+    "keys_observed": 10648,
+    "keys_total": 10648,
+    "rare_keys_lt1000": 1708,
+    "rare_mass_frac": 0.0035989699035828444
+  },
+  "split": {
+    "test": [
+      "dji_fc220_dusk",
+      "leica_m10_brick",
+      "leica_x2_lowlight",
+      "nikon_d80_piano",
+      "pentax_k30_frog",
+      "pentax_q7_cat",
+      "ricoh_gr_wood",
+      "sigma_fp_bike8"
+    ],
+    "train": [
+      "bmpcc4k_person",
+      "canon_sx40_snow",
+      "hasselblad_tallinn",
+      "leica_m8_house",
+      "leica_q_canoe",
+      "lg_h815_mountain",
+      "parrot_anafi_dusk",
+      "pentax_k1ii_station",
+      "pentax_k70_bulb",
+      "pixel6pro_valley",
+      "ricoh_gr3_dunes",
+      "samsung_gx20_berries",
+      "x100s_xtrans_chart"
+    ],
+    "val": [
+      "leica_cl_chateau",
+      "nexus6_courtyard",
+      "pentax_kx_lichen",
+      "sigma_fp_bike14"
+    ]
+  },
+  "sweep": [
+    {
+      "delta_vs_baseline_heldout_bps": -0.636272855268103,
+      "heldout_bps": 2.618061957266914,
+      "k": 256,
+      "train_bps": 2.7286448538808306
+    },
+    {
+      "delta_vs_baseline_heldout_bps": -0.6348643589772611,
+      "heldout_bps": 2.619470453557756,
+      "k": 192,
+      "train_bps": 2.7300966885518165
+    },
+    {
+      "delta_vs_baseline_heldout_bps": -0.6320101504801898,
+      "heldout_bps": 2.6223246620548273,
+      "k": 128,
+      "train_bps": 2.7330164177904948
+    },
+    {
+      "delta_vs_baseline_heldout_bps": -0.6286409113445628,
+      "heldout_bps": 2.6256939011904543,
+      "k": 96,
+      "train_bps": 2.7358024156419414
+    },
+    {
+      "delta_vs_baseline_heldout_bps": -0.6215234239328065,
+      "heldout_bps": 2.6328113886022106,
+      "k": 64,
+      "train_bps": 2.7409330097654574
+    },
+    {
+      "delta_vs_baseline_heldout_bps": -0.6166518567546477,
+      "heldout_bps": 2.6376829557803694,
+      "k": 48,
+      "train_bps": 2.7458636209825773
+    },
+    {
+      "delta_vs_baseline_heldout_bps": -0.6061743704707911,
+      "heldout_bps": 2.648160442064226,
+      "k": 32,
+      "train_bps": 2.7559210019797105
+    },
+    {
+      "delta_vs_baseline_heldout_bps": -0.5866123247150092,
+      "heldout_bps": 2.667722487820008,
+      "k": 24,
+      "train_bps": 2.7661952581577873
+    },
+    {
+      "delta_vs_baseline_heldout_bps": -0.5635436427439067,
+      "heldout_bps": 2.6907911697911104,
+      "k": 16,
+      "train_bps": 2.7881064530320923
+    },
+    {
+      "delta_vs_baseline_heldout_bps": -0.5436328826922123,
+      "heldout_bps": 2.710701929842805,
+      "k": 12,
+      "train_bps": 2.8076666653971953
+    },
+    {
+      "delta_vs_baseline_heldout_bps": -0.4895835586421371,
+      "heldout_bps": 2.76475125389288,
+      "k": 8,
+      "train_bps": 2.8520603053376132
+    },
+    {
+      "delta_vs_baseline_heldout_bps": -0.46862274376251056,
+      "heldout_bps": 2.7857120687725065,
+      "k": 6,
+      "train_bps": 2.8878712395356647
+    },
+    {
+      "delta_vs_baseline_heldout_bps": -0.35343462064721054,
+      "heldout_bps": 2.9009001918878066,
+      "k": 4,
+      "train_bps": 2.9546466248742878
+    },
+    {
+      "delta_vs_baseline_heldout_bps": -0.2772966044132583,
+      "heldout_bps": 2.977038208121759,
+      "k": 3,
+      "train_bps": 3.025047203416391
+    },
+    {
+      "delta_vs_baseline_heldout_bps": -0.07984257601314981,
+      "heldout_bps": 3.1744922365218673,
+      "k": 2,
+      "train_bps": 3.1694766282692015
+    }
+  ]
+}

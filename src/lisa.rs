@@ -14,6 +14,7 @@
 //!   3. A bounded per-(pattern, activity-context) bias estimate is added (locally estimated parameter) and the result
 //!      is clamped to the sample range.
 
+use crate::lisa_rp::{Est, Rp};
 use crate::pkon2x::{BinDec, BinEnc, Bit, BitIo};
 use std::fmt;
 
@@ -1065,6 +1066,17 @@ pub fn classify_stage3(stage2: Stage2Output) -> Result<Stage3Output, LisaError> 
 
 /// Coding-mode/version of the Stage 4 stream defined here: four class-selected adaptive models, binarization above.
 pub const STAGE4_CODING_VERSION: u8 = 1;
+/// EXPERIMENTAL coding-mode/version: identical binarization and model selection, but the reward-penalty (RP1, α = 1/32)
+/// probability estimator from `lisa_rp`. Never produced unless [`Stage4Estimator::RewardPenalty`] is requested.
+pub const STAGE4_RP1_CODING_VERSION: u8 = 2;
+
+/// Probability estimator used by Stage 4. `Counted` is the production default.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+pub enum Stage4Estimator {
+    #[default]
+    Counted,
+    RewardPenalty,
+}
 const S4_E_MAX: usize = 33;
 
 /// Stage 4 reconstruction record.
@@ -1077,19 +1089,21 @@ pub struct Stage4Record {
 }
 
 #[derive(Clone, Copy)]
-struct S4Model {
-    unary: [Bit; S4_E_MAX + 1],
-    mant: [Bit; S4_E_MAX + 1],
+struct S4Model<E: Est> {
+    unary: [E; S4_E_MAX + 1],
+    mant: [E; S4_E_MAX + 1],
 }
 
-impl S4Model {
-    const NEW: S4Model = S4Model { unary: [Bit::NEW; S4_E_MAX + 1], mant: [Bit::NEW; S4_E_MAX + 1] };
+impl<E: Est> S4Model<E> {
+    fn new() -> Self {
+        S4Model { unary: [E::fresh(); S4_E_MAX + 1], mant: [E::fresh(); S4_E_MAX + 1] }
+    }
 
     /// Codes one adaptive bit and updates it. Encoders pass the real `bit`; decoders pass anything and get the decoded one.
     #[inline]
-    fn bit<I: BitIo>(io: &mut I, b: &mut Bit, bit: u32) -> u32 {
-        let bit = io.code(b.p1(), bit);
-        b.adapt(bit);
+    fn bit<I: BitIo>(io: &mut I, b: &mut E, bit: u32) -> u32 {
+        let bit = io.code(b.p16(), bit);
+        b.update(bit);
         bit
     }
 
@@ -1142,10 +1156,23 @@ impl Stage4Output {
 
 /// Stage 4 entry point: entropy-codes the Stage 3 residuals, selecting the model by each residual's Stage 3 class.
 pub fn encode_stage4(stage3: Stage3Output) -> Result<Stage4Output, LisaError> {
+    encode_stage4_with(stage3, Stage4Estimator::Counted)
+}
+
+/// [`encode_stage4`] with an explicit estimator. `Counted` is byte-identical to `encode_stage4`; `RewardPenalty` is
+/// experimental and is recorded in the stream as [`STAGE4_RP1_CODING_VERSION`].
+pub fn encode_stage4_with(stage3: Stage3Output, estimator: Stage4Estimator) -> Result<Stage4Output, LisaError> {
+    match estimator {
+        Stage4Estimator::Counted => encode_s4::<Bit>(stage3, STAGE4_CODING_VERSION),
+        Stage4Estimator::RewardPenalty => encode_s4::<Rp>(stage3, STAGE4_RP1_CODING_VERSION),
+    }
+}
+
+fn encode_s4<E: Est>(stage3: Stage3Output, coding_version: u8) -> Result<Stage4Output, LisaError> {
     let (width, height) = (stage3.base.metadata.width, stage3.base.metadata.height);
     validate(width, height, stage3.base.bit_depth)?;
     let mut count = 0u64;
-    let mut models = [S4Model::NEW; ActivityClass::COUNT];
+    let mut models = [S4Model::<E>::new(); ActivityClass::COUNT];
     let mut enc = BinEnc::new();
     let mut code_all = |res: &[u32], ctx: &[ActivityClass]| -> Result<(), LisaError> {
         if res.len() != ctx.len() {
@@ -1169,7 +1196,7 @@ pub fn encode_stage4(stage3: Stage3Output) -> Result<Stage4Output, LisaError> {
     let payload = enc.finish();
     let Stage2Output { metadata, bit_depth, mut history, .. } = stage3.base;
     history.push(ReconstructionRecord::Stage4Entropy(Stage4Record {
-        coding_version: STAGE4_CODING_VERSION,
+        coding_version,
         model_count: ActivityClass::COUNT as u8,
         residual_count: count,
     }));
@@ -1179,10 +1206,21 @@ pub fn encode_stage4(stage3: Stage3Output) -> Result<Stage4Output, LisaError> {
 /// Exact inverse of [`encode_stage4`]: returns the Stage 3 representation (residuals, contexts, history without the
 /// Stage 4 record). Feed it to [`Stage3Output::into_stage2`] and [`restore_stage1`] to continue reversing.
 pub fn decode_stage4(out: &Stage4Output) -> Result<Stage3Output, LisaError> {
+    let Some((ReconstructionRecord::Stage4Entropy(rec), _)) = out.history.split_last() else {
+        return Err(LisaError::InvalidMetadata("newest reconstruction record is not Stage 4"));
+    };
+    match rec.coding_version {
+        STAGE4_CODING_VERSION => decode_s4::<Bit>(out),
+        STAGE4_RP1_CODING_VERSION => decode_s4::<Rp>(out),
+        _ => Err(LisaError::CorruptStream("unsupported Stage 4 coding mode or version")),
+    }
+}
+
+fn decode_s4<E: Est>(out: &Stage4Output) -> Result<Stage3Output, LisaError> {
     let Some((ReconstructionRecord::Stage4Entropy(rec), inherited)) = out.history.split_last() else {
         return Err(LisaError::InvalidMetadata("newest reconstruction record is not Stage 4"));
     };
-    if rec.coding_version != STAGE4_CODING_VERSION || usize::from(rec.model_count) != ActivityClass::COUNT {
+    if usize::from(rec.model_count) != ActivityClass::COUNT {
         return Err(LisaError::CorruptStream("unsupported Stage 4 coding mode or version"));
     }
     if inherited.last() != Some(&ReconstructionRecord::Stage3Context(Stage3Record::current())) {
@@ -1203,7 +1241,7 @@ pub fn decode_stage4(out: &Stage4Output) -> Result<Stage3Output, LisaError> {
         return Err(LisaError::CorruptStream("residual count disagrees with geometry"));
     }
 
-    let mut models = [S4Model::NEW; ActivityClass::COUNT];
+    let mut models = [S4Model::<E>::new(); ActivityClass::COUNT];
     let mut dec = BinDec::new(&out.payload);
     let mut next = |c: ActivityClass| models[c.index()].code(&mut dec, 0);
 
