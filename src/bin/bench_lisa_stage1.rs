@@ -2,6 +2,7 @@
 //! payload hashes and an exact-decode gate. Uses only the public `lisa` API, so it builds against any revision.
 //! Usage: bench_lisa_stage1 <dataset_manifest.json> <out.json> <reps> <id>...
 use nanoscope::lisa::*;
+use nanoscope::lisa_bayer_plane::{decode_stage1, encode_stage1, organize_stage2_with_mode, restore_stage1_with_mode, Stage1Mode};
 use serde_json::{json, Value};
 use sha2::{Digest, Sha256};
 use std::time::Instant;
@@ -32,17 +33,17 @@ fn main() {
         let mut runs = Vec::new();
         for _ in 0..reps {
             let t = Instant::now();
-            let s1 = encode_with_metadata(&samples, w, h, bd, meta.clone()).unwrap();
+            let s1 = encode_stage1(&samples, w, h, bd, meta.clone(), Stage1Mode::default()).unwrap();
             let t_s1 = t.elapsed().as_secs_f64();
             let res_hash = hex(s1.residuals.iter().flat_map(|r| r.to_le_bytes()).collect::<Vec<u8>>());
             let t = Instant::now();
-            let s3 = classify_stage3_with(organize_stage2(s1).unwrap(), Stage3Rule::Legacy4).unwrap();
+            let s3 = classify_stage3_with(organize_stage2_with_mode(s1, Stage1Mode::default()).unwrap(), Stage3Rule::Legacy4).unwrap();
             let s4 = encode_stage4(s3).unwrap();
             let t_rest = t.elapsed().as_secs_f64();
             let t = Instant::now();
             let back3 = decode_stage4(&s4).unwrap();
-            let (s1b, _) = restore_stage1(&back3.into_stage2()).unwrap();
-            let dec = decode_with_metadata(&s1b).unwrap();
+            let (s1b, mode) = restore_stage1_with_mode(&back3.into_stage2()).unwrap();
+            let dec = decode_stage1(&s1b, mode).unwrap();
             let t_dec = t.elapsed().as_secs_f64();
             let exact = dec == samples;
             let r = json!({"stage1_s": t_s1, "encode_s": t_s1 + t_rest, "decode_s": t_dec, "residual_sha256": res_hash,

@@ -1,0 +1,2064 @@
+{
+  "est_cost_single_leaf_bits": 218237712.88548517,
+  "feature_names": [
+    "lvl(W)",
+    "lvl(N)",
+    "lvl(NW)",
+    "lvl(max)",
+    "lvl(min)",
+    "lvl(med)",
+    "lvl(mean)",
+    "lvl(|W-N|)",
+    "lvl(|N-NW|)",
+    "lvl(|W-NW|)",
+    "lvl(W+N)",
+    "lvl(max-min)",
+    "sign(W)",
+    "sign(N)",
+    "sign(NW)",
+    "missing",
+    "lvl(|sW+sN-sNW|)",
+    "lvl(|sW+sN|)"
+  ],
+  "greedy_secs": 737.4880389,
+  "load_secs": 286.7581111,
+  "max_leaves": 255,
+  "min_child": 4000,
+  "splits": [
+    {
+      "est_total_bits": 217009625.16813383,
+      "feature": 3,
+      "feature_name": "lvl(max)",
+      "gain_bits": 1228087.7173513472,
+      "leaf": 0,
+      "leaves_after": 2,
+      "new_leaf": 1,
+      "threshold": 16
+    },
+    {
+      "est_total_bits": 216197665.61657932,
+      "feature": 6,
+      "feature_name": "lvl(mean)",
+      "gain_bits": 811959.5515544862,
+      "leaf": 0,
+      "leaves_after": 3,
+      "new_leaf": 2,
+      "threshold": 9
+    },
+    {
+      "est_total_bits": 215610461.92588368,
+      "feature": 3,
+      "feature_name": "lvl(max)",
+      "gain_bits": 587203.6906956658,
+      "leaf": 1,
+      "leaves_after": 4,
+      "new_leaf": 3,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 215225973.47767854,
+      "feature": 1,
+      "feature_name": "lvl(N)",
+      "gain_bits": 384488.4482051134,
+      "leaf": 1,
+      "leaves_after": 5,
+      "new_leaf": 4,
+      "threshold": 16
+    },
+    {
+      "est_total_bits": 214900782.70292252,
+      "feature": 6,
+      "feature_name": "lvl(mean)",
+      "gain_bits": 325190.77475607395,
+      "leaf": 2,
+      "leaves_after": 6,
+      "new_leaf": 5,
+      "threshold": 12
+    },
+    {
+      "est_total_bits": 214604981.71752256,
+      "feature": 6,
+      "feature_name": "lvl(mean)",
+      "gain_bits": 295800.9853999652,
+      "leaf": 0,
+      "leaves_after": 7,
+      "new_leaf": 6,
+      "threshold": 5
+    },
+    {
+      "est_total_bits": 214362928.7499442,
+      "feature": 1,
+      "feature_name": "lvl(N)",
+      "gain_bits": 242052.96757833287,
+      "leaf": 3,
+      "leaves_after": 8,
+      "new_leaf": 7,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 214224635.95705187,
+      "feature": 1,
+      "feature_name": "lvl(N)",
+      "gain_bits": 138292.79289234523,
+      "leaf": 3,
+      "leaves_after": 9,
+      "new_leaf": 8,
+      "threshold": 17
+    },
+    {
+      "est_total_bits": 214102409.297959,
+      "feature": 3,
+      "feature_name": "lvl(max)",
+      "gain_bits": 122226.65909285471,
+      "leaf": 4,
+      "leaves_after": 10,
+      "new_leaf": 9,
+      "threshold": 18
+    },
+    {
+      "est_total_bits": 213990211.61219648,
+      "feature": 16,
+      "feature_name": "lvl(|sW+sN-sNW|)",
+      "gain_bits": 112197.6857625246,
+      "leaf": 7,
+      "leaves_after": 11,
+      "new_leaf": 10,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 213883841.15646797,
+      "feature": 3,
+      "feature_name": "lvl(max)",
+      "gain_bits": 106370.455728475,
+      "leaf": 0,
+      "leaves_after": 12,
+      "new_leaf": 11,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 213795643.77336454,
+      "feature": 10,
+      "feature_name": "lvl(W+N)",
+      "gain_bits": 88197.3831033986,
+      "leaf": 5,
+      "leaves_after": 13,
+      "new_leaf": 12,
+      "threshold": 16
+    },
+    {
+      "est_total_bits": 213726695.069713,
+      "feature": 3,
+      "feature_name": "lvl(max)",
+      "gain_bits": 68948.70365153998,
+      "leaf": 1,
+      "leaves_after": 14,
+      "new_leaf": 13,
+      "threshold": 18
+    },
+    {
+      "est_total_bits": 213661190.78014925,
+      "feature": 4,
+      "feature_name": "lvl(min)",
+      "gain_bits": 65504.289563776925,
+      "leaf": 10,
+      "leaves_after": 15,
+      "new_leaf": 14,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 213598534.6867888,
+      "feature": 0,
+      "feature_name": "lvl(W)",
+      "gain_bits": 62656.09336046316,
+      "leaf": 7,
+      "leaves_after": 16,
+      "new_leaf": 15,
+      "threshold": 19
+    },
+    {
+      "est_total_bits": 213542608.3560773,
+      "feature": 1,
+      "feature_name": "lvl(N)",
+      "gain_bits": 55926.33071148209,
+      "leaf": 3,
+      "leaves_after": 17,
+      "new_leaf": 16,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 213499881.29968232,
+      "feature": 0,
+      "feature_name": "lvl(W)",
+      "gain_bits": 42727.05639502965,
+      "leaf": 9,
+      "leaves_after": 18,
+      "new_leaf": 17,
+      "threshold": 16
+    },
+    {
+      "est_total_bits": 213461832.29423717,
+      "feature": 17,
+      "feature_name": "lvl(|sW+sN|)",
+      "gain_bits": 38049.00544514367,
+      "leaf": 16,
+      "leaves_after": 19,
+      "new_leaf": 18,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 213424356.04156134,
+      "feature": 11,
+      "feature_name": "lvl(max-min)",
+      "gain_bits": 37476.25267585227,
+      "leaf": 15,
+      "leaves_after": 20,
+      "new_leaf": 19,
+      "threshold": 19
+    },
+    {
+      "est_total_bits": 213387493.3993502,
+      "feature": 16,
+      "feature_name": "lvl(|sW+sN-sNW|)",
+      "gain_bits": 36862.64221114619,
+      "leaf": 15,
+      "leaves_after": 21,
+      "new_leaf": 20,
+      "threshold": 19
+    },
+    {
+      "est_total_bits": 213352463.43862137,
+      "feature": 11,
+      "feature_name": "lvl(max-min)",
+      "gain_bits": 35029.96072880551,
+      "leaf": 8,
+      "leaves_after": 22,
+      "new_leaf": 21,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 213320267.65353173,
+      "feature": 3,
+      "feature_name": "lvl(max)",
+      "gain_bits": 32195.78508966975,
+      "leaf": 6,
+      "leaves_after": 23,
+      "new_leaf": 22,
+      "threshold": 8
+    },
+    {
+      "est_total_bits": 213289689.0146907,
+      "feature": 5,
+      "feature_name": "lvl(med)",
+      "gain_bits": 30578.638841027394,
+      "leaf": 10,
+      "leaves_after": 24,
+      "new_leaf": 23,
+      "threshold": 17
+    },
+    {
+      "est_total_bits": 213261284.0773922,
+      "feature": 17,
+      "feature_name": "lvl(|sW+sN|)",
+      "gain_bits": 28404.93729850673,
+      "leaf": 7,
+      "leaves_after": 25,
+      "new_leaf": 24,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 213233944.12673533,
+      "feature": 17,
+      "feature_name": "lvl(|sW+sN|)",
+      "gain_bits": 27339.950656834524,
+      "leaf": 17,
+      "leaves_after": 26,
+      "new_leaf": 25,
+      "threshold": 19
+    },
+    {
+      "est_total_bits": 213208455.95563447,
+      "feature": 4,
+      "feature_name": "lvl(min)",
+      "gain_bits": 25488.171100815758,
+      "leaf": 1,
+      "leaves_after": 27,
+      "new_leaf": 26,
+      "threshold": 13
+    },
+    {
+      "est_total_bits": 213183709.7029175,
+      "feature": 9,
+      "feature_name": "lvl(|W-NW|)",
+      "gain_bits": 24746.25271701254,
+      "leaf": 2,
+      "leaves_after": 28,
+      "new_leaf": 27,
+      "threshold": 12
+    },
+    {
+      "est_total_bits": 213159259.56509683,
+      "feature": 11,
+      "feature_name": "lvl(max-min)",
+      "gain_bits": 24450.13782066852,
+      "leaf": 5,
+      "leaves_after": 29,
+      "new_leaf": 28,
+      "threshold": 14
+    },
+    {
+      "est_total_bits": 213136559.04551077,
+      "feature": 0,
+      "feature_name": "lvl(W)",
+      "gain_bits": 22700.519586088136,
+      "leaf": 4,
+      "leaves_after": 30,
+      "new_leaf": 29,
+      "threshold": 14
+    },
+    {
+      "est_total_bits": 213116071.7169173,
+      "feature": 6,
+      "feature_name": "lvl(mean)",
+      "gain_bits": 20487.328593384475,
+      "leaf": 23,
+      "leaves_after": 31,
+      "new_leaf": 30,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 213098412.81071132,
+      "feature": 0,
+      "feature_name": "lvl(W)",
+      "gain_bits": 17658.906205973588,
+      "leaf": 12,
+      "leaves_after": 32,
+      "new_leaf": 31,
+      "threshold": 15
+    },
+    {
+      "est_total_bits": 213082493.7126667,
+      "feature": 4,
+      "feature_name": "lvl(min)",
+      "gain_bits": 15919.098044638056,
+      "leaf": 21,
+      "leaves_after": 33,
+      "new_leaf": 32,
+      "threshold": 18
+    },
+    {
+      "est_total_bits": 213067684.70024207,
+      "feature": 16,
+      "feature_name": "lvl(|sW+sN-sNW|)",
+      "gain_bits": 14809.012424604734,
+      "leaf": 16,
+      "leaves_after": 34,
+      "new_leaf": 33,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 213053747.37178156,
+      "feature": 4,
+      "feature_name": "lvl(min)",
+      "gain_bits": 13937.328460535035,
+      "leaf": 15,
+      "leaves_after": 35,
+      "new_leaf": 34,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 213039887.0695812,
+      "feature": 3,
+      "feature_name": "lvl(max)",
+      "gain_bits": 13860.302200328559,
+      "leaf": 2,
+      "leaves_after": 36,
+      "new_leaf": 35,
+      "threshold": 11
+    },
+    {
+      "est_total_bits": 213026032.11572105,
+      "feature": 17,
+      "feature_name": "lvl(|sW+sN|)",
+      "gain_bits": 13854.95386021072,
+      "leaf": 29,
+      "leaves_after": 37,
+      "new_leaf": 36,
+      "threshold": 17
+    },
+    {
+      "est_total_bits": 213012552.21038076,
+      "feature": 9,
+      "feature_name": "lvl(|W-NW|)",
+      "gain_bits": 13479.905340277124,
+      "leaf": 14,
+      "leaves_after": 38,
+      "new_leaf": 37,
+      "threshold": 18
+    },
+    {
+      "est_total_bits": 212999960.64278474,
+      "feature": 1,
+      "feature_name": "lvl(N)",
+      "gain_bits": 12591.567596018314,
+      "leaf": 28,
+      "leaves_after": 39,
+      "new_leaf": 38,
+      "threshold": 14
+    },
+    {
+      "est_total_bits": 212987493.70912415,
+      "feature": 1,
+      "feature_name": "lvl(N)",
+      "gain_bits": 12466.933660566341,
+      "leaf": 9,
+      "leaves_after": 40,
+      "new_leaf": 39,
+      "threshold": 19
+    },
+    {
+      "est_total_bits": 212975299.63039336,
+      "feature": 4,
+      "feature_name": "lvl(min)",
+      "gain_bits": 12194.078730797395,
+      "leaf": 13,
+      "leaves_after": 41,
+      "new_leaf": 40,
+      "threshold": 14
+    },
+    {
+      "est_total_bits": 212965606.20450506,
+      "feature": 4,
+      "feature_name": "lvl(min)",
+      "gain_bits": 9693.42588826106,
+      "leaf": 19,
+      "leaves_after": 42,
+      "new_leaf": 41,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212957021.5948086,
+      "feature": 6,
+      "feature_name": "lvl(mean)",
+      "gain_bits": 8584.609696474043,
+      "leaf": 10,
+      "leaves_after": 43,
+      "new_leaf": 42,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212948724.35044825,
+      "feature": 7,
+      "feature_name": "lvl(|W-N|)",
+      "gain_bits": 8297.244360353332,
+      "leaf": 30,
+      "leaves_after": 44,
+      "new_leaf": 43,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212940587.31005466,
+      "feature": 3,
+      "feature_name": "lvl(max)",
+      "gain_bits": 8137.0403935862705,
+      "leaf": 11,
+      "leaves_after": 45,
+      "new_leaf": 44,
+      "threshold": 5
+    },
+    {
+      "est_total_bits": 212932522.44663814,
+      "feature": 4,
+      "feature_name": "lvl(min)",
+      "gain_bits": 8064.863416531123,
+      "leaf": 5,
+      "leaves_after": 46,
+      "new_leaf": 45,
+      "threshold": 13
+    },
+    {
+      "est_total_bits": 212926293.8551373,
+      "feature": 6,
+      "feature_name": "lvl(mean)",
+      "gain_bits": 6228.591500844108,
+      "leaf": 21,
+      "leaves_after": 47,
+      "new_leaf": 46,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212920383.06947374,
+      "feature": 17,
+      "feature_name": "lvl(|sW+sN|)",
+      "gain_bits": 5910.7856635604985,
+      "leaf": 7,
+      "leaves_after": 48,
+      "new_leaf": 47,
+      "threshold": 19
+    },
+    {
+      "est_total_bits": 212914082.74754003,
+      "feature": 7,
+      "feature_name": "lvl(|W-N|)",
+      "gain_bits": 6300.3219336974435,
+      "leaf": 47,
+      "leaves_after": 49,
+      "new_leaf": 48,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212908498.1409513,
+      "feature": 5,
+      "feature_name": "lvl(med)",
+      "gain_bits": 5584.606588718947,
+      "leaf": 9,
+      "leaves_after": 50,
+      "new_leaf": 49,
+      "threshold": 14
+    },
+    {
+      "est_total_bits": 212902920.20564854,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 5577.935302814469,
+      "leaf": 17,
+      "leaves_after": 51,
+      "new_leaf": 50,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212897479.2661693,
+      "feature": 17,
+      "feature_name": "lvl(|sW+sN|)",
+      "gain_bits": 5440.939479247201,
+      "leaf": 16,
+      "leaves_after": 52,
+      "new_leaf": 51,
+      "threshold": 19
+    },
+    {
+      "est_total_bits": 212892046.73699617,
+      "feature": 10,
+      "feature_name": "lvl(W+N)",
+      "gain_bits": 5432.5291731301695,
+      "leaf": 16,
+      "leaves_after": 53,
+      "new_leaf": 52,
+      "threshold": 17
+    },
+    {
+      "est_total_bits": 212886629.1235819,
+      "feature": 4,
+      "feature_name": "lvl(min)",
+      "gain_bits": 5417.61341431411,
+      "leaf": 20,
+      "leaves_after": 54,
+      "new_leaf": 53,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212881440.0752727,
+      "feature": 7,
+      "feature_name": "lvl(|W-N|)",
+      "gain_bits": 5189.048309190199,
+      "leaf": 14,
+      "leaves_after": 55,
+      "new_leaf": 54,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212876831.67969924,
+      "feature": 14,
+      "feature_name": "sign(NW)",
+      "gain_bits": 4608.3955734747,
+      "leaf": 37,
+      "leaves_after": 56,
+      "new_leaf": 55,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212872261.24686396,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 4570.432835262502,
+      "leaf": 8,
+      "leaves_after": 57,
+      "new_leaf": 56,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212867701.18139675,
+      "feature": 0,
+      "feature_name": "lvl(W)",
+      "gain_bits": 4560.065467208624,
+      "leaf": 43,
+      "leaves_after": 58,
+      "new_leaf": 57,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212863193.33493626,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 4507.846460493747,
+      "leaf": 26,
+      "leaves_after": 59,
+      "new_leaf": 58,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212858826.12772706,
+      "feature": 4,
+      "feature_name": "lvl(min)",
+      "gain_bits": 4367.20720922295,
+      "leaf": 32,
+      "leaves_after": 60,
+      "new_leaf": 59,
+      "threshold": 19
+    },
+    {
+      "est_total_bits": 212854538.83275285,
+      "feature": 13,
+      "feature_name": "sign(N)",
+      "gain_bits": 4287.294974189717,
+      "leaf": 4,
+      "leaves_after": 61,
+      "new_leaf": 60,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212851098.8481947,
+      "feature": 0,
+      "feature_name": "lvl(W)",
+      "gain_bits": 3439.984558155469,
+      "leaf": 42,
+      "leaves_after": 62,
+      "new_leaf": 61,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212847852.5688397,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 3246.279354986036,
+      "leaf": 51,
+      "leaves_after": 63,
+      "new_leaf": 62,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212844891.38529128,
+      "feature": 5,
+      "feature_name": "lvl(med)",
+      "gain_bits": 2961.18354841118,
+      "leaf": 10,
+      "leaves_after": 64,
+      "new_leaf": 63,
+      "threshold": 9
+    },
+    {
+      "est_total_bits": 212841931.36459875,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 2960.020692555234,
+      "leaf": 18,
+      "leaves_after": 65,
+      "new_leaf": 64,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212839050.62964988,
+      "feature": 14,
+      "feature_name": "sign(NW)",
+      "gain_bits": 2880.7349488330074,
+      "leaf": 49,
+      "leaves_after": 66,
+      "new_leaf": 65,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212836194.43498257,
+      "feature": 9,
+      "feature_name": "lvl(|W-NW|)",
+      "gain_bits": 2856.19466733234,
+      "leaf": 19,
+      "leaves_after": 67,
+      "new_leaf": 66,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212833370.22174478,
+      "feature": 13,
+      "feature_name": "sign(N)",
+      "gain_bits": 2824.213237773627,
+      "leaf": 50,
+      "leaves_after": 68,
+      "new_leaf": 67,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212830597.555924,
+      "feature": 17,
+      "feature_name": "lvl(|sW+sN|)",
+      "gain_bits": 2772.6658207424916,
+      "leaf": 17,
+      "leaves_after": 69,
+      "new_leaf": 68,
+      "threshold": 18
+    },
+    {
+      "est_total_bits": 212828074.83929256,
+      "feature": 0,
+      "feature_name": "lvl(W)",
+      "gain_bits": 2522.716631463263,
+      "leaf": 24,
+      "leaves_after": 70,
+      "new_leaf": 69,
+      "threshold": 16
+    },
+    {
+      "est_total_bits": 212825732.0994082,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 2342.7398843590636,
+      "leaf": 48,
+      "leaves_after": 71,
+      "new_leaf": 70,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212823436.54975256,
+      "feature": 15,
+      "feature_name": "missing",
+      "gain_bits": 2295.549655639683,
+      "leaf": 45,
+      "leaves_after": 72,
+      "new_leaf": 71,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212821187.84639663,
+      "feature": 6,
+      "feature_name": "lvl(mean)",
+      "gain_bits": 2248.7033559377887,
+      "leaf": 33,
+      "leaves_after": 73,
+      "new_leaf": 72,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212818950.36292526,
+      "feature": 8,
+      "feature_name": "lvl(|N-NW|)",
+      "gain_bits": 2237.483471330488,
+      "leaf": 57,
+      "leaves_after": 74,
+      "new_leaf": 73,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212816728.88904813,
+      "feature": 14,
+      "feature_name": "sign(NW)",
+      "gain_bits": 2221.473877122684,
+      "leaf": 16,
+      "leaves_after": 75,
+      "new_leaf": 74,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212814537.17425463,
+      "feature": 15,
+      "feature_name": "missing",
+      "gain_bits": 2191.7147934915265,
+      "leaf": 5,
+      "leaves_after": 76,
+      "new_leaf": 75,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212812525.70058814,
+      "feature": 1,
+      "feature_name": "lvl(N)",
+      "gain_bits": 2011.473666493781,
+      "leaf": 2,
+      "leaves_after": 77,
+      "new_leaf": 76,
+      "threshold": 4
+    },
+    {
+      "est_total_bits": 212810540.30855915,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 1985.3920289645903,
+      "leaf": 41,
+      "leaves_after": 78,
+      "new_leaf": 77,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212808657.45462778,
+      "feature": 15,
+      "feature_name": "missing",
+      "gain_bits": 1882.8539313383517,
+      "leaf": 35,
+      "leaves_after": 79,
+      "new_leaf": 78,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212806827.17387196,
+      "feature": 15,
+      "feature_name": "missing",
+      "gain_bits": 1830.2807558303466,
+      "leaf": 14,
+      "leaves_after": 80,
+      "new_leaf": 79,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212805010.04151234,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 1817.1323596395086,
+      "leaf": 40,
+      "leaves_after": 81,
+      "new_leaf": 80,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212803200.63887823,
+      "feature": 4,
+      "feature_name": "lvl(min)",
+      "gain_bits": 1809.4026341219433,
+      "leaf": 43,
+      "leaves_after": 82,
+      "new_leaf": 81,
+      "threshold": 18
+    },
+    {
+      "est_total_bits": 212801396.08476335,
+      "feature": 3,
+      "feature_name": "lvl(max)",
+      "gain_bits": 1804.5541148977354,
+      "leaf": 1,
+      "leaves_after": 83,
+      "new_leaf": 82,
+      "threshold": 17
+    },
+    {
+      "est_total_bits": 212799612.64019537,
+      "feature": 14,
+      "feature_name": "sign(NW)",
+      "gain_bits": 1783.4445679269265,
+      "leaf": 56,
+      "leaves_after": 84,
+      "new_leaf": 83,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212797839.36620796,
+      "feature": 2,
+      "feature_name": "lvl(NW)",
+      "gain_bits": 1773.2739874026738,
+      "leaf": 30,
+      "leaves_after": 85,
+      "new_leaf": 84,
+      "threshold": 16
+    },
+    {
+      "est_total_bits": 212796103.50616223,
+      "feature": 13,
+      "feature_name": "sign(N)",
+      "gain_bits": 1735.8600457469583,
+      "leaf": 37,
+      "leaves_after": 86,
+      "new_leaf": 85,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212794422.88428736,
+      "feature": 7,
+      "feature_name": "lvl(|W-N|)",
+      "gain_bits": 1680.6218748830142,
+      "leaf": 23,
+      "leaves_after": 87,
+      "new_leaf": 86,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212792759.4382321,
+      "feature": 0,
+      "feature_name": "lvl(W)",
+      "gain_bits": 1663.446055307053,
+      "leaf": 52,
+      "leaves_after": 88,
+      "new_leaf": 87,
+      "threshold": 19
+    },
+    {
+      "est_total_bits": 212787842.36184424,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 4917.076387864887,
+      "leaf": 87,
+      "leaves_after": 89,
+      "new_leaf": 88,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212786209.4731129,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 1632.8887312900042,
+      "leaf": 3,
+      "leaves_after": 90,
+      "new_leaf": 89,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212784600.4967041,
+      "feature": 9,
+      "feature_name": "lvl(|W-NW|)",
+      "gain_bits": 1608.9764088175725,
+      "leaf": 49,
+      "leaves_after": 91,
+      "new_leaf": 90,
+      "threshold": 17
+    },
+    {
+      "est_total_bits": 212782992.2327651,
+      "feature": 4,
+      "feature_name": "lvl(min)",
+      "gain_bits": 1608.2639390116092,
+      "leaf": 43,
+      "leaves_after": 92,
+      "new_leaf": 91,
+      "threshold": 6
+    },
+    {
+      "est_total_bits": 212781402.39651886,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 1589.8362462695222,
+      "leaf": 34,
+      "leaves_after": 93,
+      "new_leaf": 92,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212779856.29436582,
+      "feature": 14,
+      "feature_name": "sign(NW)",
+      "gain_bits": 1546.102153021493,
+      "leaf": 52,
+      "leaves_after": 94,
+      "new_leaf": 93,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212778375.06440535,
+      "feature": 6,
+      "feature_name": "lvl(mean)",
+      "gain_bits": 1481.2299604853033,
+      "leaf": 74,
+      "leaves_after": 95,
+      "new_leaf": 94,
+      "threshold": 18
+    },
+    {
+      "est_total_bits": 212776904.8822515,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 1470.18215387105,
+      "leaf": 25,
+      "leaves_after": 96,
+      "new_leaf": 95,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212775097.05389515,
+      "feature": 4,
+      "feature_name": "lvl(min)",
+      "gain_bits": 1807.8283563300502,
+      "leaf": 25,
+      "leaves_after": 97,
+      "new_leaf": 96,
+      "threshold": 19
+    },
+    {
+      "est_total_bits": 212773649.50121883,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 1447.552676320076,
+      "leaf": 53,
+      "leaves_after": 98,
+      "new_leaf": 97,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212772228.8961114,
+      "feature": 13,
+      "feature_name": "sign(N)",
+      "gain_bits": 1420.605107399635,
+      "leaf": 7,
+      "leaves_after": 99,
+      "new_leaf": 98,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212770812.70804796,
+      "feature": 1,
+      "feature_name": "lvl(N)",
+      "gain_bits": 1416.1880634874105,
+      "leaf": 22,
+      "leaves_after": 100,
+      "new_leaf": 99,
+      "threshold": 5
+    },
+    {
+      "est_total_bits": 212769449.967519,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 1362.7405289688031,
+      "leaf": 66,
+      "leaves_after": 101,
+      "new_leaf": 100,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212768143.4886138,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 1306.478905172553,
+      "leaf": 31,
+      "leaves_after": 102,
+      "new_leaf": 101,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212766718.1342073,
+      "feature": 4,
+      "feature_name": "lvl(min)",
+      "gain_bits": 1425.3544064760208,
+      "leaf": 101,
+      "leaves_after": 103,
+      "new_leaf": 102,
+      "threshold": 15
+    },
+    {
+      "est_total_bits": 212765411.95614856,
+      "feature": 2,
+      "feature_name": "lvl(NW)",
+      "gain_bits": 1306.178058748832,
+      "leaf": 4,
+      "leaves_after": 104,
+      "new_leaf": 103,
+      "threshold": 16
+    },
+    {
+      "est_total_bits": 212764215.0063869,
+      "feature": 8,
+      "feature_name": "lvl(|N-NW|)",
+      "gain_bits": 1196.9497616665903,
+      "leaf": 41,
+      "leaves_after": 105,
+      "new_leaf": 104,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212763019.27119577,
+      "feature": 4,
+      "feature_name": "lvl(min)",
+      "gain_bits": 1195.7351911587175,
+      "leaf": 13,
+      "leaves_after": 106,
+      "new_leaf": 105,
+      "threshold": 13
+    },
+    {
+      "est_total_bits": 212761868.63018194,
+      "feature": 7,
+      "feature_name": "lvl(|W-N|)",
+      "gain_bits": 1150.6410138248466,
+      "leaf": 12,
+      "leaves_after": 107,
+      "new_leaf": 106,
+      "threshold": 15
+    },
+    {
+      "est_total_bits": 212760732.8050857,
+      "feature": 13,
+      "feature_name": "sign(N)",
+      "gain_bits": 1135.8250962526072,
+      "leaf": 39,
+      "leaves_after": 108,
+      "new_leaf": 107,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212759642.87753135,
+      "feature": 2,
+      "feature_name": "lvl(NW)",
+      "gain_bits": 1089.927554293885,
+      "leaf": 84,
+      "leaves_after": 109,
+      "new_leaf": 108,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212758612.89704472,
+      "feature": 4,
+      "feature_name": "lvl(min)",
+      "gain_bits": 1029.980486671324,
+      "leaf": 18,
+      "leaves_after": 110,
+      "new_leaf": 109,
+      "threshold": 15
+    },
+    {
+      "est_total_bits": 212757596.64627767,
+      "feature": 15,
+      "feature_name": "missing",
+      "gain_bits": 1016.250767059857,
+      "leaf": 11,
+      "leaves_after": 111,
+      "new_leaf": 110,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212756590.6770502,
+      "feature": 6,
+      "feature_name": "lvl(mean)",
+      "gain_bits": 1005.9692274908302,
+      "leaf": 62,
+      "leaves_after": 112,
+      "new_leaf": 111,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212755629.1753428,
+      "feature": 17,
+      "feature_name": "lvl(|sW+sN|)",
+      "gain_bits": 961.501707393676,
+      "leaf": 4,
+      "leaves_after": 113,
+      "new_leaf": 112,
+      "threshold": 16
+    },
+    {
+      "est_total_bits": 212754724.40716118,
+      "feature": 14,
+      "feature_name": "sign(NW)",
+      "gain_bits": 904.7681816332042,
+      "leaf": 29,
+      "leaves_after": 114,
+      "new_leaf": 113,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212753710.79465863,
+      "feature": 17,
+      "feature_name": "lvl(|sW+sN|)",
+      "gain_bits": 1013.6125025385991,
+      "leaf": 113,
+      "leaves_after": 115,
+      "new_leaf": 114,
+      "threshold": 16
+    },
+    {
+      "est_total_bits": 212752813.0532453,
+      "feature": 9,
+      "feature_name": "lvl(|W-NW|)",
+      "gain_bits": 897.7414133450948,
+      "leaf": 24,
+      "leaves_after": 116,
+      "new_leaf": 115,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212751930.21720362,
+      "feature": 5,
+      "feature_name": "lvl(med)",
+      "gain_bits": 882.8360416652868,
+      "leaf": 72,
+      "leaves_after": 117,
+      "new_leaf": 116,
+      "threshold": 18
+    },
+    {
+      "est_total_bits": 212751048.55749816,
+      "feature": 9,
+      "feature_name": "lvl(|W-NW|)",
+      "gain_bits": 881.6597054806771,
+      "leaf": 104,
+      "leaves_after": 118,
+      "new_leaf": 117,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212750182.66244334,
+      "feature": 5,
+      "feature_name": "lvl(med)",
+      "gain_bits": 865.8950548232533,
+      "leaf": 35,
+      "leaves_after": 119,
+      "new_leaf": 118,
+      "threshold": 13
+    },
+    {
+      "est_total_bits": 212749323.12638405,
+      "feature": 13,
+      "feature_name": "sign(N)",
+      "gain_bits": 859.5360592600191,
+      "leaf": 91,
+      "leaves_after": 120,
+      "new_leaf": 119,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212748466.62034452,
+      "feature": 15,
+      "feature_name": "missing",
+      "gain_bits": 856.5060395383625,
+      "leaf": 0,
+      "leaves_after": 121,
+      "new_leaf": 120,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212747624.4735852,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 842.1467593307025,
+      "leaf": 94,
+      "leaves_after": 122,
+      "new_leaf": 121,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212746794.3285424,
+      "feature": 14,
+      "feature_name": "sign(NW)",
+      "gain_bits": 830.1450427799136,
+      "leaf": 15,
+      "leaves_after": 123,
+      "new_leaf": 122,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212745982.21985993,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 812.1086824648082,
+      "leaf": 59,
+      "leaves_after": 124,
+      "new_leaf": 123,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212745187.91665182,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 794.3032081611454,
+      "leaf": 32,
+      "leaves_after": 125,
+      "new_leaf": 124,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212744404.72122976,
+      "feature": 13,
+      "feature_name": "sign(N)",
+      "gain_bits": 783.1954220458283,
+      "leaf": 9,
+      "leaves_after": 126,
+      "new_leaf": 125,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212743683.12386695,
+      "feature": 14,
+      "feature_name": "sign(NW)",
+      "gain_bits": 721.5973628424108,
+      "leaf": 14,
+      "leaves_after": 127,
+      "new_leaf": 126,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212742965.30436555,
+      "feature": 9,
+      "feature_name": "lvl(|W-NW|)",
+      "gain_bits": 717.819501401158,
+      "leaf": 69,
+      "leaves_after": 128,
+      "new_leaf": 127,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212742330.7650649,
+      "feature": 13,
+      "feature_name": "sign(N)",
+      "gain_bits": 634.5393006412778,
+      "leaf": 115,
+      "leaves_after": 129,
+      "new_leaf": 128,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212741705.64464962,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 625.1204152817372,
+      "leaf": 46,
+      "leaves_after": 130,
+      "new_leaf": 129,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212740007.33953866,
+      "feature": 17,
+      "feature_name": "lvl(|sW+sN|)",
+      "gain_bits": 1698.3051109702792,
+      "leaf": 129,
+      "leaves_after": 131,
+      "new_leaf": 130,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212739386.24809653,
+      "feature": 1,
+      "feature_name": "lvl(N)",
+      "gain_bits": 621.0914421377238,
+      "leaf": 68,
+      "leaves_after": 132,
+      "new_leaf": 131,
+      "threshold": 17
+    },
+    {
+      "est_total_bits": 212738766.67794934,
+      "feature": 4,
+      "feature_name": "lvl(min)",
+      "gain_bits": 619.5701472047367,
+      "leaf": 9,
+      "leaves_after": 133,
+      "new_leaf": 132,
+      "threshold": 13
+    },
+    {
+      "est_total_bits": 212738149.0026564,
+      "feature": 6,
+      "feature_name": "lvl(mean)",
+      "gain_bits": 617.6752929586801,
+      "leaf": 7,
+      "leaves_after": 134,
+      "new_leaf": 133,
+      "threshold": 19
+    },
+    {
+      "est_total_bits": 212737532.5512725,
+      "feature": 14,
+      "feature_name": "sign(NW)",
+      "gain_bits": 616.4513838770217,
+      "leaf": 54,
+      "leaves_after": 135,
+      "new_leaf": 134,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212736924.08823335,
+      "feature": 15,
+      "feature_name": "missing",
+      "gain_bits": 608.4630391891114,
+      "leaf": 76,
+      "leaves_after": 136,
+      "new_leaf": 135,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212736334.76908562,
+      "feature": 11,
+      "feature_name": "lvl(max-min)",
+      "gain_bits": 589.319147698523,
+      "leaf": 77,
+      "leaves_after": 137,
+      "new_leaf": 136,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212735782.68251812,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 552.086567459628,
+      "leaf": 47,
+      "leaves_after": 138,
+      "new_leaf": 137,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212735238.8833472,
+      "feature": 13,
+      "feature_name": "sign(N)",
+      "gain_bits": 543.7991709351772,
+      "leaf": 73,
+      "leaves_after": 139,
+      "new_leaf": 138,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212734698.02340078,
+      "feature": 15,
+      "feature_name": "missing",
+      "gain_bits": 540.8599463618593,
+      "leaf": 6,
+      "leaves_after": 140,
+      "new_leaf": 139,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212734161.59955,
+      "feature": 6,
+      "feature_name": "lvl(mean)",
+      "gain_bits": 536.4238508252893,
+      "leaf": 64,
+      "leaves_after": 141,
+      "new_leaf": 140,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212731398.67700613,
+      "feature": 16,
+      "feature_name": "lvl(|sW+sN-sNW|)",
+      "gain_bits": 2762.922543902532,
+      "leaf": 140,
+      "leaves_after": 142,
+      "new_leaf": 141,
+      "threshold": 18
+    },
+    {
+      "est_total_bits": 212730863.58008602,
+      "feature": 9,
+      "feature_name": "lvl(|W-NW|)",
+      "gain_bits": 535.096920096199,
+      "leaf": 84,
+      "leaves_after": 143,
+      "new_leaf": 142,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212730351.3493263,
+      "feature": 11,
+      "feature_name": "lvl(max-min)",
+      "gain_bits": 512.2307597178733,
+      "leaf": 8,
+      "leaves_after": 144,
+      "new_leaf": 143,
+      "threshold": 18
+    },
+    {
+      "est_total_bits": 212729844.68692765,
+      "feature": 8,
+      "feature_name": "lvl(|N-NW|)",
+      "gain_bits": 506.66239864967065,
+      "leaf": 142,
+      "leaves_after": 145,
+      "new_leaf": 144,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212729373.9573061,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 470.7296215832466,
+      "leaf": 20,
+      "leaves_after": 146,
+      "new_leaf": 145,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212728911.56702927,
+      "feature": 17,
+      "feature_name": "lvl(|sW+sN|)",
+      "gain_bits": 462.3902768220287,
+      "leaf": 124,
+      "leaves_after": 147,
+      "new_leaf": 146,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212728462.83749908,
+      "feature": 7,
+      "feature_name": "lvl(|W-N|)",
+      "gain_bits": 448.7295301569975,
+      "leaf": 53,
+      "leaves_after": 148,
+      "new_leaf": 147,
+      "threshold": 17
+    },
+    {
+      "est_total_bits": 212728020.7579267,
+      "feature": 16,
+      "feature_name": "lvl(|sW+sN-sNW|)",
+      "gain_bits": 442.07957237027586,
+      "leaf": 129,
+      "leaves_after": 149,
+      "new_leaf": 148,
+      "threshold": 19
+    },
+    {
+      "est_total_bits": 212727580.99903718,
+      "feature": 11,
+      "feature_name": "lvl(max-min)",
+      "gain_bits": 439.75888952612877,
+      "leaf": 35,
+      "leaves_after": 150,
+      "new_leaf": 149,
+      "threshold": 5
+    },
+    {
+      "est_total_bits": 212727160.54401964,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 420.45501755876467,
+      "leaf": 55,
+      "leaves_after": 151,
+      "new_leaf": 150,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212726763.87391734,
+      "feature": 16,
+      "feature_name": "lvl(|sW+sN-sNW|)",
+      "gain_bits": 396.6701022729394,
+      "leaf": 117,
+      "leaves_after": 152,
+      "new_leaf": 151,
+      "threshold": 16
+    },
+    {
+      "est_total_bits": 212726370.16022122,
+      "feature": 15,
+      "feature_name": "missing",
+      "gain_bits": 393.71369613474235,
+      "leaf": 12,
+      "leaves_after": 153,
+      "new_leaf": 152,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212725981.2202805,
+      "feature": 5,
+      "feature_name": "lvl(med)",
+      "gain_bits": 388.93994077295065,
+      "leaf": 99,
+      "leaves_after": 154,
+      "new_leaf": 153,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212725596.35231686,
+      "feature": 4,
+      "feature_name": "lvl(min)",
+      "gain_bits": 384.86796360404696,
+      "leaf": 143,
+      "leaves_after": 155,
+      "new_leaf": 154,
+      "threshold": 19
+    },
+    {
+      "est_total_bits": 212725212.0926821,
+      "feature": 5,
+      "feature_name": "lvl(med)",
+      "gain_bits": 384.2596347918734,
+      "leaf": 59,
+      "leaves_after": 156,
+      "new_leaf": 155,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212723536.55096206,
+      "feature": 9,
+      "feature_name": "lvl(|W-NW|)",
+      "gain_bits": 1675.5417200194788,
+      "leaf": 155,
+      "leaves_after": 157,
+      "new_leaf": 156,
+      "threshold": 18
+    },
+    {
+      "est_total_bits": 212723163.54772827,
+      "feature": 13,
+      "feature_name": "sign(N)",
+      "gain_bits": 373.00323378294706,
+      "leaf": 127,
+      "leaves_after": 158,
+      "new_leaf": 157,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212722804.1082763,
+      "feature": 17,
+      "feature_name": "lvl(|sW+sN|)",
+      "gain_bits": 359.43945194623666,
+      "leaf": 85,
+      "leaves_after": 159,
+      "new_leaf": 158,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212722454.15303832,
+      "feature": 7,
+      "feature_name": "lvl(|W-N|)",
+      "gain_bits": 349.95523798977956,
+      "leaf": 123,
+      "leaves_after": 160,
+      "new_leaf": 159,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212722112.71321964,
+      "feature": 17,
+      "feature_name": "lvl(|sW+sN|)",
+      "gain_bits": 341.43981869285926,
+      "leaf": 91,
+      "leaves_after": 161,
+      "new_leaf": 160,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212721783.53575107,
+      "feature": 13,
+      "feature_name": "sign(N)",
+      "gain_bits": 329.1774686300196,
+      "leaf": 150,
+      "leaves_after": 162,
+      "new_leaf": 161,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212721459.17660332,
+      "feature": 4,
+      "feature_name": "lvl(min)",
+      "gain_bits": 324.359147731564,
+      "leaf": 83,
+      "leaves_after": 163,
+      "new_leaf": 162,
+      "threshold": 19
+    },
+    {
+      "est_total_bits": 212721142.2444455,
+      "feature": 14,
+      "feature_name": "sign(NW)",
+      "gain_bits": 316.9321577663068,
+      "leaf": 136,
+      "leaves_after": 164,
+      "new_leaf": 163,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212720831.7346593,
+      "feature": 16,
+      "feature_name": "lvl(|sW+sN-sNW|)",
+      "gain_bits": 310.50978619314265,
+      "leaf": 62,
+      "leaves_after": 165,
+      "new_leaf": 164,
+      "threshold": 19
+    },
+    {
+      "est_total_bits": 212720522.27444902,
+      "feature": 17,
+      "feature_name": "lvl(|sW+sN|)",
+      "gain_bits": 309.46021034615114,
+      "leaf": 37,
+      "leaves_after": 166,
+      "new_leaf": 165,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212720218.89067534,
+      "feature": 8,
+      "feature_name": "lvl(|N-NW|)",
+      "gain_bits": 303.3837736407295,
+      "leaf": 34,
+      "leaves_after": 167,
+      "new_leaf": 166,
+      "threshold": 17
+    },
+    {
+      "est_total_bits": 212719918.5288629,
+      "feature": 13,
+      "feature_name": "sign(N)",
+      "gain_bits": 300.3618124409113,
+      "leaf": 61,
+      "leaves_after": 168,
+      "new_leaf": 167,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212719621.1133629,
+      "feature": 0,
+      "feature_name": "lvl(W)",
+      "gain_bits": 297.41549999197014,
+      "leaf": 56,
+      "leaves_after": 169,
+      "new_leaf": 168,
+      "threshold": 19
+    },
+    {
+      "est_total_bits": 212719343.37931436,
+      "feature": 0,
+      "feature_name": "lvl(W)",
+      "gain_bits": 277.7340485365712,
+      "leaf": 63,
+      "leaves_after": 170,
+      "new_leaf": 169,
+      "threshold": 16
+    },
+    {
+      "est_total_bits": 212719068.6621011,
+      "feature": 16,
+      "feature_name": "lvl(|sW+sN-sNW|)",
+      "gain_bits": 274.7172133066342,
+      "leaf": 104,
+      "leaves_after": 171,
+      "new_leaf": 170,
+      "threshold": 19
+    },
+    {
+      "est_total_bits": 212718804.83645144,
+      "feature": 17,
+      "feature_name": "lvl(|sW+sN|)",
+      "gain_bits": 263.82564963633195,
+      "leaf": 58,
+      "leaves_after": 172,
+      "new_leaf": 171,
+      "threshold": 15
+    },
+    {
+      "est_total_bits": 212717988.63182667,
+      "feature": 3,
+      "feature_name": "lvl(max)",
+      "gain_bits": 816.2046247599646,
+      "leaf": 171,
+      "leaves_after": 173,
+      "new_leaf": 172,
+      "threshold": 17
+    },
+    {
+      "est_total_bits": 212717733.2691755,
+      "feature": 1,
+      "feature_name": "lvl(N)",
+      "gain_bits": 255.36265121982433,
+      "leaf": 21,
+      "leaves_after": 174,
+      "new_leaf": 173,
+      "threshold": 19
+    },
+    {
+      "est_total_bits": 212717491.19153738,
+      "feature": 2,
+      "feature_name": "lvl(NW)",
+      "gain_bits": 242.07763814908685,
+      "leaf": 81,
+      "leaves_after": 175,
+      "new_leaf": 174,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212717255.77175018,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 235.41978717851453,
+      "leaf": 116,
+      "leaves_after": 176,
+      "new_leaf": 175,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212717022.85594437,
+      "feature": 15,
+      "feature_name": "missing",
+      "gain_bits": 232.9158058380708,
+      "leaf": 153,
+      "leaves_after": 177,
+      "new_leaf": 176,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212716799.7895427,
+      "feature": 13,
+      "feature_name": "sign(N)",
+      "gain_bits": 223.06640164833516,
+      "leaf": 108,
+      "leaves_after": 178,
+      "new_leaf": 177,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212716583.54609457,
+      "feature": 17,
+      "feature_name": "lvl(|sW+sN|)",
+      "gain_bits": 216.24344809324248,
+      "leaf": 132,
+      "leaves_after": 179,
+      "new_leaf": 178,
+      "threshold": 17
+    },
+    {
+      "est_total_bits": 212716375.35938776,
+      "feature": 1,
+      "feature_name": "lvl(N)",
+      "gain_bits": 208.18670680490322,
+      "leaf": 111,
+      "leaves_after": 180,
+      "new_leaf": 179,
+      "threshold": 15
+    },
+    {
+      "est_total_bits": 212716169.61873406,
+      "feature": 0,
+      "feature_name": "lvl(W)",
+      "gain_bits": 205.7406536883791,
+      "leaf": 70,
+      "leaves_after": 181,
+      "new_leaf": 180,
+      "threshold": 16
+    },
+    {
+      "est_total_bits": 212715969.23870283,
+      "feature": 7,
+      "feature_name": "lvl(|W-N|)",
+      "gain_bits": 200.38003125158139,
+      "leaf": 34,
+      "leaves_after": 182,
+      "new_leaf": 181,
+      "threshold": 2
+    },
+    {
+      "est_total_bits": 212715770.00231114,
+      "feature": 4,
+      "feature_name": "lvl(min)",
+      "gain_bits": 199.23639172519324,
+      "leaf": 112,
+      "leaves_after": 183,
+      "new_leaf": 182,
+      "threshold": 13
+    },
+    {
+      "est_total_bits": 212715581.92851597,
+      "feature": 10,
+      "feature_name": "lvl(W+N)",
+      "gain_bits": 188.07379514916101,
+      "leaf": 33,
+      "leaves_after": 184,
+      "new_leaf": 183,
+      "threshold": 18
+    },
+    {
+      "est_total_bits": 212714524.32806888,
+      "feature": 14,
+      "feature_name": "sign(NW)",
+      "gain_bits": 1057.600447073346,
+      "leaf": 33,
+      "leaves_after": 185,
+      "new_leaf": 184,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212714342.08359578,
+      "feature": 5,
+      "feature_name": "lvl(med)",
+      "gain_bits": 182.24447314301506,
+      "leaf": 3,
+      "leaves_after": 186,
+      "new_leaf": 185,
+      "threshold": 6
+    },
+    {
+      "est_total_bits": 212712674.43632922,
+      "feature": 16,
+      "feature_name": "lvl(|sW+sN-sNW|)",
+      "gain_bits": 1667.6472665655892,
+      "leaf": 185,
+      "leaves_after": 187,
+      "new_leaf": 186,
+      "threshold": 14
+    },
+    {
+      "est_total_bits": 212712502.80641845,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 171.62991075124592,
+      "leaf": 19,
+      "leaves_after": 188,
+      "new_leaf": 187,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212712332.75650513,
+      "feature": 4,
+      "feature_name": "lvl(min)",
+      "gain_bits": 170.049913340481,
+      "leaf": 48,
+      "leaves_after": 189,
+      "new_leaf": 188,
+      "threshold": 4
+    },
+    {
+      "est_total_bits": 212712162.71421027,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 170.04229488153942,
+      "leaf": 184,
+      "leaves_after": 190,
+      "new_leaf": 189,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212711996.56525257,
+      "feature": 17,
+      "feature_name": "lvl(|sW+sN|)",
+      "gain_bits": 166.1489576222375,
+      "leaf": 67,
+      "leaves_after": 191,
+      "new_leaf": 190,
+      "threshold": 18
+    },
+    {
+      "est_total_bits": 212711846.32114515,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 150.24410747992806,
+      "leaf": 57,
+      "leaves_after": 192,
+      "new_leaf": 191,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212711706.136084,
+      "feature": 8,
+      "feature_name": "lvl(|N-NW|)",
+      "gain_bits": 140.18506114860065,
+      "leaf": 131,
+      "leaves_after": 193,
+      "new_leaf": 192,
+      "threshold": 19
+    },
+    {
+      "est_total_bits": 212711575.11791527,
+      "feature": 13,
+      "feature_name": "sign(N)",
+      "gain_bits": 131.01816872879863,
+      "leaf": 69,
+      "leaves_after": 194,
+      "new_leaf": 193,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212711452.33337852,
+      "feature": 14,
+      "feature_name": "sign(NW)",
+      "gain_bits": 122.78453674074262,
+      "leaf": 72,
+      "leaves_after": 195,
+      "new_leaf": 194,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212711343.58369017,
+      "feature": 8,
+      "feature_name": "lvl(|N-NW|)",
+      "gain_bits": 108.74968835548498,
+      "leaf": 92,
+      "leaves_after": 196,
+      "new_leaf": 195,
+      "threshold": 16
+    },
+    {
+      "est_total_bits": 212711248.0102179,
+      "feature": 6,
+      "feature_name": "lvl(mean)",
+      "gain_bits": 95.57347227976425,
+      "leaf": 69,
+      "leaves_after": 197,
+      "new_leaf": 196,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212711156.79871294,
+      "feature": 9,
+      "feature_name": "lvl(|W-NW|)",
+      "gain_bits": 91.21150495921029,
+      "leaf": 73,
+      "leaves_after": 198,
+      "new_leaf": 197,
+      "threshold": 19
+    },
+    {
+      "est_total_bits": 212711071.01443687,
+      "feature": 17,
+      "feature_name": "lvl(|sW+sN|)",
+      "gain_bits": 85.78427608055063,
+      "leaf": 63,
+      "leaves_after": 199,
+      "new_leaf": 198,
+      "threshold": 20
+    },
+    {
+      "est_total_bits": 212710988.46062532,
+      "feature": 13,
+      "feature_name": "sign(N)",
+      "gain_bits": 82.55381155433133,
+      "leaf": 180,
+      "leaves_after": 200,
+      "new_leaf": 199,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212710914.52669132,
+      "feature": 12,
+      "feature_name": "sign(W)",
+      "gain_bits": 73.93393401661888,
+      "leaf": 165,
+      "leaves_after": 201,
+      "new_leaf": 200,
+      "threshold": 0
+    },
+    {
+      "est_total_bits": 212710848.33507487,
+      "feature": 5,
+      "feature_name": "lvl(med)",
+      "gain_bits": 66.19161643204279,
+      "leaf": 81,
+      "leaves_after": 202,
+      "new_leaf": 201,
+      "threshold": 19
+    },
+    {
+      "est_total_bits": 212710783.067515,
+      "feature": 11,
+      "feature_name": "lvl(max-min)",
+      "gain_bits": 65.26755985757336,
+      "leaf": 102,
+      "leaves_after": 203,
+      "new_leaf": 202,
+      "threshold": 4
+    }
+  ],
+  "train_ids": [
+    "bmpcc4k_person",
+    "canon_sx40_snow",
+    "hasselblad_tallinn",
+    "leica_m8_house",
+    "leica_q_canoe",
+    "lg_h815_mountain",
+    "parrot_anafi_dusk",
+    "pentax_k1ii_station",
+    "pentax_k70_bulb",
+    "pixel6pro_valley",
+    "ricoh_gr3_dunes",
+    "samsung_gx20_berries",
+    "x100s_xtrans_chart"
+  ]
+}

@@ -1,0 +1,4 @@
+pentax_q7_cat: bayer_planes 4064x3000 12b OR128 10533683 B (6.91187 bps) legacy4-ctl 10752399 B | exact=true meta_eq=true resid_eq=true deterministic=true canon_sha_ok=true ctl_exact=true ctx_used=128/128 | enc 22.562s/19.634s dec 31.525s
+pentax_kx_lichen: bayer_planes 4352x2868 12b OR128 12060697 B (7.73026 bps) legacy4-ctl 12152091 B | exact=true meta_eq=true resid_eq=true deterministic=true canon_sha_ok=true ctl_exact=true ctx_used=128/128 | enc 24.939s/11.840s dec 10.358s
+parrot_anafi_dusk: bayer_planes 5344x4016 14b OR128 25655767 B (9.56346 bps) legacy4-ctl 25841668 B | exact=true meta_eq=true resid_eq=true deterministic=true canon_sha_ok=true ctl_exact=true ctx_used=128/128 | enc 40.608s/27.431s dec 18.281s
+ALL_OK=true

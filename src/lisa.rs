@@ -593,7 +593,8 @@ impl Stage1Output {
     }
 }
 
-/// Metadata-aware [`encode`]. `metadata` must be valid and match `width` x `height`; it does not affect the residuals.
+/// Metadata-aware [`encode`] (mosaic Stage 1 only; this is the explicit fallback path). The production entry point is
+/// `lisa_bayer_plane::encode_stage2`, which defaults to per-plane Stage 1 for Bayer layouts. `metadata` must be valid and match `width` x `height`; it does not affect the residuals.
 pub fn encode_with_metadata(
     samples: &[u16],
     width: usize,
@@ -629,6 +630,9 @@ pub fn decode_with_metadata(out: &Stage1Output) -> Result<Vec<u16>, LisaError> {
 pub enum ReconstructionRecord {
     /// Stage 1 structural decorrelation (Morton-order zigzag residuals) at the given bit depth.
     Stage1Decorrelation { bit_depth: u8 },
+    /// Stage 1 per-colour-plane decorrelation (`lisa_bayer_plane`, `BayerCfa` metadata only). Older streams never carry this
+    /// record, so they keep decoding as the mosaic path above.
+    Stage1BayerPlanar { bit_depth: u8 },
     /// Stage 2 organization of the Stage 1 residuals.
     Stage2Organization(Stage2Record),
     /// Stage 3 context classification. Residual values are unchanged; the record only identifies the fixed rule set.
@@ -694,6 +698,11 @@ pub struct Stage2Output {
 }
 
 impl Stage2Output {
+    /// Replaces the Stage 1 record (history[0]); used by `lisa_bayer_plane` to record its mode.
+    pub(crate) fn set_stage1_record(&mut self, record: ReconstructionRecord) {
+        self.history[0] = record;
+    }
+
     pub fn data(&self) -> &OrganizedResiduals {
         &self.data
     }
@@ -876,6 +885,11 @@ pub const STAGE3_RULE_VERSION: u8 = 2;
 /// Legacy Stage 3 rule set (version 1): the four-class activity rule below. Still decodable, no longer produced by
 /// default; select it with [`classify_stage3_with`].
 pub const STAGE3_LEGACY_RULE_VERSION: u8 = 1;
+/// OR-128 learned context tree (rule version 3, `lisa_or128_tree`). Selectable with [`classify_stage3_with`]; not the default.
+pub const STAGE3_OR128_TREE_RULE_VERSION: u8 = 3;
+/// Reduced OR-128 trees (opt-in experiments): the first 63 / 31 splits of the 128-leaf tree.
+pub const STAGE3_OR128_TREE64_RULE_VERSION: u8 = 4;
+pub const STAGE3_OR128_TREE32_RULE_VERSION: u8 = 5;
 /// First score of Moderate, High and VeryHigh respectively (legacy rule).
 pub const STAGE3_THRESHOLDS: [u32; 3] = [3, 12, 48];
 
@@ -887,6 +901,12 @@ pub enum Stage3Rule {
     /// Version 2 (production): OR-128, 128 contexts from the frozen table in `lisa_or128`.
     #[default]
     Or128,
+    /// Version 3 (opt-in): OR-128 with the fixed table replaced by the learned decision tree in `lisa_or128_tree`.
+    Or128Tree,
+    /// Version 4 (opt-in experiment): 64-leaf truncation of the learned tree.
+    Or128Tree64,
+    /// Version 5 (opt-in experiment): 32-leaf truncation of the learned tree.
+    Or128Tree32,
 }
 
 impl Stage3Rule {
@@ -894,6 +914,9 @@ impl Stage3Rule {
         match self {
             Stage3Rule::Legacy4 => STAGE3_LEGACY_RULE_VERSION,
             Stage3Rule::Or128 => STAGE3_RULE_VERSION,
+            Stage3Rule::Or128Tree => STAGE3_OR128_TREE_RULE_VERSION,
+            Stage3Rule::Or128Tree64 => STAGE3_OR128_TREE64_RULE_VERSION,
+            Stage3Rule::Or128Tree32 => STAGE3_OR128_TREE32_RULE_VERSION,
         }
     }
     /// Number of contexts (and Stage 4 models) the rule produces.
@@ -901,6 +924,9 @@ impl Stage3Rule {
         match self {
             Stage3Rule::Legacy4 => ActivityClass::COUNT,
             Stage3Rule::Or128 => crate::lisa_or128::OR128_K,
+            Stage3Rule::Or128Tree => crate::lisa_or128_tree::OR128_TREE_LEAVES,
+            Stage3Rule::Or128Tree64 => crate::lisa_or128_tree_small_data::l64::OR128_TREE_LEAVES,
+            Stage3Rule::Or128Tree32 => crate::lisa_or128_tree_small_data::l32::OR128_TREE_LEAVES,
         }
     }
     /// Context id of one residual from its causal neighbors; always `< context_count()`.
@@ -909,17 +935,20 @@ impl Stage3Rule {
         match self {
             Stage3Rule::Legacy4 => classify_activity(left, above, above_left) as u8,
             Stage3Rule::Or128 => crate::lisa_or128::context(left, above, above_left),
+            Stage3Rule::Or128Tree => crate::lisa_or128_tree::context(left, above, above_left),
+            Stage3Rule::Or128Tree64 => crate::lisa_or128_tree::context64(left, above, above_left),
+            Stage3Rule::Or128Tree32 => crate::lisa_or128_tree::context32(left, above, above_left),
         }
     }
     fn thresholds(self) -> [u32; 3] {
         match self {
             Stage3Rule::Legacy4 => STAGE3_THRESHOLDS,
-            Stage3Rule::Or128 => [0; 3],
+            Stage3Rule::Or128 | Stage3Rule::Or128Tree | Stage3Rule::Or128Tree64 | Stage3Rule::Or128Tree32 => [0; 3],
         }
     }
     /// The rule a record describes, or `None` for an unknown version or a record that disagrees with its own rule.
     fn from_record(r: &Stage3Record) -> Option<Self> {
-        [Stage3Rule::Legacy4, Stage3Rule::Or128].into_iter().find(|k| {
+        [Stage3Rule::Legacy4, Stage3Rule::Or128, Stage3Rule::Or128Tree, Stage3Rule::Or128Tree64, Stage3Rule::Or128Tree32].into_iter().find(|k| {
             k.version() == r.rule_version && k.context_count() == usize::from(r.class_count) && k.thresholds() == r.thresholds
         })
     }
@@ -1384,14 +1413,20 @@ mod or128_stream_tests {
 
     #[test]
     fn valid_streams_decode() {
-        for rule in [Stage3Rule::Legacy4, Stage3Rule::Or128] {
+        for rule in [Stage3Rule::Legacy4, Stage3Rule::Or128, Stage3Rule::Or128Tree] {
             assert!(decode_stage4(&s4_of(rule)).is_ok());
         }
     }
 
     #[test]
     fn rule_cannot_be_reinterpreted() {
-        for (from, to) in [(Stage3Rule::Legacy4, Stage3Rule::Or128), (Stage3Rule::Or128, Stage3Rule::Legacy4)] {
+        for (from, to) in [
+            (Stage3Rule::Legacy4, Stage3Rule::Or128),
+            (Stage3Rule::Or128, Stage3Rule::Legacy4),
+            (Stage3Rule::Or128, Stage3Rule::Or128Tree),
+            (Stage3Rule::Or128Tree, Stage3Rule::Or128),
+            (Stage3Rule::Legacy4, Stage3Rule::Or128Tree),
+        ] {
             // Relabelling only the version is inconsistent with the record's own counts: rejected.
             assert!(decode_stage4(&tamper(s4_of(from), |r3, _| r3.rule_version = to.version())).is_err());
             // A fully consistent relabel is a different valid stream; it must not reproduce the original residuals.
@@ -1409,7 +1444,7 @@ mod or128_stream_tests {
     #[test]
     fn invalid_versions_and_counts_fail_safely() {
         let ok = s4_of(Stage3Rule::Or128);
-        for bad in [0u8, 3, 255] {
+        for bad in [0u8, 6, 255] {
             assert!(decode_stage4(&tamper(ok.clone(), |r3, _| r3.rule_version = bad)).is_err(), "rule {bad}");
         }
         for bad in [0u8, 4, 127, 129, 255] {

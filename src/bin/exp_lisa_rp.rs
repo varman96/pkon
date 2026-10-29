@@ -1,6 +1,7 @@
 //! Experiment runner: reward-penalty estimator vs production Stage 4 estimator (ideal cost only).
 //! Usage: exp_lisa_rp <dataset_manifest.json> <out.json> <id> [<id>...]
 use nanoscope::lisa::*;
+use nanoscope::lisa_bayer_plane::encode_stage2;
 use nanoscope::lisa_rp::compare;
 use serde_json::{json, Value};
 
@@ -27,8 +28,7 @@ fn main() {
         let bytes = std::fs::read(m["canon_path"].as_str().unwrap()).unwrap();
         let samples: Vec<u16> = bytes.chunks_exact(2).map(|c| u16::from_le_bytes([c[0], c[1]])).collect();
         let meta = meta_of(m, w, h);
-        let s1 = encode_with_metadata(&samples, w, h, bd, meta).unwrap();
-        let s2 = organize_stage2(s1).unwrap();
+        let s2 = encode_stage2(&samples, w, h, bd, meta).unwrap();
         let s3 = classify_stage3_with(s2, Stage3Rule::Legacy4).unwrap();
         let (base, cand, n) = compare(&s3, samples.len());
         let (bb, cb) = (base / n as f64, cand / n as f64);

@@ -1,0 +1,210 @@
+[
+  {
+    "id": "dji_fc220_dusk",
+    "or128_table": {
+      "decoded_stage3_equals_encoder_stage3": true,
+      "deterministic": true,
+      "exact": true,
+      "first_encode_s": 2.2684499000000002,
+      "ok": true,
+      "payload_bytes": 14125601,
+      "stage3_best3_s": 0.4932701,
+      "stage4_decode_best3_s": 2.1809852,
+      "stage4_encode_best3_s": 2.0643659
+    },
+    "or128_tree": {
+      "decoded_stage3_equals_encoder_stage3": true,
+      "deterministic": true,
+      "exact": true,
+      "first_encode_s": 3.2705767,
+      "ok": true,
+      "payload_bytes": 14084252,
+      "stage3_best3_s": 1.1072226,
+      "stage4_decode_best3_s": 3.4435248,
+      "stage4_encode_best3_s": 1.7603023
+    },
+    "raw_bytes": 24000000
+  },
+  {
+    "id": "leica_m10_brick",
+    "or128_table": {
+      "decoded_stage3_equals_encoder_stage3": true,
+      "deterministic": true,
+      "exact": true,
+      "first_encode_s": 6.7572076,
+      "ok": true,
+      "payload_bytes": 30922297,
+      "stage3_best3_s": 1.1232365,
+      "stage4_decode_best3_s": 5.3563778,
+      "stage4_encode_best3_s": 4.7297809
+    },
+    "or128_tree": {
+      "decoded_stage3_equals_encoder_stage3": true,
+      "deterministic": true,
+      "exact": true,
+      "first_encode_s": 8.8663974,
+      "ok": true,
+      "payload_bytes": 30878027,
+      "stage3_best3_s": 3.26555,
+      "stage4_decode_best3_s": 8.7391669,
+      "stage4_encode_best3_s": 4.3102523
+    },
+    "raw_bytes": 47776256
+  },
+  {
+    "id": "leica_x2_lowlight",
+    "or128_table": {
+      "decoded_stage3_equals_encoder_stage3": true,
+      "deterministic": true,
+      "exact": true,
+      "first_encode_s": 1.4889162,
+      "ok": true,
+      "payload_bytes": 12100174,
+      "stage3_best3_s": 0.674822,
+      "stage4_decode_best3_s": 2.4543062,
+      "stage4_encode_best3_s": 1.6125571
+    },
+    "or128_tree": {
+      "decoded_stage3_equals_encoder_stage3": true,
+      "deterministic": true,
+      "exact": true,
+      "first_encode_s": 3.9603795,
+      "ok": true,
+      "payload_bytes": 12168636,
+      "stage3_best3_s": 1.3392577,
+      "stage4_decode_best3_s": 4.6504636999999995,
+      "stage4_encode_best3_s": 1.1453985
+    },
+    "raw_bytes": 32353536
+  },
+  {
+    "id": "nikon_d80_piano",
+    "or128_table": {
+      "decoded_stage3_equals_encoder_stage3": true,
+      "deterministic": true,
+      "exact": true,
+      "first_encode_s": 2.0088052,
+      "ok": true,
+      "payload_bytes": 8535478,
+      "stage3_best3_s": 0.2813972,
+      "stage4_decode_best3_s": 1.4240689,
+      "stage4_encode_best3_s": 0.8950196
+    },
+    "or128_tree": {
+      "decoded_stage3_equals_encoder_stage3": true,
+      "deterministic": true,
+      "exact": true,
+      "first_encode_s": 1.997851,
+      "ok": true,
+      "payload_bytes": 8558380,
+      "stage3_best3_s": 1.5807414,
+      "stage4_decode_best3_s": 2.7650456,
+      "stage4_encode_best3_s": 1.5646516
+    },
+    "raw_bytes": 20365800
+  },
+  {
+    "id": "pentax_k30_frog",
+    "or128_table": {
+      "decoded_stage3_equals_encoder_stage3": true,
+      "deterministic": true,
+      "exact": true,
+      "first_encode_s": 1.6958066,
+      "ok": true,
+      "payload_bytes": 15269777,
+      "stage3_best3_s": 0.2977125,
+      "stage4_decode_best3_s": 1.8460744999999998,
+      "stage4_encode_best3_s": 1.3758095
+    },
+    "or128_tree": {
+      "decoded_stage3_equals_encoder_stage3": true,
+      "deterministic": true,
+      "exact": true,
+      "first_encode_s": 2.5885254,
+      "ok": true,
+      "payload_bytes": 15399722,
+      "stage3_best3_s": 1.2746621,
+      "stage4_decode_best3_s": 2.6985837,
+      "stage4_encode_best3_s": 1.2709134
+    },
+    "raw_bytes": 32736000
+  },
+  {
+    "id": "pentax_q7_cat",
+    "or128_table": {
+      "decoded_stage3_equals_encoder_stage3": true,
+      "deterministic": true,
+      "exact": true,
+      "first_encode_s": 1.7333335,
+      "ok": true,
+      "payload_bytes": 10533683,
+      "stage3_best3_s": 0.4919965,
+      "stage4_decode_best3_s": 1.84802,
+      "stage4_encode_best3_s": 1.6498802000000001
+    },
+    "or128_tree": {
+      "decoded_stage3_equals_encoder_stage3": true,
+      "deterministic": true,
+      "exact": true,
+      "first_encode_s": 3.6155615,
+      "ok": true,
+      "payload_bytes": 10539364,
+      "stage3_best3_s": 2.0935071,
+      "stage4_decode_best3_s": 2.6429263,
+      "stage4_encode_best3_s": 1.7586699000000001
+    },
+    "raw_bytes": 24384000
+  },
+  {
+    "id": "ricoh_gr_wood",
+    "or128_table": {
+      "decoded_stage3_equals_encoder_stage3": true,
+      "deterministic": true,
+      "exact": true,
+      "first_encode_s": 2.0714425,
+      "ok": true,
+      "payload_bytes": 13501046,
+      "stage3_best3_s": 0.6741961,
+      "stage4_decode_best3_s": 2.6429781,
+      "stage4_encode_best3_s": 2.5670228
+    },
+    "or128_tree": {
+      "decoded_stage3_equals_encoder_stage3": true,
+      "deterministic": true,
+      "exact": true,
+      "first_encode_s": 2.6642384999999997,
+      "ok": true,
+      "payload_bytes": 13612189,
+      "stage3_best3_s": 1.0849041,
+      "stage4_decode_best3_s": 2.2760735,
+      "stage4_encode_best3_s": 1.0949898
+    },
+    "raw_bytes": 32537600
+  },
+  {
+    "id": "sigma_fp_bike8",
+    "or128_table": {
+      "decoded_stage3_equals_encoder_stage3": true,
+      "deterministic": true,
+      "exact": true,
+      "first_encode_s": 0.5486289,
+      "ok": true,
+      "payload_bytes": 4420890,
+      "stage3_best3_s": 0.1808284,
+      "stage4_decode_best3_s": 0.6205307,
+      "stage4_encode_best3_s": 0.3670441
+    },
+    "or128_tree": {
+      "decoded_stage3_equals_encoder_stage3": true,
+      "deterministic": true,
+      "exact": true,
+      "first_encode_s": 0.9652447,
+      "ok": true,
+      "payload_bytes": 4496981,
+      "stage3_best3_s": 0.5246636,
+      "stage4_decode_best3_s": 0.9165714,
+      "stage4_encode_best3_s": 0.3684852
+    },
+    "raw_bytes": 16735040
+  }
+]

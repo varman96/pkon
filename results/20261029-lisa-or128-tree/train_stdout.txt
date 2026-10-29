@@ -1,0 +1,220 @@
+loaded bmpcc4k_person: 898248 sampled of 8982528
+loaded canon_sx40_snow: 1277856 sampled of 12778560
+loaded hasselblad_tallinn: 2031200 sampled of 20312064
+loaded leica_m8_house: 1034096 sampled of 10340960
+loaded leica_q_canoe: 2457792 sampled of 24577920
+loaded lg_h815_mountain: 1587224 sampled of 15872256
+loaded parrot_anafi_dusk: 2146144 sampled of 21461504
+loaded pentax_k1ii_station: 3659040 sampled of 36590400
+loaded pentax_k70_bulb: 2470912 sampled of 24709120
+loaded pixel6pro_valley: 1253376 sampled of 12533760
+loaded ricoh_gr3_dunes: 2483912 sampled of 24839168
+loaded samsung_gx20_berries: 1525344 sampled of 15253504
+loaded x100s_xtrans_chart: 1626904 sampled of 16269056
+L=  2 split leaf 0 on lvl(max) <= 16 gain 1228088 bits; est total 217009625 bits; 229s
+L=  3 split leaf 0 on lvl(mean) <= 9 gain 811960 bits; est total 216197666 bits; 285s
+L=  4 split leaf 1 on lvl(max) <= 20 gain 587204 bits; est total 215610462 bits; 352s
+L=  5 split leaf 1 on lvl(N) <= 16 gain 384488 bits; est total 215225973 bits; 390s
+L=  6 split leaf 2 on lvl(mean) <= 12 gain 325191 bits; est total 214900783 bits; 423s
+L=  7 split leaf 0 on lvl(mean) <= 5 gain 295801 bits; est total 214604982 bits; 431s
+L=  8 split leaf 3 on lvl(N) <= 20 gain 242053 bits; est total 214362929 bits; 449s
+L=  9 split leaf 3 on lvl(N) <= 17 gain 138293 bits; est total 214224636 bits; 455s
+L= 10 split leaf 4 on lvl(max) <= 18 gain 122227 bits; est total 214102409 bits; 473s
+L= 11 split leaf 7 on lvl(|sW+sN-sNW|) <= 20 gain 112198 bits; est total 213990212 bits; 484s
+L= 12 split leaf 0 on lvl(max) <= 0 gain 106370 bits; est total 213883841 bits; 486s
+L= 13 split leaf 5 on lvl(W+N) <= 16 gain 88197 bits; est total 213795644 bits; 505s
+L= 14 split leaf 1 on lvl(max) <= 18 gain 68949 bits; est total 213726695 bits; 518s
+L= 15 split leaf 10 on lvl(min) <= 20 gain 65504 bits; est total 213661191 bits; 521s
+L= 16 split leaf 7 on lvl(W) <= 19 gain 62656 bits; est total 213598535 bits; 525s
+L= 17 split leaf 3 on lvl(N) <= 0 gain 55926 bits; est total 213542608 bits; 528s
+L= 18 split leaf 9 on lvl(W) <= 16 gain 42727 bits; est total 213499881 bits; 535s
+L= 19 split leaf 16 on lvl(|sW+sN|) <= 20 gain 38049 bits; est total 213461832 bits; 538s
+L= 20 split leaf 15 on lvl(max-min) <= 19 gain 37476 bits; est total 213424356 bits; 539s
+L= 21 split leaf 15 on lvl(|sW+sN-sNW|) <= 19 gain 36863 bits; est total 213387493 bits; 540s
+L= 22 split leaf 8 on lvl(max-min) <= 20 gain 35030 bits; est total 213352463 bits; 542s
+L= 23 split leaf 6 on lvl(max) <= 8 gain 32196 bits; est total 213320268 bits; 548s
+L= 24 split leaf 10 on lvl(med) <= 17 gain 30579 bits; est total 213289689 bits; 549s
+L= 25 split leaf 7 on lvl(|sW+sN|) <= 20 gain 28405 bits; est total 213261284 bits; 552s
+L= 26 split leaf 17 on lvl(|sW+sN|) <= 19 gain 27340 bits; est total 213233944 bits; 557s
+L= 27 split leaf 1 on lvl(min) <= 13 gain 25488 bits; est total 213208456 bits; 564s
+L= 28 split leaf 2 on lvl(|W-NW|) <= 12 gain 24746 bits; est total 213183710 bits; 577s
+L= 29 split leaf 5 on lvl(max-min) <= 14 gain 24450 bits; est total 213159260 bits; 587s
+L= 30 split leaf 4 on lvl(W) <= 14 gain 22701 bits; est total 213136559 bits; 593s
+L= 31 split leaf 23 on lvl(mean) <= 20 gain 20487 bits; est total 213116072 bits; 594s
+L= 32 split leaf 12 on lvl(W) <= 15 gain 17659 bits; est total 213098413 bits; 598s
+L= 33 split leaf 21 on lvl(min) <= 18 gain 15919 bits; est total 213082494 bits; 599s
+L= 34 split leaf 16 on lvl(|sW+sN-sNW|) <= 20 gain 14809 bits; est total 213067685 bits; 602s
+L= 35 split leaf 15 on lvl(min) <= 20 gain 13937 bits; est total 213053747 bits; 603s
+L= 36 split leaf 2 on lvl(max) <= 11 gain 13860 bits; est total 213039887 bits; 617s
+L= 37 split leaf 29 on lvl(|sW+sN|) <= 17 gain 13855 bits; est total 213026032 bits; 619s
+L= 38 split leaf 14 on lvl(|W-NW|) <= 18 gain 13480 bits; est total 213012552 bits; 620s
+L= 39 split leaf 28 on lvl(N) <= 14 gain 12592 bits; est total 212999961 bits; 623s
+L= 40 split leaf 9 on lvl(N) <= 19 gain 12467 bits; est total 212987494 bits; 626s
+L= 41 split leaf 13 on lvl(min) <= 14 gain 12194 bits; est total 212975300 bits; 630s
+L= 42 split leaf 19 on lvl(min) <= 20 gain 9693 bits; est total 212965606 bits; 630s
+L= 43 split leaf 10 on lvl(mean) <= 20 gain 8585 bits; est total 212957022 bits; 631s
+L= 44 split leaf 30 on lvl(|W-N|) <= 20 gain 8297 bits; est total 212948724 bits; 631s
+L= 45 split leaf 11 on lvl(max) <= 5 gain 8137 bits; est total 212940587 bits; 632s
+L= 46 split leaf 5 on lvl(min) <= 13 gain 8065 bits; est total 212932522 bits; 637s
+L= 47 split leaf 21 on lvl(mean) <= 20 gain 6229 bits; est total 212926294 bits; 638s
+L= 48 split leaf 7 on lvl(|sW+sN|) <= 19 gain 5911 bits; est total 212920383 bits; 639s
+L= 49 split leaf 47 on lvl(|W-N|) <= 20 gain 6300 bits; est total 212914083 bits; 640s
+L= 50 split leaf 9 on lvl(med) <= 14 gain 5585 bits; est total 212908498 bits; 641s
+L= 51 split leaf 17 on sign(W) <= 0 gain 5578 bits; est total 212902920 bits; 643s
+L= 52 split leaf 16 on lvl(|sW+sN|) <= 19 gain 5441 bits; est total 212897479 bits; 645s
+L= 53 split leaf 16 on lvl(W+N) <= 17 gain 5433 bits; est total 212892047 bits; 646s
+L= 54 split leaf 20 on lvl(min) <= 20 gain 5418 bits; est total 212886629 bits; 646s
+L= 55 split leaf 14 on lvl(|W-N|) <= 20 gain 5189 bits; est total 212881440 bits; 646s
+L= 56 split leaf 37 on sign(NW) <= 0 gain 4608 bits; est total 212876832 bits; 647s
+L= 57 split leaf 8 on sign(W) <= 0 gain 4570 bits; est total 212872261 bits; 647s
+L= 58 split leaf 43 on lvl(W) <= 20 gain 4560 bits; est total 212867701 bits; 647s
+L= 59 split leaf 26 on sign(W) <= 0 gain 4508 bits; est total 212863193 bits; 649s
+L= 60 split leaf 32 on lvl(min) <= 19 gain 4367 bits; est total 212858826 bits; 649s
+L= 61 split leaf 4 on sign(N) <= 0 gain 4287 bits; est total 212854539 bits; 651s
+L= 62 split leaf 42 on lvl(W) <= 0 gain 3440 bits; est total 212851099 bits; 651s
+L= 63 split leaf 51 on sign(W) <= 0 gain 3246 bits; est total 212847853 bits; 652s
+L= 64 split leaf 10 on lvl(med) <= 9 gain 2961 bits; est total 212844891 bits; 652s
+L= 65 split leaf 18 on sign(W) <= 0 gain 2960 bits; est total 212841931 bits; 652s
+L= 66 split leaf 49 on sign(NW) <= 0 gain 2881 bits; est total 212839051 bits; 653s
+L= 67 split leaf 19 on lvl(|W-NW|) <= 20 gain 2856 bits; est total 212836194 bits; 653s
+L= 68 split leaf 50 on sign(N) <= 0 gain 2824 bits; est total 212833370 bits; 654s
+L= 69 split leaf 17 on lvl(|sW+sN|) <= 18 gain 2773 bits; est total 212830598 bits; 655s
+L= 70 split leaf 24 on lvl(W) <= 16 gain 2523 bits; est total 212828075 bits; 655s
+L= 71 split leaf 48 on sign(W) <= 0 gain 2343 bits; est total 212825732 bits; 656s
+L= 72 split leaf 45 on missing <= 0 gain 2296 bits; est total 212823437 bits; 656s
+L= 73 split leaf 33 on lvl(mean) <= 20 gain 2249 bits; est total 212821188 bits; 656s
+L= 74 split leaf 57 on lvl(|N-NW|) <= 20 gain 2237 bits; est total 212818950 bits; 656s
+L= 75 split leaf 16 on sign(NW) <= 0 gain 2221 bits; est total 212816729 bits; 657s
+L= 76 split leaf 5 on missing <= 0 gain 2192 bits; est total 212814537 bits; 662s
+L= 77 split leaf 2 on lvl(N) <= 4 gain 2011 bits; est total 212812526 bits; 663s
+L= 78 split leaf 41 on sign(W) <= 0 gain 1985 bits; est total 212810540 bits; 663s
+L= 79 split leaf 35 on missing <= 0 gain 1883 bits; est total 212808657 bits; 672s
+L= 80 split leaf 14 on missing <= 0 gain 1830 bits; est total 212806827 bits; 672s
+L= 81 split leaf 40 on sign(W) <= 0 gain 1817 bits; est total 212805010 bits; 673s
+L= 82 split leaf 43 on lvl(min) <= 18 gain 1809 bits; est total 212803201 bits; 673s
+L= 83 split leaf 1 on lvl(max) <= 17 gain 1805 bits; est total 212801396 bits; 677s
+L= 84 split leaf 56 on sign(NW) <= 0 gain 1783 bits; est total 212799613 bits; 677s
+L= 85 split leaf 30 on lvl(NW) <= 16 gain 1773 bits; est total 212797839 bits; 678s
+L= 86 split leaf 37 on sign(N) <= 0 gain 1736 bits; est total 212796104 bits; 678s
+L= 87 split leaf 23 on lvl(|W-N|) <= 20 gain 1681 bits; est total 212794423 bits; 678s
+L= 88 split leaf 52 on lvl(W) <= 19 gain 1663 bits; est total 212792759 bits; 678s
+L= 89 split leaf 87 on sign(W) <= 0 gain 4917 bits; est total 212787842 bits; 679s
+L= 90 split leaf 3 on sign(W) <= 0 gain 1633 bits; est total 212786209 bits; 679s
+L= 91 split leaf 49 on lvl(|W-NW|) <= 17 gain 1609 bits; est total 212784600 bits; 679s
+L= 92 split leaf 43 on lvl(min) <= 6 gain 1608 bits; est total 212782992 bits; 679s
+L= 93 split leaf 34 on sign(W) <= 0 gain 1590 bits; est total 212781402 bits; 680s
+L= 94 split leaf 52 on sign(NW) <= 0 gain 1546 bits; est total 212779856 bits; 680s
+L= 95 split leaf 74 on lvl(mean) <= 18 gain 1481 bits; est total 212778375 bits; 680s
+L= 96 split leaf 25 on sign(W) <= 0 gain 1470 bits; est total 212776905 bits; 680s
+L= 97 split leaf 25 on lvl(min) <= 19 gain 1808 bits; est total 212775097 bits; 681s
+L= 98 split leaf 53 on sign(W) <= 0 gain 1448 bits; est total 212773650 bits; 681s
+L= 99 split leaf 7 on sign(N) <= 0 gain 1421 bits; est total 212772229 bits; 681s
+L=100 split leaf 22 on lvl(N) <= 5 gain 1416 bits; est total 212770813 bits; 686s
+L=101 split leaf 66 on sign(W) <= 0 gain 1363 bits; est total 212769450 bits; 686s
+L=102 split leaf 31 on sign(W) <= 0 gain 1306 bits; est total 212768143 bits; 688s
+L=103 split leaf 101 on lvl(min) <= 15 gain 1425 bits; est total 212766718 bits; 689s
+L=104 split leaf 4 on lvl(NW) <= 16 gain 1306 bits; est total 212765412 bits; 689s
+L=105 split leaf 41 on lvl(|N-NW|) <= 20 gain 1197 bits; est total 212764215 bits; 689s
+L=106 split leaf 13 on lvl(min) <= 13 gain 1196 bits; est total 212763019 bits; 692s
+L=107 split leaf 12 on lvl(|W-N|) <= 15 gain 1151 bits; est total 212761869 bits; 694s
+L=108 split leaf 39 on sign(N) <= 0 gain 1136 bits; est total 212760733 bits; 695s
+L=109 split leaf 84 on lvl(NW) <= 20 gain 1090 bits; est total 212759643 bits; 695s
+L=110 split leaf 18 on lvl(min) <= 15 gain 1030 bits; est total 212758613 bits; 695s
+L=111 split leaf 11 on missing <= 0 gain 1016 bits; est total 212757597 bits; 696s
+L=112 split leaf 62 on lvl(mean) <= 20 gain 1006 bits; est total 212756591 bits; 696s
+L=113 split leaf 4 on lvl(|sW+sN|) <= 16 gain 962 bits; est total 212755629 bits; 697s
+L=114 split leaf 29 on sign(NW) <= 0 gain 905 bits; est total 212754724 bits; 699s
+L=115 split leaf 113 on lvl(|sW+sN|) <= 16 gain 1014 bits; est total 212753711 bits; 700s
+L=116 split leaf 24 on lvl(|W-NW|) <= 20 gain 898 bits; est total 212752813 bits; 700s
+L=117 split leaf 72 on lvl(med) <= 18 gain 883 bits; est total 212751930 bits; 700s
+L=118 split leaf 104 on lvl(|W-NW|) <= 20 gain 882 bits; est total 212751049 bits; 700s
+L=119 split leaf 35 on lvl(med) <= 13 gain 866 bits; est total 212750183 bits; 710s
+L=120 split leaf 91 on sign(N) <= 0 gain 860 bits; est total 212749323 bits; 710s
+L=121 split leaf 0 on missing <= 0 gain 857 bits; est total 212748467 bits; 710s
+L=122 split leaf 94 on sign(W) <= 0 gain 842 bits; est total 212747624 bits; 710s
+L=123 split leaf 15 on sign(NW) <= 0 gain 830 bits; est total 212746794 bits; 710s
+L=124 split leaf 59 on sign(W) <= 0 gain 812 bits; est total 212745982 bits; 711s
+L=125 split leaf 32 on sign(W) <= 0 gain 794 bits; est total 212745188 bits; 711s
+L=126 split leaf 9 on sign(N) <= 0 gain 783 bits; est total 212744405 bits; 711s
+L=127 split leaf 14 on sign(NW) <= 0 gain 722 bits; est total 212743683 bits; 711s
+L=128 split leaf 69 on lvl(|W-NW|) <= 20 gain 718 bits; est total 212742965 bits; 711s
+L=129 split leaf 115 on sign(N) <= 0 gain 635 bits; est total 212742331 bits; 711s
+L=130 split leaf 46 on sign(W) <= 0 gain 625 bits; est total 212741706 bits; 711s
+L=131 split leaf 129 on lvl(|sW+sN|) <= 20 gain 1698 bits; est total 212740007 bits; 711s
+L=132 split leaf 68 on lvl(N) <= 17 gain 621 bits; est total 212739386 bits; 712s
+L=133 split leaf 9 on lvl(min) <= 13 gain 620 bits; est total 212738767 bits; 712s
+L=134 split leaf 7 on lvl(mean) <= 19 gain 618 bits; est total 212738149 bits; 712s
+L=135 split leaf 54 on sign(NW) <= 0 gain 616 bits; est total 212737533 bits; 712s
+L=136 split leaf 76 on missing <= 0 gain 608 bits; est total 212736924 bits; 714s
+L=137 split leaf 77 on lvl(max-min) <= 20 gain 589 bits; est total 212736335 bits; 714s
+L=138 split leaf 47 on sign(W) <= 0 gain 552 bits; est total 212735783 bits; 714s
+L=139 split leaf 73 on sign(N) <= 0 gain 544 bits; est total 212735239 bits; 714s
+L=140 split leaf 6 on missing <= 0 gain 541 bits; est total 212734698 bits; 715s
+L=141 split leaf 64 on lvl(mean) <= 20 gain 536 bits; est total 212734162 bits; 715s
+L=142 split leaf 140 on lvl(|sW+sN-sNW|) <= 18 gain 2763 bits; est total 212731399 bits; 715s
+L=143 split leaf 84 on lvl(|W-NW|) <= 20 gain 535 bits; est total 212730864 bits; 715s
+L=144 split leaf 8 on lvl(max-min) <= 18 gain 512 bits; est total 212730351 bits; 715s
+L=145 split leaf 142 on lvl(|N-NW|) <= 20 gain 507 bits; est total 212729845 bits; 716s
+L=146 split leaf 20 on sign(W) <= 0 gain 471 bits; est total 212729374 bits; 716s
+L=147 split leaf 124 on lvl(|sW+sN|) <= 20 gain 462 bits; est total 212728912 bits; 716s
+L=148 split leaf 53 on lvl(|W-N|) <= 17 gain 449 bits; est total 212728463 bits; 716s
+L=149 split leaf 129 on lvl(|sW+sN-sNW|) <= 19 gain 442 bits; est total 212728021 bits; 716s
+L=150 split leaf 35 on lvl(max-min) <= 5 gain 440 bits; est total 212727581 bits; 726s
+L=151 split leaf 55 on sign(W) <= 0 gain 420 bits; est total 212727161 bits; 726s
+L=152 split leaf 117 on lvl(|sW+sN-sNW|) <= 16 gain 397 bits; est total 212726764 bits; 726s
+L=153 split leaf 12 on missing <= 0 gain 394 bits; est total 212726370 bits; 728s
+L=154 split leaf 99 on lvl(med) <= 0 gain 389 bits; est total 212725981 bits; 731s
+L=155 split leaf 143 on lvl(min) <= 19 gain 385 bits; est total 212725596 bits; 731s
+L=156 split leaf 59 on lvl(med) <= 20 gain 384 bits; est total 212725212 bits; 731s
+L=157 split leaf 155 on lvl(|W-NW|) <= 18 gain 1676 bits; est total 212723537 bits; 731s
+L=158 split leaf 127 on sign(N) <= 0 gain 373 bits; est total 212723164 bits; 731s
+L=159 split leaf 85 on lvl(|sW+sN|) <= 20 gain 359 bits; est total 212722804 bits; 731s
+L=160 split leaf 123 on lvl(|W-N|) <= 20 gain 350 bits; est total 212722454 bits; 731s
+L=161 split leaf 91 on lvl(|sW+sN|) <= 20 gain 341 bits; est total 212722113 bits; 731s
+L=162 split leaf 150 on sign(N) <= 0 gain 329 bits; est total 212721784 bits; 731s
+L=163 split leaf 83 on lvl(min) <= 19 gain 324 bits; est total 212721459 bits; 731s
+L=164 split leaf 136 on sign(NW) <= 0 gain 317 bits; est total 212721142 bits; 731s
+L=165 split leaf 62 on lvl(|sW+sN-sNW|) <= 19 gain 311 bits; est total 212720832 bits; 731s
+L=166 split leaf 37 on lvl(|sW+sN|) <= 20 gain 309 bits; est total 212720522 bits; 731s
+L=167 split leaf 34 on lvl(|N-NW|) <= 17 gain 303 bits; est total 212720219 bits; 731s
+L=168 split leaf 61 on sign(N) <= 0 gain 300 bits; est total 212719919 bits; 731s
+L=169 split leaf 56 on lvl(W) <= 19 gain 297 bits; est total 212719621 bits; 731s
+L=170 split leaf 63 on lvl(W) <= 16 gain 278 bits; est total 212719343 bits; 731s
+L=171 split leaf 104 on lvl(|sW+sN-sNW|) <= 19 gain 275 bits; est total 212719069 bits; 731s
+L=172 split leaf 58 on lvl(|sW+sN|) <= 15 gain 264 bits; est total 212718805 bits; 732s
+L=173 split leaf 171 on lvl(max) <= 17 gain 816 bits; est total 212717989 bits; 733s
+L=174 split leaf 21 on lvl(N) <= 19 gain 255 bits; est total 212717733 bits; 733s
+L=175 split leaf 81 on lvl(NW) <= 20 gain 242 bits; est total 212717491 bits; 733s
+L=176 split leaf 116 on sign(W) <= 0 gain 235 bits; est total 212717256 bits; 733s
+L=177 split leaf 153 on missing <= 0 gain 233 bits; est total 212717023 bits; 735s
+L=178 split leaf 108 on sign(N) <= 0 gain 223 bits; est total 212716800 bits; 735s
+L=179 split leaf 132 on lvl(|sW+sN|) <= 17 gain 216 bits; est total 212716584 bits; 735s
+L=180 split leaf 111 on lvl(N) <= 15 gain 208 bits; est total 212716375 bits; 735s
+L=181 split leaf 70 on lvl(W) <= 16 gain 206 bits; est total 212716170 bits; 736s
+L=182 split leaf 34 on lvl(|W-N|) <= 2 gain 200 bits; est total 212715969 bits; 736s
+L=183 split leaf 112 on lvl(min) <= 13 gain 199 bits; est total 212715770 bits; 736s
+L=184 split leaf 33 on lvl(W+N) <= 18 gain 188 bits; est total 212715582 bits; 736s
+L=185 split leaf 33 on sign(NW) <= 0 gain 1058 bits; est total 212714524 bits; 736s
+L=186 split leaf 3 on lvl(med) <= 6 gain 182 bits; est total 212714342 bits; 736s
+L=187 split leaf 185 on lvl(|sW+sN-sNW|) <= 14 gain 1668 bits; est total 212712674 bits; 736s
+L=188 split leaf 19 on sign(W) <= 0 gain 172 bits; est total 212712503 bits; 736s
+L=189 split leaf 48 on lvl(min) <= 4 gain 170 bits; est total 212712333 bits; 736s
+L=190 split leaf 184 on sign(W) <= 0 gain 170 bits; est total 212712163 bits; 736s
+L=191 split leaf 67 on lvl(|sW+sN|) <= 18 gain 166 bits; est total 212711997 bits; 737s
+L=192 split leaf 57 on sign(W) <= 0 gain 150 bits; est total 212711846 bits; 737s
+L=193 split leaf 131 on lvl(|N-NW|) <= 19 gain 140 bits; est total 212711706 bits; 737s
+L=194 split leaf 69 on sign(N) <= 0 gain 131 bits; est total 212711575 bits; 737s
+L=195 split leaf 72 on sign(NW) <= 0 gain 123 bits; est total 212711452 bits; 737s
+L=196 split leaf 92 on lvl(|N-NW|) <= 16 gain 109 bits; est total 212711344 bits; 737s
+L=197 split leaf 69 on lvl(mean) <= 20 gain 96 bits; est total 212711248 bits; 737s
+L=198 split leaf 73 on lvl(|W-NW|) <= 19 gain 91 bits; est total 212711157 bits; 737s
+L=199 split leaf 63 on lvl(|sW+sN|) <= 20 gain 86 bits; est total 212711071 bits; 737s
+L=200 split leaf 180 on sign(N) <= 0 gain 83 bits; est total 212710988 bits; 737s
+L=201 split leaf 165 on sign(W) <= 0 gain 74 bits; est total 212710915 bits; 737s
+L=202 split leaf 81 on lvl(med) <= 19 gain 66 bits; est total 212710848 bits; 737s
+L=203 split leaf 102 on lvl(max-min) <= 4 gain 65 bits; est total 212710783 bits; 737s
+no positive-gain split left
+
+real	17m4.535s
+user	0m0.015s
+sys	0m0.031s

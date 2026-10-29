@@ -1,0 +1,931 @@
+{
+  "all_exact": true,
+  "baseline_total_bytes": 48250147,
+  "dejavu_payload_total": 48243442,
+  "dejavu_total_incl_meta": 48243730,
+  "k_grid_real_bytes": [
+    {
+      "est_sampled_bits": 38699650.328521624,
+      "k": 128,
+      "meta_bytes_per_stream": 112,
+      "per_image_bytes": [
+        10533683,
+        12060697,
+        25655767
+      ],
+      "total_bytes": 48250147
+    },
+    {
+      "est_sampled_bits": 38650774.38560067,
+      "k": 112,
+      "meta_bytes_per_stream": 112,
+      "per_image_bytes": [
+        10534351,
+        12062953,
+        25649710
+      ],
+      "total_bytes": 48247014
+    },
+    {
+      "est_sampled_bits": 38618435.59495411,
+      "k": 96,
+      "meta_bytes_per_stream": 112,
+      "per_image_bytes": [
+        10538570,
+        12065361,
+        25643466
+      ],
+      "total_bytes": 48247397
+    },
+    {
+      "est_sampled_bits": 38596422.62690774,
+      "k": 80,
+      "meta_bytes_per_stream": 112,
+      "per_image_bytes": [
+        10539926,
+        12066122,
+        25639194
+      ],
+      "total_bytes": 48245242
+    },
+    {
+      "est_sampled_bits": 38580741.382227026,
+      "k": 64,
+      "meta_bytes_per_stream": 96,
+      "per_image_bytes": [
+        10542032,
+        12066736,
+        25634674
+      ],
+      "total_bytes": 48243442
+    },
+    {
+      "est_sampled_bits": 38574658.27214439,
+      "k": 56,
+      "meta_bytes_per_stream": 96,
+      "per_image_bytes": [
+        10543408,
+        12066621,
+        25634023
+      ],
+      "total_bytes": 48244052
+    },
+    {
+      "est_sampled_bits": 38569587.29591749,
+      "k": 48,
+      "meta_bytes_per_stream": 96,
+      "per_image_bytes": [
+        10545790,
+        12066868,
+        25633812
+      ],
+      "total_bytes": 48246470
+    },
+    {
+      "est_sampled_bits": 38565175.89099928,
+      "k": 40,
+      "meta_bytes_per_stream": 96,
+      "per_image_bytes": [
+        10546896,
+        12066971,
+        25634013
+      ],
+      "total_bytes": 48247880
+    },
+    {
+      "est_sampled_bits": 38562332.36240292,
+      "k": 32,
+      "meta_bytes_per_stream": 80,
+      "per_image_bytes": [
+        10548637,
+        12067101,
+        25635712
+      ],
+      "total_bytes": 48251450
+    },
+    {
+      "est_sampled_bits": 38561210.61415275,
+      "k": 28,
+      "meta_bytes_per_stream": 80,
+      "per_image_bytes": [
+        10548726,
+        12067128,
+        25637088
+      ],
+      "total_bytes": 48252942
+    },
+    {
+      "est_sampled_bits": 38560404.28446642,
+      "k": 24,
+      "meta_bytes_per_stream": 80,
+      "per_image_bytes": [
+        10554962,
+        12068453,
+        25639099
+      ],
+      "total_bytes": 48262514
+    },
+    {
+      "est_sampled_bits": 38559868.42328814,
+      "k": 20,
+      "meta_bytes_per_stream": 80,
+      "per_image_bytes": [
+        10558342,
+        12069728,
+        25646326
+      ],
+      "total_bytes": 48274396
+    },
+    {
+      "est_sampled_bits": 38560325.64096358,
+      "k": 16,
+      "meta_bytes_per_stream": 64,
+      "per_image_bytes": [
+        10562667,
+        12070386,
+        25654164
+      ],
+      "total_bytes": 48287217
+    },
+    {
+      "est_sampled_bits": 38564503.14435089,
+      "k": 12,
+      "meta_bytes_per_stream": 64,
+      "per_image_bytes": [
+        10567156,
+        12070505,
+        25668641
+      ],
+      "total_bytes": 48306302
+    },
+    {
+      "est_sampled_bits": 38584731.0356184,
+      "k": 8,
+      "meta_bytes_per_stream": 48,
+      "per_image_bytes": [
+        10599842,
+        12074458,
+        25703654
+      ],
+      "total_bytes": 48377954
+    },
+    {
+      "est_sampled_bits": 38618853.99889513,
+      "k": 6,
+      "meta_bytes_per_stream": 48,
+      "per_image_bytes": [
+        10636489,
+        12077250,
+        25709682
+      ],
+      "total_bytes": 48423421
+    },
+    {
+      "est_sampled_bits": 38662338.860220015,
+      "k": 4,
+      "meta_bytes_per_stream": 32,
+      "per_image_bytes": [
+        10660712,
+        12092786,
+        25770189
+      ],
+      "total_bytes": 48523687
+    },
+    {
+      "est_sampled_bits": 38799160.820412055,
+      "k": 2,
+      "meta_bytes_per_stream": 16,
+      "per_image_bytes": [
+        10785361,
+        12157661,
+        25849948
+      ],
+      "total_bytes": 48792970
+    },
+    {
+      "est_sampled_bits": 38960310.77780421,
+      "k": 1,
+      "meta_bytes_per_stream": 0,
+      "per_image_bytes": [
+        11118445,
+        12166826,
+        25875317
+      ],
+      "total_bytes": 49160588
+    }
+  ],
+  "loo": [
+    {
+      "baseline_bytes": 10533683,
+      "bytes": 10795930,
+      "held_out": "pentax_q7_cat",
+      "k": 13,
+      "tree_secs": 138.0137935
+    },
+    {
+      "baseline_bytes": 12060697,
+      "bytes": 12070118,
+      "held_out": "pentax_kx_lichen",
+      "k": 19,
+      "tree_secs": 80.9200689
+    },
+    {
+      "baseline_bytes": 25655767,
+      "bytes": 25690105,
+      "held_out": "parrot_anafi_dusk",
+      "k": 24,
+      "tree_secs": 36.9643538
+    }
+  ],
+  "loo_total_bytes": 48556153,
+  "map_at_selected_k": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    5,
+    5,
+    5,
+    6,
+    7,
+    7,
+    8,
+    9,
+    10,
+    8,
+    11,
+    12,
+    13,
+    12,
+    14,
+    14,
+    14,
+    15,
+    16,
+    16,
+    16,
+    17,
+    18,
+    16,
+    15,
+    16,
+    19,
+    20,
+    16,
+    15,
+    19,
+    15,
+    15,
+    21,
+    20,
+    15,
+    19,
+    15,
+    20,
+    15,
+    22,
+    15,
+    15,
+    20,
+    19,
+    23,
+    24,
+    20,
+    25,
+    26,
+    15,
+    27,
+    26,
+    15,
+    26,
+    26,
+    20,
+    19,
+    19,
+    28,
+    25,
+    26,
+    26,
+    26,
+    29,
+    26,
+    30,
+    26,
+    19,
+    31,
+    32,
+    25,
+    19,
+    33,
+    33,
+    33,
+    33,
+    33,
+    34,
+    35,
+    25,
+    33,
+    36,
+    37,
+    30,
+    33,
+    38,
+    39,
+    34,
+    33,
+    40,
+    41,
+    42,
+    34,
+    30,
+    43,
+    44,
+    34,
+    45,
+    30,
+    46,
+    47,
+    44,
+    45,
+    48,
+    49,
+    44,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    53,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63
+  ],
+  "merge_order": [
+    [
+      60,
+      67
+    ],
+    [
+      44,
+      53
+    ],
+    [
+      33,
+      129
+    ],
+    [
+      73,
+      128
+    ],
+    [
+      49,
+      130
+    ],
+    [
+      62,
+      132
+    ],
+    [
+      71,
+      131
+    ],
+    [
+      40,
+      133
+    ],
+    [
+      64,
+      74
+    ],
+    [
+      37,
+      41
+    ],
+    [
+      45,
+      137
+    ],
+    [
+      48,
+      138
+    ],
+    [
+      43,
+      139
+    ],
+    [
+      56,
+      140
+    ],
+    [
+      50,
+      136
+    ],
+    [
+      35,
+      141
+    ],
+    [
+      80,
+      81
+    ],
+    [
+      87,
+      144
+    ],
+    [
+      30,
+      143
+    ],
+    [
+      91,
+      145
+    ],
+    [
+      61,
+      134
+    ],
+    [
+      100,
+      105
+    ],
+    [
+      69,
+      148
+    ],
+    [
+      55,
+      150
+    ],
+    [
+      42,
+      142
+    ],
+    [
+      26,
+      29
+    ],
+    [
+      31,
+      153
+    ],
+    [
+      38,
+      146
+    ],
+    [
+      34,
+      154
+    ],
+    [
+      82,
+      147
+    ],
+    [
+      47,
+      155
+    ],
+    [
+      25,
+      156
+    ],
+    [
+      84,
+      94
+    ],
+    [
+      24,
+      159
+    ],
+    [
+      78,
+      152
+    ],
+    [
+      63,
+      162
+    ],
+    [
+      20,
+      22
+    ],
+    [
+      90,
+      149
+    ],
+    [
+      99,
+      160
+    ],
+    [
+      95,
+      157
+    ],
+    [
+      21,
+      164
+    ],
+    [
+      59,
+      158
+    ],
+    [
+      36,
+      163
+    ],
+    [
+      77,
+      86
+    ],
+    [
+      116,
+      120
+    ],
+    [
+      72,
+      165
+    ],
+    [
+      17,
+      19
+    ],
+    [
+      32,
+      170
+    ],
+    [
+      66,
+      171
+    ],
+    [
+      58,
+      151
+    ],
+    [
+      103,
+      166
+    ],
+    [
+      12,
+      15
+    ],
+    [
+      10,
+      11
+    ],
+    [
+      54,
+      176
+    ],
+    [
+      6,
+      8
+    ],
+    [
+      5,
+      182
+    ],
+    [
+      7,
+      183
+    ],
+    [
+      79,
+      167
+    ],
+    [
+      68,
+      177
+    ],
+    [
+      23,
+      169
+    ],
+    [
+      108,
+      112
+    ],
+    [
+      102,
+      188
+    ],
+    [
+      104,
+      109
+    ],
+    [
+      83,
+      185
+    ],
+    [
+      13,
+      179
+    ],
+    [
+      98,
+      190
+    ],
+    [
+      27,
+      187
+    ],
+    [
+      39,
+      194
+    ],
+    [
+      124,
+      125
+    ],
+    [
+      51,
+      175
+    ],
+    [
+      14,
+      174
+    ],
+    [
+      9,
+      192
+    ],
+    [
+      46,
+      186
+    ],
+    [
+      76,
+      178
+    ],
+    [
+      75,
+      201
+    ],
+    [
+      106,
+      113
+    ],
+    [
+      3,
+      184
+    ],
+    [
+      28,
+      197
+    ],
+    [
+      16,
+      198
+    ],
+    [
+      88,
+      193
+    ],
+    [
+      96,
+      207
+    ],
+    [
+      70,
+      205
+    ],
+    [
+      180,
+      204
+    ],
+    [
+      123,
+      126
+    ],
+    [
+      196,
+      211
+    ],
+    [
+      119,
+      212
+    ],
+    [
+      65,
+      202
+    ],
+    [
+      115,
+      121
+    ],
+    [
+      97,
+      191
+    ],
+    [
+      118,
+      203
+    ],
+    [
+      57,
+      214
+    ],
+    [
+      85,
+      173
+    ],
+    [
+      101,
+      219
+    ],
+    [
+      92,
+      218
+    ],
+    [
+      114,
+      208
+    ],
+    [
+      107,
+      117
+    ],
+    [
+      111,
+      220
+    ],
+    [
+      89,
+      224
+    ],
+    [
+      1,
+      210
+    ],
+    [
+      4,
+      226
+    ],
+    [
+      2,
+      227
+    ],
+    [
+      216,
+      221
+    ],
+    [
+      110,
+      229
+    ],
+    [
+      93,
+      217
+    ],
+    [
+      135,
+      209
+    ],
+    [
+      52,
+      225
+    ],
+    [
+      215,
+      223
+    ],
+    [
+      213,
+      231
+    ],
+    [
+      18,
+      233
+    ],
+    [
+      0,
+      228
+    ],
+    [
+      127,
+      235
+    ],
+    [
+      161,
+      168
+    ],
+    [
+      234,
+      238
+    ],
+    [
+      181,
+      222
+    ],
+    [
+      172,
+      241
+    ],
+    [
+      122,
+      240
+    ],
+    [
+      199,
+      206
+    ],
+    [
+      230,
+      242
+    ],
+    [
+      189,
+      243
+    ],
+    [
+      195,
+      200
+    ],
+    [
+      232,
+      247
+    ],
+    [
+      237,
+      244
+    ],
+    [
+      236,
+      246
+    ],
+    [
+      245,
+      250
+    ],
+    [
+      239,
+      248
+    ],
+    [
+      251,
+      252
+    ],
+    [
+      249,
+      253
+    ]
+  ],
+  "notes": "merge cost = adaptive code length on 10% windowed sample; final bytes are real range-coder output; K chosen in-sample on real bytes (optimistic); LOO is the held-out estimate",
+  "per_image": [
+    {
+      "baseline_bytes": 10533683,
+      "dejavu_meta_bytes": 96,
+      "dejavu_payload_bytes": 10542032,
+      "dejavu_total_bytes": 10542128,
+      "deterministic": true,
+      "id": "pentax_q7_cat",
+      "pct_change_incl_meta": 0.08017138924723,
+      "pixels_exact_and_residuals_equal_and_payload_consumed": true,
+      "raw_bytes": 24384000,
+      "stage4_decode_best3_baseline_s": 1.6454279,
+      "stage4_decode_best3_dejavu_s": 1.4579871,
+      "stage4_encode_best3_baseline_s": 1.2140662,
+      "stage4_encode_best3_dejavu_s": 1.1420385
+    },
+    {
+      "baseline_bytes": 12060697,
+      "dejavu_meta_bytes": 96,
+      "dejavu_payload_bytes": 12066736,
+      "dejavu_total_bytes": 12066832,
+      "deterministic": true,
+      "id": "pentax_kx_lichen",
+      "pct_change_incl_meta": 0.05086770689952669,
+      "pixels_exact_and_residuals_equal_and_payload_consumed": true,
+      "raw_bytes": 24963072,
+      "stage4_decode_best3_baseline_s": 3.2221317,
+      "stage4_decode_best3_dejavu_s": 1.5138379,
+      "stage4_encode_best3_baseline_s": 2.7749003,
+      "stage4_encode_best3_dejavu_s": 1.158513
+    },
+    {
+      "baseline_bytes": 25655767,
+      "dejavu_meta_bytes": 96,
+      "dejavu_payload_bytes": 25634674,
+      "dejavu_total_bytes": 25634770,
+      "deterministic": true,
+      "id": "parrot_anafi_dusk",
+      "pct_change_incl_meta": -0.08184124840235896,
+      "pixels_exact_and_residuals_equal_and_payload_consumed": true,
+      "raw_bytes": 42923008,
+      "stage4_decode_best3_baseline_s": 5.4584314,
+      "stage4_decode_best3_dejavu_s": 3.6523745,
+      "stage4_encode_best3_baseline_s": 2.3319494,
+      "stage4_encode_best3_dejavu_s": 2.7999216000000002
+    }
+  ],
+  "selected_k": 64,
+  "tree_build_secs_full": 80.7513424
+}

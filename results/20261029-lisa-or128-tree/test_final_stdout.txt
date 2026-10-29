@@ -1,0 +1,17 @@
+dji_fc220_dusk or128_table: 14125601 B | exact=true det=true ctx+resid_eq=true | first enc 2.27s | best3 stage3 0.493s s4enc 2.064s s4dec 2.181s
+dji_fc220_dusk or128_tree: 14084252 B | exact=true det=true ctx+resid_eq=true | first enc 3.27s | best3 stage3 1.107s s4enc 1.760s s4dec 3.444s
+leica_m10_brick or128_table: 30922297 B | exact=true det=true ctx+resid_eq=true | first enc 6.76s | best3 stage3 1.123s s4enc 4.730s s4dec 5.356s
+leica_m10_brick or128_tree: 30878027 B | exact=true det=true ctx+resid_eq=true | first enc 8.87s | best3 stage3 3.266s s4enc 4.310s s4dec 8.739s
+leica_x2_lowlight or128_table: 12100174 B | exact=true det=true ctx+resid_eq=true | first enc 1.49s | best3 stage3 0.675s s4enc 1.613s s4dec 2.454s
+leica_x2_lowlight or128_tree: 12168636 B | exact=true det=true ctx+resid_eq=true | first enc 3.96s | best3 stage3 1.339s s4enc 1.145s s4dec 4.650s
+nikon_d80_piano or128_table: 8535478 B | exact=true det=true ctx+resid_eq=true | first enc 2.01s | best3 stage3 0.281s s4enc 0.895s s4dec 1.424s
+nikon_d80_piano or128_tree: 8558380 B | exact=true det=true ctx+resid_eq=true | first enc 2.00s | best3 stage3 1.581s s4enc 1.565s s4dec 2.765s
+pentax_k30_frog or128_table: 15269777 B | exact=true det=true ctx+resid_eq=true | first enc 1.70s | best3 stage3 0.298s s4enc 1.376s s4dec 1.846s
+pentax_k30_frog or128_tree: 15399722 B | exact=true det=true ctx+resid_eq=true | first enc 2.59s | best3 stage3 1.275s s4enc 1.271s s4dec 2.699s
+pentax_q7_cat or128_table: 10533683 B | exact=true det=true ctx+resid_eq=true | first enc 1.73s | best3 stage3 0.492s s4enc 1.650s s4dec 1.848s
+pentax_q7_cat or128_tree: 10539364 B | exact=true det=true ctx+resid_eq=true | first enc 3.62s | best3 stage3 2.094s s4enc 1.759s s4dec 2.643s
+ricoh_gr_wood or128_table: 13501046 B | exact=true det=true ctx+resid_eq=true | first enc 2.07s | best3 stage3 0.674s s4enc 2.567s s4dec 2.643s
+ricoh_gr_wood or128_tree: 13612189 B | exact=true det=true ctx+resid_eq=true | first enc 2.66s | best3 stage3 1.085s s4enc 1.095s s4dec 2.276s
+sigma_fp_bike8 or128_table: 4420890 B | exact=true det=true ctx+resid_eq=true | first enc 0.55s | best3 stage3 0.181s s4enc 0.367s s4dec 0.621s
+sigma_fp_bike8 or128_tree: 4496981 B | exact=true det=true ctx+resid_eq=true | first enc 0.97s | best3 stage3 0.525s s4enc 0.368s s4dec 0.917s
+ALL_OK=true

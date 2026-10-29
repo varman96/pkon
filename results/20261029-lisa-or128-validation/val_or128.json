@@ -1,0 +1,182 @@
+[
+  {
+    "bit_depth": 12,
+    "camera": "PENTAX PENTAX Q7",
+    "canon_sha256": "6dbbb396f865c57b3aa057e762dd036567f34c6bfec45c8672ff092e2283c628",
+    "canon_sha256_matches_manifest": true,
+    "cfa": [
+      0,
+      1,
+      1,
+      2
+    ],
+    "cfa_dim": [
+      2,
+      2
+    ],
+    "cfa_origin": [
+      0,
+      0
+    ],
+    "contexts_used": 128,
+    "decoder_consumed_full_payload": true,
+    "deterministic_payload": true,
+    "dng_compression": "NONE",
+    "first_mismatch": null,
+    "height": 3000,
+    "id": "pentax_q7_cat",
+    "layout": "BayerCfa",
+    "legacy4_counted_payload_bytes": 10752399,
+    "legacy4_ctl_exact": true,
+    "max_context_id": 127,
+    "metadata_equal": true,
+    "or128_bps": 6.911865485564304,
+    "or128_payload_bytes": 10533683,
+    "pixels_exact": true,
+    "samples": 12192000,
+    "stage2_mode": "bayer_planes",
+    "stage3_record": {
+      "class_count": 128,
+      "rule_version": 2
+    },
+    "stage3_residuals_and_contexts_equal": true,
+    "stage4_record": {
+      "coding_version": 1,
+      "model_count": 128,
+      "residual_count": 12192000
+    },
+    "time_s": {
+      "decode_restore": 9.249367,
+      "decode_stage4": 1.2287238,
+      "decode_total": 10.4780908,
+      "encode_legacy4_ctl": 10.8146196,
+      "encode_run1": 11.5776745,
+      "encode_run2": 10.656152,
+      "stage4_decode_best3_legacy4": 1.0749948,
+      "stage4_decode_best3_or128": 1.3103122,
+      "stage4_encode_best3_legacy4": 0.9093875,
+      "stage4_encode_best3_or128": 0.9067644
+    },
+    "width": 4064
+  },
+  {
+    "bit_depth": 12,
+    "camera": "PENTAX PENTAX K-x",
+    "canon_sha256": "d759e7b57a563bbcbc2b591bb0ec6ea448d337f9386c18368b5b428339777bb1",
+    "canon_sha256_matches_manifest": true,
+    "cfa": [
+      2,
+      1,
+      1,
+      0
+    ],
+    "cfa_dim": [
+      2,
+      2
+    ],
+    "cfa_origin": [
+      0,
+      0
+    ],
+    "contexts_used": 128,
+    "decoder_consumed_full_payload": true,
+    "deterministic_payload": true,
+    "dng_compression": "JPEG",
+    "first_mismatch": null,
+    "height": 2868,
+    "id": "pentax_kx_lichen",
+    "layout": "BayerCfa",
+    "legacy4_counted_payload_bytes": 12152091,
+    "legacy4_ctl_exact": true,
+    "max_context_id": 127,
+    "metadata_equal": true,
+    "or128_bps": 7.730264608458446,
+    "or128_payload_bytes": 12060697,
+    "pixels_exact": true,
+    "samples": 12481536,
+    "stage2_mode": "bayer_planes",
+    "stage3_record": {
+      "class_count": 128,
+      "rule_version": 2
+    },
+    "stage3_residuals_and_contexts_equal": true,
+    "stage4_record": {
+      "coding_version": 1,
+      "model_count": 128,
+      "residual_count": 12481536
+    },
+    "time_s": {
+      "decode_restore": 7.6320781,
+      "decode_stage4": 1.3387431,
+      "decode_total": 8.9708212,
+      "encode_legacy4_ctl": 9.1240662,
+      "encode_run1": 9.0123507,
+      "encode_run2": 9.1082312,
+      "stage4_decode_best3_legacy4": 1.2474019,
+      "stage4_decode_best3_or128": 1.4156847,
+      "stage4_encode_best3_legacy4": 1.1089453,
+      "stage4_encode_best3_or128": 1.0320564
+    },
+    "width": 4352
+  },
+  {
+    "bit_depth": 14,
+    "camera": "None None",
+    "canon_sha256": "1f05c5bb5d37b9396ce9b70a844cf1da6f4444f24a8667b392bc914a74a46dae",
+    "canon_sha256_matches_manifest": true,
+    "cfa": [
+      2,
+      1,
+      1,
+      0
+    ],
+    "cfa_dim": [
+      2,
+      2
+    ],
+    "cfa_origin": [
+      0,
+      0
+    ],
+    "contexts_used": 128,
+    "decoder_consumed_full_payload": true,
+    "deterministic_payload": true,
+    "dng_compression": "NONE",
+    "first_mismatch": null,
+    "height": 4016,
+    "id": "parrot_anafi_dusk",
+    "layout": "BayerCfa",
+    "legacy4_counted_payload_bytes": 25841668,
+    "legacy4_ctl_exact": true,
+    "max_context_id": 127,
+    "metadata_equal": true,
+    "or128_bps": 9.56345538504664,
+    "or128_payload_bytes": 25655767,
+    "pixels_exact": true,
+    "samples": 21461504,
+    "stage2_mode": "bayer_planes",
+    "stage3_record": {
+      "class_count": 128,
+      "rule_version": 2
+    },
+    "stage3_residuals_and_contexts_equal": true,
+    "stage4_record": {
+      "coding_version": 1,
+      "model_count": 128,
+      "residual_count": 21461504
+    },
+    "time_s": {
+      "decode_restore": 13.0005672,
+      "decode_stage4": 2.7202063,
+      "decode_total": 15.7207735,
+      "encode_legacy4_ctl": 16.0167141,
+      "encode_run1": 15.4667435,
+      "encode_run2": 15.4339971,
+      "stage4_decode_best3_legacy4": 2.575791,
+      "stage4_decode_best3_or128": 2.6834019,
+      "stage4_encode_best3_legacy4": 2.0703888,
+      "stage4_encode_best3_or128": 2.0850867
+    },
+    "width": 5344
+  }
+]

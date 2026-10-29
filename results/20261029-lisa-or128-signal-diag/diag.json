@@ -1,0 +1,571 @@
+{
+  "occupancy_pooled": [
+    {
+      "below_threshold": [
+        {
+          "leaves": 0,
+          "pct_leaves": 0.0,
+          "pct_visits": 0.0,
+          "visits_in_those_leaves": 0,
+          "visits_lt": 1
+        },
+        {
+          "leaves": 0,
+          "pct_leaves": 0.0,
+          "pct_visits": 0.0,
+          "visits_in_those_leaves": 0,
+          "visits_lt": 10
+        },
+        {
+          "leaves": 0,
+          "pct_leaves": 0.0,
+          "pct_visits": 0.0,
+          "visits_in_those_leaves": 0,
+          "visits_lt": 100
+        },
+        {
+          "leaves": 0,
+          "pct_leaves": 0.0,
+          "pct_visits": 0.0,
+          "visits_in_those_leaves": 0,
+          "visits_lt": 1000
+        },
+        {
+          "leaves": 2,
+          "pct_leaves": 1.5625,
+          "pct_visits": 0.007243146595299868,
+          "visits_in_those_leaves": 17711,
+          "visits_lt": 10000
+        },
+        {
+          "leaves": 12,
+          "pct_leaves": 9.375,
+          "pct_visits": 0.14295961734134682,
+          "visits_in_those_leaves": 349566,
+          "visits_lt": 100000
+        },
+        {
+          "leaves": 78,
+          "pct_leaves": 60.9375,
+          "pct_visits": 12.539480894876837,
+          "visits_in_those_leaves": 30661639,
+          "visits_lt": 1000000
+        }
+      ],
+      "bottom50_leaves_visits": 18861633,
+      "bottom50_share": 0.07713713107432987,
+      "empty_leaves": 0,
+      "leaves": 128,
+      "max": 34329700,
+      "mean": 1910318.75,
+      "median": 692744,
+      "min": 8835,
+      "p10": 116994,
+      "p25": 267698,
+      "p75": 1530892,
+      "p90": 4361937,
+      "split": "train",
+      "top10_share": 0.4828675351953699,
+      "total_visits": 244520800
+    },
+    {
+      "below_threshold": [
+        {
+          "leaves": 0,
+          "pct_leaves": 0.0,
+          "pct_visits": 0.0,
+          "visits_in_those_leaves": 0,
+          "visits_lt": 1
+        },
+        {
+          "leaves": 0,
+          "pct_leaves": 0.0,
+          "pct_visits": 0.0,
+          "visits_in_those_leaves": 0,
+          "visits_lt": 10
+        },
+        {
+          "leaves": 0,
+          "pct_leaves": 0.0,
+          "pct_visits": 0.0,
+          "visits_in_those_leaves": 0,
+          "visits_lt": 100
+        },
+        {
+          "leaves": 2,
+          "pct_leaves": 1.5625,
+          "pct_visits": 0.0023333613211746155,
+          "visits_in_those_leaves": 1743,
+          "visits_lt": 1000
+        },
+        {
+          "leaves": 16,
+          "pct_leaves": 12.5,
+          "pct_visits": 0.11329988643505015,
+          "visits_in_those_leaves": 84634,
+          "visits_lt": 10000
+        },
+        {
+          "leaves": 61,
+          "pct_leaves": 47.65625,
+          "pct_visits": 2.9547489619152594,
+          "visits_in_those_leaves": 2207171,
+          "visits_lt": 100000
+        },
+        {
+          "leaves": 110,
+          "pct_leaves": 85.9375,
+          "pct_visits": 25.40781881399809,
+          "visits_in_those_leaves": 18979413,
+          "visits_lt": 1000000
+        }
+      ],
+      "bottom50_leaves_visits": 2528090,
+      "bottom50_share": 0.03384364556768981,
+      "empty_leaves": 0,
+      "leaves": 128,
+      "max": 15047357,
+      "mean": 583586.75,
+      "median": 121549,
+      "min": 827,
+      "p10": 7435,
+      "p25": 30970,
+      "p75": 422109,
+      "p90": 1341519,
+      "split": "val",
+      "top10_share": 0.6053352661365256,
+      "total_visits": 74699104
+    },
+    {
+      "below_threshold": [
+        {
+          "leaves": 0,
+          "pct_leaves": 0.0,
+          "pct_visits": 0.0,
+          "visits_in_those_leaves": 0,
+          "visits_lt": 1
+        },
+        {
+          "leaves": 0,
+          "pct_leaves": 0.0,
+          "pct_visits": 0.0,
+          "visits_in_those_leaves": 0,
+          "visits_lt": 10
+        },
+        {
+          "leaves": 0,
+          "pct_leaves": 0.0,
+          "pct_visits": 0.0,
+          "visits_in_those_leaves": 0,
+          "visits_lt": 100
+        },
+        {
+          "leaves": 0,
+          "pct_leaves": 0.0,
+          "pct_visits": 0.0,
+          "visits_in_those_leaves": 0,
+          "visits_lt": 1000
+        },
+        {
+          "leaves": 8,
+          "pct_leaves": 6.25,
+          "pct_visits": 0.049358080753115215,
+          "visits_in_those_leaves": 56981,
+          "visits_lt": 10000
+        },
+        {
+          "leaves": 44,
+          "pct_leaves": 34.375,
+          "pct_visits": 1.7958013555233945,
+          "visits_in_those_leaves": 2073147,
+          "visits_lt": 100000
+        },
+        {
+          "leaves": 107,
+          "pct_leaves": 83.59375,
+          "pct_visits": 20.734977952449306,
+          "visits_in_those_leaves": 23937312,
+          "visits_lt": 1000000
+        }
+      ],
+      "bottom50_leaves_visits": 4809047,
+      "bottom50_share": 0.041656926022977214,
+      "empty_leaves": 0,
+      "leaves": 128,
+      "max": 14196082,
+      "mean": 901907.15625,
+      "median": 198572,
+      "min": 4666,
+      "p10": 36206,
+      "p25": 69580,
+      "p75": 515307,
+      "p90": 1789895,
+      "split": "test",
+      "top10_share": 0.6468000586534873,
+      "total_visits": 115444116
+    }
+  ],
+  "out_of_sample_fit_on_train": [
+    {
+      "bits_per_residual_order0": 9.946368400821674,
+      "bits_per_residual_tree": 9.175770514502457,
+      "fit": "train pooled, add-1/2 smoothing",
+      "gain_bits": 188427211.64108396,
+      "n": 244520800,
+      "signaling_ratio_modelled": 0.1741307573725193,
+      "signaling_ratio_total": 0.0774753010611951,
+      "split": "train"
+    },
+    {
+      "bits_per_residual_order0": 9.823034823199857,
+      "bits_per_residual_tree": 8.914146322840976,
+      "fit": "train pooled, add-1/2 smoothing",
+      "gain_bits": 67893156.61271212,
+      "n": 74699104,
+      "signaling_ratio_modelled": 0.20368557642103705,
+      "signaling_ratio_total": 0.09252624231895074,
+      "split": "val"
+    },
+    {
+      "bits_per_residual_order0": 8.916894398488333,
+      "bits_per_residual_tree": 7.955525138067786,
+      "fit": "train pooled, add-1/2 smoothing",
+      "gain_bits": 110984424.41882384,
+      "n": 115444116,
+      "signaling_ratio_modelled": 0.2095915544417817,
+      "signaling_ratio_total": 0.10781435973757034,
+      "split": "test"
+    }
+  ],
+  "per_image": [
+    {
+      "bayer": true,
+      "bottom50_share": 0.000737765582250342,
+      "h_med_plane": 7.017729343335544,
+      "h_med_raster": 10.103051619743294,
+      "h_stage1_order0": 9.525474089304403,
+      "h_tree": 8.69412455896389,
+      "id": "bmpcc4k_person",
+      "n": 8982528,
+      "split": "train"
+    },
+    {
+      "bayer": true,
+      "bottom50_share": 0.0004793967395387274,
+      "h_med_plane": 7.808595571223793,
+      "h_med_raster": 10.264932268754537,
+      "h_stage1_order0": 8.7151507109494,
+      "h_tree": 8.296180689888905,
+      "id": "canon_sx40_snow",
+      "n": 12778560,
+      "split": "train"
+    },
+    {
+      "bayer": true,
+      "bottom50_share": 0.14032025499722725,
+      "h_med_plane": 10.335310676791227,
+      "h_med_raster": 14.41475038142306,
+      "h_stage1_order0": 12.405611151987191,
+      "h_tree": 11.876310827212388,
+      "id": "hasselblad_tallinn",
+      "n": 20312064,
+      "split": "train"
+    },
+    {
+      "bayer": true,
+      "bottom50_share": 0.0,
+      "h_med_plane": 4.540598204213148,
+      "h_med_raster": 6.797342856678509,
+      "h_stage1_order0": 5.29031062187055,
+      "h_tree": 4.980520900471953,
+      "id": "leica_m8_house",
+      "n": 10340960,
+      "split": "train"
+    },
+    {
+      "bayer": true,
+      "bottom50_share": 0.08745805177980887,
+      "h_med_plane": 9.583180057514818,
+      "h_med_raster": 11.951114289252992,
+      "h_stage1_order0": 10.573500780807263,
+      "h_tree": 9.977297223768963,
+      "id": "leica_q_canoe",
+      "n": 24577920,
+      "split": "train"
+    },
+    {
+      "bayer": true,
+      "bottom50_share": 0.0,
+      "h_med_plane": 5.0963769476517005,
+      "h_med_raster": 8.454128187478416,
+      "h_stage1_order0": 6.6280358468192135,
+      "h_tree": 6.217967960895809,
+      "id": "lg_h815_mountain",
+      "n": 15872256,
+      "split": "train"
+    },
+    {
+      "bayer": true,
+      "bottom50_share": 0.07557233640289143,
+      "h_med_plane": 8.389305994501822,
+      "h_med_raster": 11.596764187566047,
+      "h_stage1_order0": 10.202866516037037,
+      "h_tree": 9.69400172526792,
+      "id": "parrot_anafi_dusk",
+      "n": 21461504,
+      "split": "train"
+    },
+    {
+      "bayer": true,
+      "bottom50_share": 0.08544987209759937,
+      "h_med_plane": 8.163393141287365,
+      "h_med_raster": 12.914675547286253,
+      "h_stage1_order0": 10.90756870491876,
+      "h_tree": 9.954961585897287,
+      "id": "pentax_k1ii_station",
+      "n": 36590400,
+      "split": "train"
+    },
+    {
+      "bayer": true,
+      "bottom50_share": 0.0018513407195399918,
+      "h_med_plane": 6.67910439670236,
+      "h_med_raster": 8.918993578803088,
+      "h_stage1_order0": 8.352657967247115,
+      "h_tree": 8.018679758123074,
+      "id": "pentax_k70_bulb",
+      "n": 24709120,
+      "split": "train"
+    },
+    {
+      "bayer": true,
+      "bottom50_share": 0.018759813495710785,
+      "h_med_plane": 7.562535540611476,
+      "h_med_raster": 11.521825723256276,
+      "h_stage1_order0": 8.580108172685824,
+      "h_tree": 8.13231781394221,
+      "id": "pixel6pro_valley",
+      "n": 12533760,
+      "split": "train"
+    },
+    {
+      "bayer": true,
+      "bottom50_share": 0.05553016107463825,
+      "h_med_plane": 9.063047221278218,
+      "h_med_raster": 12.347315176025042,
+      "h_stage1_order0": 10.260634132937737,
+      "h_tree": 9.824251263286019,
+      "id": "ricoh_gr3_dunes",
+      "n": 24839168,
+      "split": "train"
+    },
+    {
+      "bayer": true,
+      "bottom50_share": 0.000016651911587003223,
+      "h_med_plane": 6.2748644816787005,
+      "h_med_raster": 9.683281022323143,
+      "h_stage1_order0": 8.043669251613704,
+      "h_tree": 7.629647782374896,
+      "id": "samsung_gx20_berries",
+      "n": 15253504,
+      "split": "train"
+    },
+    {
+      "bayer": false,
+      "bottom50_share": 0.0316484865501723,
+      "h_med_plane": 10.295989791496591,
+      "h_med_raster": 10.295989791496591,
+      "h_stage1_order0": 10.24294463070685,
+      "h_tree": 9.771521218929552,
+      "id": "x100s_xtrans_chart",
+      "n": 16269056,
+      "split": "train"
+    },
+    {
+      "bayer": true,
+      "bottom50_share": 0.04973313445564149,
+      "h_med_plane": 8.389829593661956,
+      "h_med_raster": 13.21633140483318,
+      "h_stage1_order0": 11.713800251959022,
+      "h_tree": 10.26756101726122,
+      "id": "leica_cl_chateau",
+      "n": 24577920,
+      "split": "val"
+    },
+    {
+      "bayer": true,
+      "bottom50_share": 0.0,
+      "h_med_plane": 5.073320367544258,
+      "h_med_raster": 8.506607305324499,
+      "h_stage1_order0": 6.703647505951344,
+      "h_tree": 6.30407363204594,
+      "id": "nexus6_courtyard",
+      "n": 13128960,
+      "split": "val"
+    },
+    {
+      "bayer": true,
+      "bottom50_share": 0.0029606131809418327,
+      "h_med_plane": 7.418262943896557,
+      "h_med_raster": 9.767122028446446,
+      "h_stage1_order0": 7.822559688968433,
+      "h_tree": 7.75398033447532,
+      "id": "pentax_kx_lichen",
+      "n": 12481536,
+      "split": "val"
+    },
+    {
+      "bayer": true,
+      "bottom50_share": 0.012416991314156502,
+      "h_med_plane": 8.010771533841663,
+      "h_med_raster": 11.470258197192889,
+      "h_stage1_order0": 9.013114975797357,
+      "h_tree": 8.728561066055644,
+      "id": "sigma_fp_bike14",
+      "n": 24510688,
+      "split": "val"
+    },
+    {
+      "bayer": true,
+      "bottom50_share": 0.04931575,
+      "h_med_plane": 8.093712387438503,
+      "h_med_raster": 12.366668786114882,
+      "h_stage1_order0": 10.019628356445407,
+      "h_tree": 9.595680104280829,
+      "id": "dji_fc220_dusk",
+      "n": 12000000,
+      "split": "test"
+    },
+    {
+      "bayer": true,
+      "bottom50_share": 0.10238253077009635,
+      "h_med_plane": 9.830797183600968,
+      "h_med_raster": 12.890914443896557,
+      "h_stage1_order0": 11.096902556054944,
+      "h_tree": 10.472909157816146,
+      "id": "leica_m10_brick",
+      "n": 23888128,
+      "split": "test"
+    },
+    {
+      "bayer": true,
+      "bottom50_share": 0.0042922665392741,
+      "h_med_plane": 4.733749674333663,
+      "h_med_raster": 9.692893063080502,
+      "h_stage1_order0": 6.9690726917658825,
+      "h_tree": 6.33541775566424,
+      "id": "leica_x2_lowlight",
+      "n": 16176768,
+      "split": "test"
+    },
+    {
+      "bayer": true,
+      "bottom50_share": 0.0,
+      "h_med_plane": 6.011647916543914,
+      "h_med_raster": 8.14754898255887,
+      "h_stage1_order0": 6.993023557359229,
+      "h_tree": 6.831822702068197,
+      "id": "nikon_d80_piano",
+      "n": 10182900,
+      "split": "test"
+    },
+    {
+      "bayer": true,
+      "bottom50_share": 0.009445869990224828,
+      "h_med_plane": 6.173190237102185,
+      "h_med_raster": 10.5384494677208,
+      "h_stage1_order0": 8.455402987328519,
+      "h_tree": 7.840261332304546,
+      "id": "pentax_k30_frog",
+      "n": 16368000,
+      "split": "test"
+    },
+    {
+      "bayer": true,
+      "bottom50_share": 0.005755249343832021,
+      "h_med_plane": 6.448914318388377,
+      "h_med_raster": 9.096030650435731,
+      "h_stage1_order0": 7.551906738907908,
+      "h_tree": 6.996471086880174,
+      "id": "pentax_q7_cat",
+      "n": 12192000,
+      "split": "test"
+    },
+    {
+      "bayer": true,
+      "bottom50_share": 3.8109756097560976e-6,
+      "h_med_plane": 5.62925966627791,
+      "h_med_raster": 9.795804603879676,
+      "h_stage1_order0": 7.407608230407676,
+      "h_tree": 6.883018579939234,
+      "id": "ricoh_gr_wood",
+      "n": 16268800,
+      "split": "test"
+    },
+    {
+      "bayer": true,
+      "bottom50_share": 0.0,
+      "h_med_plane": 2.916649468238426,
+      "h_med_raster": 6.9921569176412595,
+      "h_stage1_order0": 5.247446893752519,
+      "h_tree": 4.48380141887774,
+      "id": "sigma_fp_bike8",
+      "n": 8367520,
+      "split": "test"
+    }
+  ],
+  "per_split": [
+    {
+      "bottom50_share_per_image": {
+        "max": 0.14032025499722725,
+        "min": 0.0
+      },
+      "h_med_plane": 8.028109778766053,
+      "h_med_raster": 11.12814312744298,
+      "h_stage1_order0": 9.58981286374451,
+      "h_tree": 9.048326543539195,
+      "images": 13,
+      "n": 244520800,
+      "signaling_ratio_modelled": 0.13308117474038456,
+      "signaling_ratio_total": 0.0564647431497305,
+      "split": "train",
+      "tree_minus_med_plane": 1.0202167647731435,
+      "tree_minus_med_raster": -2.079816583903784
+    },
+    {
+      "bottom50_share_per_image": {
+        "max": 0.04973313445564149,
+        "min": 0.0
+      },
+      "h_med_plane": 7.5202082535864845,
+      "h_med_raster": 11.23929743754457,
+      "h_stage1_order0": 9.296871551474949,
+      "h_tree": 8.645965090781193,
+      "images": 4,
+      "n": 74699104,
+      "signaling_ratio_modelled": 0.16537047194131113,
+      "signaling_ratio_total": 0.07001349401137955,
+      "split": "val",
+      "tree_minus_med_plane": 1.1257568371947084,
+      "tree_minus_med_raster": -2.5933323467633773
+    },
+    {
+      "bottom50_share_per_image": {
+        "max": 0.10238253077009635,
+        "min": 0.0
+      },
+      "h_med_plane": 6.63014331126416,
+      "h_med_raster": 10.371861169085964,
+      "h_stage1_order0": 8.351729223693003,
+      "h_tree": 7.8003787568975165,
+      "images": 8,
+      "n": 115444116,
+      "signaling_ratio_modelled": 0.1370937102427803,
+      "signaling_ratio_total": 0.06601632452730398,
+      "split": "test",
+      "tree_minus_med_plane": 1.1702354456333568,
+      "tree_minus_med_raster": -2.5714824121884465
+    }
+  ],
+  "representation": "bits/residual = H(s|ctx) + mean(max(e-2,0)); s=(e,m1) of zigzag(v)+1; static plug-in entropy per image"
+}

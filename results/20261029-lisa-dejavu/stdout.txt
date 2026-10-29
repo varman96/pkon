@@ -1,0 +1,32 @@
+loaded pentax_q7_cat: production OR-128 10533683 B
+loaded pentax_kx_lichen: production OR-128 12060697 B
+loaded parrot_anafi_dusk: production OR-128 25655767 B
+GATE local coder == production payload (identity map): true
+LOO hold-out pentax_q7_cat: tree 138.0s, K(train-est)=13 -> 10795930 B vs base 10533683 B (+2.490%)
+LOO hold-out pentax_kx_lichen: tree 80.9s, K(train-est)=19 -> 12070118 B vs base 12060697 B (+0.078%)
+LOO hold-out parrot_anafi_dusk: tree 37.0s, K(train-est)=24 -> 25690105 B vs base 25655767 B (+0.134%)
+full tree built in 80.8s
+K=128: real total 48250147 B  (+meta 112 B/stream)  per-image [10533683, 12060697, 25655767]
+K=112: real total 48247014 B  (+meta 112 B/stream)  per-image [10534351, 12062953, 25649710]
+K= 96: real total 48247397 B  (+meta 112 B/stream)  per-image [10538570, 12065361, 25643466]
+K= 80: real total 48245242 B  (+meta 112 B/stream)  per-image [10539926, 12066122, 25639194]
+K= 64: real total 48243442 B  (+meta 96 B/stream)  per-image [10542032, 12066736, 25634674]
+K= 56: real total 48244052 B  (+meta 96 B/stream)  per-image [10543408, 12066621, 25634023]
+K= 48: real total 48246470 B  (+meta 96 B/stream)  per-image [10545790, 12066868, 25633812]
+K= 40: real total 48247880 B  (+meta 96 B/stream)  per-image [10546896, 12066971, 25634013]
+K= 32: real total 48251450 B  (+meta 80 B/stream)  per-image [10548637, 12067101, 25635712]
+K= 28: real total 48252942 B  (+meta 80 B/stream)  per-image [10548726, 12067128, 25637088]
+K= 24: real total 48262514 B  (+meta 80 B/stream)  per-image [10554962, 12068453, 25639099]
+K= 20: real total 48274396 B  (+meta 80 B/stream)  per-image [10558342, 12069728, 25646326]
+K= 16: real total 48287217 B  (+meta 64 B/stream)  per-image [10562667, 12070386, 25654164]
+K= 12: real total 48306302 B  (+meta 64 B/stream)  per-image [10567156, 12070505, 25668641]
+K=  8: real total 48377954 B  (+meta 48 B/stream)  per-image [10599842, 12074458, 25703654]
+K=  6: real total 48423421 B  (+meta 48 B/stream)  per-image [10636489, 12077250, 25709682]
+K=  4: real total 48523687 B  (+meta 32 B/stream)  per-image [10660712, 12092786, 25770189]
+K=  2: real total 48792970 B  (+meta 16 B/stream)  per-image [10785361, 12157661, 25849948]
+K=  1: real total 49160588 B  (+meta 0 B/stream)  per-image [11118445, 12166826, 25875317]
+pentax_q7_cat: base 10533683 B -> dejavu K=64 10542032 B (+96 meta) +0.080% | ratio raw/base 2.3149 raw/dj 2.3130 | S4 enc base 1.214s dj 1.142s | S4 dec base 1.645s dj 1.458s | exact=true det=true
+pentax_kx_lichen: base 12060697 B -> dejavu K=64 12066736 B (+96 meta) +0.051% | ratio raw/base 2.0698 raw/dj 2.0687 | S4 enc base 2.775s dj 1.159s | S4 dec base 3.222s dj 1.514s | exact=true det=true
+parrot_anafi_dusk: base 25655767 B -> dejavu K=64 25634674 B (+96 meta) -0.082% | ratio raw/base 1.6730 raw/dj 1.6744 | S4 enc base 2.332s dj 2.800s | S4 dec base 5.458s dj 3.652s | exact=true det=true
+AGG baseline 48250147 B | in-sample dejavu K=64: payload 48243442 B, +meta 48243730 B (-0.0133% incl meta, -0.0139% payload only) | LOO total 48556153 B (+0.6342%, no meta)
+ALL_EXACT=true

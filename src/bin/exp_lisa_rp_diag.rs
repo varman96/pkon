@@ -1,5 +1,6 @@
 //! Diagnostic runner for the reward-penalty regression. Usage: exp_lisa_rp_diag <manifest> <out.json> <id>...
 use nanoscope::lisa::*;
+use nanoscope::lisa_bayer_plane::encode_stage2;
 use nanoscope::lisa_rp::*;
 use serde_json::{json, Value};
 
@@ -25,7 +26,7 @@ fn main() {
         let bd = m["bit_depth"].as_u64().unwrap() as u8;
         let bytes = std::fs::read(m["canon_path"].as_str().unwrap()).unwrap();
         let samples: Vec<u16> = bytes.chunks_exact(2).map(|c| u16::from_le_bytes([c[0], c[1]])).collect();
-        let s3 = classify_stage3_with(organize_stage2(encode_with_metadata(&samples, w, h, bd, meta_of(m, w, h)).unwrap()).unwrap(), Stage3Rule::Legacy4).unwrap();
+        let s3 = classify_stage3_with(encode_stage2(&samples, w, h, bd, meta_of(m, w, h)).unwrap(), Stage3Rule::Legacy4).unwrap();
         let d = diagnose(&s3, samples.len());
         let n = samples.len() as f64;
         let tb: f64 = d.class.iter().map(|a| a[0]).sum::<f64>() + d.fixed_bits;

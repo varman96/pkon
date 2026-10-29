@@ -6,6 +6,7 @@
 //!   exp_lisa_pcq strain <manifest.json> <dir> <outdir> <K>               (trains the K-context scalar quantizer on TRAIN)
 //!   exp_lisa_pcq eval    <manifest.json> <out.json> <map[,map...]> <id>...  (map = file path of a KEYS-byte table)
 use nanoscope::lisa::*;
+use nanoscope::lisa_bayer_plane::{decode_stage1, encode_stage2, restore_stage1_with_mode};
 use nanoscope::lisa_pcq::*;
 use serde_json::{json, Value};
 use std::time::Instant;
@@ -39,8 +40,8 @@ fn load(manifest: &Value, id: &str) -> (Vec<u16>, Stage3Output, u8) {
     let bd = m["bit_depth"].as_u64().unwrap() as u8;
     let bytes = std::fs::read(m["canon_path"].as_str().unwrap()).unwrap();
     let samples: Vec<u16> = bytes.chunks_exact(2).map(|c| u16::from_le_bytes([c[0], c[1]])).collect();
-    let s1 = encode_with_metadata(&samples, w, h, bd, meta_of(m, w, h)).unwrap();
-    (samples, classify_stage3_with(organize_stage2(s1).unwrap(), Stage3Rule::Legacy4).unwrap(), bd)
+    let s2 = encode_stage2(&samples, w, h, bd, meta_of(m, w, h)).unwrap();
+    (samples, classify_stage3_with(s2, Stage3Rule::Legacy4).unwrap(), bd)
 }
 
 /// Deterministic split by sorted id: every 3rd (index%3==2) is TEST; of the rest, every 4th (index%4==3) is VAL.
@@ -277,8 +278,8 @@ fn eval(manifest: &Value, out: &str, maps: &str, ids: &[String]) {
         let n = samples.len();
         let (s4, prod_enc_t) = timed(3, || encode_stage4(s3.clone()).unwrap());
         let (d3, prod_dec_t) = timed(3, || decode_stage4(&s4).unwrap());
-        let (s1b, _) = restore_stage1(&d3.into_stage2()).unwrap();
-        let prod_ok = decode_with_metadata(&s1b).unwrap() == samples;
+        let (s1b, mode) = restore_stage1_with_mode(&d3.into_stage2()).unwrap();
+        let prod_ok = decode_stage1(&s1b, mode).unwrap() == samples;
         let base_bytes = s4.payload().len();
 
         // Control: baseline classifier through the experimental coder must reproduce production bytes.

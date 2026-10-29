@@ -2,6 +2,7 @@
 //! diagnostics. Uses only the public `lisa` API; the algorithm is untouched.
 //! Usage: bench_lisa1 <dataset_manifest.json> <out.json> [--only id]
 use nanoscope::lisa::*;
+use nanoscope::lisa_bayer_plane::{decode_stage1, encode_stage1, organize_stage2_with_mode, restore_stage1_with_mode, Stage1Mode};
 use serde_json::{json, Value};
 use std::time::Instant;
 
@@ -64,11 +65,11 @@ fn main() {
         let meta = layout_and_meta();
 
         let t = Instant::now();
-        let s1 = encode_with_metadata(&samples, w, h, bd, meta.clone()).expect("stage1");
+        let s1 = encode_stage1(&samples, w, h, bd, meta.clone(), Stage1Mode::default()).expect("stage1");
         let t_s1 = t.elapsed().as_secs_f64();
         let s1_stats = stats(s1.residuals.iter().copied(), bd);
         let t = Instant::now();
-        let s2 = organize_stage2(s1).expect("stage2");
+        let s2 = organize_stage2_with_mode(s1, Stage1Mode::default()).expect("stage2");
         let t_s2 = t.elapsed().as_secs_f64();
         let t = Instant::now();
         let s3 = classify_stage3_with(s2, Stage3Rule::Legacy4).expect("stage3");
@@ -130,18 +131,18 @@ fn main() {
         let t_d4 = t.elapsed().as_secs_f64();
         let eq3 = back3 == s3;
         let t = Instant::now();
-        let (s1b, _) = restore_stage1(&back3.into_stage2()).expect("restore stage1");
-        let dec = decode_with_metadata(&s1b).expect("decode stage1");
+        let (s1b, mode) = restore_stage1_with_mode(&back3.into_stage2()).expect("restore stage1");
+        let dec = decode_stage1(&s1b, mode).expect("decode stage1");
         let t_d1 = t.elapsed().as_secs_f64();
         let exact = dec == samples && s1b.metadata == meta && s1b.metadata.width == w && s1b.metadata.height == h;
         let first_bad = dec.iter().zip(&samples).position(|(a, b)| a != b);
 
         let n = (w * h) as f64;
-        println!("{id}: {mode} payload {payload} B ({:.3} bpp) exact={exact} enc {:.1}s dec {:.1}s", payload as f64 * 8.0 / n,
+        println!("{id}: {mode:?} payload {payload} B ({:.3} bpp) exact={exact} enc {:.1}s dec {:.1}s", payload as f64 * 8.0 / n,
             t_s1 + t_s2 + t_s3 + t_s4, t_d4 + t_d1);
         out.push(json!({
             "id": id, "width": w, "height": h, "bit_depth": bd, "canon_bytes": bytes.len(),
-            "layout": format!("{:?}", meta.layout), "stage2_mode": mode,
+            "layout": format!("{:?}", meta.layout), "stage2_mode": format!("{:?}", mode),
             "payload_bytes": payload, "bits_per_sample": payload as f64 * 8.0 / n,
             "exact": exact, "stage3_roundtrip_equal": eq3, "first_mismatch": first_bad,
             "stage1": s1_stats, "planes": plane_stats, "classes": classes,
