@@ -200,6 +200,10 @@ python -I benchmarks/lisa-vs-jxl-png/exp_lisa_vs_jxl_png.py <scratch>
 Use a scratch directory for the LISA reruns so the recorded results aren't overwritten (`<scratch>` needs `source_manifest.json` and `split.json`).
 
 
+## Privacy
+
+PKON runs locally on your machine. Your images are processed locally and are never uploaded, tracked, or collected. I have no access to your photos or their contents. Your files stay under your control.
+
 ## Report a bug
 
 Open a GitHub Issue at **https://github.com/varman96/pkon/issues**. Where applicable, please include:
