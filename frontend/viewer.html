@@ -32,7 +32,9 @@ function show(m) {
   if (!ctx) return fail('canvas unavailable');
   ctx.putImageData(img, 0, 0);
   cv.style.display = 'block'; err.textContent = '';
-  bar.textContent = m.name + ' — ' + w + '×' + h + ', ' + m.info.replace(/^\d+ /, '') + ' — .pkon ' + m.size.toLocaleString() + ' bytes (codec ' + m.codec + ')';
+  bar.textContent = m.preview === 'raw'
+    ? m.name + ' — RAW grayscale preview (' + w + '×' + h + ') — display approximation, not demosaiced image data; ' + m.info + ' — .pkon ' + m.size.toLocaleString() + ' bytes (codec ' + m.codec + ')'
+    : m.name + ' — ' + w + '×' + h + ', ' + m.info.replace(/^\d+ /, '') + ' — .pkon ' + m.size.toLocaleString() + ' bytes (codec ' + m.codec + ')';
   document.title = m.name + ' – PKON Viewer';
 }
 if (!window.opener) fail('open this viewer from the PKON converter page (View in New Tab).');

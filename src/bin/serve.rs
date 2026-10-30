@@ -213,9 +213,47 @@ fn restore(input: &[u8]) -> Result<(Vec<u8>, String), String> {
     restore_report(input).map(|o| (o.body, o.info)).map_err(|f| f.msg)
 }
 
+/// Display-only 8-bit gray preview of RAW samples, same method as `rawPreview()` in serve.html: block-averaged, gamma 2.2,
+/// not demosaiced. Returns (width, height, pixels).
+fn raw_preview(samples: &[u16], w: usize, h: usize, bit_depth: u8) -> Result<(usize, usize, Vec<u8>), String> {
+    if w == 0 || h == 0 || samples.len() != w * h {
+        return Err("decoded RAW buffer size does not match the image dimensions".into());
+    }
+    let max = ((1u32 << bit_depth) - 1) as f64;
+    let step = w.div_ceil(1024).max(2);
+    let (ow, oh) = (w / step, h / step);
+    if ow == 0 || oh == 0 {
+        return Err("RAW image too small for a preview".into());
+    }
+    let mut out = Vec::with_capacity(ow * oh);
+    for y in 0..oh {
+        for x in 0..ow {
+            let mut s = 0f64;
+            for j in 0..step {
+                let o = (y * step + j) * w + x * step;
+                s += samples[o..o + step].iter().map(|&v| v as f64).sum::<f64>();
+            }
+            out.push((255.0 * (s / ((step * step) as f64 * max)).min(1.0).powf(1.0 / 2.2)).round() as u8);
+        }
+    }
+    Ok((ow, oh, out))
+}
+
 /// Raw decoded samples (row-major, interleaved, 8-bit) plus the X-* metadata headers; no re-encoding.
+/// LISA RAW files get a display-only grayscale preview instead (see `raw_preview`).
 fn view_data(input: &[u8]) -> Result<(Vec<u8>, String), String> {
-    let img = decode(input).map_err(|e| e.to_string())?;
+    let img = match decode_any(input).map_err(|e| e.to_string())? {
+        Decoded::Standard(img) => img,
+        Decoded::Raw(r) => {
+            let (w, h) = (r.metadata.width, r.metadata.height);
+            let (pw, ph, px) = raw_preview(&r.samples, w, h, r.bit_depth)?;
+            let info = format!(
+                "X-Width: {pw}\r\nX-Height: {ph}\r\nX-Channels: 1\r\nX-Codec: {}\r\nX-Preview: raw\r\nX-Info: {w}x{h} RAW {}-bit {:?}\r\n",
+                input[6], r.bit_depth, r.metadata.layout
+            );
+            return Ok((px, info));
+        }
+    };
     let ch = img.spec.layout.channels();
     if img.data.len() != img.spec.byte_len() || img.data.len() != img.spec.width as usize * img.spec.height as usize * ch {
         return Err("decoded buffer size does not match the image dimensions".into());
@@ -379,6 +417,25 @@ mod tests {
         let (mut pkon, _) = sample_pkon(3, 3);
         pkon.truncate(pkon.len() - 5);
         assert!(view_data(&pkon).is_err());
+    }
+
+    /// LISA RAW through /view-data: a grayscale preview with the dimensions and length the viewer validates (w*h*1).
+    #[test]
+    fn view_data_raw_preview_over_http() {
+        use nanoscope::lisa::{ImageMetadata, SampleLayout};
+        let (w, h, bd) = (40usize, 24usize, 12u8);
+        let s: Vec<u16> = (0..w * h).map(|i| ((i * 97 + i / w * 31) % 4096) as u16).collect();
+        let raw = encode_raw(&s, w, h, bd, ImageMetadata::without_cfa(w, h, SampleLayout::Monochrome)).unwrap();
+        let ok = post("/view-data", &raw);
+        let split = ok.windows(4).position(|x| x == b"\r\n\r\n").unwrap() + 4;
+        let head = String::from_utf8_lossy(&ok[..split]).to_string();
+        assert!(head.starts_with("HTTP/1.1 200"), "{head}");
+        assert!(head.contains("X-Width: 20\r\n") && head.contains("X-Height: 12\r\n") && head.contains("X-Channels: 1\r\n"));
+        assert!(head.contains("X-Preview: raw\r\n") && head.contains("X-Codec: 4\r\n"));
+        assert_eq!(ok.len() - split, 20 * 12);
+        // block average of the first 2x2 block, gamma 2.2
+        let avg = (s[0] as f64 + s[1] as f64 + s[w] as f64 + s[w + 1] as f64) / 4.0 / 4095.0;
+        assert_eq!(ok[split], (255.0 * avg.powf(1.0 / 2.2)).round() as u8);
     }
 
     fn post(path: &str, body: &[u8]) -> Vec<u8> {

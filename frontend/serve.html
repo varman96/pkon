@@ -174,7 +174,7 @@ function view() {
       if (!r.ok) return { error: await r.text() };
       const h = n => parseInt(r.headers.get(n), 10);
       return { name: f.name, size: f.size, width: h('X-Width'), height: h('X-Height'), channels: h('X-Channels'),
-               codec: h('X-Codec'), info: r.headers.get('X-Info'), pixels: await r.arrayBuffer() };
+               codec: h('X-Codec'), preview: r.headers.get('X-Preview'), info: r.headers.get('X-Info'), pixels: await r.arrayBuffer() };
     } catch (e) { return { error: 'Request failed: ' + e }; }
   })();
   const onMsg = async ev => {
