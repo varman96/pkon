@@ -1,6 +1,6 @@
 # PKON
 
-**I'm building the best compression in the world.**
+**I'm building the best lossless compressor in the world.**
 
 PKON is a lossless compression platform that I'm building independently in Rust, and I'm also trying to sell it. It has two complementary engines in one container format: **PKON2** for fast, practical everyday image compression, and **LISA** for high-efficiency lossless RAW/DNG compression. Every file decodes back to exactly the samples that went in.
 
