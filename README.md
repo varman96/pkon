@@ -4,6 +4,25 @@
 
 PKON is a lossless compression platform that I'm building independently in Rust. It has two complementary engines in one container format: **PKON2** for fast, practical everyday image compression, and **LISA** for high-efficiency lossless RAW/DNG compression. Every file decodes back to exactly the samples that went in.
 
+### PKON2 Weissman score: 1.78
+
+> **Richard Hendricks had Pied Piper. We built PKON.** On this setup PKON2 scores a Weissman **1.78** against JPEG XL effort 7. Weissman score didn't get Richard Hendricks funded.
+
+<sub><i>Not peer-reviewed by Stanford. Richard Hendricks was unavailable for comment. See actual micro-benchmarks below.</i></sub>
+
+Using the formula W = (R<sub>c</sub> / R<sub>r</sub>) × √(T<sub>c</sub> / T<sub>r</sub>), with R as compression ratio and T as compression throughput:
+
+| | PKON2 (X4) | JPEG XL e7 (reference) | Ratio |
+|---|---:|---:|---:|
+| Compression ratio | 4.545 (16,610,254 B) | 4.582 (16,476,961 B) | 0.992 |
+| Encode throughput (net, single-thread) | 3.58 MP/s (6,735 ms) | 1.11 MP/s (21,793 ms) | 3.24 → √ = 1.80 |
+| **Weissman score** | | | **0.992 × 1.799 = 1.78** |
+
+- **Reference codec:** JPEG XL effort 7, one thread. It is the practical JPEG XL setting and the like-for-like single-thread comparison for PKON2.
+- **Corpus:** the 23-image [external benchmark](benchmarks/pkon2/20261027-143537Z-ext-benchmark/report.md) (all combined, 75,497,472 raw bytes), exact lossless on every image.
+- **Other references, same data:** JPEG XL e9 scores 3.47 and WebP lossless 5.96, because they encode much more slowly. PNG scores 2.20. They are not the headline because e7 is the closest competitor.
+- **Caveats:** this run measured the experimental X4 configuration, not the production codec. JPEG XL timings include ffmpeg process spawn, minus a calibrated floor. Against multi-threaded JPEG XL e7 (3.16 MP/s) the score would be about 1.06.
+
 > **PKON2 is built for speed. LISA is built to push compression further.**
 
 ## The two engines
