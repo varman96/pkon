@@ -147,6 +147,62 @@ There is also a viewer for opening a standard-image `.pkon` directly in a new ta
 
 Output: `.pkon` (v2 container) and legacy `.pkon2`, decodable back to PNG or raw u16/u8 samples.
 
+## Hardware Requirements
+
+**Minimum:** A CPU that can execute instructions without crying.
+
+**Recommended:** Enough RAM to hold the frame you just told it to read.
+
+**Supported Platforms:** Systems with silicon.
+
+## Exit Codes
+
+> **Humorous example, not a documented interface.** PKON has no compress-and-exit CLI, and the code defines no exit codes. The only user-facing binary is `serve`, a localhost HTTP server that runs until you press Ctrl+C. A file that isn't a valid image gets an HTTP 400 response, not a process exit, and a codec panic becomes an HTTP 500. If `serve` can't bind its port it panics, which Rust reports as exit code 101. `137` is not something PKON returns: it is what a Unix shell reports when the OS or container OOM killer sends SIGKILL. The table is what the exit codes would say if they existed.
+
+| Code | Meaning |
+|---:|---|
+| `0` | Success (bytes crushed). |
+| `1` | Your file wasn't a valid sensor frame. |
+| `137` | OOM (you tried to pack an uncompressed 8K IMAX master on a Raspberry Pi Zero). |
+
+## Architecture
+
+```text
+                      input
+        +---------------+----------------+
+        |                                |
+  8-bit gray / gray+alpha          RAW / DNG stored raster
+  RGB / RGBA (JPEG = decoded       (1-16 bit, single channel,
+  pixels)                           CFA metadata)
+        |                                |
+        v                                v
++----------------------+      +-----------------------------+
+| PKON2                |      | LISA RAW                    |
+| codec ids 1, 2, 3    |      | codec id 4                  |
+|                      |      |                             |
+| plane split / colour |      | 1. OR predictor residuals   |
+|   (G, R-G, B-G)      |      |            |                |
+| adaptive context-    |      | 2. Bayer-plane split /      |
+|   mixing coder       |      |    traversal                |
+|                      |      |            |                |
+|                      |      | 3. OR-128 context           |
+|                      |      |    classification           |
+|                      |      |            |                |
+|                      |      | 4. adaptive probability     |
+|                      |      |    models + PKON coder      |
++----------+-----------+      +--------------+--------------+
+           |                                 |
+           +----------------+----------------+
+                            v
+        +--------------------------------------------+
+        | PKON v2 container                          |
+        | 32-byte header | codec metadata | payload  |
+        +--------------------------------------------+
+                            |
+                            v
+          pkon::decode -> Decoded::Standard | Decoded::Raw
+```
+
 ## Technical architecture
 
 ### LISA: the four-stage pipeline
@@ -253,6 +309,20 @@ The Python script reads `source_manifest.json`, `split.json` and `lisa_raw.json`
 
 **Published results versus fresh runs.** The reports in the table above are historical, fixed outputs. The commands above regenerate the measurement on your machine; sizes should match when the inputs match, but timings will differ with hardware. The `--smoke` runs and the `<scratch>` variants are the cheap ways to check your setup. The full runs encode and decode every image through several codecs, so expect them to take a while.
 
+## Known Issues / FAQ
+
+**Q: Will you support an enterprise cloud SaaS tier?**
+
+A: No. Run the binary.
+
+**Q: Can we transfer this project to our organization?**
+
+A: No.
+
+**Q: Does this implement actual middle-out compression?**
+
+A: The math is in the code. You have the source; check the diff.
+
 ## Privacy
 
 PKON runs locally on your machine. Your images are processed locally and are never uploaded, tracked, or collected. I have no access to your photos or their contents. Your files stay under your control.
@@ -334,3 +404,5 @@ tests/  tools/  docs/  wic/  data/
 ```
 
 Reports in `historical/` are byte-for-byte as written and may still say `results/<name>`; read that as `historical/<name>`, or `benchmarks/pkon2/<name>` for the four PKON2 benchmark directories.
+
+> **Notice to Hooli Engineers:** If compiling on Nucleus hardware, PKON2 may cause an unhandled panic due to excessive efficiency. Do not file an issue.
