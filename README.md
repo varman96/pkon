@@ -185,20 +185,54 @@ Windows Imaging Component decoder for Photos and Explorer thumbnails (`wic/insta
 | [docs/pkon-format-v2.md](docs/pkon-format-v2.md), [docs/pkon2-format-v1.md](docs/pkon2-format-v1.md) | Container format specifications |
 | [historical/](historical/) | The development history, including failed and superseded experiments |
 
-Reproduce from the repo root:
+## Running Benchmarks
+
+Run everything from the repo root, in release mode. The crate is named `nanoscope`, but the binary names below are what you pass to `--bin`.
+
+**Prerequisites**
+- Rust toolchain. `Cargo.toml` uses a portable release profile (no `target-cpu=native`), so results are comparable across machines.
+- **FFmpeg** with libjxl and libwebp on `PATH` (override with `NANOSCOPE_FFMPEG`; the LISA Python script calls `ffmpeg` directly). It drives the JPEG XL, WebP and PNG baselines. See [Build and development](#build-and-development).
+- Python 3 for the report scripts. `build_manifest50.py` also needs Pillow, and the LISA script needs `numpy`.
+- `data/` is gitignored and holds the inputs. It is populated locally (`python tools/fetch_dataset.py`, `python tools/fetch_dataset50.py`; they download CC0 images from Wikimedia Commons).
+
+**PKON2 (JPEG/PNG to `.pkon2`)**: sources in [benchmarks/pkon2/](benchmarks/pkon2/). Each run writes a new `benchmarks/pkon2/<stamp>-<name>/` directory, so a rerun does not overwrite the published reports.
+
+| Binary | Input | Output directory |
+|---|---|---|
+| `bench25` | `data/dataset25.json` (build with `python benchmarks/pkon2/build_manifest25.py`) | `<stamp>-bench25-diversity/` |
+| `bench50` | `data/dataset50.json` (build with `python benchmarks/pkon2/build_manifest50.py`) | `<stamp>-bench50/` |
+| `bench_external` | `data/manifest.json` (23 images) | `<stamp>-ext-benchmark/` |
+| `bench_p` | `data/dataset50.json`, plus crop hashes from the frozen `20261027-155433Z-bench50/dataset_manifest.json` | the CSV given by `--out` |
 
 ```
-# PKON2 converter benchmarks (need data/dataset25.json or dataset50.json; see benchmarks/pkon2/build_manifest*.py)
-cargo run --release --bin bench50          # also: bench25, bench_external, bench_p
+# Quick check: 3 images, 1 rep, nothing written (bench25, bench50 and bench_external accept --smoke)
+cargo run --release --bin bench25 -- --smoke
+
+# Full runs (new timestamped directory each time)
+cargo run --release --bin bench25
+cargo run --release --bin bench50
+cargo run --release --bin bench_external
+
+# Render the report from a run's results.json
+python -I benchmarks/pkon2/report25.py benchmarks/pkon2/<stamp>-bench25-diversity
 python benchmarks/pkon2/report50.py benchmarks/pkon2/<stamp>-bench50
 
-# LISA vs JPEG XL vs PNG (inputs: data/praw1/canon/*.u16)
-cargo run --release --bin exp_lisa_vs_jxl_png -- benchmarks/lisa-vs-jxl-png/source_manifest.json <scratch>/lisa_raw.json 3
+# Production .pkon2 file path, one codec per process (the PKON2P report used codec 2)
+cargo run --release --bin bench_p -- --codec 2 --out <scratch>/run_c2.csv
+```
+
+`bench_external` has no report script; it writes `report.md`, `per_image.csv` and `results.json` itself. `bench_p` is Windows-only in practice (it reads peak memory through PowerShell). Point its `--out` at a scratch path, not at the frozen `20261027-pkon2p-production/` files.
+
+**LISA (RAW) vs JPEG XL vs PNG**: sources in [benchmarks/lisa-vs-jxl-png/](benchmarks/lisa-vs-jxl-png/). Inputs are the frozen 16-bit rasters listed in `source_manifest.json` (`data/praw1/canon/*.u16`, sha256-checked). The runner takes `<manifest.json> <out.json> [reps=3]`, and the Python script takes `<exp_dir> [reps=3]`.
+
+```
+cargo run --release --bin exp_lisa_vs_jxl_png -- <scratch>/source_manifest.json <scratch>/lisa_raw.json 3
 python -I benchmarks/lisa-vs-jxl-png/exp_lisa_vs_jxl_png.py <scratch>
 ```
 
-Use a scratch directory for the LISA reruns so the recorded results aren't overwritten (`<scratch>` needs `source_manifest.json` and `split.json`).
+The Python script reads `source_manifest.json`, `split.json` and `lisa_raw.json` from `<scratch>`, and writes `ext_raw.json`, `results.json`, `per_image.csv` and `report_tables.md` there. Copy `source_manifest.json` and `split.json` into `<scratch>` first. Running against `benchmarks/lisa-vs-jxl-png/` itself overwrites the published results.
 
+**Published results versus fresh runs.** The reports in the table above are historical, fixed outputs. The commands above regenerate the measurement on your machine; sizes should match when the inputs match, but timings will differ with hardware. The `--smoke` runs and the `<scratch>` variants are the cheap ways to check your setup. The full runs encode and decode every image through several codecs, so expect them to take a while.
 
 ## Privacy
 
