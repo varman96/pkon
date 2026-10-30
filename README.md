@@ -12,8 +12,8 @@ PKON is a lossless compression platform that I'm building independently in Rust.
 
 Using the formula W = (R<sub>c</sub> / R<sub>r</sub>) × √(T<sub>c</sub> / T<sub>r</sub>), with R as compression ratio and T as compression throughput:
 
-| | PKON2 (X4) | JPEG XL e7 (reference) | Ratio |
-|---|---:|---:|---:|
+| Metric | PKON2 (X4) | JPEG XL e7 (reference) | Ratio |
+| :--- | :--- | :--- | :--- |
 | Compression ratio | 4.545 (16,610,254 B) | 4.582 (16,476,961 B) | 0.992 |
 | Encode throughput (net, single-thread) | 3.58 MP/s (6,735 ms) | 1.11 MP/s (21,793 ms) | 3.24 → √ = 1.80 |
 | **Weissman score** | | | **0.992 × 1.799 = 1.78** |
@@ -28,7 +28,7 @@ Using the formula W = (R<sub>c</sub> / R<sub>r</sub>) × √(T<sub>c</sub> / T<s
 ## The two engines
 
 | | **PKON2: Consumer** | **LISA: Pro** |
-|---|---|---|
+| :--- | :--- | :--- |
 | Built for | Everyday image workflows | Demanding RAW/DNG imaging workflows |
 | Formats | PNG and JPEG (a JPEG is encoded from its decoded pixels) | Lossless RAW/DNG |
 | Priorities | Fast, practical compression and decompression; lightweight operation (about 63 MB peak working set, single thread, in the production benchmark); efficient storage | Maximum compression efficiency; exact preservation of every RAW sample; specialized prediction and adaptive entropy coding |
@@ -160,7 +160,7 @@ Output: `.pkon` (v2 container) and legacy `.pkon2`, decodable back to PNG or raw
 > **Humorous example, not a documented interface.** PKON has no compress-and-exit CLI, and the code defines no exit codes. The only user-facing binary is `serve`, a localhost HTTP server that runs until you press Ctrl+C. A file that isn't a valid image gets an HTTP 400 response, not a process exit, and a codec panic becomes an HTTP 500. If `serve` can't bind its port it panics, which Rust reports as exit code 101. `137` is not something PKON returns: it is what a Unix shell reports when the OS or container OOM killer sends SIGKILL. The table is what the exit codes would say if they existed.
 
 | Code | Meaning |
-|---:|---|
+| :--- | :--- |
 | `0` | Success (bytes crushed). |
 | `1` | Your file wasn't a valid sensor frame. |
 | `137` | OOM (you tried to pack an uncompressed 8K IMAX master on a Raspberry Pi Zero). |
