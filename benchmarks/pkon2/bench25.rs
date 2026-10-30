@@ -4,7 +4,7 @@
 //! the manifest (`data/dataset25.json`), a pre-encode manifest written first, a codec-id assertion, and per-rep timing capture.
 //!
 //!   cargo run --release --bin bench25 -- --smoke    # 3 images, 1 rep, nothing written
-//!   cargo run --release --bin bench25               # full set from data/dataset25.json -> results/<stamp>-bench25-diversity/
+//!   cargo run --release --bin bench25               # full set from data/dataset25.json -> benchmarks/pkon2/<stamp>-bench25-diversity/
 use nanoscope::canon::{first_mismatch, Canonical, Layout, Spec};
 use nanoscope::codec::{Codec, CodecError, PngCodec};
 use nanoscope::pkon2::center_crop;
@@ -258,7 +258,7 @@ fn features(img: &Canonical) -> Feat {
 
 fn load_images(only: Option<usize>) -> Vec<Img> {
     let data = PathBuf::from("data");
-    let manifest: Vec<serde_json::Value> = serde_json::from_str(&std::fs::read_to_string(data.join("dataset25.json")).expect("data/dataset25.json (run tools/build_manifest25.py)")).unwrap();
+    let manifest: Vec<serde_json::Value> = serde_json::from_str(&std::fs::read_to_string(data.join("dataset25.json")).expect("data/dataset25.json (run benchmarks/pkon2/build_manifest25.py)")).unwrap();
     let mut v = vec![];
     for (i, m) in manifest.iter().enumerate() {
         if let Some(n) = only {
@@ -398,7 +398,7 @@ fn main() {
             m
         })
         .collect();
-    let dir = PathBuf::from("results").join(format!("{}-bench25-diversity", utc_stamp()));
+    let dir = PathBuf::from("benchmarks/pkon2").join(format!("{}-bench25-diversity", utc_stamp()));
     if !smoke {
         std::fs::create_dir_all(&dir).unwrap();
         std::fs::write(dir.join("manifest_pre_encode.json"), serde_json::to_string_pretty(&manifest_images).unwrap()).unwrap();

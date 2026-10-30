@@ -1,5 +1,5 @@
 //! GENERATED (research): OR-128 learned context tree truncated to 64 and 32 leaves. Each is the first L-1 splits (growth order) of the
-//! frozen 128-leaf tree (`exp_or128_tree gen results/20261029-lisa-or128-tree/splits.json L`); nothing was retrained. Do not edit by hand.
+//! frozen 128-leaf tree (`exp_or128_tree gen historical/20261029-lisa-or128-tree/splits.json L`); nothing was retrained. Do not edit by hand.
 pub mod l64 {
     pub const OR128_TREE_LEAVES: usize = 64;
     /// Reference to the root: a leaf id when the high bit is set, otherwise an index into `OR128_TREE_NODES`.

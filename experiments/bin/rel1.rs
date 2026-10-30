@@ -1,9 +1,9 @@
 //! REL1: do predictor-disagreement (P) and cross-plane residual (X) information, given to the X4 mixer as extra inputs, reduce real coded
-//! size? Research copy `pkonrel`; production X4 and the file format are untouched. Frozen rules: results/20261027-rel1-pred-xplane/criteria.md.
+//! size? Research copy `pkonrel`; production X4 and the file format are untouched. Frozen rules: historical/20261027-rel1-pred-xplane/criteria.md.
 //!
-//!   cargo run --release --bin rel1 -- --out results/20261027-rel1-pred-xplane
+//!   cargo run --release --bin rel1 -- --out historical/20261027-rel1-pred-xplane
 //!
-//! Loads ONLY the 25 development + 10 validation images named in results/learn1-splits.json (never the test list).
+//! Loads ONLY the 25 development + 10 validation images named in historical/learn1-splits.json (never the test list).
 use nanoscope::canon::{Canonical, Layout};
 use nanoscope::pkon2::center_crop;
 use nanoscope::pkon2x::{measure_x, x4_cfg};
@@ -18,7 +18,7 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::Mutex;
 
 const CROP: u32 = 1024;
-const SPLITS: &str = "results/learn1-splits.json";
+const SPLITS: &str = "historical/learn1-splits.json";
 const CRITERIA_SHA: &str = "f7eec0082c88eaa2ad705f31a24b8e4e803eaa6aa047f3b93371da8e82420c22";
 const TEXTURED: [&str; 4] = ["forest_n0", "text_1", "river_n0", "text_0"];
 
@@ -180,7 +180,7 @@ fn main() {
     assert_eq!((dev_names.len(), val_names.len(), test_names.len()), (25, 10, 15));
     assert!(dev_names.iter().chain(&val_names).all(|n| !test_names.contains(n)), "test image in dev/val");
     let crop_hash: BTreeMap<String, String> = {
-        let m: serde_json::Value = serde_json::from_str(&std::fs::read_to_string("results/20261027-155433Z-bench50/dataset_manifest.json").unwrap()).unwrap();
+        let m: serde_json::Value = serde_json::from_str(&std::fs::read_to_string("benchmarks/pkon2/20261027-155433Z-bench50/dataset_manifest.json").unwrap()).unwrap();
         m["images"].as_array().unwrap().iter().map(|i| (i["name"].as_str().unwrap().to_string(), i["crop_sha256"].as_str().unwrap().to_string())).collect()
     };
     println!("splits verified (file sha256 {}), criteria frozen ({})", sha_bytes(&split_bytes), CRITERIA_SHA);

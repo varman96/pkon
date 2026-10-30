@@ -1,7 +1,7 @@
 //! PKON2 milestone 3: does GAP, as a drop-in replacement for MED (SubG + ActX + coder unchanged),
 //! reduce actual coded bytes?
 //!
-//! usage: probe_m3 [--data data] [--crop 1024] [--out results] [--m1 results/<m1 dir>]
+//! usage: probe_m3 [--data data] [--crop 1024] [--out historical] [--m1 historical/<m1 dir>]
 //!
 //! PREDECLARED DECISION RULES (written before the first measurement run), on the 20 camera JPEGs,
 //! total coded bytes of Gap/SubG/ActX vs frozen Med/SubG/ActX:
@@ -62,7 +62,7 @@ fn utc_stamp() -> String {
 }
 
 fn main() {
-    let (mut data, mut crop, mut out) = (PathBuf::from("data"), 1024u32, PathBuf::from("results"));
+    let (mut data, mut crop, mut out) = (PathBuf::from("data"), 1024u32, PathBuf::from("historical"));
     let mut m1: Option<PathBuf> = None;
     let args: Vec<String> = std::env::args().skip(1).collect();
     let mut i = 0;

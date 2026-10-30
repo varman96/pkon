@@ -1,6 +1,6 @@
 //! PKON2 milestone 5: does error energy REFINE the activity context (8 act x 3 err x 4 prev = 96/plane)?
 //!
-//! usage: probe_m5 [--data data] [--crop 1024] [--out results] [--m1 results/<m1 dir>]
+//! usage: probe_m5 [--data data] [--crop 1024] [--out historical] [--m1 historical/<m1 dir>]
 //!
 //! HYPOTHESIS: M4 showed error energy alone is a worse context than activity but not useless (3/20 wins,
 //! and its deficit shrank once the previous-plane term was present). If it carries information that
@@ -68,7 +68,7 @@ fn utc_stamp() -> String {
 }
 
 fn main() {
-    let (mut data, mut crop, mut out) = (PathBuf::from("data"), 1024u32, PathBuf::from("results"));
+    let (mut data, mut crop, mut out) = (PathBuf::from("data"), 1024u32, PathBuf::from("historical"));
     let mut m1: Option<PathBuf> = None;
     let args: Vec<String> = std::env::args().skip(1).collect();
     let mut i = 0;

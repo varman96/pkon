@@ -1,6 +1,6 @@
 //! PKON2 milestone 8: adaptive weighted predictor ensemble (MED + GAP + W+NE-N) in front of the frozen X4 coder.
 //!
-//! usage: probe_m8 [--data data] [--crop 1024] [--out results] [--m6 results/<m6 dir>] [--only N]
+//! usage: probe_m8 [--data data] [--crop 1024] [--out historical] [--m6 historical/<m6 dir>] [--only N]
 //!
 //! HYPOTHESIS: no single fixed predictor wins everywhere (GAP loses standalone, M3), but members err in different
 //! places. Weighting each by its recent absolute error over W,N,NW,NE (JPEG XL weighted-predictor idea) should give a
@@ -68,7 +68,7 @@ fn utc_stamp() -> String {
 }
 
 fn main() {
-    let (mut data, mut crop, mut out) = (PathBuf::from("data"), 1024u32, PathBuf::from("results"));
+    let (mut data, mut crop, mut out) = (PathBuf::from("data"), 1024u32, PathBuf::from("historical"));
     let (mut m6, mut only): (Option<PathBuf>, usize) = (None, usize::MAX);
     let args: Vec<String> = std::env::args().skip(1).collect();
     let mut i = 0;

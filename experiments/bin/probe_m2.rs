@@ -1,7 +1,7 @@
 //! PKON2 milestone 2, stage A: does a decoder-reproducible, signalling-free choice between the SubG and
 //! Coupled cross-channel predictions beat the best fixed transform?
 //!
-//! usage: probe_m2 [--data data] [--crop 1024] [--out results] [--m1 results/<m1 dir>]
+//! usage: probe_m2 [--data data] [--crop 1024] [--out historical] [--m1 historical/<m1 dir>]
 //!
 //! PREDECLARED DECISION RULES (written before the first measurement run; primary = Adaptive(4)):
 //!   Primary comparison: total coded bytes on the 20 camera-JPEG images, vs frozen baseline Med/SubG/ActX.
@@ -67,7 +67,7 @@ fn utc_stamp() -> String {
 }
 
 fn main() {
-    let (mut data, mut crop, mut out) = (PathBuf::from("data"), 1024u32, PathBuf::from("results"));
+    let (mut data, mut crop, mut out) = (PathBuf::from("data"), 1024u32, PathBuf::from("historical"));
     let mut m1: Option<PathBuf> = None;
     let args: Vec<String> = std::env::args().skip(1).collect();
     let mut i = 0;

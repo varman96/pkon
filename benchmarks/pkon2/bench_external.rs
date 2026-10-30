@@ -3,7 +3,7 @@
 //! is changed. Every stream is decoded from its bytes and compared byte-for-byte with the canonical buffer.
 //!
 //!   cargo run --release --bin bench_external -- --smoke     # 3 real images + a tiny odd-sized image, 1 rep, no files written
-//!   cargo run --release --bin bench_external                # full 23 images -> results/<stamp>-ext-benchmark/
+//!   cargo run --release --bin bench_external                # full 23 images -> benchmarks/pkon2/<stamp>-ext-benchmark/
 use nanoscope::canon::{first_mismatch, Canonical, Layout, Spec};
 use nanoscope::codec::{Codec, CodecError, PngCodec};
 use nanoscope::pkon2::*;
@@ -362,7 +362,7 @@ fn main() {
         println!("{:<12} tiny exact, truncation rejected", "pkon2-x4");
     }
 
-    let prior = std::fs::read_to_string("results/20261027-x4-promotion-verify/report.md").unwrap_or_default();
+    let prior = std::fs::read_to_string("historical/20261027-x4-promotion-verify/report.md").unwrap_or_default();
     let prior_b = |name: &str| -> Option<usize> {
         let l = prior.lines().find(|l| l.starts_with(&format!("| {name} |")))?;
         // columns: "", image, src, frozen M6 X4 B, production B, change, ...
@@ -415,7 +415,7 @@ fn main() {
 // ---------------------------------------------------------------- reporting
 
 fn write_outputs(imgs: &[Img], recs: &[Rec], calib: &[(String, f64, f64)], mx: &[(String, usize, usize, Option<usize>, f64, f64)], all_exact: bool, reps: u32) {
-    let dir = PathBuf::from("results").join(format!("{}-ext-benchmark", utc_stamp()));
+    let dir = PathBuf::from("benchmarks/pkon2").join(format!("{}-ext-benchmark", utc_stamp()));
     std::fs::create_dir_all(&dir).unwrap();
     let names: Vec<String> = {
         let mut v: Vec<String> = vec![];

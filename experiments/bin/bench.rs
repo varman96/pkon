@@ -1,7 +1,7 @@
 //! Sanity benchmark: run every available baseline over the corpus, gate on exactness,
-//! write results.json / results.csv / summary.md into a fresh results/<timestamp>/ dir.
+//! write results.json / results.csv / summary.md into a fresh historical/<timestamp>/ dir.
 //!
-//! usage: bench [--dir PNG_DIR] [--out results] [--reps 3] [--allow-debug]
+//! usage: bench [--dir PNG_DIR] [--out historical] [--reps 3] [--allow-debug]
 use nanoscope::canon::{first_mismatch, Canonical};
 use nanoscope::codec::{Codec, PngCodec, RawCodec};
 use nanoscope::corpus::{self, Entry};
@@ -144,7 +144,7 @@ fn csv_field(s: &str) -> String {
 
 fn main() {
     let mut args = std::env::args().skip(1);
-    let (mut dir, mut out, mut reps, mut allow_debug) = (None::<PathBuf>, PathBuf::from("results"), 3u32, false);
+    let (mut dir, mut out, mut reps, mut allow_debug) = (None::<PathBuf>, PathBuf::from("historical"), 3u32, false);
     while let Some(a) = args.next() {
         match a.as_str() {
             "--dir" => dir = args.next().map(PathBuf::from),
@@ -152,7 +152,7 @@ fn main() {
             "--reps" => reps = args.next().and_then(|s| s.parse().ok()).expect("--reps needs a number"),
             "--allow-debug" => allow_debug = true,
             other => {
-                eprintln!("unknown argument {other}\nusage: bench [--dir PNG_DIR] [--out results] [--reps 3] [--allow-debug]");
+                eprintln!("unknown argument {other}\nusage: bench [--dir PNG_DIR] [--out historical] [--reps 3] [--allow-debug]");
                 std::process::exit(2);
             }
         }

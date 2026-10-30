@@ -1,6 +1,6 @@
 """External-codec side of the LISA vs JPEG XL vs PNG benchmark + report generation. Run with `python -I`.
 
-Usage: python -I tools/exp_lisa_vs_jxl_png.py <exp_dir> [reps=3]
+Usage (from the repo root): python -I benchmarks/lisa-vs-jxl-png/exp_lisa_vs_jxl_png.py <exp_dir> [reps=3]   (exp_dir = benchmarks/lisa-vs-jxl-png)
 Reads <exp_dir>/source_manifest.json, split.json, lisa_raw.json (from exp_lisa_vs_jxl_png.rs); writes ext_raw.json,
 results.json, per_image.csv, report_tables.md. Source = frozen canonical u16-LE rasters (sha256-checked against the manifest).
 

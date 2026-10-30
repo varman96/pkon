@@ -1,10 +1,10 @@
 //! Production benchmark of the real `.pkon2` file path on the 50-image set (same 1024-px centre crops as bench50), one codec per process
 //! so peak memory is attributable. Measurement only.
 //!
-//!   cargo run --release --bin bench_p -- --codec 2 --out results/20261027-pkon2p-production/run_c2_a.csv
+//!   cargo run --release --bin bench_p -- --codec 2 --out benchmarks/pkon2/20261027-pkon2p-production/run_c2_a.csv
 //!
 //! Per image: encode (best of 2) -> complete file -> decode from the file bytes (best of 2) -> byte compare with the crop's pixels, header checks,
-//! determinism. Crop hashes are verified against results/20261027-155433Z-bench50/dataset_manifest.json. Run through the pre-change tree it is
+//! determinism. Crop hashes are verified against benchmarks/pkon2/20261027-155433Z-bench50/dataset_manifest.json. Run through the pre-change tree it is
 //! built with `encode_with_codec(img, codec)` replaced by `encode(img)` (the only API difference).
 use nanoscope::canon::Canonical;
 use nanoscope::pkon2::center_crop;
@@ -20,7 +20,7 @@ fn main() {
     let out = arg("--out").unwrap();
     let man: Vec<serde_json::Value> = serde_json::from_str(&std::fs::read_to_string("data/dataset50.json").unwrap()).unwrap();
     let crop_hash: BTreeMap<String, String> = {
-        let m: serde_json::Value = serde_json::from_str(&std::fs::read_to_string("results/20261027-155433Z-bench50/dataset_manifest.json").unwrap()).unwrap();
+        let m: serde_json::Value = serde_json::from_str(&std::fs::read_to_string("benchmarks/pkon2/20261027-155433Z-bench50/dataset_manifest.json").unwrap()).unwrap();
         m["images"].as_array().unwrap().iter().map(|i| (i["name"].as_str().unwrap().to_string(), i["crop_sha256"].as_str().unwrap().to_string())).collect()
     };
     let mut csv = String::from("image,file_bytes,payload_bytes,raw_bytes,exact,header_ok,deterministic,enc_ms,dec_ms,header_codec\n");

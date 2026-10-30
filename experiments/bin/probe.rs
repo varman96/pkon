@@ -1,7 +1,7 @@
 //! PKON2 milestone-1 probe: measures what statistical structure real photographs expose.
 //!
-//! usage: probe [--data data] [--crop 1024] [--out results]
-//! Reads data/manifest.json (tools/fetch_dataset.py), writes results/<stamp>-pkon2-m1/{report.md,results.json}.
+//! usage: probe [--data data] [--crop 1024] [--out historical]
+//! Reads data/manifest.json (tools/fetch_dataset.py), writes historical/<stamp>-pkon2-m1/{report.md,results.json}.
 //! Images are centre-cropped to --crop x --crop (exact pixels, no resampling) to keep iteration fast.
 use nanoscope::canon::{first_mismatch, Canonical};
 use nanoscope::codec::{Codec, PngCodec};
@@ -213,7 +213,7 @@ fn mean(v: impl Iterator<Item = f64>) -> f64 {
 }
 
 fn main() {
-    let (mut data, mut crop, mut out) = (PathBuf::from("data"), 1024u32, PathBuf::from("results"));
+    let (mut data, mut crop, mut out) = (PathBuf::from("data"), 1024u32, PathBuf::from("historical"));
     let args: Vec<String> = std::env::args().skip(1).collect();
     let mut i = 0;
     while i < args.len() {
@@ -221,7 +221,7 @@ fn main() {
             "--data" => data = args[{ i += 1; i }].clone().into(),
             "--crop" => crop = args[{ i += 1; i }].parse().expect("--crop N"),
             "--out" => out = args[{ i += 1; i }].clone().into(),
-            a => panic!("unknown argument {a}\nusage: probe [--data data] [--crop 1024] [--out results]"),
+            a => panic!("unknown argument {a}\nusage: probe [--data data] [--crop 1024] [--out historical]"),
         }
         i += 1;
     }

@@ -87,7 +87,7 @@ pub const ARMS: [Arm; 8] = [
     Arm { name: "dummyJ", extras: &[Extra::Dummy { salt: 3, card: FCARD as u32 }] },
 ];
 
-/// REL2 final diagnostic arms (criteria: results/20261027-rel2-final-diag/criteria.md). Separate from `ARMS` so REL1 stays reproducible.
+/// REL2 final diagnostic arms (criteria: historical/20261027-rel2-final-diag/criteria.md). Separate from `ARMS` so REL1 stays reproducible.
 pub const DIAG_ARMS: [Arm; 5] = [
     Arm { name: "control", extras: &[] },
     Arm { name: "const", extras: &[Extra::Const] },
@@ -96,20 +96,20 @@ pub const DIAG_ARMS: [Arm; 5] = [
     Arm { name: "P+const", extras: &[Extra::P, Extra::Const] },
 ];
 
-/// REL3 arms (criteria: results/20261027-rel3-mixer-sets/criteria.md). `P` is production codec 2.
-/// GBLEND arms (criteria: results/20261027-gblend-final/criteria.md). `P` is production codec 2.
+/// REL3 arms (criteria: historical/20261027-rel3-mixer-sets/criteria.md). `P` is production codec 2.
+/// GBLEND arms (criteria: historical/20261027-gblend-final/criteria.md). `P` is production codec 2.
 pub const GB_ARMS: [Arm; 2] = [
     Arm { name: "P", extras: &[Extra::P] },
     Arm { name: "P+GBlend", extras: &[Extra::P, Extra::GBlend] },
 ];
 
-/// GDIR arms (criteria: results/20261027-203041Z-gdir-directional/criteria.md). `P` is production codec 2.
+/// GDIR arms (criteria: historical/20261027-203041Z-gdir-directional/criteria.md). `P` is production codec 2.
 pub const GD_ARMS: [Arm; 2] = [
     Arm { name: "P", extras: &[Extra::P] },
     Arm { name: "P+GDir", extras: &[Extra::P, Extra::GDir] },
 ];
 
-/// GRAMP arms (criteria: results/20261027-204338Z-gramp-ramp-only/criteria.md). `P` is production codec 2.
+/// GRAMP arms (criteria: historical/20261027-204338Z-gramp-ramp-only/criteria.md). `P` is production codec 2.
 pub const GR_ARMS: [Arm; 2] = [
     Arm { name: "P", extras: &[Extra::P] },
     Arm { name: "P+GRamp", extras: &[Extra::P, Extra::GRamp] },
@@ -121,14 +121,14 @@ pub const SEL_ARMS: [Arm; 3] = [
     Arm { name: "P+selDummy", extras: &[Extra::P, Extra::SelDummy] },
 ];
 
-/// REL4 arms (criteria: results/20261027-rel4-x-on-p/criteria.md). `P` is production codec 2.
+/// REL4 arms (criteria: historical/20261027-rel4-x-on-p/criteria.md). `P` is production codec 2.
 pub const X_ARMS: [Arm; 3] = [
     Arm { name: "P", extras: &[Extra::P] },
     Arm { name: "P+X", extras: &[Extra::P, Extra::X] },
     Arm { name: "P+dummy", extras: &[Extra::P, Extra::Dummy { salt: 1, card: 49 }] },
 ];
 
-/// REL5 arms (criteria: results/20261027-rel5-x-sign/criteria.md). `P` is production codec 2.
+/// REL5 arms (criteria: historical/20261027-rel5-x-sign/criteria.md). `P` is production codec 2.
 pub const XS_ARMS: [Arm; 3] = [
     Arm { name: "P", extras: &[Extra::P] },
     Arm { name: "P+Xsign", extras: &[Extra::P, Extra::XSign] },

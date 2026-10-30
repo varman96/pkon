@@ -8,12 +8,12 @@ use std::path::PathBuf;
 fn main() {
     let data = PathBuf::from("data");
     let m6: Vec<serde_json::Value> = {
-        let mut d: Vec<PathBuf> = std::fs::read_dir("results").unwrap().filter_map(|e| e.ok()).map(|e| e.path()).filter(|p| p.to_string_lossy().ends_with("-pkon2-m6")).collect();
+        let mut d: Vec<PathBuf> = std::fs::read_dir("historical").unwrap().filter_map(|e| e.ok()).map(|e| e.path()).filter(|p| p.to_string_lossy().ends_with("-pkon2-m6")).collect();
         d.sort();
         serde_json::from_str(&std::fs::read_to_string(d.pop().unwrap().join("results.json")).unwrap()).unwrap()
     };
     let manifest: Vec<serde_json::Value> = serde_json::from_str(&std::fs::read_to_string(data.join("manifest.json")).unwrap()).unwrap();
-    let n3 = std::fs::read_to_string("results/20261027-exp-n3-full20/report.md").unwrap();
+    let n3 = std::fs::read_to_string("historical/20261027-exp-n3-full20/report.md").unwrap();
     let n3_bytes = |name: &str| -> usize {
         let l = n3.lines().find(|l| l.starts_with(&format!("| {name} |")) || l.starts_with(&format!("| {name} * |"))).unwrap();
         l.split('|').nth(4).unwrap().trim().parse().unwrap()
@@ -38,7 +38,7 @@ fn main() {
         }
     }
     out += &format!("\nJPEG (20): frozen M6 {jf} -> production {jp} ({:+.3}%); equals 15,687,437 baseline: {}; equals N3 aggregate 15,598,046: {}; every image matches N3 report: {ok}.\nPNG (3): frozen M6 {pf} -> production {pp} ({:+.3}%).\nAll exact: {allx}.\n", (jp as f64 / jf as f64 - 1.0) * 100.0, jf == 15687437, jp == 15598046, (pp as f64 / pf as f64 - 1.0) * 100.0);
-    let dir = PathBuf::from("results").join("20261027-x4-promotion-verify");
+    let dir = PathBuf::from("historical").join("20261027-x4-promotion-verify");
     std::fs::create_dir_all(&dir).unwrap();
     std::fs::write(dir.join("report.md"), &out).unwrap();
     println!("{out}");

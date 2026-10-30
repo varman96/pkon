@@ -19,7 +19,7 @@ use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicUsize, Ordering};
 
 const CROP: u32 = 1024;
-const SPLITS: &str = "results/learn1-splits.json";
+const SPLITS: &str = "historical/learn1-splits.json";
 const TEST_MIN: usize = 15;
 const VAL_MIN: usize = 10;
 const SAMPLE: usize = 100; // theta points measured per training image (default + one-at-a-time + random)
@@ -123,7 +123,7 @@ fn cmd_splits() {
     println!("groups straddling splits: {leak}");
     println!("train pool {} (stage order): {:?}\nval {}: {:?}\ntest {}: {:?}", sp.train.len(), sp.train, sp.val.len(), sp.val, sp.test.len(), sp.test);
     assert!(!dup_hash && !dup_url && !leak);
-    std::fs::create_dir_all("results").unwrap();
+    std::fs::create_dir_all("historical").unwrap();
     let j = json!({"rule": "group = name before '_' without trailing digits; groups sorted by sha256('group:'+g); first groups fill test (>=15 imgs), then val (>=10), rest train pool; train pool ordered by sha256('img:'+name); stage n uses first n",
         "train_pool": sp.train, "val": sp.val, "test": sp.test, "nearest_pairs": near,
         "nearest_cross_split_rms": cross_min.0, "nearest_cross_split": [names[cross_min.1], names[cross_min.2]], "dup_crop_hash": dup_hash, "dup_url": dup_url});

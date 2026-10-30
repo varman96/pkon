@@ -3,7 +3,7 @@
 //! The ffmpeg/PNG harness below is copied unchanged from `bench_external.rs`.
 //!
 //!   cargo run --release --bin bench50 -- --smoke    # 3 images, 1 rep, nothing written
-//!   cargo run --release --bin bench50               # full set from data/dataset50.json -> results/<stamp>-bench50/
+//!   cargo run --release --bin bench50               # full set from data/dataset50.json -> benchmarks/pkon2/<stamp>-bench50/
 use nanoscope::canon::{first_mismatch, Canonical, Layout, Spec};
 use nanoscope::codec::{Codec, CodecError, PngCodec};
 use nanoscope::pkon2::center_crop;
@@ -256,7 +256,7 @@ fn features(img: &Canonical) -> Feat {
 
 fn load_images(only: Option<usize>) -> Vec<Img> {
     let data = PathBuf::from("data");
-    let manifest: Vec<serde_json::Value> = serde_json::from_str(&std::fs::read_to_string(data.join("dataset50.json")).expect("data/dataset50.json (run tools/build_manifest50.py)")).unwrap();
+    let manifest: Vec<serde_json::Value> = serde_json::from_str(&std::fs::read_to_string(data.join("dataset50.json")).expect("data/dataset50.json (run benchmarks/pkon2/build_manifest50.py)")).unwrap();
     let mut v = vec![];
     for (i, m) in manifest.iter().enumerate() {
         if let Some(n) = only {
@@ -389,7 +389,7 @@ fn main() {
         println!("smoke complete (nothing written)");
         return;
     }
-    let dir = PathBuf::from("results").join(format!("{}-bench50", utc_stamp()));
+    let dir = PathBuf::from("benchmarks/pkon2").join(format!("{}-bench50", utc_stamp()));
     std::fs::create_dir_all(&dir).unwrap();
     let images: Vec<_> = imgs
         .iter()

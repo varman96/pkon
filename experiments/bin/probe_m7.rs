@@ -1,6 +1,6 @@
 //! PKON2 milestone 7: adaptive bias correction of the MED prediction in front of the frozen X4 coder.
 //!
-//! usage: probe_m7 [--data data] [--crop 1024] [--out results] [--m6 results/<m6 dir>] [--only N]
+//! usage: probe_m7 [--data data] [--crop 1024] [--out historical] [--m6 historical/<m6 dir>] [--only N]
 //!
 //! HYPOTHESIS: M6's sign contexts gained ~2.4% (JPEG), i.e. MED's signed errors correlate with neighbouring
 //! signed errors and with earlier planes' errors at the same pixel. Learning that mean error per context
@@ -72,7 +72,7 @@ fn utc_stamp() -> String {
 }
 
 fn main() {
-    let (mut data, mut crop, mut out) = (PathBuf::from("data"), 1024u32, PathBuf::from("results"));
+    let (mut data, mut crop, mut out) = (PathBuf::from("data"), 1024u32, PathBuf::from("historical"));
     let (mut m6, mut only): (Option<PathBuf>, usize) = (None, usize::MAX);
     let args: Vec<String> = std::env::args().skip(1).collect();
     let mut i = 0;

@@ -1,7 +1,8 @@
 //! LISA side of the LISA vs JPEG XL vs PNG benchmark. Production default path only (Bayer-plane Stage 1 for Bayer CFA,
 //! mosaic fallback otherwise; default Stage 3 rule; Stage 4). In-memory timing, 1 warm-up + N measured reps, median.
 //! Encode boundary: &[u16] samples -> Stage4Output. Decode boundary: Stage4Output -> Vec<u16> samples.
-//! Usage: exp_lisa_vs_jxl_png <manifest.json> <out.json> [reps=3]
+//! Usage (from the repo root): cargo run --release --bin exp_lisa_vs_jxl_png -- <manifest.json> <out.json> [reps=3]
+//! Benchmark layout: benchmarks/lisa-vs-jxl-png/ (this file, exp_lisa_vs_jxl_png.py, and the recorded results). Paths in the manifest (data/praw1/canon/...) are relative to the repo root.
 use nanoscope::lisa::*;
 use nanoscope::lisa_bayer_plane::{decode_stage1, encode_stage2, restore_stage1_with_mode};
 use serde_json::{json, Value};

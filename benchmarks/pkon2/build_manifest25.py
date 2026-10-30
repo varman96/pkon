@@ -2,7 +2,7 @@
 plus the 29 extra images (data/manifest_new50.csv). Selection is by diversity of content/statistics, not by codec results.
 Nothing in data/ is modified except the new dataset25.json."""
 import csv, json, os
-D = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data")
+D = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data")
 old = {r["name"]: dict(r, set="retained23") for r in json.load(open(f"{D}/manifest.json", encoding="utf-8"))}
 new = {r["name"]: dict(r, set="added") for r in csv.DictReader(open(f"{D}/manifest_new50.csv", encoding="utf-8"))}
 PICK = [  # (name, why)

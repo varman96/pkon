@@ -1,4 +1,4 @@
-# Nanoscope sanity benchmark
+# PKON sanity benchmark
 
 **Corpus: 15 images, all SYNTHETIC (diagnostic, not natural images).** Initial machinery check only: tiny sample, no statistical claims, and nothing here says any future codec is competitive.
 

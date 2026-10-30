@@ -1,4 +1,4 @@
-//! LISA CPU-time / speed-compression experiment harness (results/20261029-lisa-speed-compression). Production default path,
+//! LISA CPU-time / speed-compression experiment harness (historical/20261029-lisa-speed-compression). Production default path,
 //! same boundaries as exp_lisa_vs_jxl_png (in-memory &[u16] -> Stage4Output), but with the four stages timed separately:
 //!   S1 = planar Stage 1 prediction (`encode_stage1`), S2 = `organize_stage2_with_mode`, S3 = `classify_stage3`,
 //!   S4 = `encode_stage4`. Stage timers are Instant (wall clock, single thread, so == CPU time when the machine is idle).

@@ -1,4 +1,4 @@
-//! Research-only bit-cost profiler for the PKON2 relational coder (`pkonrel`). Removable: delete this file, its `lib.rs` line, `src/bin/bitprof.rs`
+//! Research-only bit-cost profiler for the PKON2 relational coder (`pkonrel`). Removable: delete this file, its `lib.rs` line, `experiments/bin/bitprof.rs`
 //! and the `OBSERVE`/`observe`/`observe_tail`/`bit_cost` hooks in `pkonrel.rs`; nothing else depends on it.
 //!
 //! `ProfEnc` is a range-coder sink (same `BinEnc` as `CeEnc`) that, through `RelIo::observe`, sees every probability the coder is actually given

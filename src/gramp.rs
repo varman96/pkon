@@ -1,5 +1,5 @@
 //! GRAMP: planar prediction for smooth illumination ramps in the G plane (plane 0) only; MED everywhere else.
-//! Frozen spec: results/20261027-204338Z-gramp-ramp-only/criteria.md. Stateless: the decision and the prediction are pure functions of the
+//! Frozen spec: historical/20261027-204338Z-gramp-ramp-only/criteria.md. Stateless: the decision and the prediction are pure functions of the
 //! already reconstructed pixels, so encoder and decoder agree with no side information.
 //!
 //! Pixels: W(x-1,y) WW(x-2,y) N(x,y-1) NW(x-1,y-1) NE(x+1,y-1) NWW(x-2,y-1) NN(x,y-2) NNW(x-1,y-2) NNE(x+1,y-2).

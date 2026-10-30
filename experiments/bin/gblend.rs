@@ -1,8 +1,8 @@
-//! GBLEND: one controlled trial of the adaptive G-plane predictor on top of production codec 2. Frozen rules: results/20261027-gblend-final/criteria.md.
+//! GBLEND: one controlled trial of the adaptive G-plane predictor on top of production codec 2. Frozen rules: historical/20261027-gblend-final/criteria.md.
 //!
-//!   cargo run --release --bin gblend -- --out results/20261027-gblend-final
+//!   cargo run --release --bin gblend -- --out historical/20261027-gblend-final
 //!
-//! Loads ONLY the 25 development + 10 validation images of results/learn1-splits.json (never the test list). Single-threaded so timings are clean.
+//! Loads ONLY the 25 development + 10 validation images of historical/learn1-splits.json (never the test list). Single-threaded so timings are clean.
 use nanoscope::canon::{Canonical, Layout};
 use nanoscope::pkon2::center_crop;
 use nanoscope::pkonfile::{crc32, encode_with_codec, HEADER_LEN, CODEC_X4P};
@@ -112,19 +112,19 @@ fn main() {
     let out = PathBuf::from(a.iter().position(|x| x == "--out").map(|i| a[i + 1].clone()).expect("--out"));
     let crit = std::fs::read(out.join("criteria.md")).expect("criteria.md");
     assert_eq!(sha_bytes(&crit), CRITERIA_SHA, "criteria.md changed after it was frozen");
-    let sj: serde_json::Value = serde_json::from_slice(&std::fs::read("results/learn1-splits.json").unwrap()).unwrap();
+    let sj: serde_json::Value = serde_json::from_slice(&std::fs::read("historical/learn1-splits.json").unwrap()).unwrap();
     let get = |v: &serde_json::Value, k: &str| v[k].as_array().unwrap().iter().map(|s| s.as_str().unwrap().to_string()).collect::<Vec<_>>();
     let (dev_names, val_names, test_names) = (get(&sj, "train_pool"), get(&sj, "val"), get(&sj, "test"));
     let man: Vec<serde_json::Value> = serde_json::from_str(&std::fs::read_to_string("data/dataset50.json").unwrap()).unwrap();
     let all_names: Vec<String> = man.iter().map(|m| m["name"].as_str().unwrap().to_string()).collect();
     let (rd, rv, rt) = rederive(&all_names);
     assert!(rd == dev_names && rv == val_names && rt == test_names, "split file does not match its derivation rule");
-    let gj: serde_json::Value = serde_json::from_slice(&std::fs::read("results/20261027-diag1-residual-maps/groups.json").unwrap()).unwrap();
+    let gj: serde_json::Value = serde_json::from_slice(&std::fs::read("historical/20261027-diag1-residual-maps/groups.json").unwrap()).unwrap();
     let (lose, ctrl, other) = (get(&gj, "lose"), get(&gj, "control"), get(&gj, "other"));
     assert_eq!(lose.len() + ctrl.len() + other.len(), 35);
     assert!(lose.iter().chain(&ctrl).chain(&other).all(|n| !test_names.contains(n)));
     let crop_hash: BTreeMap<String, String> = {
-        let m: serde_json::Value = serde_json::from_str(&std::fs::read_to_string("results/20261027-155433Z-bench50/dataset_manifest.json").unwrap()).unwrap();
+        let m: serde_json::Value = serde_json::from_str(&std::fs::read_to_string("benchmarks/pkon2/20261027-155433Z-bench50/dataset_manifest.json").unwrap()).unwrap();
         m["images"].as_array().unwrap().iter().map(|i| (i["name"].as_str().unwrap().to_string(), i["crop_sha256"].as_str().unwrap().to_string())).collect()
     };
     let mut imgs: Vec<Img> = vec![];

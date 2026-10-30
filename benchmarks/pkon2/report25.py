@@ -1,6 +1,6 @@
 """Render report.md / per_image.csv / timings.csv for a bench25 results dir from its results.json.
-Usage: python -I tools/report25.py results/<stamp>-bench25-diversity [extra_env.json]
-Pure reporting: every number is read from results.json (measured by src/bin/bench25.rs)."""
+Usage: python -I benchmarks/pkon2/report25.py benchmarks/pkon2/<stamp>-bench25-diversity [extra_env.json]
+Pure reporting: every number is read from results.json (measured by benchmarks/pkon2/bench25.rs)."""
 import csv, json, os, statistics as st, sys
 
 d = sys.argv[1]

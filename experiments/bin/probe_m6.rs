@@ -1,6 +1,6 @@
 //! PKON2 milestone 6: binarized count-adaptive coder + logistic context mixing (see src/pkon2x.rs).
 //!
-//! usage: probe_m6 [--data data] [--crop 1024] [--out results] [--m1 results/<m1 dir>] [--only N]
+//! usage: probe_m6 [--data data] [--crop 1024] [--out historical] [--m1 historical/<m1 dir>] [--only N]
 //!
 //! HYPOTHESIS: the baseline's 256-ary frequency tables make every extra context expensive (M5 dilution
 //! control +0.34%). Binarizing the residual and mixing per-decision predictions from several contexts
@@ -68,7 +68,7 @@ fn utc_stamp() -> String {
 }
 
 fn main() {
-    let (mut data, mut crop, mut out) = (PathBuf::from("data"), 1024u32, PathBuf::from("results"));
+    let (mut data, mut crop, mut out) = (PathBuf::from("data"), 1024u32, PathBuf::from("historical"));
     let (mut m1, mut only): (Option<PathBuf>, usize) = (None, usize::MAX);
     let args: Vec<String> = std::env::args().skip(1).collect();
     let mut i = 0;

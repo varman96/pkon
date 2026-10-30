@@ -1,4 +1,4 @@
-"""Summarize results/20261029-lisa-bayer-plane-small-tree/results.json into summary.md + per_image.csv.
+"""Summarize historical/20261029-lisa-bayer-plane-small-tree/results.json into summary.md + per_image.csv.
 Usage: python -I tools/summarize_bayer_small_tree.py <results_dir>"""
 import csv, json, statistics, sys
 

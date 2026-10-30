@@ -11,7 +11,7 @@ const SUBSET: [&str; 6] = ["indoor_0", "document_1", "outdoor_1", "pet_1", "foli
 fn main() {
     let data = PathBuf::from("data");
     let m6: Vec<serde_json::Value> = {
-        let mut d: Vec<PathBuf> = std::fs::read_dir("results").unwrap().filter_map(|e| e.ok()).map(|e| e.path()).filter(|p| p.to_string_lossy().ends_with("-pkon2-m6")).collect();
+        let mut d: Vec<PathBuf> = std::fs::read_dir("historical").unwrap().filter_map(|e| e.ok()).map(|e| e.path()).filter(|p| p.to_string_lossy().ends_with("-pkon2-m6")).collect();
         d.sort();
         serde_json::from_str(&std::fs::read_to_string(d.pop().unwrap().join("results.json")).unwrap()).unwrap()
     };
@@ -55,7 +55,7 @@ fn main() {
     let gain = 1.0 - all.n / all.c;
     let verdict = if !allx || gain < 0.002 { "REJECT" } else if gain >= 0.005 && sub.smaller >= 5 && all.worst <= 0.001 && all.en <= 1.15 * all.ec && all.dn <= 1.15 * all.dc { "CANDIDATE" } else { "INCONCLUSIVE" };
     out += &format!("\nAll exact: {allx}. **Verdict: {verdict}**\n");
-    let dir = PathBuf::from("results").join("20261027-exp-n3-full20");
+    let dir = PathBuf::from("historical").join("20261027-exp-n3-full20");
     std::fs::create_dir_all(&dir).unwrap();
     std::fs::write(dir.join("report.md"), &out).unwrap();
     println!("{out}");

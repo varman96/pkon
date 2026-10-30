@@ -21,8 +21,8 @@ use std::time::Duration;
 
 const PORT: u16 = 8080;
 const MAX_UPLOAD: usize = 64 << 20;
-const PAGE: &str = include_str!("serve.html");
-const VIEWER: &str = include_str!("viewer.html");
+const PAGE: &str = include_str!("../../frontend/serve.html");
+const VIEWER: &str = include_str!("../../frontend/viewer.html");
 
 /// Decodes a `.pkon` (v2) or legacy `.pkon2` (v1) file; this converter only handles standard images, not LISA RAW.
 fn decode(input: &[u8]) -> Result<Canonical, String> {

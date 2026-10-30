@@ -1,4 +1,4 @@
-//! GDIR: gradient-adaptive directional predictor for the G plane (plane 0) only. Frozen spec: results/20261027-203041Z-gdir-directional/criteria.md.
+//! GDIR: gradient-adaptive directional predictor for the G plane (plane 0) only. Frozen spec: historical/20261027-203041Z-gdir-directional/criteria.md.
 //!
 //! Integer-only, derived from already reconstructed pixels and a small synchronized state, so encoder and decoder agree with no side information.
 //! Neighbours (x right, y down): W(x-1,y) N(x,y-1) NW(x-1,y-1) NE(x+1,y-1) WW(x-2,y) NN(x,y-2) NNE(x+1,y-2) NNW(x-1,y-2) NWW(x-2,y-1).

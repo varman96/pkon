@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""DIAG1 analysis: residual maps, contact sheets and quantitative diagnostics from the arrays written by src/bin/diag1.rs.
+"""DIAG1 analysis: residual maps, contact sheets and quantitative diagnostics from the arrays written by experiments/bin/diag1.rs.
 
-  python tools/diag1_analyze.py --raw <rawdir> --out results/<diag dir>
+  python tools/diag1_analyze.py --raw <rawdir> --out historical/<diag dir>
 
 Conventions (also written to the report):
   r        = signed residual (pixel - MED) mod 256 read as int8, exactly the value the codec zigzags. Coded planes are the SubG planes
@@ -297,11 +297,11 @@ def main():
     out = a.out
     for s in ["maps", "sheets", "data"]:
         os.makedirs(os.path.join(out, s), exist_ok=True)
-    splits = json.load(open("results/learn1-splits.json"))
+    splits = json.load(open("historical/learn1-splits.json"))
     split_of = {n: "DEV" for n in splits["train_pool"]}; split_of.update({n: "VAL" for n in splits["val"]})
-    p_bytes = {r["image"]: int(r["pkon2p_file_bytes"]) for r in csv.DictReader(open("results/20261027-pkon2p-production/per_image.csv"))}
+    p_bytes = {r["image"]: int(r["pkon2p_file_bytes"]) for r in csv.DictReader(open("benchmarks/pkon2/20261027-pkon2p-production/per_image.csv"))}
     jx = {}
-    for r in csv.DictReader(open("results/20261027-155433Z-bench50/per_image.csv")):
+    for r in csv.DictReader(open("benchmarks/pkon2/20261027-155433Z-bench50/per_image.csv")):
         jx.setdefault(r["image"], {})[r["codec"]] = int(r["total_bytes"])
     names = sorted(split_of)
     # ---- frozen grouping rule (written into the report before any residual statistic was computed)

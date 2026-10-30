@@ -450,7 +450,7 @@ axG.text(0.62, 0.5, "No value on this map is a lower bound on achievable size. E
          "'Static' = statistics known for free (bias- and null-corrected);\n'adaptive' = learned from the image itself (Dirichlet/KT code length).",
          transform=axG.transAxes, fontsize=8, color=INK2, va="top")
 fig.suptitle("PKON2 compression landscape — reference map (bench25 diversity set, 25 × 1024² crops)", x=0.12, y=0.985, ha="left", fontsize=14, color=INK, fontweight="bold")
-fig.text(0.12, 0.957, "Measured: results/20261028-015857Z-bench25-diversity. Estimates: this directory's data/, computed from crops verified "
+fig.text(0.12, 0.957, "Measured: benchmarks/pkon2/20261028-015857Z-bench25-diversity. Estimates: this directory's data/, computed from crops verified "
          "byte-identical (SHA-256) to the benchmark inputs.", fontsize=8.5, color=INK2)
 save(fig, "fig1_reference_map")
 

@@ -2,7 +2,7 @@
 //! file, decode it from bytes alone, compare every byte and the recovered metadata, and compare the payload with the
 //! historical production X4 byte counts (`x4-promotion-verify` reports stream + the notional 11 header bytes).
 //!
-//!   cargo run --release --bin verify_pkon2_file      # -> results/<stamp>-pkon2-file-v1/report.md
+//!   cargo run --release --bin verify_pkon2_file      # -> historical/<stamp>-pkon2-file-v1/report.md
 use nanoscope::canon::{first_mismatch, Canonical};
 use nanoscope::pkon2::{center_crop, HEADER_BYTES};
 use nanoscope::pkonfile::*;
@@ -14,7 +14,7 @@ const CROP: u32 = 1024;
 fn main() {
     let data = PathBuf::from("data");
     let manifest: Vec<serde_json::Value> = serde_json::from_str(&std::fs::read_to_string(data.join("manifest.json")).unwrap()).unwrap();
-    let prior = std::fs::read_to_string("results/20261027-x4-promotion-verify/report.md").unwrap();
+    let prior = std::fs::read_to_string("historical/20261027-x4-promotion-verify/report.md").unwrap();
     let prior_b = |name: &str| -> usize {
         let l = prior.lines().find(|l| l.starts_with(&format!("| {name} |"))).unwrap_or_else(|| panic!("{name} missing in prior report"));
         l.split('|').nth(4).unwrap().trim().parse().unwrap()
@@ -52,11 +52,11 @@ fn main() {
         }
     }
     let rep = format!(
-        "# `.pkon2` v1 verification on the {n}-image corpus\n\nEncode -> complete file -> decode from file bytes only (no external spec) -> byte comparison. \"historical B\" is the production X4 byte count in `results/20261027-x4-promotion-verify/report.md`, which is stream + {HEADER_BYTES} notional header bytes that were never serialized.\n\n{rows}\nTotals: payload {tp} B, files {tf} B, container overhead {} B ({:.5}% of payload).\nAll images exact, metadata recovered, payload unchanged, output deterministic: {ok}\n",
+        "# `.pkon2` v1 verification on the {n}-image corpus\n\nEncode -> complete file -> decode from file bytes only (no external spec) -> byte comparison. \"historical B\" is the production X4 byte count in `historical/20261027-x4-promotion-verify/report.md`, which is stream + {HEADER_BYTES} notional header bytes that were never serialized.\n\n{rows}\nTotals: payload {tp} B, files {tf} B, container overhead {} B ({:.5}% of payload).\nAll images exact, metadata recovered, payload unchanged, output deterministic: {ok}\n",
         tf - tp, (tf - tp) as f64 * 100.0 / tp as f64
     );
     let stamp = std::process::Command::new("powershell").args(["-NoProfile", "-Command", "(Get-Date).ToUniversalTime().ToString('yyyyMMdd-HHmmss')+'Z'"]).output().map(|o| String::from_utf8_lossy(&o.stdout).trim().to_string()).unwrap();
-    let dir = PathBuf::from("results").join(format!("{stamp}-pkon2-file-v1"));
+    let dir = PathBuf::from("historical").join(format!("{stamp}-pkon2-file-v1"));
     assert!(!dir.exists(), "results dir exists");
     std::fs::create_dir_all(&dir).unwrap();
     std::fs::write(dir.join("report.md"), &rep).unwrap();

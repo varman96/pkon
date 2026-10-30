@@ -40,7 +40,7 @@ fn frozen_table_matches_recorded_hash_and_research_artifact() {
     assert_eq!(hex(&Sha256::digest(OR128_TABLE)), TABLE_SHA256);
     assert_eq!(OR128_K, 128);
     assert_eq!(OR128_TABLE, nanoscope::lisa_pcq_table::PCQ_TABLE, "differs from the research table");
-    let art = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("results/20261029-lisa-pcq1/train/map_K128.bin");
+    let art = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("historical/20261029-lisa-pcq1/train/map_K128.bin");
     if let Ok(b) = std::fs::read(art) {
         assert_eq!(b, OR128_TABLE, "differs from map_K128.bin");
     }

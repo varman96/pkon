@@ -1,5 +1,5 @@
 //! GENERATED (research): frozen universal PCQ table, trained offline on the 13 TRAIN images of
-//! results/20261029-lisa-pcq1 (agglomerative merge, K = 128). Indexed by `lisa_pcq::key`. Do not edit by hand.
+//! historical/20261029-lisa-pcq1 (agglomerative merge, K = 128). Indexed by `lisa_pcq::key`. Do not edit by hand.
 pub const PCQ_K: usize = 128;
 pub static PCQ_TABLE: [u8; 10648] = [
     0, 1, 1, 2, 2, 3, 3, 4, 4, 4, 4, 4, 14, 14, 14, 14, 18, 18, 18, 18, 18, 0, 1, 1, 1, 2, 2, 3, 3, 5, 7, 7,

@@ -1,6 +1,6 @@
 //! PKON2 milestone 4: does a CALIC-style error-energy context beat the activity context?
 //!
-//! usage: probe_m4 [--data data] [--crop 1024] [--out results] [--m1 results/<m1 dir>]
+//! usage: probe_m4 [--data data] [--crop 1024] [--out historical] [--m1 historical/<m1 dir>]
 //!
 //! HYPOTHESIS: the 3-pixel activity bucket (pixel-domain gradients) is a weaker predictor of the next
 //! residual's magnitude than E = zz(eW)+zz(eN)+zz(eNW)+zz(eNE) (what MED actually missed nearby), so
@@ -72,7 +72,7 @@ fn utc_stamp() -> String {
 }
 
 fn main() {
-    let (mut data, mut crop, mut out) = (PathBuf::from("data"), 1024u32, PathBuf::from("results"));
+    let (mut data, mut crop, mut out) = (PathBuf::from("data"), 1024u32, PathBuf::from("historical"));
     let mut m1: Option<PathBuf> = None;
     let args: Vec<String> = std::env::args().skip(1).collect();
     let mut i = 0;

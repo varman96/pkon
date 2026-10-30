@@ -1,9 +1,9 @@
 //! REL2: the one final diagnostic. Is P's REL1 gain attributable to predictor-disagreement information, or to "an extra adaptive mixer input"?
-//! Adds a one-class constant-context arm (`Extra::Const`) to the REL1 harness. Frozen rules: results/20261027-rel2-final-diag/criteria.md.
+//! Adds a one-class constant-context arm (`Extra::Const`) to the REL1 harness. Frozen rules: historical/20261027-rel2-final-diag/criteria.md.
 //!
-//!   cargo run --release --bin rel2 -- --out results/20261027-rel2-final-diag
+//!   cargo run --release --bin rel2 -- --out historical/20261027-rel2-final-diag
 //!
-//! Loads ONLY the 25 development + 10 validation images of results/learn1-splits.json (never the test list).
+//! Loads ONLY the 25 development + 10 validation images of historical/learn1-splits.json (never the test list).
 use nanoscope::canon::{Canonical, Layout};
 use nanoscope::pkon2::center_crop;
 use nanoscope::pkon2x::{measure_x, x4_cfg};
@@ -17,9 +17,9 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::Mutex;
 
 const CROP: u32 = 1024;
-const SPLITS: &str = "results/learn1-splits.json";
+const SPLITS: &str = "historical/learn1-splits.json";
 const CRITERIA_SHA: &str = "050c72195dc4d6c64805bdfd52f20589e78084f74f891bf6f711afb6c7b324a4";
-const REL1_CSV: &str = "results/20261027-rel1-pred-xplane/per_image.csv";
+const REL1_CSV: &str = "historical/20261027-rel1-pred-xplane/per_image.csv";
 
 fn sha_bytes(b: &[u8]) -> String {
     Sha256::digest(b).iter().map(|x| format!("{x:02x}")).collect()
@@ -105,7 +105,7 @@ fn main() {
     assert!(rd == dev_names && rv == val_names && rt == test_names, "split file does not match its derivation rule");
     assert_eq!((dev_names.len(), val_names.len(), test_names.len()), (25, 10, 15));
     let crop_hash: BTreeMap<String, String> = {
-        let m: serde_json::Value = serde_json::from_str(&std::fs::read_to_string("results/20261027-155433Z-bench50/dataset_manifest.json").unwrap()).unwrap();
+        let m: serde_json::Value = serde_json::from_str(&std::fs::read_to_string("benchmarks/pkon2/20261027-155433Z-bench50/dataset_manifest.json").unwrap()).unwrap();
         m["images"].as_array().unwrap().iter().map(|i| (i["name"].as_str().unwrap().to_string(), i["crop_sha256"].as_str().unwrap().to_string())).collect()
     };
     // REL1 reference bytes for the cross-run repeatability gate G6

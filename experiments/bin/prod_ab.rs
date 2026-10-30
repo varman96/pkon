@@ -15,9 +15,9 @@ use std::path::{Path, PathBuf};
 use std::time::Instant;
 
 const CROP: u32 = 1024;
-const SPLITS: &str = "results/learn1-splits.json";
-const PROFILE_CSV: &str = "results/20261027-212136Z-bitprof/per_image.csv";
-const FROZEN_A: &str = "results/20261027-rel6-joint-sign/armA_frozen_control.csv";
+const SPLITS: &str = "historical/learn1-splits.json";
+const PROFILE_CSV: &str = "historical/20261027-212136Z-bitprof/per_image.csv";
+const FROZEN_A: &str = "historical/20261027-rel6-joint-sign/armA_frozen_control.csv";
 const REPS: usize = 3;
 
 fn sha(b: &[u8]) -> String {
@@ -40,7 +40,7 @@ fn load(phase: u32, out: &Path) -> Vec<Img> {
     let used: Vec<String> = std::fs::read_to_string(PROFILE_CSV).unwrap().lines().skip(1).filter(|l| l.split(',').nth(1) == Some("P")).map(|l| l.split(',').next().unwrap().to_string()).collect();
     let man: Vec<serde_json::Value> = serde_json::from_str(&std::fs::read_to_string("data/dataset50.json").unwrap()).unwrap();
     let crop_hash: BTreeMap<String, String> = {
-        let m: serde_json::Value = serde_json::from_str(&std::fs::read_to_string("results/20261027-155433Z-bench50/dataset_manifest.json").unwrap()).unwrap();
+        let m: serde_json::Value = serde_json::from_str(&std::fs::read_to_string("benchmarks/pkon2/20261027-155433Z-bench50/dataset_manifest.json").unwrap()).unwrap();
         m["images"].as_array().unwrap().iter().map(|i| (i["name"].as_str().unwrap().to_string(), i["crop_sha256"].as_str().unwrap().to_string())).collect()
     };
     let mut groups: Vec<(&'static str, Vec<String>)> = vec![];

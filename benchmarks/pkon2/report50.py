@@ -1,5 +1,5 @@
 """Build per_image.csv, dataset_manifest.csv, verification.md and report.md from a bench50 results.json.
-usage: python tools/report50.py results/<stamp>-bench50
+usage: python benchmarks/pkon2/report50.py benchmarks/pkon2/<stamp>-bench50
 Only records with valid=true enter any size/timing statistic; invalid ones are listed as failures."""
 import csv, json, math, os, statistics as st, sys
 

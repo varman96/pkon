@@ -1,5 +1,5 @@
 //! FROZEN production table for OR-128 context quantization (Stage 3 rule version 2). Byte-for-byte the PCQ-128 mapping
-//! selected in results/20261029-lisa-pcq1 (source artifact map_K128.bin, sha256 e6dd165df4b46dc8eccbe0c63dac4bae1f6850c895859efd3cf7c630e43f1c51).
+//! selected in historical/20261029-lisa-pcq1 (source artifact map_K128.bin, sha256 e6dd165df4b46dc8eccbe0c63dac4bae1f6850c895859efd3cf7c630e43f1c51).
 //! Indexed by `lisa_or128::key`. Do not edit, regenerate or reorder: changing any entry changes the stream format.
 pub const OR128_K: usize = 128;
 pub static OR128_TABLE: [u8; 10648] = [

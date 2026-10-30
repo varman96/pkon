@@ -1,9 +1,9 @@
-//! REL6: joint sign context three-arm falsification trial. Frozen rules: results/20261027-rel6-joint-sign/criteria.md (decision applied by make_report.py).
+//! REL6: joint sign context three-arm falsification trial. Frozen rules: historical/20261027-rel6-joint-sign/criteria.md (decision applied by make_report.py).
 //!
-//!   cargo run --release --bin rel6 -- --phase gates|time|diag|mem --out results/20261027-rel6-joint-sign [--smoke]
+//!   cargo run --release --bin rel6 -- --phase gates|time|diag|mem --out historical/20261027-rel6-joint-sign [--smoke]
 //!
 //! Arms (pkonrel::J_ARMS): A = production codec 2 (P only), B = P + DummyJointSign (card 15876, sign node, all planes), C = P + JointSign (sign node, all planes).
-//! Loads ONLY the DEV (25) and VAL (10) images of results/learn1-splits.json. The 7 discovery images that belong to the TEST split are NOT loaded.
+//! Loads ONLY the DEV (25) and VAL (10) images of historical/learn1-splits.json. The 7 discovery images that belong to the TEST split are NOT loaded.
 use nanoscope::canon::{Canonical, Layout};
 use nanoscope::pkon2::{center_crop, Planes};
 use nanoscope::pkon2x::{BinDec, BinEnc, BitIo};
@@ -18,9 +18,9 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::Mutex;
 
 const CROP: u32 = 1024;
-const SPLITS: &str = "results/learn1-splits.json";
-const PROFILE_CSV: &str = "results/20261027-212136Z-bitprof/per_image.csv";
-const REL4_CSV: &str = "results/20261027-rel4-x-on-p/per_image.csv";
+const SPLITS: &str = "historical/learn1-splits.json";
+const PROFILE_CSV: &str = "historical/20261027-212136Z-bitprof/per_image.csv";
+const REL4_CSV: &str = "historical/20261027-rel4-x-on-p/per_image.csv";
 const SMOKE: [&str; 3] = ["indoor_0", "food_1", "document_1"];
 const STAGES: [&str; NCAT] = ["zero", "ge2", "class", "mantissa+tail", "sign"];
 const PLANE_NAMES: [&str; 3] = ["G", "R-G", "B-G"];
@@ -63,7 +63,7 @@ fn load_images(out: &Path, smoke: bool) -> Vec<Img> {
     assert_eq!(disc_names.len(), 20);
     let man: Vec<serde_json::Value> = serde_json::from_str(&std::fs::read_to_string("data/dataset50.json").unwrap()).unwrap();
     let crop_hash: BTreeMap<String, String> = {
-        let m: serde_json::Value = serde_json::from_str(&std::fs::read_to_string("results/20261027-155433Z-bench50/dataset_manifest.json").unwrap()).unwrap();
+        let m: serde_json::Value = serde_json::from_str(&std::fs::read_to_string("benchmarks/pkon2/20261027-155433Z-bench50/dataset_manifest.json").unwrap()).unwrap();
         m["images"].as_array().unwrap().iter().map(|i| (i["name"].as_str().unwrap().to_string(), i["crop_sha256"].as_str().unwrap().to_string())).collect()
     };
     let mut imgs = vec![];
@@ -103,7 +103,7 @@ fn load_images(out: &Path, smoke: bool) -> Vec<Img> {
     }
     if !smoke {
         std::fs::write(out.join("manifest_loaded.csv"), csv).unwrap();
-        let mut nl = String::from("# Discovery-20 images that were NOT loaded because they belong to the TEST split of results/learn1-splits.json\n");
+        let mut nl = String::from("# Discovery-20 images that were NOT loaded because they belong to the TEST split of historical/learn1-splits.json\n");
         for n in disc_names.iter().filter(|n| test.contains(n)) {
             let _ = writeln!(nl, "{n}");
         }

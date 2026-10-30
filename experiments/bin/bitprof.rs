@@ -1,7 +1,7 @@
 //! Bit-cost profiler runner (instrumentation only; no compression experiment). Profiles the relational coder `pkonrel` (arm `control` = codec 1 = X4 = the frozen
 //! M6 reference; arm `P` = codec 2 = current production default) on the 20 JPEG-origin M6 images (1024-px centre crops, the exp_n3_full corpus).
 //!
-//!   cargo run --release --bin bitprof -- --out results/<stamp>-bitprof
+//!   cargo run --release --bin bitprof -- --out historical/<stamp>-bitprof
 use nanoscope::canon::Canonical;
 use nanoscope::pkon2::{center_crop, Planes};
 use nanoscope::pkon2x::BinEnc;
@@ -52,13 +52,13 @@ fn main() {
     std::fs::create_dir_all(&out).unwrap();
     // ---- corpus: the 20 JPEG-origin M6 images, exactly as exp_n3_full
     let m6: Vec<serde_json::Value> = {
-        let mut d: Vec<PathBuf> = std::fs::read_dir("results").unwrap().filter_map(|e| e.ok()).map(|e| e.path()).filter(|p| p.to_string_lossy().ends_with("-pkon2-m6")).collect();
+        let mut d: Vec<PathBuf> = std::fs::read_dir("historical").unwrap().filter_map(|e| e.ok()).map(|e| e.path()).filter(|p| p.to_string_lossy().ends_with("-pkon2-m6")).collect();
         d.sort();
         serde_json::from_str(&std::fs::read_to_string(d.pop().unwrap().join("results.json")).unwrap()).unwrap()
     };
     let manifest: Vec<serde_json::Value> = serde_json::from_str(&std::fs::read_to_string("data/manifest.json").unwrap()).unwrap();
-    // production X4 (N3-promoted In::Ab) reference bytes per image, from results/20261027-x4-promotion-verify/report.md (columns: image | src | frozen M6 | production)
-    let promo: std::collections::BTreeMap<String, usize> = std::fs::read_to_string("results/20261027-x4-promotion-verify/report.md")
+    // production X4 (N3-promoted In::Ab) reference bytes per image, from historical/20261027-x4-promotion-verify/report.md (columns: image | src | frozen M6 | production)
+    let promo: std::collections::BTreeMap<String, usize> = std::fs::read_to_string("historical/20261027-x4-promotion-verify/report.md")
         .unwrap()
         .lines()
         .filter(|l| l.contains("| jpeg |"))

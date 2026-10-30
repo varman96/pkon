@@ -2,7 +2,7 @@
 Excludes the two screenshots (screen_0/1) from the original 23. Also reports the closest near-duplicate pair by 16x16 average hash."""
 import csv, json, os
 from PIL import Image
-D = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data")
+D = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data")
 old = [dict(r, set="retained") for r in csv.DictReader(open(f"{D}/manifest.csv", encoding="utf-8")) if r["category"] != "screen"]
 new = [dict(r, set="new") for r in csv.DictReader(open(f"{D}/manifest_new50.csv", encoding="utf-8"))]
 rows = old + new

@@ -1,4 +1,4 @@
-//! DIAG1: residual exporter (measurement only; no codec change). Loads ONLY the 25 DEV + 10 VAL images of results/learn1-splits.json
+//! DIAG1: residual exporter (measurement only; no codec change). Loads ONLY the 25 DEV + 10 VAL images of historical/learn1-splits.json
 //! (never the test list), re-derives the split and re-checks every crop hash, then writes raw per-image arrays for `tools/diag1_analyze.py`:
 //!   rgb.png            the 1024-px centre crop actually coded
 //!   med_sub.i8         3 planes (G, R-G+128, B-G+128 = coded SubG planes) x N : signed MED residual (pixel - MED) mod 256 as i8, raster order
@@ -115,7 +115,7 @@ fn wr<T: Copy>(path: &Path, planes: &[Vec<T>], f: impl Fn(T, &mut Vec<u8>)) {
 fn main() {
     let a: Vec<String> = std::env::args().collect();
     let raw = PathBuf::from(a.iter().position(|x| x == "--raw").map(|i| a[i + 1].clone()).expect("--raw"));
-    let sj: serde_json::Value = serde_json::from_slice(&std::fs::read("results/learn1-splits.json").unwrap()).unwrap();
+    let sj: serde_json::Value = serde_json::from_slice(&std::fs::read("historical/learn1-splits.json").unwrap()).unwrap();
     let get = |k: &str| sj[k].as_array().unwrap().iter().map(|s| s.as_str().unwrap().to_string()).collect::<Vec<_>>();
     let (dev, val, test) = (get("train_pool"), get("val"), get("test"));
     let man: Vec<serde_json::Value> = serde_json::from_str(&std::fs::read_to_string("data/dataset50.json").unwrap()).unwrap();
@@ -123,7 +123,7 @@ fn main() {
     let (rd, rv, rt) = rederive(&all);
     assert!(rd == dev && rv == val && rt == test, "split file does not match its derivation rule");
     assert_eq!((dev.len(), val.len(), test.len()), (25, 10, 15));
-    let m: serde_json::Value = serde_json::from_str(&std::fs::read_to_string("results/20261027-155433Z-bench50/dataset_manifest.json").unwrap()).unwrap();
+    let m: serde_json::Value = serde_json::from_str(&std::fs::read_to_string("benchmarks/pkon2/20261027-155433Z-bench50/dataset_manifest.json").unwrap()).unwrap();
     let crop_hash: BTreeMap<String, String> = m["images"].as_array().unwrap().iter().map(|i| (i["name"].as_str().unwrap().to_string(), i["crop_sha256"].as_str().unwrap().to_string())).collect();
     let arm_p = Arm { name: "X4P", extras: &[Extra::P] };
     let arm_x = Arm { name: "X4", extras: &[] };
